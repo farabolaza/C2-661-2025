@@ -11,7 +11,18 @@
     "href": "clases/Clase-01.html",
     "title": "Clase 01",
     "section": "",
-    "text": "Este documento es una adaptación de otro existente. Compilamos algunos recursos útiles para la materia\n\n\n\nCódigo para escanear\n\n\nManual de Python en español\nBibliografía de la materia",
+    "text": "Código para escanear\n\n\n\n\nFigura 1: Formulario a completar",
+    "crumbs": [
+      "Clases",
+      "Clase 01"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-01.html#formulario-de-bienvenida",
+    "href": "clases/Clase-01.html#formulario-de-bienvenida",
+    "title": "Clase 01",
+    "section": "",
+    "text": "Código para escanear\n\n\n\n\nFigura 1: Formulario a completar",
     "crumbs": [
       "Clases",
       "Clase 01"
@@ -21,8 +32,8 @@
     "objectID": "clases/Clase-01.html#intro-a-python",
     "href": "clases/Clase-01.html#intro-a-python",
     "title": "Clase 01",
-    "section": "",
-    "text": "Este documento es una adaptación de otro existente. Compilamos algunos recursos útiles para la materia\n\n\n\nCódigo para escanear\n\n\nManual de Python en español\nBibliografía de la materia",
+    "section": "Intro a Python",
+    "text": "Intro a Python\nEste documento es una adaptación de otro existente. Compilamos algunos recursos útiles para la materia\nManual de Python en español\nBibliografía de la materia",
     "crumbs": [
       "Clases",
       "Clase 01"
