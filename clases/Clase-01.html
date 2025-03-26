@@ -138,9 +138,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <img src="../assets/C2.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main tools-wide">
-    <a href="https://help.libreoffice.org/latest/es/text/shared/05/new_help.html" title="ayuda oficial de python" class="quarto-navigation-tool px-1" aria-label="ayuda oficial de python"><i class="bi bi-filetype-py"></i></a>
-    <a href="https://youtube.com/playlist?list=PLvvDxND6LkgB_5dssZod-3BET4_DFRmtU&amp;si=95Lj9fiuMCJkZv7I" title="ayuda oficial arduino" class="quarto-navigation-tool px-1" aria-label="ayuda oficial arduino"><i class="bi bi-cpu"></i></a>
-    <a href="https://youtube.com/playlist?list=PLkjnQ3NFTPnY1eNyLDGi547gkVui1vyn2&amp;si=28beKSqgt7EyxWhv" title="lista del curso arduino desde cero" class="quarto-navigation-tool px-1" aria-label="lista del curso arduino desde cero"><i class="bi bi-youtube"></i></a>
+    <a href="https://docs.python.org/es/3/tutorial/index.html" title="Ayuda oficial de python" class="quarto-navigation-tool px-1" aria-label="Ayuda oficial de python"><i class="bi bi-filetype-py"></i></a>
+    <a href="https://docs.arduino.cc/" title="Documentación oficial arduino" class="quarto-navigation-tool px-1" aria-label="Documentación oficial arduino"><i class="bi bi-cpu"></i></a>
+    <a href="https://youtube.com/playlist?list=PLkjnQ3NFTPnY1eNyLDGi547gkVui1vyn2&amp;si=28beKSqgt7EyxWhv" title="Lista curso arduino desde cero" class="quarto-navigation-tool px-1" aria-label="Lista curso arduino desde cero"><i class="bi bi-youtube"></i></a>
 </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -218,6 +218,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#fracciones" id="toc-fracciones" class="nav-link" data-scroll-target="#fracciones">Fracciones</a></li>
   </ul></li>
+  <li><a href="#operadores-de-cadenas-de-texto" id="toc-operadores-de-cadenas-de-texto" class="nav-link" data-scroll-target="#operadores-de-cadenas-de-texto">Operadores de cadenas de texto</a></li>
+  <li><a href="#operadores-matemáticos" id="toc-operadores-matemáticos" class="nav-link" data-scroll-target="#operadores-matemáticos">Operadores Matemáticos</a></li>
+  <li><a href="#operadores-lógicos" id="toc-operadores-lógicos" class="nav-link" data-scroll-target="#operadores-lógicos">Operadores lógicos</a></li>
+  <li><a href="#ejercicios" id="toc-ejercicios" class="nav-link" data-scroll-target="#ejercicios">Ejercicios</a></li>
   </ul>
 </nav>
     </div>
@@ -347,9 +351,107 @@ Tipos de datos en Python
 </div>
 </div>
 </div>
-
-
 </section>
+</section>
+<section id="operadores-de-cadenas-de-texto" class="level2">
+<h2 class="anchored" data-anchor-id="operadores-de-cadenas-de-texto">Operadores de cadenas de texto</h2>
+<p>Los operadores matemáticos son diferentes en las cadenas de teto, por ejemplo el sigo + se usa para unir cadenas</p>
+<p>Repeticiones: Se usa *n para repetir una cadena n veces</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Asignar y combinar cadenas</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="st">'Hello'</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="st">'World'</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> b)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># f-strings: reemplazarvalores de variables en cadenas</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>firstname <span class="op">=</span> <span class="st">'Beto'</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Me llamo </span><span class="sc">{</span>firstname<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Combininar f-strings</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>firstname <span class="op">=</span> <span class="st">'Beto'</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>lastname <span class="op">=</span> <span class="st">'Velez'</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'My name is </span><span class="sc">{</span>firstname<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>lastname<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Repetir una cadena</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">str</span>(a)<span class="op">*</span><span class="dv">5</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Repetir un cadena con espacios</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">str</span>(a<span class="op">+</span><span class="st">' '</span>)<span class="op">*</span><span class="dv">5</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="operadores-matemáticos" class="level2">
+<h2 class="anchored" data-anchor-id="operadores-matemáticos">Operadores Matemáticos</h2>
+<p>En python tenemos los clásicos operadores matemáticos</p>
+<ul>
+<li>+, -, *, y /</li>
+<li>Exponenciación **</li>
+<li>Modulo % (Resto)</li>
+</ul>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Adición</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Sustracción</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Multiplicación</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false">División</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-5" role="tab" aria-controls="tabset-2-5" aria-selected="false">Exponenciación</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-6" role="tab" aria-controls="tabset-2-6" aria-selected="false">Modulo</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">7</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'a = </span><span class="sc">{</span>a<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> a <span class="op">-</span> <span class="dv">5</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'b = a-5 = </span><span class="sc">{</span>a<span class="sc">}</span><span class="ss">-5 = </span><span class="sc">{</span>b<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'b*2 = </span><span class="sc">{</span>b<span class="sc">}</span><span class="ss">*2 = </span><span class="sc">{</span>b<span class="op">*</span><span class="dv">2</span><span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
+<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'a/3 = </span><span class="sc">{</span>a<span class="sc">}</span><span class="ss">/3 = </span><span class="sc">{</span>a<span class="op">/</span><span class="dv">3</span><span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-2-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-5-tab">
+<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'b^2 = b**2 = </span><span class="sc">{</span>b<span class="sc">}</span><span class="ss">**2 = </span><span class="sc">{</span>b<span class="op">**</span><span class="dv">2</span><span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-2-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-6-tab">
+<p>Modulo de vuelve el resto luego de dividir entre dos números</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'(Modulo de vuelve el resto luego de dividir entre dos números)'</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'el resto de  b/9 = resto de </span><span class="sc">{</span>b<span class="sc">}</span><span class="ss">/9 = </span><span class="sc">{</span>b<span class="op">%</span><span class="dv">9</span><span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="operadores-lógicos" class="level2">
+<h2 class="anchored" data-anchor-id="operadores-lógicos">Operadores lógicos</h2>
+<p>Hacen una comparación y devuelven un booleano (verdadero o falso)</p>
+<pre><code>x == y # x es igual a y
+x != y # x no es igual a y
+x &gt; y # x es mayor que y
+x &lt; y # x es menor que y
+x &gt;= y # x es mayor o igual que y
+x &lt;= y # x es menor o igual que y</code></pre>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">En cadenas de texto</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">En datos numéricos</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="st">'hola'</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="st">'que tal'</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="st">'Hola'</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'a==b: '</span> <span class="op">+</span> <span class="bu">str</span>(a<span class="op">==</span>b))</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'a==c: '</span> <span class="op">+</span> <span class="bu">str</span>(a<span class="op">==</span>c))</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'a!=b: '</span> <span class="op">+</span> <span class="bu">str</span>(a<span class="op">!=</span>b))</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>e <span class="op">=</span> <span class="dv">8</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'d &lt; e: '</span> <span class="op">+</span> <span class="bu">str</span>(d <span class="op">&lt;</span> e))</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'d &gt;= e: '</span> <span class="op">+</span> <span class="bu">str</span>(d <span class="op">&gt;=</span> e))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ejercicios" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicios">Ejercicios</h2>
+<ol type="1">
+<li>Crear una variable de tipo numérica</li>
+<li>Asignar a la variable un número entero, por ejemplo “1” y ejecutar la función <code>type</code> sobre ella.</li>
+<li>Asignar a la variable un número con decimales ejemplo “3.5” y ejecutar la función <code>type</code> sobre ella.</li>
+<li>Crear dos variables, a una asignarle un valor numérico entero y a otra uno con lugares decimales, pero que coincidan. Por ejemplo “5” y “5.0” compararlos usando el operador lógico de igualdad. ¿Qué se obtiene?</li>
+<li>Usar la el operador módulo (resto) sobre diferentes números. ¿Cómo podría escribir un programa sencillo que me indique si un número es divible por otro? ¿Qué condiciones debería evaluar? ¿Qué operadores lógicos necesito?</li>
+<li>Escribir un diagrama de lo que debería hacer el programa del punto 5</li>
+</ol>
+
+
 </section>
 
 </main> <!-- /main -->
