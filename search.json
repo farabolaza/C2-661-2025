@@ -1,0 +1,38 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Computación 1-661",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "clases/clase-01.html",
+    "href": "clases/clase-01.html",
+    "title": "clase 1",
+    "section": "",
+    "text": "Libre office es una suite de ofimática (herramientas de software para producción en entornos de trabajo) libre y de código abierto mantenida por sus propios usuarios. Es gratuita y en casi todos los casos igual o mejor que sus contrapartes no gratuitas.\n\n\n\nTodo trabajo, incluso aquellos que son la manufactura de algún producto requieren piezas de comunicación visual y escrita: manuales, tutoriales, folletos, informes, etc. La comunicación del quehacer de la ciencia no es la excepción: bitácoras e informes de laboratorio, artículos para revistas e instituciones científicas, libros de texto, de divulgación o material de estudio de caracter académico. Estos textos tienen cada uno su propio estilo de escritura y estructura según su función y algunos soportes preferidos por conveniencia, uso, costumbre en algunos casos y millones bien invertidos en otros.\nExisten formatos que son preferidos en ciertos ámbitos, como Latex para publicaciones científicas y parte del mundo editorial o softwares como in-design o illustrator para los mismos fines para otras publicaciones.\nNostoros usaremos libre office como soporte por su unviersalidad (todos podemos conseguirlo) y sabemos que siempre contaremos con el sofware: no dejaremos de tener acceso a lo que hicimos porque la nueva versión no es compatible (y la vieja ya no está disponible) y al tener una gran red de usuarios que pueden extender la funcionalidad del paquete: es posible encontrar extensiones que se vayan adaptando a nuestras necesidades.\nPor último pero no menos importante, siendo que Latex es el formato de-facto para publicaciones académicas o científicas ¿por qué no lo usamos? Sencillamente porque latex no es un procesador de texto. Es un lenguaje de programación completo y aprenderlo nos llevaría mucho mas tiempo del que tenemos en este curso, además de que para los fines de escribir informes de laboratorio el costo inversión de tiempo vs resultados obtenidos está bastante corrido a favor de lo primero: se requiere poner mucho en latex para obtener algo decente. Sin embargo como el tratamiento de las expresiones matemáticas que latex ofrece es superior a lo que cualquier procesador de texto traiga por defecto, lo incluiiremos en nuestro flujo de trabajo a través de la extensión tex maths\n\n\n\nEn su web oficial podemos acceder a la sección descarga y desde allí bajar la versión que necesitemos. La útima disponible en general funciona con casi todos los dispositivos pero si tenemos probelmas en la instalación podemos buscar en la página alguna versión anterior.\n\n\nEn este enlace se puede descargar la última versión. Una vez descargado se ejecuta e instala siguiendo los pasos que el instalador ofrece.\n\n\n\n\nLa ayuda de libre office está en casi todos los idiomas, aunque a veces la traducción automática falla un poco (se “olvida” de traducir algún que otro párrafo) es bastante completa. Además podemos descargar manuales (los más actualizados están en inglés) en pdf para quienes prefieran buscar en un documento y no en la web o para cuando no se tenga acceso a internet.",
+    "crumbs": [
+      "Clases",
+      "clase 1"
+    ]
+  },
+  {
+    "objectID": "clases/clase-01.html#libre-office",
+    "href": "clases/clase-01.html#libre-office",
+    "title": "clase 1",
+    "section": "",
+    "text": "Libre office es una suite de ofimática (herramientas de software para producción en entornos de trabajo) libre y de código abierto mantenida por sus propios usuarios. Es gratuita y en casi todos los casos igual o mejor que sus contrapartes no gratuitas.\n\n\n\nTodo trabajo, incluso aquellos que son la manufactura de algún producto requieren piezas de comunicación visual y escrita: manuales, tutoriales, folletos, informes, etc. La comunicación del quehacer de la ciencia no es la excepción: bitácoras e informes de laboratorio, artículos para revistas e instituciones científicas, libros de texto, de divulgación o material de estudio de caracter académico. Estos textos tienen cada uno su propio estilo de escritura y estructura según su función y algunos soportes preferidos por conveniencia, uso, costumbre en algunos casos y millones bien invertidos en otros.\nExisten formatos que son preferidos en ciertos ámbitos, como Latex para publicaciones científicas y parte del mundo editorial o softwares como in-design o illustrator para los mismos fines para otras publicaciones.\nNostoros usaremos libre office como soporte por su unviersalidad (todos podemos conseguirlo) y sabemos que siempre contaremos con el sofware: no dejaremos de tener acceso a lo que hicimos porque la nueva versión no es compatible (y la vieja ya no está disponible) y al tener una gran red de usuarios que pueden extender la funcionalidad del paquete: es posible encontrar extensiones que se vayan adaptando a nuestras necesidades.\nPor último pero no menos importante, siendo que Latex es el formato de-facto para publicaciones académicas o científicas ¿por qué no lo usamos? Sencillamente porque latex no es un procesador de texto. Es un lenguaje de programación completo y aprenderlo nos llevaría mucho mas tiempo del que tenemos en este curso, además de que para los fines de escribir informes de laboratorio el costo inversión de tiempo vs resultados obtenidos está bastante corrido a favor de lo primero: se requiere poner mucho en latex para obtener algo decente. Sin embargo como el tratamiento de las expresiones matemáticas que latex ofrece es superior a lo que cualquier procesador de texto traiga por defecto, lo incluiiremos en nuestro flujo de trabajo a través de la extensión tex maths\n\n\n\nEn su web oficial podemos acceder a la sección descarga y desde allí bajar la versión que necesitemos. La útima disponible en general funciona con casi todos los dispositivos pero si tenemos probelmas en la instalación podemos buscar en la página alguna versión anterior.\n\n\nEn este enlace se puede descargar la última versión. Una vez descargado se ejecuta e instala siguiendo los pasos que el instalador ofrece.\n\n\n\n\nLa ayuda de libre office está en casi todos los idiomas, aunque a veces la traducción automática falla un poco (se “olvida” de traducir algún que otro párrafo) es bastante completa. Además podemos descargar manuales (los más actualizados están en inglés) en pdf para quienes prefieran buscar en un documento y no en la web o para cuando no se tenga acceso a internet.",
+    "crumbs": [
+      "Clases",
+      "clase 1"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "C2-661",
+    "section": "",
+    "text": "Profesor\n\n Prof. Federico Arabolaza\n federico.arabolaza@inspt.utn.edu.ar\n INSPT UTN\n\n\n\nCursada\n\n Triunvirato 3174\n Miércoles de 19:00 a 20:20\n\n\n\nSecciones\n\n Programa de la materia\n Calendario de clases\n Trabajos prácticos\n Clases\n Bibliografía\n Descargas"
+  }
+]
