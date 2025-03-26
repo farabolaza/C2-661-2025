@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>clase 1 – C2-661 2025</title>
+<title>Clase 01 – C2-661 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -69,8 +103,8 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="clase 1 – C2-661 2025">
-<meta property="og:description" content="instalación de libre office">
+<meta property="og:title" content="Clase 01 – C2-661 2025">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="C2-661 2025">
 </head>
 
@@ -83,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../clases/clase-01.html">Clases</a></li><li class="breadcrumb-item"><a href="../clases/clase-01.html">clase 1</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../clases/clase-01.html">Clases</a></li><li class="breadcrumb-item"><a href="../clases/clase-01.html">Clase 01</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -164,7 +198,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../clases/clase-01.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">clase 1</span></a>
+ <span class="menu-text">Clase 01</span></a>
   </div>
 </li>
       </ul>
@@ -179,23 +213,26 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#libre-office" id="toc-libre-office" class="nav-link active" data-scroll-target="#libre-office">Libre office</a>
+  <li><a href="#intro-a-python" id="toc-intro-a-python" class="nav-link active" data-scroll-target="#intro-a-python">Intro a Python</a>
   <ul class="collapse">
-  <li><a href="#qué-es-libre-office" id="toc-qué-es-libre-office" class="nav-link" data-scroll-target="#qué-es-libre-office">¿Qué es libre office?</a></li>
-  <li><a href="#para-qué-libre-office" id="toc-para-qué-libre-office" class="nav-link" data-scroll-target="#para-qué-libre-office">¿Para qué libre office?</a></li>
-  <li><a href="#instalando-libre-office" id="toc-instalando-libre-office" class="nav-link" data-scroll-target="#instalando-libre-office">Instalando libre office</a></li>
-  <li><a href="#ayuda-en-línea-y-manuales" id="toc-ayuda-en-línea-y-manuales" class="nav-link" data-scroll-target="#ayuda-en-línea-y-manuales">Ayuda en línea y manuales</a></li>
+  <li><a href="#tipos-de-variables" id="toc-tipos-de-variables" class="nav-link" data-scroll-target="#tipos-de-variables">Tipos de variables</a>
+  <ul class="collapse">
+  <li><a href="#fracciones" id="toc-fracciones" class="nav-link" data-scroll-target="#fracciones">Fracciones</a></li>
   </ul></li>
+  <li><a href="#operadores-de-cadenas-de-texto" id="toc-operadores-de-cadenas-de-texto" class="nav-link" data-scroll-target="#operadores-de-cadenas-de-texto">Operadores de cadenas de texto</a></li>
+  <li><a href="#operadores-matemáticos" id="toc-operadores-matemáticos" class="nav-link" data-scroll-target="#operadores-matemáticos">Operadores Matemáticos</a></li>
+  <li><a href="#operadores-lógicos" id="toc-operadores-lógicos" class="nav-link" data-scroll-target="#operadores-lógicos">Operadores lógicos</a></li>
+  </ul></li>
+  <li><a href="#ejercicios" id="toc-ejercicios" class="nav-link" data-scroll-target="#ejercicios">Ejercicios</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../clases/clase-01.html">Clases</a></li><li class="breadcrumb-item"><a href="../clases/clase-01.html">clase 1</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../clases/clase-01.html">Clases</a></li><li class="breadcrumb-item"><a href="../clases/clase-01.html">Clase 01</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">clase 1</h1>
-<p class="subtitle lead">instalación de libre office</p>
+<h1 class="title">Clase 01</h1>
 </div>
 
 
@@ -212,33 +249,223 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="libre-office" class="level2">
-<h2 class="anchored" data-anchor-id="libre-office">Libre office</h2>
-<section id="qué-es-libre-office" class="level3">
-<h3 class="anchored" data-anchor-id="qué-es-libre-office">¿Qué es libre office?</h3>
-<p>Libre office es una suite de ofimática (herramientas de software para producción en entornos de trabajo) libre y de código abierto mantenida por sus propios usuarios. Es gratuita y en casi todos los casos igual o mejor que sus contrapartes no gratuitas.</p>
+<section id="intro-a-python" class="level1">
+<h1>Intro a Python</h1>
+<p>Este documento es una adaptación de otro existente. Compilamos algunos recursos útiles para la materia</p>
+<p><a href="https://docs.python.org/es/3/tutorial/index.html">Manual de Python en español</a></p>
+<p><a href="https://drive.google.com/drive/folders/1GpbkimUwTVskCDHbgSEUIJD2t8eWUtvA?usp=share_link">Bibliografía de la materia</a></p>
+<hr>
+<section id="tipos-de-variables" class="level2">
+<h2 class="anchored" data-anchor-id="tipos-de-variables">Tipos de variables</h2>
+<ul>
+<li>Numéricas:
+<ul>
+<li>int, float, long, complex</li>
+</ul></li>
+<li>string</li>
+<li>booleanas
+<ul>
+<li>True / False</li>
+</ul></li>
+</ul>
+<p>Se resumen en la siguiente tabla</p>
+**
+<center>
+Python Scalar Types
+</center>
+<p>**</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 17%">
+<col style="width: 68%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>str</code></td>
+<td><code>x = 'abc'</code></td>
+<td>String: caracteres de texto</td>
+</tr>
+<tr class="even">
+<td><code>int</code></td>
+<td><code>x = 1</code></td>
+<td>integers (i.e., números enteros)</td>
+</tr>
+<tr class="odd">
+<td><code>float</code></td>
+<td><code>x = 1.0</code></td>
+<td>floating-point numbers (i.e., números reales)</td>
+</tr>
+<tr class="even">
+<td><code>complex</code></td>
+<td><code>x = 1 + 2j</code></td>
+<td>números complejos</td>
+</tr>
+<tr class="odd">
+<td><code>bool</code></td>
+<td><code>x = True</code></td>
+<td>Booleano: Verdadero/Falso</td>
+</tr>
+<tr class="even">
+<td><code>NoneType</code></td>
+<td><code>x = None</code></td>
+<td>Objeto para designar el valor nulo</td>
+</tr>
+</tbody>
+</table>
+<p>Se usa la función <code>type()</code> para conocer el tipo de una variable</p>
+<section id="fracciones" class="level3">
+<h3 class="anchored" data-anchor-id="fracciones">Fracciones</h3>
+<p>Bueno, las fracciones no son representaciones “típicas” en los lenguajes de programación, y en python, debemos usar los módulos específicos para operar con ellas. Más información <a href="https://realpython.com/python-fractions/#decimal-vs-fractional-notation">acá</a>. Veremos más adelante como trabjar con fracciones.</p>
+<p><img src="https://files.realpython.com/media/uml_numeric_types.ed370d32b0b3.png" class="img-fluid"></p>
+<div id="cell-4" class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># String</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="st">'hello'</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(c))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-5" class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Integer</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(a))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-6" class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Float</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(b))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-7" class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Boolean</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(d))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-8" class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># None</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>e <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(e))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-9" class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cast integer to string</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(<span class="bu">str</span>(a)))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
 </section>
-<section id="para-qué-libre-office" class="level3">
-<h3 class="anchored" data-anchor-id="para-qué-libre-office">¿Para qué libre office?</h3>
-<p>Todo trabajo, incluso aquellos que son la manufactura de algún producto requieren piezas de comunicación visual y escrita: manuales, tutoriales, folletos, informes, etc. La comunicación del quehacer de la ciencia no es la excepción: bitácoras e informes de laboratorio, artículos para revistas e instituciones científicas, libros de texto, de divulgación o material de estudio de caracter académico. Estos textos tienen cada uno su propio estilo de escritura y estructura según su función y algunos soportes preferidos por conveniencia, uso, costumbre en algunos casos y millones bien invertidos en otros.</p>
-<p>Existen formatos que son preferidos en ciertos ámbitos, como <em>Latex</em> para publicaciones científicas y parte del mundo editorial o softwares como <em>in-design</em> o <em>illustrator</em> para los mismos fines para otras publicaciones.</p>
-<p>Nostoros usaremos libre office como soporte por su unviersalidad (todos podemos conseguirlo) y sabemos que siempre contaremos con el sofware: no dejaremos de tener acceso a lo que hicimos porque la nueva versión no es compatible (y la vieja ya no está disponible) y al tener una gran red de usuarios que pueden extender la funcionalidad del paquete: es posible encontrar extensiones que se vayan adaptando a nuestras necesidades.</p>
-<p>Por último pero no menos importante, siendo que <em>Latex</em> es el formato de-facto para publicaciones académicas o científicas ¿por qué no lo usamos? Sencillamente porque latex no es un procesador de texto. Es un lenguaje de programación completo y aprenderlo nos llevaría mucho mas tiempo del que tenemos en este curso, además de que para los fines de escribir informes de laboratorio el costo inversión de tiempo vs resultados obtenidos está bastante corrido a favor de lo primero: se requiere poner mucho en latex para obtener algo decente. Sin embargo como el tratamiento de las expresiones matemáticas que latex ofrece es superior a lo que cualquier procesador de texto traiga por defecto, lo incluiiremos en nuestro flujo de trabajo a través de la extensión <a href="http://roland65.free.fr/texmaths/docs.html">tex maths</a></p>
 </section>
-<section id="instalando-libre-office" class="level3">
-<h3 class="anchored" data-anchor-id="instalando-libre-office">Instalando libre office</h3>
-<p><a href="https://es.libreoffice.org/">En su web oficial</a> podemos acceder a la sección <span style="color:green;"><strong>descarga</strong></span> y desde allí bajar la versión que necesitemos. La <a href="https://es.libreoffice.org/descarga/libreoffice/">útima disponible</a> en general funciona con casi todos los dispositivos pero si tenemos probelmas en la instalación podemos buscar en la página alguna versión anterior.</p>
-<section id="instalando-tex-maths" class="level4">
-<h4 class="anchored" data-anchor-id="instalando-tex-maths">Instalando tex-maths</h4>
-<p>En <a href="http://roland65.free.fr/texmaths/docs.html">este enlace</a> se puede descargar la última versión. Una vez descargado se ejecuta e instala siguiendo los pasos que el instalador ofrece.</p>
+<section id="operadores-de-cadenas-de-texto" class="level2">
+<h2 class="anchored" data-anchor-id="operadores-de-cadenas-de-texto">Operadores de cadenas de texto</h2>
+<p>Los operadores matemáticos son diferentes en las cadenas de teto, por ejemplo el sigo + se usa para unir cadenas</p>
+<p>Repeticiones: Se usa *n para repetir una cadena n veces</p>
+<div id="cell-12" class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Asignar y combinar cadenas</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="st">'Hello'</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="st">'World'</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> b)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-13" class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># f-strings: reemplazarvalores de variables en cadenas</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>firstname <span class="op">=</span> <span class="st">'Beto'</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Me llamo </span><span class="sc">{</span>firstname<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-14" class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Combininar f-strings</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>firstname <span class="op">=</span> <span class="st">'Beto'</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>lastname <span class="op">=</span> <span class="st">'Velez'</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'My name is </span><span class="sc">{</span>firstname<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>lastname<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-15" class="cell" data-scrolled="true">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Repetir una cadena</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">str</span>(a)<span class="op">*</span><span class="dv">5</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-16" class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Repetir un cadena con espacios</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">str</span>(a<span class="op">+</span><span class="st">' '</span>)<span class="op">*</span><span class="dv">5</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+</section>
+<section id="operadores-matemáticos" class="level2">
+<h2 class="anchored" data-anchor-id="operadores-matemáticos">Operadores Matemáticos</h2>
+<ul>
+<li>+, -, *, y /</li>
+<li>Exponenciación **</li>
+<li>Modulo % (Resto)</li>
+</ul>
+<div id="cell-19" class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Adición</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">7</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'a = </span><span class="sc">{</span>a<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-20" class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sustracción</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> a <span class="op">-</span> <span class="dv">5</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'b = a-5 = </span><span class="sc">{</span>a<span class="sc">}</span><span class="ss">-5 = </span><span class="sc">{</span>b<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-21" class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Multiplicación</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'b*2 = </span><span class="sc">{</span>b<span class="sc">}</span><span class="ss">*2 = </span><span class="sc">{</span>b<span class="op">*</span><span class="dv">2</span><span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-22" class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># División</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'a/3 = </span><span class="sc">{</span>a<span class="sc">}</span><span class="ss">/3 = </span><span class="sc">{</span>a<span class="op">/</span><span class="dv">3</span><span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-23" class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exponenciación</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'b^2 = b**2 = </span><span class="sc">{</span>b<span class="sc">}</span><span class="ss">**2 = </span><span class="sc">{</span>b<span class="op">**</span><span class="dv">2</span><span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-24" class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Modulo</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'(Modulo de vuelve el resto luego de dividir entre dos números)'</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'el resto de  b/9 = resto de </span><span class="sc">{</span>b<span class="sc">}</span><span class="ss">/9 = </span><span class="sc">{</span>b<span class="op">%</span><span class="dv">9</span><span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+</section>
+<section id="operadores-lógicos" class="level2">
+<h2 class="anchored" data-anchor-id="operadores-lógicos">Operadores lógicos</h2>
+<p>Hacen una comparación y devuelven un booleano (verdadero o falso)</p>
+<pre><code>x == y # x es igual a y
+x != y # x no es igual a y
+x &gt; y # x es mayor que y
+x &lt; y # x es menor que y
+x &gt;= y # x es mayor o igual que y
+x &lt;= y # x es menor o igual que y</code></pre>
+<div id="cell-27" class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># En cadenas de texto</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="st">'hola'</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="st">'que tal'</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="st">'Hola'</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'a==b: '</span> <span class="op">+</span> <span class="bu">str</span>(a<span class="op">==</span>b))</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'a==c: '</span> <span class="op">+</span> <span class="bu">str</span>(a<span class="op">==</span>c))</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'a!=b: '</span> <span class="op">+</span> <span class="bu">str</span>(a<span class="op">!=</span>b))</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-28" class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># En datos numéricos</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>e <span class="op">=</span> <span class="dv">8</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'d &lt; e: '</span> <span class="op">+</span> <span class="bu">str</span>(d <span class="op">&lt;</span> e))</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'d &gt;= e: '</span> <span class="op">+</span> <span class="bu">str</span>(d <span class="op">&gt;=</span> e))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
 </section>
 </section>
-<section id="ayuda-en-línea-y-manuales" class="level3">
-<h3 class="anchored" data-anchor-id="ayuda-en-línea-y-manuales">Ayuda en línea y manuales</h3>
-<p>La <a href="https://help.libreoffice.org/latest/es/text/shared/05/new_help.html">ayuda</a> de libre office está en casi todos los idiomas, aunque a veces la traducción automática falla un poco (se “olvida” de traducir algún que otro párrafo) es bastante completa. Además podemos descargar <a href="https://documentation.libreoffice.org/es/documentacion-en-espanol/">manuales</a> (los más actualizados están en inglés) en pdf para quienes prefieran buscar en un documento y no en la web o para cuando no se tenga acceso a internet.</p>
+<section id="ejercicios" class="level1">
+<h1>Ejercicios</h1>
+<ol type="1">
+<li>Crear una variable de tipo numérica</li>
+<li>Asignar a la variable un número entero, por ejemplo “1” y ejecutar la función <code>type</code> sobre ella.</li>
+<li>Asignar a la variable un número con decimales ejemplo “3.5” y ejecutar la función <code>type</code> sobre ella.</li>
+<li>Crear dos variables, a una asignarle un valor numérico entero y a otra uno con lugares decimales, pero que coincidan. Por ejemplo “5” y “5.0” compararlos usando el operador lógico de igualdad. ¿Qué se obtiene?</li>
+<li>Usar la el operador módulo (resto) sobre diferentes números. ¿Cómo podría escribir un programa sencillo que me indique si un número es divible por otro? ¿Qué condiciones debería evaluar? ¿Qué operadores lógicos necesito?</li>
+<li>Escribir un diagrama de lo que debería hacer el programa del punto 5</li>
+</ol>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
