@@ -55,7 +55,7 @@
     "href": "clases/Clase-01.html#operadores-de-cadenas-de-texto",
     "title": "Clase 01",
     "section": "Operadores de cadenas de texto",
-    "text": "Operadores de cadenas de texto\nLos operadores matemáticos son diferentes en las cadenas de teto, por ejemplo el sigo + se usa para unir cadenas\nRepeticiones: Se usa *n para repetir una cadena n veces\n# Asignar y combinar cadenas\na = 'Hello'\nb = 'World'\nprint(a + ' ' + b)\n# f-strings: reemplazarvalores de variables en cadenas\nfirstname = 'Beto'\nprint(f'Me llamo {firstname}')\n# Combininar f-strings\nfirstname = 'Beto'\nlastname = 'Velez'\n\nprint(f'My name is {firstname} {lastname}')\n# Repetir una cadena\nprint(str(a)*5)\n# Repetir un cadena con espacios\nprint(str(a+' ')*5)",
+    "text": "Operadores de cadenas de texto\nLos operadores matemáticos son diferentes en las cadenas de texto, por ejemplo el sigo + se usa para unir cadenas\nRepeticiones: Se usa *n para repetir una cadena n veces\n# Asignar y combinar cadenas\na = 'Hello'\nb = 'World'\nprint(a + ' ' + b)\n# f-strings: reemplazarvalores de variables en cadenas\nfirstname = 'Beto'\nprint(f'Me llamo {firstname}')\n# Combininar f-strings\nfirstname = 'Beto'\nlastname = 'Velez'\n\nprint(f'My name is {firstname} {lastname}')\n# Repetir una cadena\nprint(str(a)*5)\n# Repetir un cadena con espacios\nprint(str(a+' ')*5)",
     "crumbs": [
       "Clases",
       "Clase 01"
