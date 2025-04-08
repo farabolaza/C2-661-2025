@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "trabajos practicos/TP 01.html",
+    "href": "trabajos practicos/TP 01.html",
+    "title": "Variables, entradas y salidas",
+    "section": "",
+    "text": "TP 01\n\nPlanteoSolución\n\n\nEste es el planteo del problema\n\n\nEsta es la solución"
+  },
+  {
     "objectID": "clases/Clase-01.html",
     "href": "clases/Clase-01.html",
     "title": "Clase 01",
@@ -188,5 +195,68 @@
     "title": "C2-661",
     "section": "",
     "text": "Profesor\n\n Prof. Federico Arabolaza\n federico.arabolaza@inspt.utn.edu.ar\n INSPT UTN\n\n\n\nCursada\n\n Triunvirato 3174\n Miércoles de 19:00 a 20:20\n\n\n\nSecciones\n\n Programa de la materia\n Calendario de clases\n Trabajos prácticos\n Clases\n Bibliografía\n Descargas"
+  },
+  {
+    "objectID": "trabajos practicos/TP 01 Variables, entradas y salidas.html",
+    "href": "trabajos practicos/TP 01 Variables, entradas y salidas.html",
+    "title": "TP 01 Variables, entradas y salidas",
+    "section": "",
+    "text": "Computación 2 - Física y física aplicada 2661 # TP 01: Variables, entradas y salidas"
+  },
+  {
+    "objectID": "trabajos practicos/TP 01 Variables, entradas y salidas.html#conversión-de-temperatura",
+    "href": "trabajos practicos/TP 01 Variables, entradas y salidas.html#conversión-de-temperatura",
+    "title": "TP 01 Variables, entradas y salidas",
+    "section": "Conversión de temperatura",
+    "text": "Conversión de temperatura\n\nPlanteo\nEl usuario ingresa un número que representa una temperatura en °C. El programa imprime esa temperatura en F\n\n\nSolución\n\nprint(\"ingrese la temperatura en C\") # se imprime un mensaje\nC = float(input()) # se pide un valor por teclado y se lo convierte en número\nF =(C*1.80+32)\nprint(f\"La temperatura es {F} F\")\n\ningrese la temperatura en C\nh\n\n\n\n---------------------------------------------------------------------------\nValueError                                Traceback (most recent call last)\n&lt;ipython-input-2-59b7ecd87a0a&gt; in &lt;cell line: 2&gt;()\n      1 print(\"ingrese la temperatura en C\") # se imprime un mensaje\n----&gt; 2 C = float(input()) # se pide un valor por teclado y se lo convierte en número\n      3 F =(C*1.80+32)\n      4 print(f\"La temperatura es {F} F\")\n\nValueError: could not convert string to float: 'h'\n\n\n\n\n\nVersión mejorada\n¿Cómo hacer para tratar con un dato erróneo? Por ejemplo, un usuario ingresa un valor no númerico. En tal caso, el programa anterior arrojaría un error. Pruebe correr el programa anterior ingresando un valor no numérico.\n\ndef caf():\n  c = input()\n\n  try:\n    C = float(c)\n    F =(C*1.80+32)\n    print(f\"La temperatura es {F} F\")\n\n  except:\n    print(\"ingrese un valor númerico como temperatura\")\n    caf()"
+  },
+  {
+    "objectID": "trabajos practicos/TP 01 Variables, entradas y salidas.html#superficie-de-un-triángulo",
+    "href": "trabajos practicos/TP 01 Variables, entradas y salidas.html#superficie-de-un-triángulo",
+    "title": "TP 01 Variables, entradas y salidas",
+    "section": "Superficie de un triángulo",
+    "text": "Superficie de un triángulo\n\nPlanteo\nRealizar un programa en el que se ingrese la base y la altura de un triángulo e informe su superficie. El programa debe imprimir una leyenda que incluya los datos de entrada y el resultado.\nIngrese la base del triángulo: 8 Ingrese la altura del triángulo: 5 La superficie del triángulo de base 7 y altura 5 es 17.50\n\n\nSolución\nCon lo hecho en el problema anterior se puede resolver. Recordar que la potenciación es una multipliación repetida, por lo que en pyhton el operador es **."
+  },
+  {
+    "objectID": "trabajos practicos/TP 01 Variables, entradas y salidas.html#dígitos-de-un-número",
+    "href": "trabajos practicos/TP 01 Variables, entradas y salidas.html#dígitos-de-un-número",
+    "title": "TP 01 Variables, entradas y salidas",
+    "section": "Dígitos de un número",
+    "text": "Dígitos de un número\n\nPlanteo\nDesarrollar un programa en el que se ingrese un número de 5 dígitos y que luego muestre cada dígito separado por un guión\n\n\nSolución\nUna forma de encontrar el primer dígito de un número es dividirlo por \\(10^n\\) donde n es el orden de magnitud del número y quedarse con la parte entera. Por ejemplo: Si tenemos el número 1450 y lo dividimos por 1000 el primer dígito es la parte entera del resultado de la división, usando la operación división entera // y módulo % podemos obtener los elementos necesarios para resolver este problema. Para el resto de los dígitos, usando el operador módulo en potencias de diez decrecientes, obtenemos los “restos” usamos para reiterar el proceso de obtener el primer dígito.\n\nprint(1450//1000)\n\n1\n\n\n\nprint(1450%1000)\n\n450\n\n\n\n450//100\n\n4\n\n\n\n450%100\n\n50\n\n\n\nprint(1450%1000//100,\"-\",1450%1000%100//10)\n\n4 - 5"
+  },
+  {
+    "objectID": "trabajos practicos/TP 01 Variables, entradas y salidas.html#pitágoras-2",
+    "href": "trabajos practicos/TP 01 Variables, entradas y salidas.html#pitágoras-2",
+    "title": "TP 01 Variables, entradas y salidas",
+    "section": "Pitágoras 2",
+    "text": "Pitágoras 2\n\nPlanteo\nHacer un programa en el que se ingrese la medida de los catetos de un triángulo rectángulo y que se calcule y muestre el perímetro de dicho triángulo. Incluir math a fin de utilizar la función sqrt(expresión) que calcula la raíz cuadrada de un número.\nPara usar la función, tenemos que importarla desde el módulo math. Para ello hacemos\nimport math\no\nimport math.sqrt as sqrt\nLa diferencia es qe en el primer caso tendremos que llamarla usando el nombre completo math.sqrt(num) mientras que en el segundo caso no. Como opción, también se puede prescindir de la raíz cuadrada y elevar a \\(\\frac{1}{2}\\).\n\n\nSolución\nCon lo visto hasta ahora se puede resolver este problema."
+  },
+  {
+    "objectID": "trabajos practicos/TP 01 Variables, entradas y salidas.html#conversiones-de-tiempo",
+    "href": "trabajos practicos/TP 01 Variables, entradas y salidas.html#conversiones-de-tiempo",
+    "title": "TP 01 Variables, entradas y salidas",
+    "section": "Conversiones de tiempo",
+    "text": "Conversiones de tiempo\n\nPlanteo\nElaborar un programa en el que se ingrese una cantidad expresada en segundos y luego la exprese en días, horas, minutos y segundos.\nEjemplo: Ingrese tiempo en segundos: 93714.\n1 dia(s), 2 hora(s), 1 minuto(s), 54 segundo(s)\n\n\nSolución\nSimilar al problema de los dígitos, solo que el resto no resulta de dividir por potencias de diez, sino de 60."
+  },
+  {
+    "objectID": "trabajos practicos/TP 01 Variables, entradas y salidas.html#tiro-vertical",
+    "href": "trabajos practicos/TP 01 Variables, entradas y salidas.html#tiro-vertical",
+    "title": "TP 01 Variables, entradas y salidas",
+    "section": "Tiro vertical",
+    "text": "Tiro vertical\n\nPlanteo\nEl usuario ingresa un instante de tiempo (t) y el programa calcula e imprime la posición de un móvil arrojado a 20 m/s hacia arriba en el planeta tierra para ese instante de tiempo.\n\n\nSolución\nEscribir una ecuación para la la posición en función del tiempo con los datos del problema y crear la variable t como dato de entrada."
+  },
+  {
+    "objectID": "trabajos practicos/TP 01 Variables, entradas y salidas.html#comparación-de-números",
+    "href": "trabajos practicos/TP 01 Variables, entradas y salidas.html#comparación-de-números",
+    "title": "TP 01 Variables, entradas y salidas",
+    "section": "Comparación de números",
+    "text": "Comparación de números\n\nPlanteo\nRealizar un programa en el que se ingresen dos números enteros positivos. Luego deberá restar el mayor del menor e indicar si dicha diferencia es un valor que está entre ambos números (es decir, es mayor que el más chico y menor que el más grande de los ingresados).\n\n\nSolución\nSe almacenan los dos números a comparar, se efectúan los cálculos, se devuelve el resultado condicionalmente usando if para cada caso."
+  },
+  {
+    "objectID": "trabajos practicos/TP 01 Variables, entradas y salidas.html#aprobación-con-condiciones",
+    "href": "trabajos practicos/TP 01 Variables, entradas y salidas.html#aprobación-con-condiciones",
+    "title": "TP 01 Variables, entradas y salidas",
+    "section": "Aprobación con condiciones",
+    "text": "Aprobación con condiciones\n\nPlanteo\nRealizar un programa que solicite 3 notas de parciales obtenidas por un alumno. A continuación se mostrará por pantalla un mensaje que indique la situación del alumno:\n\nSi el alumno aprobó los 3 parciales (nota 4 o más) y su promedio es mayor a 7, promociona la materia con la nota promedio.\nSi el alumno aprobó los 3 parciales pero su promedio no supera los 7 puntos, debe rendir examen final.\nSi el alumno no aprobó uno o más parciales, se solicitará que se ingrese la nota de un recuperatorio. Si éste hubiera sido aprobado, se informará el promedio general (3 parciales + el recuperatorio) y su condición de aprobado (aún cuando el promedio no supere los 4 puntos).\nSi no hubiera aprobado el recuperatorio se informará que el alumno fue aplazado.\n\n\n\nSolución\nEste código no resuelve todo el problema pero presenta algunas herramientas útiles, como limitar los dígitos que se muestran al imprimir una variable o el uso de la funcion suma sobre los elementos de una lista. Lea atentamente cada línea y asegúrese de que comprende qué hace en cada caso. El problema requiere evaluar los escenarios posibles por lo que quizás le resulte útil hacer un bosquejo en papel sobre los posibles casos para luego pasarlos a código.\n\ndef calif(n=3):\n  \"\"\"\n  Función que hace lo que se pide\n  \"\"\"\n  notas = []\n  for i in range(n):\n    print(f\"ingrese la {i+1} nota\")\n    nota = float(input())\n    notas.append(nota)\n\n  prom = (sum(notas))/n\n  return f\"{prom:.2f}\"\n\n\n\n\n7"
   }
 ]
