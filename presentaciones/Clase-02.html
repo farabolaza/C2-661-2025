@@ -442,7 +442,6 @@ Federico Arabolaza
 <span id="cb1-5"><a></a><span class="cf">else</span>:</span>
 <span id="cb1-6"><a></a>    haga_esto_otro <span class="co"># se suele usar para errores</span></span>
 <span id="cb1-7"><a></a>                 <span class="co"># luego de una lista de opciones</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><a href="https://docs.python.org/3/library/stdtypes.html#truth-value-testing">La conversión implícita</a> de los valores a <code>bool()</code> se hace si la condición a evaluar no es booleana en sí misma:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>n <span class="op">=</span> <span class="dv">2</span></span>
 <span id="cb2-2"><a></a></span>
 <span id="cb2-3"><a></a><span class="cf">if</span> n:</span>
@@ -453,6 +452,9 @@ Federico Arabolaza
 <span id="cb3-4"><a></a></span>
 <span id="cb3-5"><a></a><span class="cf">if</span> n <span class="kw">is</span> <span class="kw">not</span> <span class="bu">str</span>:</span>
 <span id="cb3-6"><a></a>    <span class="bu">print</span>(<span class="st">"n no es una cadena de texto"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2">
+
 <p>Podemos añadir bifurcaciones usando <code>elif</code></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a>x <span class="op">=</span> <span class="dv">20</span></span>
 <span id="cb4-2"><a></a>y <span class="op">=</span> <span class="dv">21</span></span>
@@ -461,11 +463,17 @@ Federico Arabolaza
 <span id="cb4-5"><a></a>    <span class="bu">print</span>(<span class="st">'y &gt; x'</span>)</span>
 <span id="cb4-6"><a></a><span class="cf">elif</span> y <span class="op">&lt;</span> x:</span>
 <span id="cb4-7"><a></a>    <span class="bu">print</span>(<span class="st">'y &lt; x'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2">
+
 <p>La palabra reservada <code>and</code> implica que ambas condiciones deben ser verdaderas</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="cf">if</span> x<span class="op">==</span><span class="dv">20</span> <span class="kw">and</span> y<span class="op">==</span><span class="dv">21</span>:</span>
 <span id="cb5-2"><a></a>    <span class="bu">print</span>(<span class="st">'True'</span>)</span>
 <span id="cb5-3"><a></a><span class="cf">else</span>:</span>
 <span id="cb5-4"><a></a>    <span class="bu">print</span>(<span class="st">'False'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2">
+
 <p>La palabra reservada <code>or</code> implica que al menos una condición debe ser verdadera</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a><span class="cf">if</span> x<span class="op">==</span><span class="dv">20</span> <span class="kw">or</span> y<span class="op">==</span><span class="dv">100</span>:</span>
 <span id="cb6-2"><a></a>    <span class="bu">print</span>(<span class="st">'True'</span>)</span>
@@ -477,17 +485,29 @@ Federico Arabolaza
 <p>El bucle for es quizás la construcción más habitual en python. Su sintaxis es</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="cf">for</span> elemento <span class="kw">in</span> secuencia:</span>
 <span id="cb7-2"><a></a>    haga_esto</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2">
+
 <p>En un ejemplo:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="cf">for</span> i <span class="kw">in</span> [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]:</span>
 <span id="cb8-2"><a></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2">
+
 <p>Usando la función <code>range()</code> (que devuelve los enteros del conjunto)</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>,<span class="dv">5</span>):</span>
 <span id="cb9-2"><a></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2">
+
 <p>Usando una lista y la función <code>enumerate()</code> para devolver el elemento y su posición en la lista</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a>list_a <span class="op">=</span> [<span class="st">'P'</span>,<span class="st">'S'</span>,<span class="st">'Y'</span>,<span class="st">'C'</span>,<span class="st">'H'</span>]</span>
 <span id="cb10-2"><a></a></span>
 <span id="cb10-3"><a></a><span class="cf">for</span> index, value <span class="kw">in</span> <span class="bu">enumerate</span>(list_a):</span>
 <span id="cb10-4"><a></a>    <span class="bu">print</span>(index, value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2">
+
 <p>Recorriendo los elementos de una cadena de texto uno a no</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>cadena_de_texto <span class="op">=</span> <span class="st">"Python facilita la ciencia"</span></span>
 <span id="cb11-2"><a></a><span class="cf">for</span> c <span class="kw">in</span> cadena_de_texto:</span>
@@ -495,9 +515,12 @@ Federico Arabolaza
 </section>
 <section id="estructura-while" class="slide level2">
 <h2>Estructura <code>while</code></h2>
-<p>Se puede usar también un bule <strong>while</strong> para iterar mientras una condición sea verdadera:</p>
+<p>Se puede usar también un bucle <strong>while</strong> para iterar mientras una condición sea verdadera:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a><span class="cf">while</span> condción :</span>
 <span id="cb12-2"><a></a>    hacer_esto</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2">
+
 <div class="sourceCode" id="annotated-cell-13"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-13-1"><a href="#annotated-cell-13-1"></a>x <span class="op">=</span> <span class="dv">0</span></span>
 <span id="annotated-cell-13-2"><a href="#annotated-cell-13-2"></a>end <span class="op">=</span> <span class="dv">10</span></span>
 <span id="annotated-cell-13-3"><a href="#annotated-cell-13-3"></a></span>
@@ -542,23 +565,32 @@ Federico Arabolaza
 </section>
 <section id="listas" class="slide level2">
 <h2>Listas</h2>
-<p>Una lista es una arreglo <em>mutable</em>. Lo que quiere decir que podemos redefinir y alterar sus valores - Cada valor en la lista es un elemento o <em>item</em> - Los elementos pueden ser cualquier objeto - Las listas pueden contener objetos de diferente tipo</p>
-<ul>
-<li>Una lista vaciía se define como [] o como list()</li>
-</ul>
-<pre><code>l = [1,2,3]</code></pre>
+<p>Una lista es una arreglo <em>mutable</em>. Lo que quiere decir que podemos redefinir y alterar sus valores - Cada valor en la lista es un elemento o <em>item</em> - Los elementos pueden ser cualquier objeto - Las listas pueden contener objetos de diferente tipo - Una lista vaciía se define como <code>[]</code> o como <code>list()</code></p>
+</section>
+<section class="slide level2">
+
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a>l <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2">
+
 <ul>
 <li>Los elementos de una lista estan indizados o indexados (contando desde 0)</li>
 </ul>
-<pre><code>l[0]</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a>l[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2">
+
 <ul>
-<li>Los elemnentos pueden ser listas en sí mismas</li>
+<li>Los elementos pueden ser listas en sí mismas</li>
 </ul>
-<pre><code>lista_anidada = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a>lista_anidada <span class="op">=</span> [[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2">
+
 <ul>
 <li>Las listas pueden ser “rebanadas”</li>
 </ul>
-<pre><code>l[inicio:fin:orientación]</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a>l[inicio:fin:orientación]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <h3 id="todos-los-métodos-de-las-listas">Todos los métodos de las listas</h3>
 <p>Podemos tener a mano una lista de los métodos mas usuales para las listas</p>
 <table class="caption-top">
@@ -621,6 +653,9 @@ Federico Arabolaza
 </table>
 <p>Se puede consultar mas sobre como rebanar una lista <a href="https://www.geeksforgeeks.org/python-list-slicing/">acá</a></p>
 <p>Veamos algunos ejemplos</p>
+</section>
+<section class="slide level2">
+
 <div class="sourceCode" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a></a>a.insert(index,new element)</span>
 <span id="cb18-2"><a></a>a.append(element to add at end)</span>
 <span id="cb18-3"><a></a><span class="bu">len</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -629,6 +664,9 @@ Federico Arabolaza
 <span id="cb19-3"><a></a></span>
 <span id="cb19-4"><a></a>list_of_strings <span class="op">=</span> [<span class="st">'hola'</span>, <span class="st">'chau'</span>, <span class="st">'buenas tardes'</span>]</span>
 <span id="cb19-5"><a></a><span class="bu">print</span>(list_of_strings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2">
+
 <p>Los elementos de la lista se pueden ubicar usando sus índices.</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a>list_b <span class="op">=</span> [<span class="st">'lista'</span>,<span class="st">'de'</span>,<span class="st">'cosas'</span>]</span>
 <span id="cb20-2"><a></a><span class="bu">print</span>(list_b[<span class="dv">0</span>])</span>
@@ -636,6 +674,9 @@ Federico Arabolaza
 <span id="cb20-4"><a></a><span class="bu">print</span>(list_b[<span class="op">-</span><span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="sourceCode" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a>list_b.append(<span class="st">'.'</span>)</span>
 <span id="cb21-2"><a></a><span class="bu">print</span>(list_b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2">
+
 <div class="sourceCode" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a>example_string <span class="op">=</span> <span class="st">'Computación 2 266 - Instituto Nacional Superior del Profesorado Técnico'</span></span>
 <span id="cb22-2"><a></a><span class="bu">print</span>(example_string)</span>
 <span id="cb22-3"><a></a><span class="bu">print</span>(example_string.upper())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -648,18 +689,27 @@ Federico Arabolaza
 <li>Las claves pueden ser cualquier tipo de dato</li>
 <li>Los diccionarios no tienen un orden prestablecido</li>
 </ul>
+</section>
+<section class="slide level2">
+
 <p>Los diccionarios se escrbien entre llaves</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a>eng2sp <span class="op">=</span> {}</span>
 <span id="cb23-2"><a></a>eng2sp[<span class="st">'one'</span>] <span class="op">=</span> <span class="st">'uno'</span> <span class="co"># la clave 'one' tiene como valor 'uno'</span></span>
 <span id="cb23-3"><a></a><span class="bu">print</span>(eng2sp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2">
+
 <div class="sourceCode" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a>eng2sp <span class="op">=</span> {<span class="st">'one'</span>: <span class="st">'uno'</span>, <span class="st">'two'</span>: <span class="st">'dos'</span>, <span class="st">'three'</span>: <span class="st">'tres'</span>}</span>
 <span id="cb24-2"><a></a><span class="bu">print</span>(eng2sp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2">
+
 <p>Las claves y sus valores se pueden acceder a través de los métodos <code>.keys()</code> y <code>.values()</code></p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a><span class="bu">print</span>(eng2sp.keys())</span>
 <span id="cb25-2"><a></a><span class="bu">print</span>(eng2sp.values())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section></section>
 <section>
-<section id="funciones" class="title-slide slide level1 center">
+<section id="funciones" class="title-slide slide level1 scrollable center">
 <h1>Funciones</h1>
 <p>Una <strong>función</strong> es una secuencia de instrucciones que ejecuta un cálculo o acción al invocarla por su nombre y, opcionalmente al proveerle los argumentos necesarios. Para crear una función, usamos la palabbra reservarda <code>def</code> y a continuación el nombre de la función, segudia de los argumentos entre paréntesis</p>
 <p>Ejemplo</p>
@@ -669,6 +719,9 @@ Federico Arabolaza
 <span id="cb26-4"><a></a><span class="co">    texto que se ingresa</span></span>
 <span id="cb26-5"><a></a><span class="co">    """</span></span>
 <span id="cb26-6"><a></a>    <span class="cf">return</span> (texto.upper())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="una-función" class="slide level2 scrollable">
+<h2>Una función</h2>
 <ul>
 <li>Entre paréntesis están los <strong>argumentos</strong>.</li>
 <li>Se puede decir que una función <strong>“toma” un argumento</strong> y <strong>“devuelve” un resultado</strong>.</li>
@@ -680,7 +733,7 @@ Federico Arabolaza
 <p>El cuerpo de una función termina cuando se vuelve al nivel anterior de indentación.</p>
 <p>Para consultar más acerca de funciones, pueden visitar la <a href="https://docs.python.org/es/3/tutorial/controlflow.html#defining-functions">ayuda de Python oficial</a></p>
 </section>
-<section id="funciones-para-recibir-entradas-del-usuario" class="slide level2">
+<section id="funciones-para-recibir-entradas-del-usuario" class="slide level2 scrollable">
 <h2>Funciones para recibir entradas del usuario</h2>
 <p>Una función para permitir al usuario interactuar con el código ingresando valores es la función <code>input()</code> cuyo funcionamiento se ejemplifica a continuación:</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a></a>user_input <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Ingrese algo: "</span>)</span>
@@ -701,6 +754,7 @@ Federico Arabolaza
 <span data-code-cell="annotated-cell-29" data-code-lines="4" data-code-annotation="2">Se convierte a un número entero <code>int</code></span>
 </dd>
 </dl>
+<h3 class="scrollable" id="ejemplo">Ejemplo</h3>
 <p>Para interrumpir la ejecución podemos usar una combinación de while, try- except como se muestra en este ejemplo que saqué de <a href="https://www.digitalocean.com/community/tutorials/how-to-receive-user-input-python">esta web</a>:</p>
 <div class="sourceCode" id="annotated-cell-30"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-30-1"><a href="#annotated-cell-30-1"></a><span class="cf">while</span> <span class="va">True</span>:</span>
 <span id="annotated-cell-30-2"><a href="#annotated-cell-30-2"></a>    <span class="cf">try</span>:</span>
