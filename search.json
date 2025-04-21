@@ -110,188 +110,39 @@
     ]
   },
   {
-    "objectID": "presentaciones/Clase-02.html#condicional-if",
-    "href": "presentaciones/Clase-02.html#condicional-if",
-    "title": "Presentación Clase 02",
-    "section": "Condicional if",
-    "text": "Condicional if\nEn python las secuencias se encierran en bloques indentados, con tabulaciones\nSintaxis (ver los espacios):\nif condicion:\n    hace_algo\nelif condicion:\n    hace_esta_otra_cosa\nelse:\n    haga_esto_otro # se suele usar para errores\n                 # luego de una lista de opciones\nn = 2\n\nif n:\n    print(\"n no es cero o no es null\")\n\nif n is None:\n    print(\"n es None\")\n\nif n is not str:\n    print(\"n no es una cadena de texto\")"
-  },
-  {
-    "objectID": "presentaciones/Clase-02.html#bucle-for",
-    "href": "presentaciones/Clase-02.html#bucle-for",
-    "title": "Presentación Clase 02",
-    "section": "Bucle for",
-    "text": "Bucle for\nEl bucle for es quizás la construcción más habitual en python. Su sintaxis es\nfor elemento in secuencia:\n    haga_esto"
-  },
-  {
-    "objectID": "presentaciones/Clase-02.html#estructura-while",
-    "href": "presentaciones/Clase-02.html#estructura-while",
-    "title": "Presentación Clase 02",
-    "section": "Estructura while",
-    "text": "Estructura while\nSe puede usar también un bucle while para iterar mientras una condición sea verdadera:\nwhile condción :\n    hacer_esto"
-  },
-  {
-    "objectID": "presentaciones/Clase-02.html#estructura-try-except",
-    "href": "presentaciones/Clase-02.html#estructura-try-except",
-    "title": "Presentación Clase 02",
-    "section": "Estructura try-except",
-    "text": "Estructura try-except\nSe puede atrapar o “atajar” errores usando esta estructura. Cada vez que el programa de como resultado un error (un dato mal ingresado o no válido) podremos especificar que hacer. Se puede indicar incluso una respuesta diferente para errores de distinto tipo.\n\ntry:\n    acción_a_intentar\nexcept:\n    que_hacer_si_ocurre_un_error"
-  },
-  {
-    "objectID": "presentaciones/Clase-02.html#listas",
-    "href": "presentaciones/Clase-02.html#listas",
-    "title": "Presentación Clase 02",
-    "section": "Listas",
-    "text": "Listas\nUna lista es una arreglo mutable. Lo que quiere decir que podemos redefinir y alterar sus valores - Cada valor en la lista es un elemento o item - Los elementos pueden ser cualquier objeto - Las listas pueden contener objetos de diferente tipo - Una lista vaciía se define como [] o como list()"
-  },
-  {
-    "objectID": "presentaciones/Clase-02.html#diccionarios",
-    "href": "presentaciones/Clase-02.html#diccionarios",
-    "title": "Presentación Clase 02",
-    "section": "Diccionarios",
-    "text": "Diccionarios\n\nUn diccionario (dict) es un mapeo entre un conjunto de índices (keys) y otro de valores (values)\nCada objeto de un diccionario es un par índice-valor (key-value)\nLas claves pueden ser cualquier tipo de dato\nLos diccionarios no tienen un orden prestablecido"
-  },
-  {
-    "objectID": "presentaciones/Clase-02.html#una-función",
-    "href": "presentaciones/Clase-02.html#una-función",
-    "title": "Presentación Clase 02",
-    "section": "Una función",
-    "text": "Una función\n\nEntre paréntesis están los argumentos.\nSe puede decir que una función “toma” un argumento y “devuelve” un resultado.\nAl resultado se lo suele llamar valor de retorno.\nNo es necesario que una función retorne un valor\n\nLa primera línea de la función se la llama encabezado (header) y a las restantes el cuerpo (body).\nEl ebcabezado va encerrado entre comillas y el cuerpo tiene que estar indentado. La indentación común es de 4 espacios y un error común es que el software que se usa confunda tabulaciones con indentación. Apretar la tecla tab, si el software está bien configurado, debería hacer los 4 espacios y no una tabulación. Esto parece una aclaración contradictoria y poco relevante, pero como se dijo más arriba, es una fuente común de errores en la ejecución de código: si hay tabulaciones en donde deberían estar los 4 espacios de la indentación, el código no se ejecuta.\nEl cuerpo de una función termina cuando se vuelve al nivel anterior de indentación.\nPara consultar más acerca de funciones, pueden visitar la ayuda de Python oficial"
-  },
-  {
-    "objectID": "presentaciones/Clase-02.html#funciones-para-recibir-entradas-del-usuario",
-    "href": "presentaciones/Clase-02.html#funciones-para-recibir-entradas-del-usuario",
-    "title": "Presentación Clase 02",
-    "section": "Funciones para recibir entradas del usuario",
-    "text": "Funciones para recibir entradas del usuario\nUna función para permitir al usuario interactuar con el código ingresando valores es la función input() cuyo funcionamiento se ejemplifica a continuación:\nuser_input = input(\"Ingrese algo: \")\nprint(f\"Usted ha ingresado: {user_input}\")\nHay que tener en cuenta que la función input entiende todo lo que ingresemos a ella como si fuera texto, por lo que si deseamos recibir valores numéricos debemos convertir lo que recibamos. Por ejemplo:\n1price = float(input(\"Ingrese el precio: \"))\nprint(f\"El precio es {price}\")\n\n2age = int(input(\"Ingrese su edad: \"))\nprint(f\"Usted tiene {age} años\")\n\n1\n\nSe convierte a un número float\n\n2\n\nSe convierte a un número entero int\n\n\nEjemplo\nPara interrumpir la ejecución podemos usar una combinación de while, try- except como se muestra en este ejemplo que saqué de esta web:\nwhile True:\n    try:\n1        number = int(input(\"Enter an integer: \"))\n2        break\n3    except ValueError:\n4        print(\"Invalid input! Please enter a valid integer.\")\n\n1\n\nConvierte la entrada a un entero\n\n2\n\nSi tiene éxito interrumpe el programa ahí mismo\n\n3\n\nEn caso de recibir una excepción del tipo ValueError\n\n4\n\nImprime un texto de referencia."
-  },
-  {
-    "objectID": "clases/Clase-03.html",
-    "href": "clases/Clase-03.html",
-    "title": "Clase 03",
-    "section": "",
-    "text": "Presentación",
-    "crumbs": [
-      "Clases",
-      "Clase 03"
-    ]
-  },
-  {
-    "objectID": "clases/Clase-03.html#repaso-sobre-funciones-y-listas",
-    "href": "clases/Clase-03.html#repaso-sobre-funciones-y-listas",
+    "objectID": "presentaciones/Clase-03.html#repaso-sobre-funciones-y-listas",
+    "href": "presentaciones/Clase-03.html#repaso-sobre-funciones-y-listas",
     "title": "Clase 03",
     "section": "Repaso sobre funciones y listas",
-    "text": "Repaso sobre funciones y listas\nPodemos usar el problema de Fibonacci de la práctica para repasar las funciones y algunas propiedades de las listas en python. Ya que los valores de \\(f_n\\) se calculan una y otra vez, quizás podríamos guardar éstos mismos en algun listado. Una lista en python es cualquier cosa encerrada entre corchetes.\nlista = []\narriba vemos una lista vacía\nlista = [2,3]\nLista con dos elementos numéricos\nlista = [2.0,2,'boca','river']\nLista con elementos mixtos\nlista[2]\nnos devuelve el elemento que ocula la posición 2 (recordar que los índices empiezan en cero)\nlista[2] = 'velez'\nasigna el dato ingresado en la posición 2 de la lista.\npodemos agregar un valor al final de una lista usando\nlista.append('mi nuevo valor')",
-    "crumbs": [
-      "Clases",
-      "Clase 03"
-    ]
+    "text": "Repaso sobre funciones y listas\nPodemos usar el problema de Fibonacci de la práctica para repasar las funciones y algunas propiedades de las listas en python. Ya que los valores de \\(f_n\\) se calculan una y otra vez, quizás podríamos guardar éstos mismos en algun listado. Una lista en python es cualquier cosa encerrada entre corchetes."
   },
   {
-    "objectID": "clases/Clase-03.html#funciones",
-    "href": "clases/Clase-03.html#funciones",
+    "objectID": "presentaciones/Clase-03.html#funciones",
+    "href": "presentaciones/Clase-03.html#funciones",
     "title": "Clase 03",
     "section": "Funciones",
-    "text": "Funciones\nLas definimos tal como en matemática\ndef f(x):\n  y=2*x\n  return y\nla palabra def es reservada para definir funciones. Luego del nombre, en el ejemplo es f entre parénteis van los argumentos. Luego, en el bloque central las instrucciones. La palabra return hace explicta la ejecución de la función y “devuelve” lo que se ponga allí. De todas formas, las funciones pueden imprimir en consola respuestas o valores sin necesida de que devuelvan un resultado mediante return.\ndef f(x):\n  y=2*x\n  print(y)\nla diferencia radica en que al imprimir, el resultado sólo esta visible en pantalla y no podemos volver a usar ese dato para otro cáculo o proceso. por ejemplo, si uno quisiera graficar la función f debería poder tener los valores de entrada y salida como pares ordenados y eso sólo podríamos lograrlo mediante el uso de return. Más adelante profundizaremos.\n\nPara Fibonacci\ndef fibo(n):\n  serie = [0,1]\n  ratio = [\"-\",1]\n  if n &lt;= 2:\n    print(serie[0:n]) # imprime desde las posiciones 0 a la n de la lista serie\n    print(ratio[0:n]) # imprime desde las posiciones 0 a la n de la lista ratio\n  else:\n\n    for i in range(1,n):\n      serie.append(serie[i]+serie[i-1])\n      ratio.append(serie[i+1]/serie[i])\n\n    print(serie)\n    print(ratio)\nSe puede definir un método recurrente (que se llama a sí mismo dentro de su definición) para calcular la sucesión de Fibonacci. Lo pueden googlear, pero es didácticamente basatante oscuro, por lo que no lo recomiendo como material de enseñanza.\nLo que si se puede hacer, es la versión mas sencilla, que también es un poco críptica pero más clara, que sería algo así:\ndef fib(n):\n    f_n = 0  # posición n\n    fn_1 = 1  # posición n+1\n\n1    for k in range(n):\n2        fn_2 = fn_1+ f_n\n3        f_n = fn_1\n4        fn_1 = fn_2\n\n        # para n=1\n        # fn_2 = 1+1\n        # f_n = 1\n        # f_n1 =2\n\n        # para n=2\n        # fn_2 = 2+1 =3\n        # f_n = 2\n        #fn_1 = 3\n\n        # para n=3\n        # fn_2 = 3+2= 5\n        # fn = 3\n        # fn_1 = 3\n\n    return f_n\n\nfor i in range(8):\n  print(fib(i))\n\n1\n\nrecorro de 0 a n calculando los valores\n\n2\n\nposición n+2, para n=0 fn_2 =&gt; vale 1=1+0\n\n3\n\nahora la posición n, que es la que se va a imprimir, se redefine como la posición siguiente f_n=1\n\n4\n\nla posiciión n+1 se define como lo que se obtuvo para n+2 y volvemos al inicio del bucle fn_1 = 1",
-    "crumbs": [
-      "Clases",
-      "Clase 03"
-    ]
+    "text": "Funciones\nLas definimos tal como en matemática\ndef f(x):\n  y=2*x\n  return y"
   },
   {
-    "objectID": "clases/Clase-01.html",
-    "href": "clases/Clase-01.html",
-    "title": "Clase 01",
+    "objectID": "presentaciones/Clase-03.html#para-fibonacci",
+    "href": "presentaciones/Clase-03.html#para-fibonacci",
+    "title": "Clase 03",
+    "section": "Para Fibonacci",
+    "text": "Para Fibonacci\ndef fibo(n):\n  serie = [0,1]\n  ratio = [\"-\",1]\n  if n &lt;= 2:\n    print(serie[0:n]) # imprime desde las posiciones 0 a la n de la lista serie\n    print(ratio[0:n]) # imprime desde las posiciones 0 a la n de la lista ratio\n  else:\n\n    for i in range(1,n):\n      serie.append(serie[i]+serie[i-1])\n      ratio.append(serie[i+1]/serie[i])\n\n    print(serie)\n    print(ratio)"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "C2-661",
     "section": "",
-    "text": "Código para escanear\n\n\n\n\nFigura 1: Formulario a completar",
-    "crumbs": [
-      "Clases",
-      "Clase 01"
-    ]
+    "text": "Profesor\n\n Prof. Federico Arabolaza\n federico.arabolaza@inspt.utn.edu.ar\n INSPT UTN\n\n\n\nCursada\n\n Triunvirato 3174\n Miércoles de 19:00 a 20:20\n\n\n\nSecciones\n\n Programa de la materia\n Calendario de clases\n Trabajos prácticos\n Clases\n Bibliografía\n Descargas"
   },
   {
-    "objectID": "clases/Clase-01.html#formulario-de-bienvenida",
-    "href": "clases/Clase-01.html#formulario-de-bienvenida",
-    "title": "Clase 01",
+    "objectID": "clases.html",
+    "href": "clases.html",
+    "title": "Clases",
     "section": "",
-    "text": "Código para escanear\n\n\n\n\nFigura 1: Formulario a completar",
-    "crumbs": [
-      "Clases",
-      "Clase 01"
-    ]
-  },
-  {
-    "objectID": "clases/Clase-01.html#intro-a-python",
-    "href": "clases/Clase-01.html#intro-a-python",
-    "title": "Clase 01",
-    "section": "Intro a Python",
-    "text": "Intro a Python\nEste documento es una adaptación de otro existente. Compilamos algunos recursos útiles para la materia\nManual de Python en español\nBibliografía de la materia",
-    "crumbs": [
-      "Clases",
-      "Clase 01"
-    ]
-  },
-  {
-    "objectID": "clases/Clase-01.html#tipos-de-variables",
-    "href": "clases/Clase-01.html#tipos-de-variables",
-    "title": "Clase 01",
-    "section": "Tipos de variables",
-    "text": "Tipos de variables\n\nNuméricas:\n\nint, float, long, complex\n\nstring\nbooleanas\n\nTrue / False\n\n\nSe resumen en la siguiente tabla:\n\nTipos de datos en Python\n\n\n\n\n\n\n\n\n\nTipo\nEjemplo\nDescripción\n\n\n\n\nstr\nx = 'abc'\nString: caracteres de texto\n\n\nint\nx = 1\nintegers (i.e., números enteros)\n\n\nfloat\nx = 1.0\nfloating-point numbers (i.e., números reales)\n\n\ncomplex\nx = 1 + 2j\nnúmeros complejos\n\n\nbool\nx = True\nBooleano: Verdadero/Falso\n\n\nNoneType\nx = None\nObjeto para designar el valor nulo\n\n\n\nSe usa la función type() para conocer el tipo de una variable\n\nFracciones\nBueno, las fracciones no son representaciones “típicas” en los lenguajes de programación, y en python, debemos usar los módulos específicos para operar con ellas. Más información acá. Veremos más adelante como trabjar con fracciones.\n\n\nstringIntegerFloatBooleanNone\n\n\n# String\nc = 'hello'\nprint(type(c))\n\n\n# Integer\na = 1\nprint(type(a))\n\n\n# Float\nb = 1.0\nprint(type(b))\n\n\n# Boolean\nd = True\nprint(type(d))\n\n\n# None\ne = None\nprint(type(e))",
-    "crumbs": [
-      "Clases",
-      "Clase 01"
-    ]
-  },
-  {
-    "objectID": "clases/Clase-01.html#operadores-de-cadenas-de-texto",
-    "href": "clases/Clase-01.html#operadores-de-cadenas-de-texto",
-    "title": "Clase 01",
-    "section": "Operadores de cadenas de texto",
-    "text": "Operadores de cadenas de texto\nLos operadores matemáticos son diferentes en las cadenas de texto, por ejemplo el sigo + se usa para unir cadenas\nRepeticiones: Se usa *n para repetir una cadena n veces\n# Asignar y combinar cadenas\na = 'Hello'\nb = 'World'\nprint(a + ' ' + b)\n# f-strings: reemplazarvalores de variables en cadenas\nfirstname = 'Beto'\nprint(f'Me llamo {firstname}')\n# Combininar f-strings\nfirstname = 'Beto'\nlastname = 'Velez'\n\nprint(f'My name is {firstname} {lastname}')\n# Repetir una cadena\nprint(str(a)*5)\n# Repetir un cadena con espacios\nprint(str(a+' ')*5)",
-    "crumbs": [
-      "Clases",
-      "Clase 01"
-    ]
-  },
-  {
-    "objectID": "clases/Clase-01.html#operadores-matemáticos",
-    "href": "clases/Clase-01.html#operadores-matemáticos",
-    "title": "Clase 01",
-    "section": "Operadores Matemáticos",
-    "text": "Operadores Matemáticos\nEn python tenemos los clásicos operadores matemáticos\n\n+, -, *, y /\nExponenciación **\nModulo % (Resto)\n\n\nAdiciónSustracciónMultiplicaciónDivisiónExponenciaciónModulo\n\n\na = 2 + 7\nprint(f'a = {a}')\n\n\nb = a - 5\nprint(f'b = a-5 = {a}-5 = {b}')\n\n\nprint(f'b*2 = {b}*2 = {b*2}')\n\n\nprint(f'a/3 = {a}/3 = {a/3}')\n\n\nprint(f'b^2 = b**2 = {b}**2 = {b**2}')\n\n\nModulo de vuelve el resto luego de dividir entre dos números\nprint('(Modulo de vuelve el resto luego de dividir entre dos números)')\nprint(f'el resto de  b/9 = resto de {b}/9 = {b%9}')",
-    "crumbs": [
-      "Clases",
-      "Clase 01"
-    ]
-  },
-  {
-    "objectID": "clases/Clase-01.html#operadores-lógicos",
-    "href": "clases/Clase-01.html#operadores-lógicos",
-    "title": "Clase 01",
-    "section": "Operadores lógicos",
-    "text": "Operadores lógicos\nHacen una comparación y devuelven un booleano (verdadero o falso)\nx == y # x es igual a y\nx != y # x no es igual a y\nx &gt; y # x es mayor que y\nx &lt; y # x es menor que y\nx &gt;= y # x es mayor o igual que y\nx &lt;= y # x es menor o igual que y\n\nEn cadenas de textoEn datos numéricos\n\n\na = 'hola'\nb = 'que tal'\nc = 'Hola'\nprint('a==b: ' + str(a==b))\nprint('a==c: ' + str(a==c))\nprint('a!=b: ' + str(a!=b))\nprint()\n\n\nd = 5\ne = 8\nprint('d &lt; e: ' + str(d &lt; e))\nprint('d &gt;= e: ' + str(d &gt;= e))",
-    "crumbs": [
-      "Clases",
-      "Clase 01"
-    ]
-  },
-  {
-    "objectID": "clases/Clase-01.html#ejercicios",
-    "href": "clases/Clase-01.html#ejercicios",
-    "title": "Clase 01",
-    "section": "Ejercicios",
-    "text": "Ejercicios\n\nCrear una variable de tipo numérica\nAsignar a la variable un número entero, por ejemplo “1” y ejecutar la función type sobre ella.\nAsignar a la variable un número con decimales ejemplo “3.5” y ejecutar la función type sobre ella.\nCrear dos variables, a una asignarle un valor numérico entero y a otra uno con lugares decimales, pero que coincidan. Por ejemplo “5” y “5.0” compararlos usando el operador lógico de igualdad. ¿Qué se obtiene?\nUsar la el operador módulo (resto) sobre diferentes números. ¿Cómo podría escribir un programa sencillo que me indique si un número es divible por otro? ¿Qué condiciones debería evaluar? ¿Qué operadores lógicos necesito?\nEscribir un diagrama de lo que debería hacer el programa del punto 5",
-    "crumbs": [
-      "Clases",
-      "Clase 01"
-    ]
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "Computación 1-661",
-    "section": "",
-    "text": "About this site"
+    "text": "Clase 01\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nClase 02\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nClase 03\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo hay resultados"
   },
   {
     "objectID": "clases/Clase-02.html",
@@ -382,18 +233,188 @@
     ]
   },
   {
-    "objectID": "clases.html",
-    "href": "clases.html",
-    "title": "Clases",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Computación 1-661",
     "section": "",
-    "text": "Clase 01\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nClase 02\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nClase 03\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo hay resultados"
+    "text": "About this site"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "C2-661",
+    "objectID": "clases/Clase-01.html",
+    "href": "clases/Clase-01.html",
+    "title": "Clase 01",
     "section": "",
-    "text": "Profesor\n\n Prof. Federico Arabolaza\n federico.arabolaza@inspt.utn.edu.ar\n INSPT UTN\n\n\n\nCursada\n\n Triunvirato 3174\n Miércoles de 19:00 a 20:20\n\n\n\nSecciones\n\n Programa de la materia\n Calendario de clases\n Trabajos prácticos\n Clases\n Bibliografía\n Descargas"
+    "text": "Código para escanear\n\n\n\n\nFigura 1: Formulario a completar",
+    "crumbs": [
+      "Clases",
+      "Clase 01"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-01.html#formulario-de-bienvenida",
+    "href": "clases/Clase-01.html#formulario-de-bienvenida",
+    "title": "Clase 01",
+    "section": "",
+    "text": "Código para escanear\n\n\n\n\nFigura 1: Formulario a completar",
+    "crumbs": [
+      "Clases",
+      "Clase 01"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-01.html#intro-a-python",
+    "href": "clases/Clase-01.html#intro-a-python",
+    "title": "Clase 01",
+    "section": "Intro a Python",
+    "text": "Intro a Python\nEste documento es una adaptación de otro existente. Compilamos algunos recursos útiles para la materia\nManual de Python en español\nBibliografía de la materia",
+    "crumbs": [
+      "Clases",
+      "Clase 01"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-01.html#tipos-de-variables",
+    "href": "clases/Clase-01.html#tipos-de-variables",
+    "title": "Clase 01",
+    "section": "Tipos de variables",
+    "text": "Tipos de variables\n\nNuméricas:\n\nint, float, long, complex\n\nstring\nbooleanas\n\nTrue / False\n\n\nSe resumen en la siguiente tabla:\n\nTipos de datos en Python\n\n\n\n\n\n\n\n\n\nTipo\nEjemplo\nDescripción\n\n\n\n\nstr\nx = 'abc'\nString: caracteres de texto\n\n\nint\nx = 1\nintegers (i.e., números enteros)\n\n\nfloat\nx = 1.0\nfloating-point numbers (i.e., números reales)\n\n\ncomplex\nx = 1 + 2j\nnúmeros complejos\n\n\nbool\nx = True\nBooleano: Verdadero/Falso\n\n\nNoneType\nx = None\nObjeto para designar el valor nulo\n\n\n\nSe usa la función type() para conocer el tipo de una variable\n\nFracciones\nBueno, las fracciones no son representaciones “típicas” en los lenguajes de programación, y en python, debemos usar los módulos específicos para operar con ellas. Más información acá. Veremos más adelante como trabjar con fracciones.\n\n\nstringIntegerFloatBooleanNone\n\n\n# String\nc = 'hello'\nprint(type(c))\n\n\n# Integer\na = 1\nprint(type(a))\n\n\n# Float\nb = 1.0\nprint(type(b))\n\n\n# Boolean\nd = True\nprint(type(d))\n\n\n# None\ne = None\nprint(type(e))",
+    "crumbs": [
+      "Clases",
+      "Clase 01"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-01.html#operadores-de-cadenas-de-texto",
+    "href": "clases/Clase-01.html#operadores-de-cadenas-de-texto",
+    "title": "Clase 01",
+    "section": "Operadores de cadenas de texto",
+    "text": "Operadores de cadenas de texto\nLos operadores matemáticos son diferentes en las cadenas de texto, por ejemplo el sigo + se usa para unir cadenas\nRepeticiones: Se usa *n para repetir una cadena n veces\n# Asignar y combinar cadenas\na = 'Hello'\nb = 'World'\nprint(a + ' ' + b)\n# f-strings: reemplazarvalores de variables en cadenas\nfirstname = 'Beto'\nprint(f'Me llamo {firstname}')\n# Combininar f-strings\nfirstname = 'Beto'\nlastname = 'Velez'\n\nprint(f'My name is {firstname} {lastname}')\n# Repetir una cadena\nprint(str(a)*5)\n# Repetir un cadena con espacios\nprint(str(a+' ')*5)",
+    "crumbs": [
+      "Clases",
+      "Clase 01"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-01.html#operadores-matemáticos",
+    "href": "clases/Clase-01.html#operadores-matemáticos",
+    "title": "Clase 01",
+    "section": "Operadores Matemáticos",
+    "text": "Operadores Matemáticos\nEn python tenemos los clásicos operadores matemáticos\n\n+, -, *, y /\nExponenciación **\nModulo % (Resto)\n\n\nAdiciónSustracciónMultiplicaciónDivisiónExponenciaciónModulo\n\n\na = 2 + 7\nprint(f'a = {a}')\n\n\nb = a - 5\nprint(f'b = a-5 = {a}-5 = {b}')\n\n\nprint(f'b*2 = {b}*2 = {b*2}')\n\n\nprint(f'a/3 = {a}/3 = {a/3}')\n\n\nprint(f'b^2 = b**2 = {b}**2 = {b**2}')\n\n\nModulo de vuelve el resto luego de dividir entre dos números\nprint('(Modulo de vuelve el resto luego de dividir entre dos números)')\nprint(f'el resto de  b/9 = resto de {b}/9 = {b%9}')",
+    "crumbs": [
+      "Clases",
+      "Clase 01"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-01.html#operadores-lógicos",
+    "href": "clases/Clase-01.html#operadores-lógicos",
+    "title": "Clase 01",
+    "section": "Operadores lógicos",
+    "text": "Operadores lógicos\nHacen una comparación y devuelven un booleano (verdadero o falso)\nx == y # x es igual a y\nx != y # x no es igual a y\nx &gt; y # x es mayor que y\nx &lt; y # x es menor que y\nx &gt;= y # x es mayor o igual que y\nx &lt;= y # x es menor o igual que y\n\nEn cadenas de textoEn datos numéricos\n\n\na = 'hola'\nb = 'que tal'\nc = 'Hola'\nprint('a==b: ' + str(a==b))\nprint('a==c: ' + str(a==c))\nprint('a!=b: ' + str(a!=b))\nprint()\n\n\nd = 5\ne = 8\nprint('d &lt; e: ' + str(d &lt; e))\nprint('d &gt;= e: ' + str(d &gt;= e))",
+    "crumbs": [
+      "Clases",
+      "Clase 01"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-01.html#ejercicios",
+    "href": "clases/Clase-01.html#ejercicios",
+    "title": "Clase 01",
+    "section": "Ejercicios",
+    "text": "Ejercicios\n\nCrear una variable de tipo numérica\nAsignar a la variable un número entero, por ejemplo “1” y ejecutar la función type sobre ella.\nAsignar a la variable un número con decimales ejemplo “3.5” y ejecutar la función type sobre ella.\nCrear dos variables, a una asignarle un valor numérico entero y a otra uno con lugares decimales, pero que coincidan. Por ejemplo “5” y “5.0” compararlos usando el operador lógico de igualdad. ¿Qué se obtiene?\nUsar la el operador módulo (resto) sobre diferentes números. ¿Cómo podría escribir un programa sencillo que me indique si un número es divible por otro? ¿Qué condiciones debería evaluar? ¿Qué operadores lógicos necesito?\nEscribir un diagrama de lo que debería hacer el programa del punto 5",
+    "crumbs": [
+      "Clases",
+      "Clase 01"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-03.html",
+    "href": "clases/Clase-03.html",
+    "title": "Clase 03",
+    "section": "",
+    "text": "Temario\n\n\n\nEn esta clase veremos:\n\nComo definir una función\nLos métodos más comunes de las listas\nUsaremos los anterior para resolver de mejor forma algunas situaciones",
+    "crumbs": [
+      "Clases",
+      "Clase 03"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-03.html#repaso-sobre-funciones-y-listas",
+    "href": "clases/Clase-03.html#repaso-sobre-funciones-y-listas",
+    "title": "Clase 03",
+    "section": "Repaso sobre funciones y listas",
+    "text": "Repaso sobre funciones y listas\nPodemos usar el problema de Fibonacci de la práctica para repasar las funciones y algunas propiedades de las listas en python. Ya que los valores de \\(f_n\\) se calculan una y otra vez, quizás podríamos guardar éstos mismos en algun listado. Una lista en python es cualquier cosa encerrada entre corchetes.\nlista = []\narriba vemos una lista vacía\nlista = [2,3]\nLista con dos elementos numéricos\nlista = [2.0,2,'boca','river']\nLista con elementos mixtos\nlista[2]\nnos devuelve el elemento que ocula la posición 2 (recordar que los índices empiezan en cero)\nlista[2] = 'velez'\nasigna el dato ingresado en la posición 2 de la lista.\npodemos agregar un valor al final de una lista usando\nlista.append('mi nuevo valor')",
+    "crumbs": [
+      "Clases",
+      "Clase 03"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-03.html#funciones",
+    "href": "clases/Clase-03.html#funciones",
+    "title": "Clase 03",
+    "section": "Funciones",
+    "text": "Funciones\nLas definimos tal como en matemática\ndef f(x):\n  y=2*x\n  return y\nla palabra def es reservada para definir funciones. Luego del nombre, en el ejemplo es f entre parénteis van los argumentos. Luego, en el bloque central las instrucciones. La palabra return hace explicta la ejecución de la función y “devuelve” lo que se ponga allí. De todas formas, las funciones pueden imprimir en consola respuestas o valores sin necesida de que devuelvan un resultado mediante return.\ndef f(x):\n  y=2*x\n  print(y)\nla diferencia radica en que al imprimir, el resultado sólo esta visible en pantalla y no podemos volver a usar ese dato para otro cáculo o proceso. por ejemplo, si uno quisiera graficar la función f debería poder tener los valores de entrada y salida como pares ordenados y eso sólo podríamos lograrlo mediante el uso de return. Más adelante profundizaremos.\n\nPara Fibonacci\ndef fibo(n):\n  serie = [0,1]\n  ratio = [\"-\",1]\n  if n &lt;= 2:\n    print(serie[0:n]) # imprime desde las posiciones 0 a la n de la lista serie\n    print(ratio[0:n]) # imprime desde las posiciones 0 a la n de la lista ratio\n  else:\n\n    for i in range(1,n):\n      serie.append(serie[i]+serie[i-1])\n      ratio.append(serie[i+1]/serie[i])\n\n    print(serie)\n    print(ratio)\nSe puede definir un método recurrente (que se llama a sí mismo dentro de su definición) para calcular la sucesión de Fibonacci. Lo pueden googlear, pero es didácticamente basatante oscuro, por lo que no lo recomiendo como material de enseñanza.\nLo que si se puede hacer, es la versión mas sencilla, que también es un poco críptica pero más clara, que sería algo así:\ndef fib(n):\n    f_n = 0  # posición n\n    fn_1 = 1  # posición n+1\n\n1    for k in range(n):\n2        fn_2 = fn_1+ f_n\n3        f_n = fn_1\n4        fn_1 = fn_2\n\n        # para n=1\n        # fn_2 = 1+1\n        # f_n = 1\n        # f_n1 =2\n\n        # para n=2\n        # fn_2 = 2+1 =3\n        # f_n = 2\n        #fn_1 = 3\n\n        # para n=3\n        # fn_2 = 3+2= 5\n        # fn = 3\n        # fn_1 = 3\n\n    return f_n\n\nfor i in range(8):\n  print(fib(i))\n\n1\n\nrecorro de 0 a n calculando los valores\n\n2\n\nposición n+2, para n=0 fn_2 =&gt; vale 1=1+0\n\n3\n\nahora la posición n, que es la que se va a imprimir, se redefine como la posición siguiente f_n=1\n\n4\n\nla posiciión n+1 se define como lo que se obtuvo para n+2 y volvemos al inicio del bucle fn_1 = 1\n\n\nPresentación",
+    "crumbs": [
+      "Clases",
+      "Clase 03"
+    ]
+  },
+  {
+    "objectID": "presentaciones/Clase-02.html#condicional-if",
+    "href": "presentaciones/Clase-02.html#condicional-if",
+    "title": "Presentación Clase 02",
+    "section": "Condicional if",
+    "text": "Condicional if\nEn python las secuencias se encierran en bloques indentados, con tabulaciones\nSintaxis (ver los espacios):\nif condicion:\n    hace_algo\nelif condicion:\n    hace_esta_otra_cosa\nelse:\n    haga_esto_otro # se suele usar para errores\n                 # luego de una lista de opciones\nn = 2\n\nif n:\n    print(\"n no es cero o no es null\")\n\nif n is None:\n    print(\"n es None\")\n\nif n is not str:\n    print(\"n no es una cadena de texto\")"
+  },
+  {
+    "objectID": "presentaciones/Clase-02.html#bucle-for",
+    "href": "presentaciones/Clase-02.html#bucle-for",
+    "title": "Presentación Clase 02",
+    "section": "Bucle for",
+    "text": "Bucle for\nEl bucle for es quizás la construcción más habitual en python. Su sintaxis es\nfor elemento in secuencia:\n    haga_esto"
+  },
+  {
+    "objectID": "presentaciones/Clase-02.html#estructura-while",
+    "href": "presentaciones/Clase-02.html#estructura-while",
+    "title": "Presentación Clase 02",
+    "section": "Estructura while",
+    "text": "Estructura while\nSe puede usar también un bucle while para iterar mientras una condición sea verdadera:\nwhile condción :\n    hacer_esto"
+  },
+  {
+    "objectID": "presentaciones/Clase-02.html#estructura-try-except",
+    "href": "presentaciones/Clase-02.html#estructura-try-except",
+    "title": "Presentación Clase 02",
+    "section": "Estructura try-except",
+    "text": "Estructura try-except\nSe puede atrapar o “atajar” errores usando esta estructura. Cada vez que el programa de como resultado un error (un dato mal ingresado o no válido) podremos especificar que hacer. Se puede indicar incluso una respuesta diferente para errores de distinto tipo.\n\ntry:\n    acción_a_intentar\nexcept:\n    que_hacer_si_ocurre_un_error"
+  },
+  {
+    "objectID": "presentaciones/Clase-02.html#listas",
+    "href": "presentaciones/Clase-02.html#listas",
+    "title": "Presentación Clase 02",
+    "section": "Listas",
+    "text": "Listas\nUna lista es una arreglo mutable. Lo que quiere decir que podemos redefinir y alterar sus valores - Cada valor en la lista es un elemento o item - Los elementos pueden ser cualquier objeto - Las listas pueden contener objetos de diferente tipo - Una lista vaciía se define como [] o como list()"
+  },
+  {
+    "objectID": "presentaciones/Clase-02.html#diccionarios",
+    "href": "presentaciones/Clase-02.html#diccionarios",
+    "title": "Presentación Clase 02",
+    "section": "Diccionarios",
+    "text": "Diccionarios\n\nUn diccionario (dict) es un mapeo entre un conjunto de índices (keys) y otro de valores (values)\nCada objeto de un diccionario es un par índice-valor (key-value)\nLas claves pueden ser cualquier tipo de dato\nLos diccionarios no tienen un orden prestablecido"
+  },
+  {
+    "objectID": "presentaciones/Clase-02.html#una-función",
+    "href": "presentaciones/Clase-02.html#una-función",
+    "title": "Presentación Clase 02",
+    "section": "Una función",
+    "text": "Una función\n\nEntre paréntesis están los argumentos.\nSe puede decir que una función “toma” un argumento y “devuelve” un resultado.\nAl resultado se lo suele llamar valor de retorno.\nNo es necesario que una función retorne un valor\n\nLa primera línea de la función se la llama encabezado (header) y a las restantes el cuerpo (body).\nEl ebcabezado va encerrado entre comillas y el cuerpo tiene que estar indentado. La indentación común es de 4 espacios y un error común es que el software que se usa confunda tabulaciones con indentación. Apretar la tecla tab, si el software está bien configurado, debería hacer los 4 espacios y no una tabulación. Esto parece una aclaración contradictoria y poco relevante, pero como se dijo más arriba, es una fuente común de errores en la ejecución de código: si hay tabulaciones en donde deberían estar los 4 espacios de la indentación, el código no se ejecuta.\nEl cuerpo de una función termina cuando se vuelve al nivel anterior de indentación.\nPara consultar más acerca de funciones, pueden visitar la ayuda de Python oficial"
+  },
+  {
+    "objectID": "presentaciones/Clase-02.html#funciones-para-recibir-entradas-del-usuario",
+    "href": "presentaciones/Clase-02.html#funciones-para-recibir-entradas-del-usuario",
+    "title": "Presentación Clase 02",
+    "section": "Funciones para recibir entradas del usuario",
+    "text": "Funciones para recibir entradas del usuario\nUna función para permitir al usuario interactuar con el código ingresando valores es la función input() cuyo funcionamiento se ejemplifica a continuación:\nuser_input = input(\"Ingrese algo: \")\nprint(f\"Usted ha ingresado: {user_input}\")\nHay que tener en cuenta que la función input entiende todo lo que ingresemos a ella como si fuera texto, por lo que si deseamos recibir valores numéricos debemos convertir lo que recibamos. Por ejemplo:\n1price = float(input(\"Ingrese el precio: \"))\nprint(f\"El precio es {price}\")\n\n2age = int(input(\"Ingrese su edad: \"))\nprint(f\"Usted tiene {age} años\")\n\n1\n\nSe convierte a un número float\n\n2\n\nSe convierte a un número entero int\n\n\nEjemplo\nPara interrumpir la ejecución podemos usar una combinación de while, try- except como se muestra en este ejemplo que saqué de esta web:\nwhile True:\n    try:\n1        number = int(input(\"Enter an integer: \"))\n2        break\n3    except ValueError:\n4        print(\"Invalid input! Please enter a valid integer.\")\n\n1\n\nConvierte la entrada a un entero\n\n2\n\nSi tiene éxito interrumpe el programa ahí mismo\n\n3\n\nEn caso de recibir una excepción del tipo ValueError\n\n4\n\nImprime un texto de referencia."
   },
   {
     "objectID": "presentaciones/test.html",
