@@ -78,9 +78,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-subtitle','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+      searchColumns: ["listing-title","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -305,97 +305,84 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1747250750277" data-listing-reading-time-sort="5" data-listing-word-count-sort="821">
-<div class="thumbnail">
-<p><a href="./clases/Clase-01.html" class="no-external"></a></p><a href="./clases/Clase-01.html" class="no-external">
-<p class="card-img-top"><img src="assets\qrcode-1-clase.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./clases/Clase-01.html" class="no-external"></a></p>
+<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-listing-sort" class="form-select" aria-label="Ordenar por" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Ordenar por</option>
+       <option value="index" data-direction="asc">Por defecto</option>
+         <option value="listing-title-sort" data-direction="asc">
+          Título
+        </option>
+     </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filtro">
+    </div>
 </div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./clases/Clase-01.html" class="no-external">Clase 01: Intro a Python</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./clases/Clase-01.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./clases/Clase-01.html" class="no-external">Este documento es una adaptación de otro existente. Compilamos algunos recursos útiles para la materia</a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./clases/Clase-01.html" class="no-external"></a></p><a href="./clases/Clase-01.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-file-modified-sort="1744228985150" data-listing-reading-time-sort="9" data-listing-word-count-sort="1625">
-<div class="thumbnail">
-<p><a href="./clases/Clase-02.html" class="no-external"></a></p><a href="./clases/Clase-02.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./clases/Clase-02.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./clases/Clase-02.html" class="no-external">Clase 02</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./clases/Clase-02.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./clases/Clase-02.html" class="no-external">Presentación <i class="fa-solid fa-clapperboard" aria-label="clapperboard"></i></a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./clases/Clase-02.html" class="no-external"></a></p><a href="./clases/Clase-02.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-listing-file-modified-sort="1745268327842" data-listing-reading-time-sort="4" data-listing-word-count-sort="690">
-<div class="thumbnail">
-<p><a href="./clases/Clase-03.html" class="no-external"></a></p><a href="./clases/Clase-03.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./clases/Clase-03.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./clases/Clase-03.html" class="no-external">Clase 03</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./clases/Clase-03.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./clases/Clase-03.html" class="no-external">En esta clase veremos:</a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./clases/Clase-03.html" class="no-external"></a></p><a href="./clases/Clase-03.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-listing-file-modified-sort="1747250257454" data-listing-reading-time-sort="4" data-listing-word-count-sort="682">
-<div class="thumbnail">
-<p><a href="./clases/Clase-04.html" class="no-external"></a></p><a href="./clases/Clase-04.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./clases/Clase-04.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./clases/Clase-04.html" class="no-external">Clase 04</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./clases/Clase-04.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./clases/Clase-04.html" class="no-external">Para agregar a nuestro espacio de trabajo las funciones que un módulo de python nos provee debemos importarlo. La sintaxis sigue algunas de estas convenciones</a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./clases/Clase-04.html" class="no-external"></a></p><a href="./clases/Clase-04.html" class="no-external">
-</a>
-</div>
-</div>
-</div>
+<table class="quarto-listing-table table">
+<thead>
+<tr>
+<th>
+<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Título</a>
+</th>
+<th>
+Subtítulo
+</th>
+<th>
+Descripción
+</th>
+</tr>
+</thead>
+<tbody class="list">
+<tr data-index="0" data-listing-file-modified-sort="1747250820362" data-listing-reading-time-sort="5" data-listing-word-count-sort="821" data-listing-title-sort="Clase 01: Intro a Python" data-listing-filename-sort="Clase-01.qmd">
+<td>
+<a href="./clases/Clase-01.html" class="title listing-title">Clase 01: Intro a Python</a>
+</td>
+<td>
+<span class="listing-subtitle">&nbsp;</span>
+</td>
+<td>
+<span class="listing-description">Este documento es una adaptación de otro existente. Compilamos algunos recursos útiles para la materia</span>
+</td>
+</tr>
+<tr data-index="1" data-listing-file-modified-sort="1744228985150" data-listing-reading-time-sort="9" data-listing-word-count-sort="1625" data-listing-title-sort="Clase 02" data-listing-filename-sort="Clase-02.qmd">
+<td>
+<a href="./clases/Clase-02.html" class="title listing-title">Clase 02</a>
+</td>
+<td>
+<span class="listing-subtitle">&nbsp;</span>
+</td>
+<td>
+<span class="listing-description">Presentación <i class="fa-solid fa-clapperboard" aria-label="clapperboard"></i></span>
+</td>
+</tr>
+<tr data-index="2" data-listing-file-modified-sort="1745268327842" data-listing-reading-time-sort="4" data-listing-word-count-sort="690" data-listing-title-sort="Clase 03" data-listing-filename-sort="Clase-03.qmd">
+<td>
+<a href="./clases/Clase-03.html" class="title listing-title">Clase 03</a>
+</td>
+<td>
+<span class="listing-subtitle">&nbsp;</span>
+</td>
+<td>
+<span class="listing-description">En esta clase veremos:</span>
+</td>
+</tr>
+<tr data-index="3" data-listing-file-modified-sort="1747251315482" data-listing-reading-time-sort="4" data-listing-word-count-sort="682" data-listing-title-sort="Clase 04" data-listing-filename-sort="Clase-04.qmd">
+<td>
+<a href="./clases/Clase-04.html" class="title listing-title">Clase 04</a>
+</td>
+<td>
+<span class="listing-subtitle">&nbsp;</span>
+</td>
+<td>
+<span class="listing-description">Para agregar a nuestro espacio de trabajo las funciones que un módulo de python nos provee debemos importarlo. La sintaxis sigue algunas de estas convenciones</span>
+</td>
+</tr>
+</tbody>
+</table>
 <div class="listing-no-matching d-none">
 No hay resultados
 </div>
