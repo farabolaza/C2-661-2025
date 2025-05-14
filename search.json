@@ -405,7 +405,40 @@
     "href": "clases/Clase-04.html#arange-y-linspace",
     "title": "Clase 04",
     "section": "Arange y Linspace",
-    "text": "Arange y Linspace\nImportamos numpy\nimport numpy as np\nPodemos crear un array desde cero usando algunas funciones que vienen con numpy\na = np.arange(15) # Array que va de 0 a 14\nLa sintaxis completa es siimlar a la función range de python\na = np.arange(inicio,fin,paso)\nPodmemos crear un array usando la función linspace que es más conveniente cuando queremos usar datos equiespaciados en una cantidad no entera\nnp.linspace(0,10,20) # inicio, fin, cantidad de elementos\n\nArray desde una lista\nEs posible convertir datos de otro origen al formato de array de numpy pero no desde elementos indivuduales\na = np.array(1,2,3,4)   # MAL\na = np.array([1,2,3,4]) # BIEN\na = np.array((1,2,3,4))  # BIEN\n\n\nArray desde tuplas\narray también puede transformar conjuntos de tuplas o secuencias de secuencias en arreglos n-dimensionales. Por ejemplo:\nc = np.array([(1.5, 2 ,3), (4, 5, 6), (7.1, 7.2, 7.3)])\nprint(c)\nprint(c.shape)\n\n\nZeros, Ones, empty\nLa función zeros crea un array de ceros, la función ones crea un array de unos y la función random.rand crea un array de valores float aleatorios en el intervalo [0,1] mientras que la función empty crea un array cuyo contenido depende de lo que haya en memoria (sinceramente nunca usé esta función) con el tipo float64.\nExisten otras funciones como zeros_like que crea arrays del tamaño de otro objeto, útil cuando queremos que dos arrays tengan el mismo tamaño.\n\nZerosOneEmptyZeros LikeAlgunos atributosManipulación de arraysActividad\n\n\nnp.zeros((3,4))\n\n\ntest = np.ones((2,3,4), dtype=np.int16)\nprint(test)\n\n\nnp.empty((2,3))\n\n\nC =np.zeros_like(B)\nnp.size(C)\nprint(C)\n\n\nA este elemento le podemos consultar los atributos que vimos en la sección anterior\n\ndtypendimitemsizesize\n\n\nprint(a.shape)\n\n\nprint(a.ndim)\n\n\nprint(a.dtype.name)\n\n\nprint(a.itemsize)\nprint(a.size)\n\n\n\n\n\nLas funciones típicas son: - ravel() aplana el array - reshape() cambia la forma - transpose() lo transpone\nPodemos crear un array con valores aleatorios usando el submódulo random de numpy.\n1ejemplo = np.random.rand(4,4)\nprint(ejemplo)\n\n1\n\nUn array (matriz) de 4x4\n\n\n1example_flat = example.ravel()\nprint(example_flat)\n\n1\n\ndevuelve el array, “aplanado”\n\n\n1example_flat.reshape(2,8)\n\n1\n\nDevuelve el array pero como una matriz de 2x8\n\n\n1example_flat.reshape(4,4)\n\n1\n\nDevuelve el array a su forma original\n\n\n1test = np.random.rand(2,3,6)\n2print(test.ravel())\n3print(example.transpose())\n\n1\n\nDos arrays que contienen a su vez arrays de 2x3 (CxF)\n\n2\n\nAplana el array\n\n3\n\nTranspone (invierte filas y columnas)\n\n\nLa función rand() merece un apartado en sí misma y la veremos más adelante pero genera desde un array con un sólo elemento aleatorio entre cero y uno o arrays de cualquier forma.\n\n\nUsando el módulo de ayuda buscar las funciones que permiten en numpy calcular:\n\nel valor medio\nla desviación estándar\nLa sumatoria de un array\nEl valor máximo de un array\nEl valor mínimo de un array",
+    "text": "Arange y Linspace\nImportamos numpy\nimport numpy as np\nPodemos crear un array desde cero usando algunas funciones que vienen con numpy\na = np.arange(15) # Array que va de 0 a 14\nLa sintaxis completa es siimlar a la función range de python\na = np.arange(inicio,fin,paso)\nPodmemos crear un array usando la función linspace que es más conveniente cuando queremos usar datos equiespaciados en una cantidad no entera\nnp.linspace(0,10,20) # inicio, fin, cantidad de elementos\n\nArray desde una lista\nEs posible convertir datos de otro origen al formato de array de numpy pero no desde elementos indivuduales\na = np.array(1,2,3,4)   # MAL\na = np.array([1,2,3,4]) # BIEN\na = np.array((1,2,3,4))  # BIEN\n\n\nArray desde tuplas\narray también puede transformar conjuntos de tuplas o secuencias de secuencias en arreglos n-dimensionales. Por ejemplo:\nc = np.array([(1.5, 2 ,3), (4, 5, 6), (7.1, 7.2, 7.3)])\nprint(c)\nprint(c.shape)\n\n\nZeros, Ones, empty\nLa función zeros crea un array de ceros, la función ones crea un array de unos y la función random.rand crea un array de valores float aleatorios en el intervalo [0,1] mientras que la función empty crea un array cuyo contenido depende de lo que haya en memoria (sinceramente nunca usé esta función) con el tipo float64.\nExisten otras funciones como zeros_like que crea arrays del tamaño de otro objeto, útil cuando queremos que dos arrays tengan el mismo tamaño.\n\nZerosOneEmptyZeros Like\n\n\nnp.zeros((3,4))\n\n\ntest = np.ones((2,3,4), dtype=np.int16)\nprint(test)\n\n\nnp.empty((2,3))\n\n\nC =np.zeros_like(B)\nnp.size(C)\nprint(C)",
+    "crumbs": [
+      "Clases",
+      "Clase 04"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-04.html#algunos-atributos",
+    "href": "clases/Clase-04.html#algunos-atributos",
+    "title": "Clase 04",
+    "section": "Algunos atributos",
+    "text": "Algunos atributos\nA este elemento le podemos consultar los atributos que vimos en la sección anterior\n\ndtypendimitemsizesize\n\n\nprint(a.shape)\n\n\nprint(a.ndim)\n\n\nprint(a.dtype.name)\n\n\nprint(a.itemsize)\nprint(a.size)",
+    "crumbs": [
+      "Clases",
+      "Clase 04"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-04.html#manipulación-de-arrays",
+    "href": "clases/Clase-04.html#manipulación-de-arrays",
+    "title": "Clase 04",
+    "section": "Manipulación de arrays",
+    "text": "Manipulación de arrays\nLas funciones típicas son: - ravel() aplana el array - reshape() cambia la forma - transpose() lo transpone\nPodemos crear un array con valores aleatorios usando el submódulo random de numpy.\n1ejemplo = np.random.rand(4,4)\nprint(ejemplo)\n\n1\n\nUn array (matriz) de 4x4\n\n\n1example_flat = example.ravel()\nprint(example_flat)\n\n1\n\ndevuelve el array, “aplanado”\n\n\n1example_flat.reshape(2,8)\n\n1\n\nDevuelve el array pero como una matriz de 2x8\n\n\n1example_flat.reshape(4,4)\n\n1\n\nDevuelve el array a su forma original\n\n\n1test = np.random.rand(2,3,6)\n2print(test.ravel())\n3print(example.transpose())\n\n1\n\nDos arrays que contienen a su vez arrays de 2x3 (CxF)\n\n2\n\nAplana el array\n\n3\n\nTranspone (invierte filas y columnas)\n\n\nLa función rand() merece un apartado en sí misma y la veremos más adelante pero genera desde un array con un sólo elemento aleatorio entre cero y uno o arrays de cualquier forma.",
+    "crumbs": [
+      "Clases",
+      "Clase 04"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-04.html#actividad",
+    "href": "clases/Clase-04.html#actividad",
+    "title": "Clase 04",
+    "section": "Actividad",
+    "text": "Actividad\nUsando el módulo de ayuda buscar las funciones que permiten en numpy calcular:\n\nel valor medio\nla desviación estándar\nLa sumatoria de un array\nEl valor máximo de un array\nEl valor mínimo de un array",
     "crumbs": [
       "Clases",
       "Clase 04"
