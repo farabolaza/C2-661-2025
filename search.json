@@ -1,5 +1,579 @@
 [
   {
+    "objectID": "trabajos practicos/TP 03.html",
+    "href": "trabajos practicos/TP 03.html",
+    "title": "TP 03",
+    "section": "",
+    "text": "PlanteoPista\n\n\nEscribir un programa que tome un array de longitud desconocida e imprima la sumatoria de todos sus valores y el promedio\n\n\n\nUsar un bucle for para recorrer los elementos del array o lista\nUsar las funciones mean() y sum()\nEncerrar todo en una función\n\n\n\n\n\n\n\n\nPlanteoPista\n\n\nElaborar una función que tome como parámetros de entrada un número entero y un array o lista y que devuelva el elemento del array que se encuentra en la posición indicada. En caso de que se ingrese un índice fuera de rango, devolver un mensaje de error.\n\n\nUsar el indexado A[n] y combinarlo con if, elif, else\n\n\n\n\n\n\n\nPlanteoPista\n\n\nRealizar un programa que solicite el ingreso de números enteros hasta que se ingrese el cero. A continuación debe imprimir el máximo, el promedio y la suma de todos los números ingresados. Intente usar las funciones de numpy para ahorrase trabajo (y resolvimos estre problema anteriormente)\n\n\nInvestigue las funciones estadísticas de Numpy. Puede usar un bucle while para interrumpir la entrada de datos.\n\n\n\n\n\n\n\nPlanteoPista\n\n\nRealizar un programa que genere un vector tiempo con números del 0 al 3 con un paso de 0.1 segundos. A continuación se debe llenar un vector posiciones que calcule las posiciones correspondientes a un tiro vertical de 3 segundos de duración que comience con velocidad inicial 30 m/s, y una altura inicial de 45 m. Si ambos vectores tienen el mismo tamaño agregando:\nimport matplotlib.pyplot as plt\nal principio del código, se pueden graficar ambos vectores mediante el comando plt.plot(t,y)\n\n\n\nEl vector t se puede crear usando linspace o arrange\nLa expresión \\(y(t)\\) será tratada automáticamente como un array de numpy",
+    "crumbs": [
+      "trabajos practicos",
+      "TP 03"
+    ]
+  },
+  {
+    "objectID": "trabajos practicos/TP 03.html#suma-y-promedio",
+    "href": "trabajos practicos/TP 03.html#suma-y-promedio",
+    "title": "TP 03",
+    "section": "",
+    "text": "PlanteoPista\n\n\nEscribir un programa que tome un array de longitud desconocida e imprima la sumatoria de todos sus valores y el promedio\n\n\n\nUsar un bucle for para recorrer los elementos del array o lista\nUsar las funciones mean() y sum()\nEncerrar todo en una función",
+    "crumbs": [
+      "trabajos practicos",
+      "TP 03"
+    ]
+  },
+  {
+    "objectID": "trabajos practicos/TP 03.html#encuentra-el-elemento",
+    "href": "trabajos practicos/TP 03.html#encuentra-el-elemento",
+    "title": "TP 03",
+    "section": "",
+    "text": "PlanteoPista\n\n\nElaborar una función que tome como parámetros de entrada un número entero y un array o lista y que devuelva el elemento del array que se encuentra en la posición indicada. En caso de que se ingrese un índice fuera de rango, devolver un mensaje de error.\n\n\nUsar el indexado A[n] y combinarlo con if, elif, else",
+    "crumbs": [
+      "trabajos practicos",
+      "TP 03"
+    ]
+  },
+  {
+    "objectID": "trabajos practicos/TP 03.html#encontrar-el-máximo",
+    "href": "trabajos practicos/TP 03.html#encontrar-el-máximo",
+    "title": "TP 03",
+    "section": "",
+    "text": "PlanteoPista\n\n\nRealizar un programa que solicite el ingreso de números enteros hasta que se ingrese el cero. A continuación debe imprimir el máximo, el promedio y la suma de todos los números ingresados. Intente usar las funciones de numpy para ahorrase trabajo (y resolvimos estre problema anteriormente)\n\n\nInvestigue las funciones estadísticas de Numpy. Puede usar un bucle while para interrumpir la entrada de datos.",
+    "crumbs": [
+      "trabajos practicos",
+      "TP 03"
+    ]
+  },
+  {
+    "objectID": "trabajos practicos/TP 03.html#graficando-con-matplotlib-spolier",
+    "href": "trabajos practicos/TP 03.html#graficando-con-matplotlib-spolier",
+    "title": "TP 03",
+    "section": "",
+    "text": "PlanteoPista\n\n\nRealizar un programa que genere un vector tiempo con números del 0 al 3 con un paso de 0.1 segundos. A continuación se debe llenar un vector posiciones que calcule las posiciones correspondientes a un tiro vertical de 3 segundos de duración que comience con velocidad inicial 30 m/s, y una altura inicial de 45 m. Si ambos vectores tienen el mismo tamaño agregando:\nimport matplotlib.pyplot as plt\nal principio del código, se pueden graficar ambos vectores mediante el comando plt.plot(t,y)\n\n\n\nEl vector t se puede crear usando linspace o arrange\nLa expresión \\(y(t)\\) será tratada automáticamente como un array de numpy",
+    "crumbs": [
+      "trabajos practicos",
+      "TP 03"
+    ]
+  },
+  {
+    "objectID": "trabajos practicos/TP 01.html",
+    "href": "trabajos practicos/TP 01.html",
+    "title": "TP 01",
+    "section": "",
+    "text": "PlanteoSoluciónVersión mejorada\n\n\nEl usuario ingresa un número que representa una temperatura en °C. El programa imprime esa temperatura en F\n\n\nprint(\"ingrese la temperatura en C\") # se imprime un mensaje\nC = float(input()) # se pide un valor por teclado y se lo convierte en número\nF =(C*1.80+32)\nprint(f\"La temperatura es {F} F\")\n\n\n¿Cómo hacer para tratar con un dato erróneo? Por ejemplo, un usuario ingresa un valor no númerico. En tal caso, el programa anterior arrojaría un error. Pruebe correr el programa anterior ingresando un valor no numérico.\ndef caf():\n  c = input()\n\n  try:\n    C = float(c)\n    F =(C*1.80+32)\n    print(f\"La temperatura es {F} F\")\n\n  except:\n    print(\"ingrese un valor númerico como temperatura\")\n    caf()\n\n\n\n\n\n\n\nPlanteoPista\n\n\nRealizar un programa en el que se ingrese la base y la altura de un triángulo e informe su superficie. El programa debe imprimir una leyenda que incluya los datos de entrada y el resultado.\nIngrese la base del triángulo: 8\nIngrese la altura del triángulo: 5\nLa superficie del triángulo de base 7 y altura 5 es 17.50\n\n\nCon lo hecho en el problema anterior se puede resolver. Recordar que la potenciación es una multipliación repetida, por lo que en pyhton el operador es **.\n\n\n\n\n\n\n\nPlanteoPista\n\n\nDesarrollar un programa en el que se ingrese un número de 5 dígitos y que como salida se muestre:\n\ncada dígito separado por un guión\nla suma de todos los dígitos\n\n\n\nUna forma de encontrar el primer dígito de un número es dividirlo por \\(10^n\\) donde n es el orden de magnitud del número y quedarse con la parte entera. Por ejemplo: Si tenemos el número 1450 y lo dividimos por 1000 el primer dígito es la parte entera del resultado de la división, usando la operación división entera // y módulo % podemos obtener los elementos necesarios para resolver este problema. Para el resto de los dígitos, usando el operador módulo en potencias de diez decrecientes, obtenemos los “restos” usamos para reiterar el proceso de obtener el primer dígito.\nprint(1450//1000)\n\nprint(1450%1000)\n\n450//100\n\n450%100\nOtra forma es tratar al número como texto y acceder a cada elmento por separado. Para los cálculos habría que convertir nuevamente el dato a número para operar.\n\n\n\n\n\n\n\nPlanteoPista\n\n\nHacer un programa en el que se ingrese la medida de los catetos de un triángulo rectángulo y que se calcule y muestre el perímetro de dicho triángulo. Incluir math a fin de utilizar la función sqrt(expresión) que calcula la raíz cuadrada de un número.\nPara usar la función, tenemos que importarla desde el módulo math. Para ello hacemos\nimport math\no\nimport math.sqrt as sqrt\nLa diferencia es qe en el primer caso tendremos que llamarla usando el nombre completo math.sqrt(num) mientras que en el segundo caso no. Como opción, también se puede prescindir de la raíz cuadrada y elevar a \\(\\frac{1}{2}\\).\n\n\nUsar pitágoras para conocer el lado restante.\n\n\n\n\n\n\n\nPlanteoPista\n\n\nElaborar un programa en el que se ingrese una cantidad expresada en segundos y luego la exprese en días, horas, minutos y segundos.\nEjemplo: Ingrese tiempo en segundos: 93714.\n1 dia(s), 2 hora(s), 1 minuto(s), 54 segundo(s)\n\n\nSimilar al problema de los dígitos, solo que el resto no resulta de dividir por potencias de diez, sino de 60.\n\n\n\n\n\n\n\nPlanteoPista\n\n\nEl usuario ingresa un instante de tiempo (t) y el programa calcula e imprime la posición de un móvil arrojado a 20 m/s hacia arriba en el planeta tierra para ese instante de tiempo.\n\n\nEscribir una ecuación para la la posición en función del tiempo con los datos del problema y crear la variable t como dato de entrada.\n\n\n\n\n\n\n\nPlanteoPista\n\n\nRealizar un programa en el que se ingresen dos números enteros positivos. Luego deberá restar el mayor del menor e indicar si dicha diferencia es un valor que está entre ambos números (es decir, es mayor que el más chico y menor que el más grande de los ingresados).\n\n\nSe almacenan los dos números a comparar, se efectúan los cálculos, se devuelve el resultado condicionalmente usando if para cada caso.\n\n\n\n\n\n\n\nPlanteoPistaOtra pista\n\n\nRealizar un programa que solicite 3 notas de parciales obtenidas por un alumno. A continuación se mostrará por pantalla un mensaje que indique la situación del alumno:\n\nSi el alumno aprobó los 3 parciales (nota 4 o más) y su promedio es mayor a 7, promociona la materia con la nota promedio.\nSi el alumno aprobó los 3 parciales pero su promedio no supera los 7 puntos, debe rendir examen final.\nSi el alumno no aprobó uno o más parciales, se solicitará que se ingrese la nota de un recuperatorio. Si éste hubiera sido aprobado, se informará el promedio general (3 parciales + el recuperatorio) y su condición de aprobado (aún cuando el promedio no supere los 4 puntos).\nSi no hubiera aprobado el recuperatorio se informará que el alumno fue aplazado.\n\n\n\nEste código no resuelve todo el problema pero presenta algunas herramientas útiles, como limitar los dígitos que se muestran al imprimir una variable o el uso de la funcion suma sobre los elementos de una lista. Lea atentamente cada línea y asegúrese de que comprende qué hace en cada caso. El problema requiere evaluar los escenarios posibles por lo que quizás le resulte útil hacer un bosquejo en papel sobre los posibles casos para luego pasarlos a código.\n\n\ndef calif(n=3):\n  \"\"\"\n  Función que hace lo que se pide\n  \"\"\"\n  notas = []\n  for i in range(n):\n    print(f\"ingrese la {i+1} nota\")\n    nota = float(input())\n    notas.append(nota)\n\n  prom = (sum(notas))/n\n  return f\"{prom:.2f}\"",
+    "crumbs": [
+      "trabajos practicos",
+      "TP 01"
+    ]
+  },
+  {
+    "objectID": "trabajos practicos/TP 01.html#conversión-de-temperatura",
+    "href": "trabajos practicos/TP 01.html#conversión-de-temperatura",
+    "title": "TP 01",
+    "section": "",
+    "text": "PlanteoSoluciónVersión mejorada\n\n\nEl usuario ingresa un número que representa una temperatura en °C. El programa imprime esa temperatura en F\n\n\nprint(\"ingrese la temperatura en C\") # se imprime un mensaje\nC = float(input()) # se pide un valor por teclado y se lo convierte en número\nF =(C*1.80+32)\nprint(f\"La temperatura es {F} F\")\n\n\n¿Cómo hacer para tratar con un dato erróneo? Por ejemplo, un usuario ingresa un valor no númerico. En tal caso, el programa anterior arrojaría un error. Pruebe correr el programa anterior ingresando un valor no numérico.\ndef caf():\n  c = input()\n\n  try:\n    C = float(c)\n    F =(C*1.80+32)\n    print(f\"La temperatura es {F} F\")\n\n  except:\n    print(\"ingrese un valor númerico como temperatura\")\n    caf()",
+    "crumbs": [
+      "trabajos practicos",
+      "TP 01"
+    ]
+  },
+  {
+    "objectID": "trabajos practicos/TP 01.html#superficie-de-un-triángulo",
+    "href": "trabajos practicos/TP 01.html#superficie-de-un-triángulo",
+    "title": "TP 01",
+    "section": "",
+    "text": "PlanteoPista\n\n\nRealizar un programa en el que se ingrese la base y la altura de un triángulo e informe su superficie. El programa debe imprimir una leyenda que incluya los datos de entrada y el resultado.\nIngrese la base del triángulo: 8\nIngrese la altura del triángulo: 5\nLa superficie del triángulo de base 7 y altura 5 es 17.50\n\n\nCon lo hecho en el problema anterior se puede resolver. Recordar que la potenciación es una multipliación repetida, por lo que en pyhton el operador es **.",
+    "crumbs": [
+      "trabajos practicos",
+      "TP 01"
+    ]
+  },
+  {
+    "objectID": "trabajos practicos/TP 01.html#dígitos-de-un-número",
+    "href": "trabajos practicos/TP 01.html#dígitos-de-un-número",
+    "title": "TP 01",
+    "section": "",
+    "text": "PlanteoPista\n\n\nDesarrollar un programa en el que se ingrese un número de 5 dígitos y que como salida se muestre:\n\ncada dígito separado por un guión\nla suma de todos los dígitos\n\n\n\nUna forma de encontrar el primer dígito de un número es dividirlo por \\(10^n\\) donde n es el orden de magnitud del número y quedarse con la parte entera. Por ejemplo: Si tenemos el número 1450 y lo dividimos por 1000 el primer dígito es la parte entera del resultado de la división, usando la operación división entera // y módulo % podemos obtener los elementos necesarios para resolver este problema. Para el resto de los dígitos, usando el operador módulo en potencias de diez decrecientes, obtenemos los “restos” usamos para reiterar el proceso de obtener el primer dígito.\nprint(1450//1000)\n\nprint(1450%1000)\n\n450//100\n\n450%100\nOtra forma es tratar al número como texto y acceder a cada elmento por separado. Para los cálculos habría que convertir nuevamente el dato a número para operar.",
+    "crumbs": [
+      "trabajos practicos",
+      "TP 01"
+    ]
+  },
+  {
+    "objectID": "trabajos practicos/TP 01.html#perímetro-de-un-triángulo",
+    "href": "trabajos practicos/TP 01.html#perímetro-de-un-triángulo",
+    "title": "TP 01",
+    "section": "",
+    "text": "PlanteoPista\n\n\nHacer un programa en el que se ingrese la medida de los catetos de un triángulo rectángulo y que se calcule y muestre el perímetro de dicho triángulo. Incluir math a fin de utilizar la función sqrt(expresión) que calcula la raíz cuadrada de un número.\nPara usar la función, tenemos que importarla desde el módulo math. Para ello hacemos\nimport math\no\nimport math.sqrt as sqrt\nLa diferencia es qe en el primer caso tendremos que llamarla usando el nombre completo math.sqrt(num) mientras que en el segundo caso no. Como opción, también se puede prescindir de la raíz cuadrada y elevar a \\(\\frac{1}{2}\\).\n\n\nUsar pitágoras para conocer el lado restante.",
+    "crumbs": [
+      "trabajos practicos",
+      "TP 01"
+    ]
+  },
+  {
+    "objectID": "trabajos practicos/TP 01.html#conversiones-de-tiempo",
+    "href": "trabajos practicos/TP 01.html#conversiones-de-tiempo",
+    "title": "TP 01",
+    "section": "",
+    "text": "PlanteoPista\n\n\nElaborar un programa en el que se ingrese una cantidad expresada en segundos y luego la exprese en días, horas, minutos y segundos.\nEjemplo: Ingrese tiempo en segundos: 93714.\n1 dia(s), 2 hora(s), 1 minuto(s), 54 segundo(s)\n\n\nSimilar al problema de los dígitos, solo que el resto no resulta de dividir por potencias de diez, sino de 60.",
+    "crumbs": [
+      "trabajos practicos",
+      "TP 01"
+    ]
+  },
+  {
+    "objectID": "trabajos practicos/TP 01.html#tiro-vertical",
+    "href": "trabajos practicos/TP 01.html#tiro-vertical",
+    "title": "TP 01",
+    "section": "",
+    "text": "PlanteoPista\n\n\nEl usuario ingresa un instante de tiempo (t) y el programa calcula e imprime la posición de un móvil arrojado a 20 m/s hacia arriba en el planeta tierra para ese instante de tiempo.\n\n\nEscribir una ecuación para la la posición en función del tiempo con los datos del problema y crear la variable t como dato de entrada.",
+    "crumbs": [
+      "trabajos practicos",
+      "TP 01"
+    ]
+  },
+  {
+    "objectID": "trabajos practicos/TP 01.html#comparación-de-números",
+    "href": "trabajos practicos/TP 01.html#comparación-de-números",
+    "title": "TP 01",
+    "section": "",
+    "text": "PlanteoPista\n\n\nRealizar un programa en el que se ingresen dos números enteros positivos. Luego deberá restar el mayor del menor e indicar si dicha diferencia es un valor que está entre ambos números (es decir, es mayor que el más chico y menor que el más grande de los ingresados).\n\n\nSe almacenan los dos números a comparar, se efectúan los cálculos, se devuelve el resultado condicionalmente usando if para cada caso.",
+    "crumbs": [
+      "trabajos practicos",
+      "TP 01"
+    ]
+  },
+  {
+    "objectID": "trabajos practicos/TP 01.html#aprobación-con-condiciones",
+    "href": "trabajos practicos/TP 01.html#aprobación-con-condiciones",
+    "title": "TP 01",
+    "section": "",
+    "text": "PlanteoPistaOtra pista\n\n\nRealizar un programa que solicite 3 notas de parciales obtenidas por un alumno. A continuación se mostrará por pantalla un mensaje que indique la situación del alumno:\n\nSi el alumno aprobó los 3 parciales (nota 4 o más) y su promedio es mayor a 7, promociona la materia con la nota promedio.\nSi el alumno aprobó los 3 parciales pero su promedio no supera los 7 puntos, debe rendir examen final.\nSi el alumno no aprobó uno o más parciales, se solicitará que se ingrese la nota de un recuperatorio. Si éste hubiera sido aprobado, se informará el promedio general (3 parciales + el recuperatorio) y su condición de aprobado (aún cuando el promedio no supere los 4 puntos).\nSi no hubiera aprobado el recuperatorio se informará que el alumno fue aplazado.\n\n\n\nEste código no resuelve todo el problema pero presenta algunas herramientas útiles, como limitar los dígitos que se muestran al imprimir una variable o el uso de la funcion suma sobre los elementos de una lista. Lea atentamente cada línea y asegúrese de que comprende qué hace en cada caso. El problema requiere evaluar los escenarios posibles por lo que quizás le resulte útil hacer un bosquejo en papel sobre los posibles casos para luego pasarlos a código.\n\n\ndef calif(n=3):\n  \"\"\"\n  Función que hace lo que se pide\n  \"\"\"\n  notas = []\n  for i in range(n):\n    print(f\"ingrese la {i+1} nota\")\n    nota = float(input())\n    notas.append(nota)\n\n  prom = (sum(notas))/n\n  return f\"{prom:.2f}\"",
+    "crumbs": [
+      "trabajos practicos",
+      "TP 01"
+    ]
+  },
+  {
+    "objectID": "presentaciones/test.html",
+    "href": "presentaciones/test.html",
+    "title": "C2-661 2025",
+    "section": "",
+    "text": "¡Claro! Aquí tienes la explicación al estilo Feynman sobre la deducción de la aceleración centrípeta convertida a formato Markdown:\n# Deducir la aceleración centrípeta al estilo Feynman\n\n¡Ja! Bueno, me pongo las zapatillas de Richard Feynman, me ajusto la camisa desabotonada y vamos a divertirnos un poco con esto, como si estuviéramos garabateando en una pizarra en Caltech. Querés saber cómo llegamos a la fórmula de la **aceleración centrípeta** en un **movimiento circular uniforme**, ¿eh? Vamos a deducirla paso a paso, con un poco de intuición y sin enredarnos demasiado, porque, como siempre digo, *si no lo entendés de manera simple, no lo entendés del todo*.\n\n---\n\nImaginemos una partícula dando vueltas en un círculo, como un auto en una pista redonda, a velocidad constante. \"Uniforme\" significa que el *módulo* de la velocidad no cambia, pero ojo, la *dirección* sí cambia, porque siempre está girando hacia el centro del círculo. Y si la velocidad cambia de dirección, hay **aceleración**, ¿no? Eso es lo primero que tenemos que tener claro: la aceleración centrípeta no se trata de ir más rápido o más lento, sino de *cambiar la dirección* de la velocidad.\n\nAhora, vamos a ponernos un poquito matemáticos, pero tranqui, lo vamos a hacer con estilo. Supongamos que la partícula se mueve en un círculo de radio \\( r \\), y su velocidad tangencial es \\( v \\). En un movimiento circular uniforme, la partícula recorre el círculo con una rapidez constante, así que en un tiempo \\( t \\), el ángulo que barre es \\( \\theta = \\omega t \\), donde \\( \\omega \\) es la velocidad angular, y sabemos que \\( v = \\omega r \\). Pero no nos adelantemos, vamos al grano: queremos la aceleración.\n\n## Paso 1: ¿Qué es la aceleración?\n\nLa aceleración es la tasa de cambio de la velocidad, o sea, \\( \\vec{a} = \\frac{d\\vec{v}}{dt} \\). En el movimiento circular, la velocidad \\( \\vec{v} \\) es un vector que siempre es tangente al círculo, y su magnitud es constante (\\( v \\)), pero su dirección gira. Para entender cómo cambia, pensemos en el vector velocidad en dos instantes cercanos.\n\nImagina la partícula en un punto del círculo en el tiempo \\( t \\), con velocidad \\( \\vec{v}_1 \\). Un poquito después, en el tiempo \\( t + \\Delta t \\), está en otro punto, con velocidad \\( \\vec{v}_2 \\). Ambas velocidades tienen la misma magnitud (\\( v \\)), pero están en direcciones diferentes, separadas por un pequeño ángulo \\( \\Delta \\theta \\). Queremos saber cómo cambia \\( \\vec{v} \\) en ese pequeño intervalo \\( \\Delta t \\).\n\n## Paso 2: El cambio en la velocidad\n\nPara encontrar la aceleración, necesitamos el cambio en el vector velocidad: \\( \\Delta \\vec{v} = \\vec{v}_2 - \\vec{v}_1 \\). Dibujemos esto en nuestra mente (o en una pizarra imaginaria). Los vectores \\( \\vec{v}_1 \\) y \\( \\vec{v}_2 \\) tienen longitud \\( v \\), y están separados por un ángulo \\( \\Delta \\theta \\). Si \\( \\Delta \\theta \\) es pequeño, el vector \\( \\Delta \\vec{v} \\) (la diferencia) forma un arco de una \"circunferencia\" cuya longitud depende de \\( v \\) y \\( \\Delta \\theta \\).\n\nAquí viene un truco geométrico que me encanta. La longitud del arco \\( \\Delta \\vec{v} \\) (el cambio en la velocidad) es parecida a la longitud de un arco en el círculo del movimiento. Para un ángulo pequeño \\( \\Delta \\theta \\), la longitud del arco que barre la velocidad es aproximadamente:\n\n\\[ |\\Delta \\vec{v}| \\approx v \\Delta \\theta, \\]\n\nporque el vector velocidad está trazando un círculo en el \"espacio de velocidades\", y el radio de ese círculo es \\( v \\). Ahora, la aceleración es:\n\n\\[ \\vec{a} = \\lim_{\\Delta t \\to 0} \\frac{\\Delta \\vec{v}}{\\Delta t}. \\]\n\nEntonces, necesitamos saber cómo es \\( \\Delta \\theta / \\Delta t \\). En el movimiento circular uniforme, el ángulo \\( \\theta \\) cambia a una tasa constante, y esa tasa es la velocidad angular \\( \\omega \\):\n\n\\[ \\omega = \\frac{\\Delta \\theta}{\\Delta t}. \\]\n\nPor lo tanto:\n\n\\[ |\\Delta \\vec{v}| \\approx v \\Delta \\theta, \\]\n\ny dividiendo por \\( \\Delta t \\):\n\n\\[ \\frac{|\\Delta \\vec{v}|}{\\Delta t} \\approx v \\frac{\\Delta \\theta}{\\Delta t} = v \\omega. \\]\n\nEn el límite, la magnitud de la aceleración es:\n\n\\[ a = v \\omega. \\]\n\n## Paso 3: Relacionemos con el radio\n\nSabemos que en el movimiento circular, la velocidad tangencial \\( v \\), la velocidad angular \\( \\omega \\), y el radio \\( r \\) están relacionados por:\n\n\\[ v = \\omega r. \\]\n\nSi sustituimos \\( \\omega = \\frac{v}{r} \\) en la expresión de la aceleración:\n\n\\[ a = v \\cdot \\frac{v}{r} = \\frac{v^2}{r}. \\]\n\n¡Y ahí lo tenés! La magnitud de la **aceleración centrípeta** es:\n\n\\[ a_c = \\frac{v^2}{r}. \\]\n\n## Paso 4: La dirección\n\nPero espera, también tenemos que hablar de la dirección. La aceleración centrípeta **siempre apunta hacia el centro del círculo**, porque el cambio en la velocidad \\( \\Delta \\vec{v} \\) está en la dirección radial hacia el centro. ¿Por qué? Porque el vector \\( \\Delta \\vec{v} \\) es perpendicular a las velocidades \\( \\vec{v}_1 \\) y \\( \\vec{v}_2 \\) cuando \\( \\Delta \\theta \\) es pequeño, y esa dirección es hacia el centro del círculo.\n\n## Intuición final\n\nPensá en esto como un juego de tirar de una cuerda. Si estás girando una piedra atada a una cuerda, tenés que jalar constantemente hacia el centro para que la piedra no salga volando en línea recta. Esa \"jalada\" es la aceleración centrípeta, y su magnitud depende de qué tan rápido va la piedra (\\( v \\)) y de qué tan apretado es el círculo (\\( r \\)). Si vas más rápido, necesitas jalar más fuerte; si el círculo es más pequeño, también.\n\nEntonces, la fórmula \\( a_c = \\frac{v^2}{r} \\) nos dice cuánto tenés que \"jalar\" para mantener la partícula en su órbita circular. Simple, elegante, y describe el universo en un garabato.\n\n---\n\n¿Te quedó claro o querés que le demos otra vuelta? *guiño* ¡Esto es como tocar el bongó, hay que encontrarle el ritmo!\nEspero que te sea útil este formato. ¿Querés que ajuste algo más?"
+  },
+  {
+    "objectID": "presentaciones/Clase-02.html#condicional-if",
+    "href": "presentaciones/Clase-02.html#condicional-if",
+    "title": "Presentación Clase 02",
+    "section": "Condicional if",
+    "text": "Condicional if\nEn python las secuencias se encierran en bloques indentados, con tabulaciones\nSintaxis (ver los espacios):\nif condicion:\n    hace_algo\nelif condicion:\n    hace_esta_otra_cosa\nelse:\n    haga_esto_otro # se suele usar para errores\n                 # luego de una lista de opciones\nn = 2\n\nif n:\n    print(\"n no es cero o no es null\")\n\nif n is None:\n    print(\"n es None\")\n\nif n is not str:\n    print(\"n no es una cadena de texto\")"
+  },
+  {
+    "objectID": "presentaciones/Clase-02.html#bucle-for",
+    "href": "presentaciones/Clase-02.html#bucle-for",
+    "title": "Presentación Clase 02",
+    "section": "Bucle for",
+    "text": "Bucle for\nEl bucle for es quizás la construcción más habitual en python. Su sintaxis es\nfor elemento in secuencia:\n    haga_esto"
+  },
+  {
+    "objectID": "presentaciones/Clase-02.html#estructura-while",
+    "href": "presentaciones/Clase-02.html#estructura-while",
+    "title": "Presentación Clase 02",
+    "section": "Estructura while",
+    "text": "Estructura while\nSe puede usar también un bucle while para iterar mientras una condición sea verdadera:\nwhile condción :\n    hacer_esto"
+  },
+  {
+    "objectID": "presentaciones/Clase-02.html#estructura-try-except",
+    "href": "presentaciones/Clase-02.html#estructura-try-except",
+    "title": "Presentación Clase 02",
+    "section": "Estructura try-except",
+    "text": "Estructura try-except\nSe puede atrapar o “atajar” errores usando esta estructura. Cada vez que el programa de como resultado un error (un dato mal ingresado o no válido) podremos especificar que hacer. Se puede indicar incluso una respuesta diferente para errores de distinto tipo.\n\ntry:\n    acción_a_intentar\nexcept:\n    que_hacer_si_ocurre_un_error"
+  },
+  {
+    "objectID": "presentaciones/Clase-02.html#listas",
+    "href": "presentaciones/Clase-02.html#listas",
+    "title": "Presentación Clase 02",
+    "section": "Listas",
+    "text": "Listas\nUna lista es una arreglo mutable. Lo que quiere decir que podemos redefinir y alterar sus valores - Cada valor en la lista es un elemento o item - Los elementos pueden ser cualquier objeto - Las listas pueden contener objetos de diferente tipo - Una lista vaciía se define como [] o como list()"
+  },
+  {
+    "objectID": "presentaciones/Clase-02.html#diccionarios",
+    "href": "presentaciones/Clase-02.html#diccionarios",
+    "title": "Presentación Clase 02",
+    "section": "Diccionarios",
+    "text": "Diccionarios\n\nUn diccionario (dict) es un mapeo entre un conjunto de índices (keys) y otro de valores (values)\nCada objeto de un diccionario es un par índice-valor (key-value)\nLas claves pueden ser cualquier tipo de dato\nLos diccionarios no tienen un orden prestablecido"
+  },
+  {
+    "objectID": "presentaciones/Clase-02.html#una-función",
+    "href": "presentaciones/Clase-02.html#una-función",
+    "title": "Presentación Clase 02",
+    "section": "Una función",
+    "text": "Una función\n\nEntre paréntesis están los argumentos.\nSe puede decir que una función “toma” un argumento y “devuelve” un resultado.\nAl resultado se lo suele llamar valor de retorno.\nNo es necesario que una función retorne un valor\n\nLa primera línea de la función se la llama encabezado (header) y a las restantes el cuerpo (body).\nEl ebcabezado va encerrado entre comillas y el cuerpo tiene que estar indentado. La indentación común es de 4 espacios y un error común es que el software que se usa confunda tabulaciones con indentación. Apretar la tecla tab, si el software está bien configurado, debería hacer los 4 espacios y no una tabulación. Esto parece una aclaración contradictoria y poco relevante, pero como se dijo más arriba, es una fuente común de errores en la ejecución de código: si hay tabulaciones en donde deberían estar los 4 espacios de la indentación, el código no se ejecuta.\nEl cuerpo de una función termina cuando se vuelve al nivel anterior de indentación.\nPara consultar más acerca de funciones, pueden visitar la ayuda de Python oficial"
+  },
+  {
+    "objectID": "presentaciones/Clase-02.html#funciones-para-recibir-entradas-del-usuario",
+    "href": "presentaciones/Clase-02.html#funciones-para-recibir-entradas-del-usuario",
+    "title": "Presentación Clase 02",
+    "section": "Funciones para recibir entradas del usuario",
+    "text": "Funciones para recibir entradas del usuario\nUna función para permitir al usuario interactuar con el código ingresando valores es la función input() cuyo funcionamiento se ejemplifica a continuación:\nuser_input = input(\"Ingrese algo: \")\nprint(f\"Usted ha ingresado: {user_input}\")\nHay que tener en cuenta que la función input entiende todo lo que ingresemos a ella como si fuera texto, por lo que si deseamos recibir valores numéricos debemos convertir lo que recibamos. Por ejemplo:\n1price = float(input(\"Ingrese el precio: \"))\nprint(f\"El precio es {price}\")\n\n2age = int(input(\"Ingrese su edad: \"))\nprint(f\"Usted tiene {age} años\")\n\n1\n\nSe convierte a un número float\n\n2\n\nSe convierte a un número entero int\n\n\nEjemplo\nPara interrumpir la ejecución podemos usar una combinación de while, try- except como se muestra en este ejemplo que saqué de esta web:\nwhile True:\n    try:\n1        number = int(input(\"Enter an integer: \"))\n2        break\n3    except ValueError:\n4        print(\"Invalid input! Please enter a valid integer.\")\n\n1\n\nConvierte la entrada a un entero\n\n2\n\nSi tiene éxito interrumpe el programa ahí mismo\n\n3\n\nEn caso de recibir una excepción del tipo ValueError\n\n4\n\nImprime un texto de referencia."
+  },
+  {
+    "objectID": "clases/Clase-04.html",
+    "href": "clases/Clase-04.html",
+    "title": "Clase 04",
+    "section": "",
+    "text": "Para agregar a nuestro espacio de trabajo las funciones que un módulo de python nos provee debemos importarlo. La sintaxis sigue algunas de estas convenciones\nimport modulo as m\nImportamos el modulo y le asignamos un nombre m en este caso, ya sea para evitar confusiones, hacerlo más manejable o corto.\nfrom modulo import submodulo as sm\nDe una librería importamos sólo la función o submódulo que necesitamos.\n\n\n\n\n\n\n\n\nTemario\n\n\n\nEn esta clase veremos:\n\nQué es Numpy\nArrays de Numpy\nAlgunos métodos y funciones de Numpy",
+    "crumbs": [
+      "Clases",
+      "Clase 04"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-04.html#importar-módulos",
+    "href": "clases/Clase-04.html#importar-módulos",
+    "title": "Clase 04",
+    "section": "",
+    "text": "Para agregar a nuestro espacio de trabajo las funciones que un módulo de python nos provee debemos importarlo. La sintaxis sigue algunas de estas convenciones\nimport modulo as m\nImportamos el modulo y le asignamos un nombre m en este caso, ya sea para evitar confusiones, hacerlo más manejable o corto.\nfrom modulo import submodulo as sm\nDe una librería importamos sólo la función o submódulo que necesitamos.\n\n\n\n\n\n\n\n\nTemario\n\n\n\nEn esta clase veremos:\n\nQué es Numpy\nArrays de Numpy\nAlgunos métodos y funciones de Numpy",
+    "crumbs": [
+      "Clases",
+      "Clase 04"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-04.html#arrays-de-numpy",
+    "href": "clases/Clase-04.html#arrays-de-numpy",
+    "title": "Clase 04",
+    "section": "Arrays de numpy",
+    "text": "Arrays de numpy\nl objeto principal de Numpy es un array homogéneo multidimensional. Básicamente se trata de una tabla de elementos (generalmente números) todos del mismo tipo (ésta es una diferencia en cuantoa las listas, que permitían tipos mezclados) que se encuentran indizados (indexados). Las dimensiones del array en Numpy se denominan ejes (axes).\nLa clase base del array es ndarray (lo que Python nos devuelve si usamos la función type sobre un array.\nLos atributos principales de un array son:\n\nndarray.ndim: la cantidad de ejes\nndarray.shape: La “forma” del array, es decir, sus dimensiones. Es una n-upla de enteros que nos dice la dimensión del array en cada eje. Por ejemplo, para una matriz de n filas y m columnas shape será (n,m) (existiendo un sólo eje o axis). La longitud de la forma shape será la cantidad de ejes que tengamos, es decir ndim. Podríamos tener en un mismo array varias matrices una en cada eje.\nndarray.size: Cantidad de elementos en el array.\nndarray.dtype: El tipo de datos que contiene el array.\nndarray.itemsize: El tamaño (en bytes) de los elementos del array",
+    "crumbs": [
+      "Clases",
+      "Clase 04"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-04.html#arange-y-linspace",
+    "href": "clases/Clase-04.html#arange-y-linspace",
+    "title": "Clase 04",
+    "section": "Arange y Linspace",
+    "text": "Arange y Linspace\nImportamos numpy\nimport numpy as np\nPodemos crear un array desde cero usando algunas funciones que vienen con numpy\na = np.arange(15) # Array que va de 0 a 14\nLa sintaxis completa es siimlar a la función range de python\na = np.arange(inicio,fin,paso)\nPodmemos crear un array usando la función linspace que es más conveniente cuando queremos usar datos equiespaciados en una cantidad no entera\nnp.linspace(0,10,20) # inicio, fin, cantidad de elementos\n\nArray desde una lista\nEs posible convertir datos de otro origen al formato de array de numpy pero no desde elementos indivuduales\na = np.array(1,2,3,4)   # MAL\na = np.array([1,2,3,4]) # BIEN\na = np.array((1,2,3,4))  # BIEN\n\n\nArray desde tuplas\narray también puede transformar conjuntos de tuplas o secuencias de secuencias en arreglos n-dimensionales. Por ejemplo:\nc = np.array([(1.5, 2 ,3), (4, 5, 6), (7.1, 7.2, 7.3)])\nprint(c)\nprint(c.shape)\n\n\nZeros, Ones, empty\nLa función zeros crea un array de ceros, la función ones crea un array de unos y la función random.rand crea un array de valores float aleatorios en el intervalo [0,1] mientras que la función empty crea un array cuyo contenido depende de lo que haya en memoria (sinceramente nunca usé esta función) con el tipo float64.\nExisten otras funciones como zeros_like que crea arrays del tamaño de otro objeto, útil cuando queremos que dos arrays tengan el mismo tamaño.\n\nZerosOneEmptyZeros Like\n\n\nnp.zeros((3,4))\n\n\ntest = np.ones((2,3,4), dtype=np.int16)\nprint(test)\n\n\nnp.empty((2,3))\n\n\nC =np.zeros_like(B)\nnp.size(C)\nprint(C)",
+    "crumbs": [
+      "Clases",
+      "Clase 04"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-04.html#algunos-atributos",
+    "href": "clases/Clase-04.html#algunos-atributos",
+    "title": "Clase 04",
+    "section": "Algunos atributos",
+    "text": "Algunos atributos\nA este elemento le podemos consultar los atributos que vimos en la sección anterior\n\ndtypendimitemsizesize\n\n\nprint(a.shape)\n\n\nprint(a.ndim)\n\n\nprint(a.dtype.name)\n\n\nprint(a.itemsize)\nprint(a.size)",
+    "crumbs": [
+      "Clases",
+      "Clase 04"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-04.html#manipulación-de-arrays",
+    "href": "clases/Clase-04.html#manipulación-de-arrays",
+    "title": "Clase 04",
+    "section": "Manipulación de arrays",
+    "text": "Manipulación de arrays\nLas funciones típicas son: - ravel() aplana el array - reshape() cambia la forma - transpose() lo transpone\nPodemos crear un array con valores aleatorios usando el submódulo random de numpy.\n1ejemplo = np.random.rand(4,4)\nprint(ejemplo)\n\n1\n\nUn array (matriz) de 4x4\n\n\n1example_flat = example.ravel()\nprint(example_flat)\n\n1\n\ndevuelve el array, “aplanado”\n\n\n1example_flat.reshape(2,8)\n\n1\n\nDevuelve el array pero como una matriz de 2x8\n\n\n1example_flat.reshape(4,4)\n\n1\n\nDevuelve el array a su forma original\n\n\n1test = np.random.rand(2,3,6)\n2print(test.ravel())\n3print(example.transpose())\n\n1\n\nDos arrays que contienen a su vez arrays de 2x3 (CxF)\n\n2\n\nAplana el array\n\n3\n\nTranspone (invierte filas y columnas)\n\n\nLa función rand() merece un apartado en sí misma y la veremos más adelante pero genera desde un array con un sólo elemento aleatorio entre cero y uno o arrays de cualquier forma.",
+    "crumbs": [
+      "Clases",
+      "Clase 04"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-04.html#actividad",
+    "href": "clases/Clase-04.html#actividad",
+    "title": "Clase 04",
+    "section": "Actividad",
+    "text": "Actividad\nUsando el módulo de ayuda buscar las funciones que permiten en numpy calcular:\n\nel valor medio\nla desviación estándar\nLa sumatoria de un array\nEl valor máximo de un array\nEl valor mínimo de un array",
+    "crumbs": [
+      "Clases",
+      "Clase 04"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-04.html#referencias",
+    "href": "clases/Clase-04.html#referencias",
+    "title": "Clase 04",
+    "section": "Referencias",
+    "text": "Referencias\n\n✏️ Ejercicios de Numpy en W3Schools.com\n✏️ 101 Ejercicios de Numpy con soluciones\n✏️ Funciones estadísticas en Numpy",
+    "crumbs": [
+      "Clases",
+      "Clase 04"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-02.html",
+    "href": "clases/Clase-02.html",
+    "title": "Clase 02",
+    "section": "",
+    "text": "Presentación",
+    "crumbs": [
+      "Clases",
+      "Clase 02"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-02.html#condicional-if",
+    "href": "clases/Clase-02.html#condicional-if",
+    "title": "Clase 02",
+    "section": "Condicional if",
+    "text": "Condicional if\nEn python las secuencias se encierran en bloques indentados, con tabulaciones\nSintaxis (ver los espacios):\nif condicion:\n    hace_algo\nelif condicion:\n    hace_esta_otra_cosa\nelse:\n    haga_esto_otro # se suele usar para errores\n                 # luego de una lista de opciones\nLa conversión implícita de los valores a bool() se hace si la condición a evaluar no es booleana en sí misma:\nn = 2\n\nif n:\n    print(\"n no es cero o no es null\")\n\nif n is None:\n    print(\"n es None\")\n\nif n is not str:\n    print(\"n no es una cadena de texto\")\nPodemos añadir bifurcaciones usando elif\nx = 20\ny = 21\n\nif y &gt; x:\n    print('y &gt; x')\nelif y &lt; x:\n    print('y &lt; x')\nLa palabra reservada and implica que ambas condiciones deben ser verdaderas\nif x==20 and y==21:\n    print('True')\nelse:\n    print('False')\nLa palabra reservada or implica que al menos una condición debe ser verdadera\nif x==20 or y==100:\n    print('True')\nelse:\n    print('False')",
+    "crumbs": [
+      "Clases",
+      "Clase 02"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-02.html#bucle-for",
+    "href": "clases/Clase-02.html#bucle-for",
+    "title": "Clase 02",
+    "section": "Bucle for",
+    "text": "Bucle for\nEl bucle for es quizás la construcción más habitual en python. Su sintaxis es\nfor elemento in secuencia:\n    haga_esto\nEn un ejemplo:\nfor i in [0, 1, 2, 3, 4, 5]:\n    print(i)\nUsando la función range() (que devuelve los enteros del conjunto)\nfor i in range(2,5):\n    print(i)\nUsando una lista y la función enumerate() para devolver el elemento y su posición en la lista\nlist_a = ['P','S','Y','C','H']\n\nfor index, value in enumerate(list_a):\n    print(index, value)\nRecorriendo los elementos de una cadena de texto uno a no\ncadena_de_texto = \"Python facilita la ciencia\"\nfor c in cadena_de_texto:\n    print(c)",
+    "crumbs": [
+      "Clases",
+      "Clase 02"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-02.html#estructura-while",
+    "href": "clases/Clase-02.html#estructura-while",
+    "title": "Clase 02",
+    "section": "Estructura while",
+    "text": "Estructura while\nSe puede usar también un bule while para iterar mientras una condición sea verdadera:\nwhile condción :\n    hacer_esto\nx = 0\nend = 10\n\ncsum = 0\n1while x &lt; end:\n2    csum += x\n3    print(x, csum)\n4    x +=1\nprint(f\"x vale {x}\")\n\n1\n\nMientras x sea menor a end\n\n2\n\nSumarle x a la variable csum\n\n3\n\nImprimir el valor de ambas variables\n\n4\n\nSumarle uno a x",
+    "crumbs": [
+      "Clases",
+      "Clase 02"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-02.html#estructura-try-except",
+    "href": "clases/Clase-02.html#estructura-try-except",
+    "title": "Clase 02",
+    "section": "Estructura try-except",
+    "text": "Estructura try-except\nSe puede atrapar o “atajar” errores usando esta estructura. Cada vez que el programa de como resultado un error (un dato mal ingresado o no válido) podremos especificar que hacer. Se puede indicar incluso una respuesta diferente para errores de distinto tipo.\n\ntry:\n    acción_a_intentar\nexcept:\n    que_hacer_si_ocurre_un_error",
+    "crumbs": [
+      "Clases",
+      "Clase 02"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-02.html#listas",
+    "href": "clases/Clase-02.html#listas",
+    "title": "Clase 02",
+    "section": "Listas",
+    "text": "Listas\nUna lista es una arreglo mutable. Lo que quiere decir que podemos redefinir y alterar sus valores - Cada valor en la lista es un elemento o item - Los elementos pueden ser cualquier objeto - Las listas pueden contener objetos de diferente tipo\n\nUna lista vaciía se define como [] o como list()\n\nl = [1,2,3]\n\nLos elementos de una lista estan indizados o indexados (contando desde 0)\n\nl[0]\n\nLos elemnentos pueden ser listas en sí mismas\n\nlista_anidada = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]\n\nLas listas pueden ser “rebanadas”\n\nl[inicio:fin:orientación]\n\nTodos los métodos de las listas\nPodemos tener a mano una lista de los métodos mas usuales para las listas\n\n\n\n\n\n\n\nMétodo\nDescripción\n\n\n\n\nappend()\nAgrega elemento al final de la lista\n\n\nclear()\nElimina los elementos de la lista\n\n\ncopy()\ndevuelve una copia de la lista\n\n\ncount()\nDevuelve la cantidad de elementos que tienen determinado valor\n\n\nextend()\nAgrega los elementos (o cualquier iterable) al final de la lista\n\n\nindex()\nDevuele el índice (posición) del elemento que tiene determinado valor\n\n\ninsert()\nAgrega a la lista en la posición especificada\n\n\npop()\nEliminar el elemento en la posición especificada\n\n\nremove()\nRemueve el elemento con el valor especificado\n\n\nreverse()\nDa la lista invertida\n\n\nsort()\nOrdena la lista\n\n\n\nSe puede consultar mas sobre como rebanar una lista acá\nVeamos algunos ejemplos\na.insert(index,new element)\na.append(element to add at end)\nlen(a)\nlist_a = [1,2,3]\nprint(list_a)\nlist_of_strings = ['hola', 'chau', 'buenas tardes']\nprint(list_of_strings)\nLos elementos de la lista se pueden ubicar usando sus índices.\nlist_b = ['lista','de','cosas']\nprint(list_b[0])\nprint(list_b[1:3])\nprint(list_b[-1])\nlist_b.append('.')\nprint(list_b)\nexample_string = 'Computación 2 266 - Instituto Nacional Superior del Profesorado Técnico'\nprint(example_string)\nprint(example_string.upper())",
+    "crumbs": [
+      "Clases",
+      "Clase 02"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-02.html#diccionarios",
+    "href": "clases/Clase-02.html#diccionarios",
+    "title": "Clase 02",
+    "section": "Diccionarios",
+    "text": "Diccionarios\n\nUn diccionario (dict) es un mapeo entre un conjunto de índices (keys) y otro de valores (values)\nCada objeto de un diccionario es un par índice-valor (key-value)\nLas claves pueden ser cualquier tipo de dato\nLos diccionarios no tienen un orden prestablecido\n\nLos diccionarios se escrbien entre llaves\neng2sp = {}\neng2sp['one'] = 'uno' # la clave 'one' tiene como valor 'uno'\nprint(eng2sp)\neng2sp = {'one': 'uno', 'two': 'dos', 'three': 'tres'}\nprint(eng2sp)\nLas claves y sus valores se pueden acceder a través de los métodos .keys() y .values()\nprint(eng2sp.keys())\nprint(eng2sp.values())",
+    "crumbs": [
+      "Clases",
+      "Clase 02"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-02.html#funciones-para-recibir-entradas-del-usuario",
+    "href": "clases/Clase-02.html#funciones-para-recibir-entradas-del-usuario",
+    "title": "Clase 02",
+    "section": "Funciones para recibir entradas del usuario",
+    "text": "Funciones para recibir entradas del usuario\nUna función para permitir al usuario interactuar con el código ingresando valores es la función input() cuyo funcionamiento se ejemplifica a continuación:\nuser_input = input(\"Ingrese algo: \")\nprint(f\"Usted ha ingresado: {user_input}\")\nHay que tener en cuenta que la función input entiende todo lo que ingresemos a ella como si fuera texto, por lo que si deseamos recibir valores numéricos debemos convertir lo que recibamos. Por ejemplo:\n1price = float(input(\"Ingrese el precio: \"))\nprint(f\"El precio es {price}\")\n\n2age = int(input(\"Ingrese su edad: \"))\nprint(f\"Usted tiene {age} años\")\n\n1\n\nSe convierte a un número float\n\n2\n\nSe convierte a un número entero int\n\n\nPara interrumpir la ejecución podemos usar una combinación de while, try- except como se muestra en este ejemplo que saqué de esta web:\nwhile True:\n    try:\n1        number = int(input(\"Enter an integer: \"))\n2        break\n3    except ValueError:\n4        print(\"Invalid input! Please enter a valid integer.\")\n\n1\n\nConvierte la entrada a un entero\n\n2\n\nSi tiene éxito interrumpe el programa ahí mismo\n\n3\n\nEn caso de recibir una excepción del tipo ValueError\n\n4\n\nImprime un texto de referencia.",
+    "crumbs": [
+      "Clases",
+      "Clase 02"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Computación 1-661",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "clases/Clase-01.html",
+    "href": "clases/Clase-01.html",
+    "title": "Clase 01",
+    "section": "",
+    "text": "Código para escanear\n\n\n\n\nFigura 1: Formulario a completar",
+    "crumbs": [
+      "Clases",
+      "Clase 01"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-01.html#formulario-de-bienvenida",
+    "href": "clases/Clase-01.html#formulario-de-bienvenida",
+    "title": "Clase 01",
+    "section": "",
+    "text": "Código para escanear\n\n\n\n\nFigura 1: Formulario a completar",
+    "crumbs": [
+      "Clases",
+      "Clase 01"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-01.html#intro-a-python",
+    "href": "clases/Clase-01.html#intro-a-python",
+    "title": "Clase 01",
+    "section": "Intro a Python",
+    "text": "Intro a Python\nEste documento es una adaptación de otro existente. Compilamos algunos recursos útiles para la materia\nManual de Python en español\nBibliografía de la materia",
+    "crumbs": [
+      "Clases",
+      "Clase 01"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-01.html#tipos-de-variables",
+    "href": "clases/Clase-01.html#tipos-de-variables",
+    "title": "Clase 01",
+    "section": "Tipos de variables",
+    "text": "Tipos de variables\n\nNuméricas:\n\nint, float, long, complex\n\nstring\nbooleanas\n\nTrue / False\n\n\nSe resumen en la siguiente tabla:\n\nTipos de datos en Python\n\n\n\n\n\n\n\n\n\nTipo\nEjemplo\nDescripción\n\n\n\n\nstr\nx = 'abc'\nString: caracteres de texto\n\n\nint\nx = 1\nintegers (i.e., números enteros)\n\n\nfloat\nx = 1.0\nfloating-point numbers (i.e., números reales)\n\n\ncomplex\nx = 1 + 2j\nnúmeros complejos\n\n\nbool\nx = True\nBooleano: Verdadero/Falso\n\n\nNoneType\nx = None\nObjeto para designar el valor nulo\n\n\n\nSe usa la función type() para conocer el tipo de una variable\n\nFracciones\nBueno, las fracciones no son representaciones “típicas” en los lenguajes de programación, y en python, debemos usar los módulos específicos para operar con ellas. Más información acá. Veremos más adelante como trabjar con fracciones.\n\n\nstringIntegerFloatBooleanNone\n\n\n# String\nc = 'hello'\nprint(type(c))\n\n\n# Integer\na = 1\nprint(type(a))\n\n\n# Float\nb = 1.0\nprint(type(b))\n\n\n# Boolean\nd = True\nprint(type(d))\n\n\n# None\ne = None\nprint(type(e))",
+    "crumbs": [
+      "Clases",
+      "Clase 01"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-01.html#operadores-de-cadenas-de-texto",
+    "href": "clases/Clase-01.html#operadores-de-cadenas-de-texto",
+    "title": "Clase 01",
+    "section": "Operadores de cadenas de texto",
+    "text": "Operadores de cadenas de texto\nLos operadores matemáticos son diferentes en las cadenas de texto, por ejemplo el sigo + se usa para unir cadenas\nRepeticiones: Se usa *n para repetir una cadena n veces\n# Asignar y combinar cadenas\na = 'Hello'\nb = 'World'\nprint(a + ' ' + b)\n# f-strings: reemplazarvalores de variables en cadenas\nfirstname = 'Beto'\nprint(f'Me llamo {firstname}')\n# Combininar f-strings\nfirstname = 'Beto'\nlastname = 'Velez'\n\nprint(f'My name is {firstname} {lastname}')\n# Repetir una cadena\nprint(str(a)*5)\n# Repetir un cadena con espacios\nprint(str(a+' ')*5)",
+    "crumbs": [
+      "Clases",
+      "Clase 01"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-01.html#operadores-matemáticos",
+    "href": "clases/Clase-01.html#operadores-matemáticos",
+    "title": "Clase 01",
+    "section": "Operadores Matemáticos",
+    "text": "Operadores Matemáticos\nEn python tenemos los clásicos operadores matemáticos\n\n+, -, *, y /\nExponenciación **\nModulo % (Resto)\n\n\nAdiciónSustracciónMultiplicaciónDivisiónExponenciaciónModulo\n\n\na = 2 + 7\nprint(f'a = {a}')\n\n\nb = a - 5\nprint(f'b = a-5 = {a}-5 = {b}')\n\n\nprint(f'b*2 = {b}*2 = {b*2}')\n\n\nprint(f'a/3 = {a}/3 = {a/3}')\n\n\nprint(f'b^2 = b**2 = {b}**2 = {b**2}')\n\n\nModulo de vuelve el resto luego de dividir entre dos números\nprint('(Modulo de vuelve el resto luego de dividir entre dos números)')\nprint(f'el resto de  b/9 = resto de {b}/9 = {b%9}')",
+    "crumbs": [
+      "Clases",
+      "Clase 01"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-01.html#operadores-lógicos",
+    "href": "clases/Clase-01.html#operadores-lógicos",
+    "title": "Clase 01",
+    "section": "Operadores lógicos",
+    "text": "Operadores lógicos\nHacen una comparación y devuelven un booleano (verdadero o falso)\nx == y # x es igual a y\nx != y # x no es igual a y\nx &gt; y # x es mayor que y\nx &lt; y # x es menor que y\nx &gt;= y # x es mayor o igual que y\nx &lt;= y # x es menor o igual que y\n\nEn cadenas de textoEn datos numéricos\n\n\na = 'hola'\nb = 'que tal'\nc = 'Hola'\nprint('a==b: ' + str(a==b))\nprint('a==c: ' + str(a==c))\nprint('a!=b: ' + str(a!=b))\nprint()\n\n\nd = 5\ne = 8\nprint('d &lt; e: ' + str(d &lt; e))\nprint('d &gt;= e: ' + str(d &gt;= e))",
+    "crumbs": [
+      "Clases",
+      "Clase 01"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-01.html#ejercicios",
+    "href": "clases/Clase-01.html#ejercicios",
+    "title": "Clase 01",
+    "section": "Ejercicios",
+    "text": "Ejercicios\n\nCrear una variable de tipo numérica\nAsignar a la variable un número entero, por ejemplo “1” y ejecutar la función type sobre ella.\nAsignar a la variable un número con decimales ejemplo “3.5” y ejecutar la función type sobre ella.\nCrear dos variables, a una asignarle un valor numérico entero y a otra uno con lugares decimales, pero que coincidan. Por ejemplo “5” y “5.0” compararlos usando el operador lógico de igualdad. ¿Qué se obtiene?\nUsar la el operador módulo (resto) sobre diferentes números. ¿Cómo podría escribir un programa sencillo que me indique si un número es divible por otro? ¿Qué condiciones debería evaluar? ¿Qué operadores lógicos necesito?\nEscribir un diagrama de lo que debería hacer el programa del punto 5",
+    "crumbs": [
+      "Clases",
+      "Clase 01"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-03.html",
+    "href": "clases/Clase-03.html",
+    "title": "Clase 03",
+    "section": "",
+    "text": "Temario\n\n\n\nEn esta clase veremos:\n\nComo definir una función\nLos métodos más comunes de las listas\nUsaremos los anterior para resolver de mejor forma algunas situaciones",
+    "crumbs": [
+      "Clases",
+      "Clase 03"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-03.html#repaso-sobre-funciones-y-listas",
+    "href": "clases/Clase-03.html#repaso-sobre-funciones-y-listas",
+    "title": "Clase 03",
+    "section": "Repaso sobre funciones y listas",
+    "text": "Repaso sobre funciones y listas\nPodemos usar el problema de Fibonacci de la práctica para repasar las funciones y algunas propiedades de las listas en python. Ya que los valores de \\(f_n\\) se calculan una y otra vez, quizás podríamos guardar éstos mismos en algun listado. Una lista en python es cualquier cosa encerrada entre corchetes.\nlista = []\narriba vemos una lista vacía\nlista = [2,3]\nLista con dos elementos numéricos\nlista = [2.0,2,'boca','river']\nLista con elementos mixtos\nlista[2]\nnos devuelve el elemento que ocula la posición 2 (recordar que los índices empiezan en cero)\nlista[2] = 'velez'\nasigna el dato ingresado en la posición 2 de la lista.\npodemos agregar un valor al final de una lista usando\nlista.append('mi nuevo valor')",
+    "crumbs": [
+      "Clases",
+      "Clase 03"
+    ]
+  },
+  {
+    "objectID": "clases/Clase-03.html#funciones",
+    "href": "clases/Clase-03.html#funciones",
+    "title": "Clase 03",
+    "section": "Funciones",
+    "text": "Funciones\nLas definimos tal como en matemática\ndef f(x):\n  y=2*x\n  return y\nla palabra def es reservada para definir funciones. Luego del nombre, en el ejemplo es f entre parénteis van los argumentos. Luego, en el bloque central las instrucciones. La palabra return hace explicta la ejecución de la función y “devuelve” lo que se ponga allí. De todas formas, las funciones pueden imprimir en consola respuestas o valores sin necesida de que devuelvan un resultado mediante return.\ndef f(x):\n  y=2*x\n  print(y)\nla diferencia radica en que al imprimir, el resultado sólo esta visible en pantalla y no podemos volver a usar ese dato para otro cáculo o proceso. por ejemplo, si uno quisiera graficar la función f debería poder tener los valores de entrada y salida como pares ordenados y eso sólo podríamos lograrlo mediante el uso de return. Más adelante profundizaremos.\n\nPara Fibonacci\ndef fibo(n):\n  serie = [0,1]\n  ratio = [\"-\",1]\n  if n &lt;= 2:\n    print(serie[0:n]) # imprime desde las posiciones 0 a la n de la lista serie\n    print(ratio[0:n]) # imprime desde las posiciones 0 a la n de la lista ratio\n  else:\n\n    for i in range(1,n):\n      serie.append(serie[i]+serie[i-1])\n      ratio.append(serie[i+1]/serie[i])\n\n    print(serie)\n    print(ratio)\nSe puede definir un método recurrente (que se llama a sí mismo dentro de su definición) para calcular la sucesión de Fibonacci. Lo pueden googlear, pero es didácticamente basatante oscuro, por lo que no lo recomiendo como material de enseñanza.\nLo que si se puede hacer, es la versión mas sencilla, que también es un poco críptica pero más clara, que sería algo así:\ndef fib(n):\n    f_n = 0  # posición n\n    fn_1 = 1  # posición n+1\n\n1    for k in range(n):\n2        fn_2 = fn_1+ f_n\n3        f_n = fn_1\n4        fn_1 = fn_2\n\n        # para n=1\n        # fn_2 = 1+1\n        # f_n = 1\n        # f_n1 =2\n\n        # para n=2\n        # fn_2 = 2+1 =3\n        # f_n = 2\n        #fn_1 = 3\n\n        # para n=3\n        # fn_2 = 3+2= 5\n        # fn = 3\n        # fn_1 = 3\n\n    return f_n\n\nfor i in range(8):\n  print(fib(i))\n\n1\n\nrecorro de 0 a n calculando los valores\n\n2\n\nposición n+2, para n=0 fn_2 =&gt; vale 1=1+0\n\n3\n\nahora la posición n, que es la que se va a imprimir, se redefine como la posición siguiente f_n=1\n\n4\n\nla posiciión n+1 se define como lo que se obtuvo para n+2 y volvemos al inicio del bucle fn_1 = 1\n\n\nPresentación",
+    "crumbs": [
+      "Clases",
+      "Clase 03"
+    ]
+  },
+  {
+    "objectID": "clases.html",
+    "href": "clases.html",
+    "title": "Clases",
+    "section": "",
+    "text": "Ordenar por\n       Por defecto\n         \n          Título\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTítulo\n\n\nSubtítulo\n\n\nDescripción\n\n\n\n\n\n\nClase 01\n\n\nIntroducción a la programación en Python\n\n\n\n\n\n\n\nClase 02\n\n\nContenedores, estructuras lógicas y funciones\n\n\n\n\n\n\n\nClase 03\n\n\nAlgo más sobre funciones y listas\n\n\n\n\n\n\n\nClase 04\n\n\nIntroducción a Numpy\n\n\n\n\n\n\n\n\nNo hay resultados"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "C2-661",
+    "section": "",
+    "text": "Profesor\n\n Prof. Federico Arabolaza\n federico.arabolaza@inspt.utn.edu.ar\n INSPT UTN\n\n\n\nCursada\n\n Triunvirato 3174\n Miércoles de 19:00 a 20:20\n\n\n\nSecciones\n\n Programa de la materia\n Calendario de clases\n Trabajos prácticos\n Clases\n Bibliografía\n Descargas"
+  },
+  {
+    "objectID": "presentaciones/Clase-03.html#repaso-sobre-funciones-y-listas",
+    "href": "presentaciones/Clase-03.html#repaso-sobre-funciones-y-listas",
+    "title": "Clase 03",
+    "section": "Repaso sobre funciones y listas",
+    "text": "Repaso sobre funciones y listas\nPodemos usar el problema de Fibonacci de la práctica para repasar las funciones y algunas propiedades de las listas en python. Ya que los valores de \\(f_n\\) se calculan una y otra vez, quizás podríamos guardar éstos mismos en algun listado. Una lista en python es cualquier cosa encerrada entre corchetes."
+  },
+  {
+    "objectID": "presentaciones/Clase-03.html#funciones",
+    "href": "presentaciones/Clase-03.html#funciones",
+    "title": "Clase 03",
+    "section": "Funciones",
+    "text": "Funciones\nLas definimos tal como en matemática\ndef f(x):\n  y=2*x\n  return y"
+  },
+  {
+    "objectID": "presentaciones/Clase-03.html#para-fibonacci",
+    "href": "presentaciones/Clase-03.html#para-fibonacci",
+    "title": "Clase 03",
+    "section": "Para Fibonacci",
+    "text": "Para Fibonacci\ndef fibo(n):\n  serie = [0,1]\n  ratio = [\"-\",1]\n  if n &lt;= 2:\n    print(serie[0:n]) # imprime desde las posiciones 0 a la n de la lista serie\n    print(ratio[0:n]) # imprime desde las posiciones 0 a la n de la lista ratio\n  else:\n\n    for i in range(1,n):\n      serie.append(serie[i]+serie[i-1])\n      ratio.append(serie[i+1]/serie[i])\n\n    print(serie)\n    print(ratio)"
+  },
+  {
+    "objectID": "presentaciones/Clase-03.html#una-versión-mas-sencilla",
+    "href": "presentaciones/Clase-03.html#una-versión-mas-sencilla",
+    "title": "Clase 03",
+    "section": "Una versión mas sencilla",
+    "text": "Una versión mas sencilla\nAunque también un poco críptica, sería algo así:\ndef fib(n):\n    f_n = 0  # posición n\n    fn_1 = 1  # posición n+1\n\n1    for k in range(n):\n2        fn_2 = fn_1+ f_n\n3        f_n = fn_1\n4        fn_1 = fn_2\n\n        # para n=1\n        # fn_2 = 1+1\n        # f_n = 1\n        # f_n1 =2\n\n        # para n=2\n        # fn_2 = 2+1 =3\n        # f_n = 2\n        #fn_1 = 3\n\n        # para n=3\n        # fn_2 = 3+2= 5\n        # fn = 3\n        # fn_1 = 3\n\n    return f_n\n\nfor i in range(8):\n  print(fib(i))\n\n1\n\nrecorro de 0 a n calculando los valores\n\n2\n\nposición n+2, para n=0 fn_2 =&gt; vale 1=1+0\n\n3\n\nahora la posición n, que es la que se va a imprimir, se redefine como la posición siguiente f_n=1\n\n4\n\nla posiciión n+1 se define como lo que se obtuvo para n+2 y volvemos al inicio del bucle fn_1 = 1"
+  },
+  {
+    "objectID": "programa.html",
+    "href": "programa.html",
+    "title": "Programa de la materia",
+    "section": "",
+    "text": "🔗 Programa de la materia",
+    "crumbs": [
+      "Info Cursada",
+      "Programa de la materia"
+    ]
+  },
+  {
     "objectID": "trabajos practicos/TP 02.html",
     "href": "trabajos practicos/TP 02.html",
     "title": "TP 02",
@@ -107,514 +681,6 @@
     "crumbs": [
       "trabajos practicos",
       "TP 02"
-    ]
-  },
-  {
-    "objectID": "presentaciones/Clase-03.html#repaso-sobre-funciones-y-listas",
-    "href": "presentaciones/Clase-03.html#repaso-sobre-funciones-y-listas",
-    "title": "Clase 03",
-    "section": "Repaso sobre funciones y listas",
-    "text": "Repaso sobre funciones y listas\nPodemos usar el problema de Fibonacci de la práctica para repasar las funciones y algunas propiedades de las listas en python. Ya que los valores de \\(f_n\\) se calculan una y otra vez, quizás podríamos guardar éstos mismos en algun listado. Una lista en python es cualquier cosa encerrada entre corchetes."
-  },
-  {
-    "objectID": "presentaciones/Clase-03.html#funciones",
-    "href": "presentaciones/Clase-03.html#funciones",
-    "title": "Clase 03",
-    "section": "Funciones",
-    "text": "Funciones\nLas definimos tal como en matemática\ndef f(x):\n  y=2*x\n  return y"
-  },
-  {
-    "objectID": "presentaciones/Clase-03.html#para-fibonacci",
-    "href": "presentaciones/Clase-03.html#para-fibonacci",
-    "title": "Clase 03",
-    "section": "Para Fibonacci",
-    "text": "Para Fibonacci\ndef fibo(n):\n  serie = [0,1]\n  ratio = [\"-\",1]\n  if n &lt;= 2:\n    print(serie[0:n]) # imprime desde las posiciones 0 a la n de la lista serie\n    print(ratio[0:n]) # imprime desde las posiciones 0 a la n de la lista ratio\n  else:\n\n    for i in range(1,n):\n      serie.append(serie[i]+serie[i-1])\n      ratio.append(serie[i+1]/serie[i])\n\n    print(serie)\n    print(ratio)"
-  },
-  {
-    "objectID": "presentaciones/Clase-03.html#una-versión-mas-sencilla",
-    "href": "presentaciones/Clase-03.html#una-versión-mas-sencilla",
-    "title": "Clase 03",
-    "section": "Una versión mas sencilla",
-    "text": "Una versión mas sencilla\nAunque también un poco críptica, sería algo así:\ndef fib(n):\n    f_n = 0  # posición n\n    fn_1 = 1  # posición n+1\n\n1    for k in range(n):\n2        fn_2 = fn_1+ f_n\n3        f_n = fn_1\n4        fn_1 = fn_2\n\n        # para n=1\n        # fn_2 = 1+1\n        # f_n = 1\n        # f_n1 =2\n\n        # para n=2\n        # fn_2 = 2+1 =3\n        # f_n = 2\n        #fn_1 = 3\n\n        # para n=3\n        # fn_2 = 3+2= 5\n        # fn = 3\n        # fn_1 = 3\n\n    return f_n\n\nfor i in range(8):\n  print(fib(i))\n\n1\n\nrecorro de 0 a n calculando los valores\n\n2\n\nposición n+2, para n=0 fn_2 =&gt; vale 1=1+0\n\n3\n\nahora la posición n, que es la que se va a imprimir, se redefine como la posición siguiente f_n=1\n\n4\n\nla posiciión n+1 se define como lo que se obtuvo para n+2 y volvemos al inicio del bucle fn_1 = 1"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "C2-661",
-    "section": "",
-    "text": "Profesor\n\n Prof. Federico Arabolaza\n federico.arabolaza@inspt.utn.edu.ar\n INSPT UTN\n\n\n\nCursada\n\n Triunvirato 3174\n Miércoles de 19:00 a 20:20\n\n\n\nSecciones\n\n Programa de la materia\n Calendario de clases\n Trabajos prácticos\n Clases\n Bibliografía\n Descargas"
-  },
-  {
-    "objectID": "clases.html",
-    "href": "clases.html",
-    "title": "Clases",
-    "section": "",
-    "text": "Ordenar por\n       Por defecto\n         \n          Título\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTítulo\n\n\nSubtítulo\n\n\nDescripción\n\n\n\n\n\n\nClase 01\n\n\nIntroducción a la programación en Python\n\n\n\n\n\n\n\nClase 02\n\n\nContenedores, estructuras lógicas y funciones\n\n\n\n\n\n\n\nClase 03\n\n\nAlgo más sobre funciones y listas\n\n\n\n\n\n\n\nClase 04\n\n\nIntroducción a Numpy\n\n\n\n\n\n\n\n\nNo hay resultados"
-  },
-  {
-    "objectID": "clases/Clase-03.html",
-    "href": "clases/Clase-03.html",
-    "title": "Clase 03",
-    "section": "",
-    "text": "Temario\n\n\n\nEn esta clase veremos:\n\nComo definir una función\nLos métodos más comunes de las listas\nUsaremos los anterior para resolver de mejor forma algunas situaciones",
-    "crumbs": [
-      "Clases",
-      "Clase 03"
-    ]
-  },
-  {
-    "objectID": "clases/Clase-03.html#repaso-sobre-funciones-y-listas",
-    "href": "clases/Clase-03.html#repaso-sobre-funciones-y-listas",
-    "title": "Clase 03",
-    "section": "Repaso sobre funciones y listas",
-    "text": "Repaso sobre funciones y listas\nPodemos usar el problema de Fibonacci de la práctica para repasar las funciones y algunas propiedades de las listas en python. Ya que los valores de \\(f_n\\) se calculan una y otra vez, quizás podríamos guardar éstos mismos en algun listado. Una lista en python es cualquier cosa encerrada entre corchetes.\nlista = []\narriba vemos una lista vacía\nlista = [2,3]\nLista con dos elementos numéricos\nlista = [2.0,2,'boca','river']\nLista con elementos mixtos\nlista[2]\nnos devuelve el elemento que ocula la posición 2 (recordar que los índices empiezan en cero)\nlista[2] = 'velez'\nasigna el dato ingresado en la posición 2 de la lista.\npodemos agregar un valor al final de una lista usando\nlista.append('mi nuevo valor')",
-    "crumbs": [
-      "Clases",
-      "Clase 03"
-    ]
-  },
-  {
-    "objectID": "clases/Clase-03.html#funciones",
-    "href": "clases/Clase-03.html#funciones",
-    "title": "Clase 03",
-    "section": "Funciones",
-    "text": "Funciones\nLas definimos tal como en matemática\ndef f(x):\n  y=2*x\n  return y\nla palabra def es reservada para definir funciones. Luego del nombre, en el ejemplo es f entre parénteis van los argumentos. Luego, en el bloque central las instrucciones. La palabra return hace explicta la ejecución de la función y “devuelve” lo que se ponga allí. De todas formas, las funciones pueden imprimir en consola respuestas o valores sin necesida de que devuelvan un resultado mediante return.\ndef f(x):\n  y=2*x\n  print(y)\nla diferencia radica en que al imprimir, el resultado sólo esta visible en pantalla y no podemos volver a usar ese dato para otro cáculo o proceso. por ejemplo, si uno quisiera graficar la función f debería poder tener los valores de entrada y salida como pares ordenados y eso sólo podríamos lograrlo mediante el uso de return. Más adelante profundizaremos.\n\nPara Fibonacci\ndef fibo(n):\n  serie = [0,1]\n  ratio = [\"-\",1]\n  if n &lt;= 2:\n    print(serie[0:n]) # imprime desde las posiciones 0 a la n de la lista serie\n    print(ratio[0:n]) # imprime desde las posiciones 0 a la n de la lista ratio\n  else:\n\n    for i in range(1,n):\n      serie.append(serie[i]+serie[i-1])\n      ratio.append(serie[i+1]/serie[i])\n\n    print(serie)\n    print(ratio)\nSe puede definir un método recurrente (que se llama a sí mismo dentro de su definición) para calcular la sucesión de Fibonacci. Lo pueden googlear, pero es didácticamente basatante oscuro, por lo que no lo recomiendo como material de enseñanza.\nLo que si se puede hacer, es la versión mas sencilla, que también es un poco críptica pero más clara, que sería algo así:\ndef fib(n):\n    f_n = 0  # posición n\n    fn_1 = 1  # posición n+1\n\n1    for k in range(n):\n2        fn_2 = fn_1+ f_n\n3        f_n = fn_1\n4        fn_1 = fn_2\n\n        # para n=1\n        # fn_2 = 1+1\n        # f_n = 1\n        # f_n1 =2\n\n        # para n=2\n        # fn_2 = 2+1 =3\n        # f_n = 2\n        #fn_1 = 3\n\n        # para n=3\n        # fn_2 = 3+2= 5\n        # fn = 3\n        # fn_1 = 3\n\n    return f_n\n\nfor i in range(8):\n  print(fib(i))\n\n1\n\nrecorro de 0 a n calculando los valores\n\n2\n\nposición n+2, para n=0 fn_2 =&gt; vale 1=1+0\n\n3\n\nahora la posición n, que es la que se va a imprimir, se redefine como la posición siguiente f_n=1\n\n4\n\nla posiciión n+1 se define como lo que se obtuvo para n+2 y volvemos al inicio del bucle fn_1 = 1\n\n\nPresentación",
-    "crumbs": [
-      "Clases",
-      "Clase 03"
-    ]
-  },
-  {
-    "objectID": "clases/Clase-01.html",
-    "href": "clases/Clase-01.html",
-    "title": "Clase 01",
-    "section": "",
-    "text": "Código para escanear\n\n\n\n\nFigura 1: Formulario a completar",
-    "crumbs": [
-      "Clases",
-      "Clase 01"
-    ]
-  },
-  {
-    "objectID": "clases/Clase-01.html#formulario-de-bienvenida",
-    "href": "clases/Clase-01.html#formulario-de-bienvenida",
-    "title": "Clase 01",
-    "section": "",
-    "text": "Código para escanear\n\n\n\n\nFigura 1: Formulario a completar",
-    "crumbs": [
-      "Clases",
-      "Clase 01"
-    ]
-  },
-  {
-    "objectID": "clases/Clase-01.html#intro-a-python",
-    "href": "clases/Clase-01.html#intro-a-python",
-    "title": "Clase 01",
-    "section": "Intro a Python",
-    "text": "Intro a Python\nEste documento es una adaptación de otro existente. Compilamos algunos recursos útiles para la materia\nManual de Python en español\nBibliografía de la materia",
-    "crumbs": [
-      "Clases",
-      "Clase 01"
-    ]
-  },
-  {
-    "objectID": "clases/Clase-01.html#tipos-de-variables",
-    "href": "clases/Clase-01.html#tipos-de-variables",
-    "title": "Clase 01",
-    "section": "Tipos de variables",
-    "text": "Tipos de variables\n\nNuméricas:\n\nint, float, long, complex\n\nstring\nbooleanas\n\nTrue / False\n\n\nSe resumen en la siguiente tabla:\n\nTipos de datos en Python\n\n\n\n\n\n\n\n\n\nTipo\nEjemplo\nDescripción\n\n\n\n\nstr\nx = 'abc'\nString: caracteres de texto\n\n\nint\nx = 1\nintegers (i.e., números enteros)\n\n\nfloat\nx = 1.0\nfloating-point numbers (i.e., números reales)\n\n\ncomplex\nx = 1 + 2j\nnúmeros complejos\n\n\nbool\nx = True\nBooleano: Verdadero/Falso\n\n\nNoneType\nx = None\nObjeto para designar el valor nulo\n\n\n\nSe usa la función type() para conocer el tipo de una variable\n\nFracciones\nBueno, las fracciones no son representaciones “típicas” en los lenguajes de programación, y en python, debemos usar los módulos específicos para operar con ellas. Más información acá. Veremos más adelante como trabjar con fracciones.\n\n\nstringIntegerFloatBooleanNone\n\n\n# String\nc = 'hello'\nprint(type(c))\n\n\n# Integer\na = 1\nprint(type(a))\n\n\n# Float\nb = 1.0\nprint(type(b))\n\n\n# Boolean\nd = True\nprint(type(d))\n\n\n# None\ne = None\nprint(type(e))",
-    "crumbs": [
-      "Clases",
-      "Clase 01"
-    ]
-  },
-  {
-    "objectID": "clases/Clase-01.html#operadores-de-cadenas-de-texto",
-    "href": "clases/Clase-01.html#operadores-de-cadenas-de-texto",
-    "title": "Clase 01",
-    "section": "Operadores de cadenas de texto",
-    "text": "Operadores de cadenas de texto\nLos operadores matemáticos son diferentes en las cadenas de texto, por ejemplo el sigo + se usa para unir cadenas\nRepeticiones: Se usa *n para repetir una cadena n veces\n# Asignar y combinar cadenas\na = 'Hello'\nb = 'World'\nprint(a + ' ' + b)\n# f-strings: reemplazarvalores de variables en cadenas\nfirstname = 'Beto'\nprint(f'Me llamo {firstname}')\n# Combininar f-strings\nfirstname = 'Beto'\nlastname = 'Velez'\n\nprint(f'My name is {firstname} {lastname}')\n# Repetir una cadena\nprint(str(a)*5)\n# Repetir un cadena con espacios\nprint(str(a+' ')*5)",
-    "crumbs": [
-      "Clases",
-      "Clase 01"
-    ]
-  },
-  {
-    "objectID": "clases/Clase-01.html#operadores-matemáticos",
-    "href": "clases/Clase-01.html#operadores-matemáticos",
-    "title": "Clase 01",
-    "section": "Operadores Matemáticos",
-    "text": "Operadores Matemáticos\nEn python tenemos los clásicos operadores matemáticos\n\n+, -, *, y /\nExponenciación **\nModulo % (Resto)\n\n\nAdiciónSustracciónMultiplicaciónDivisiónExponenciaciónModulo\n\n\na = 2 + 7\nprint(f'a = {a}')\n\n\nb = a - 5\nprint(f'b = a-5 = {a}-5 = {b}')\n\n\nprint(f'b*2 = {b}*2 = {b*2}')\n\n\nprint(f'a/3 = {a}/3 = {a/3}')\n\n\nprint(f'b^2 = b**2 = {b}**2 = {b**2}')\n\n\nModulo de vuelve el resto luego de dividir entre dos números\nprint('(Modulo de vuelve el resto luego de dividir entre dos números)')\nprint(f'el resto de  b/9 = resto de {b}/9 = {b%9}')",
-    "crumbs": [
-      "Clases",
-      "Clase 01"
-    ]
-  },
-  {
-    "objectID": "clases/Clase-01.html#operadores-lógicos",
-    "href": "clases/Clase-01.html#operadores-lógicos",
-    "title": "Clase 01",
-    "section": "Operadores lógicos",
-    "text": "Operadores lógicos\nHacen una comparación y devuelven un booleano (verdadero o falso)\nx == y # x es igual a y\nx != y # x no es igual a y\nx &gt; y # x es mayor que y\nx &lt; y # x es menor que y\nx &gt;= y # x es mayor o igual que y\nx &lt;= y # x es menor o igual que y\n\nEn cadenas de textoEn datos numéricos\n\n\na = 'hola'\nb = 'que tal'\nc = 'Hola'\nprint('a==b: ' + str(a==b))\nprint('a==c: ' + str(a==c))\nprint('a!=b: ' + str(a!=b))\nprint()\n\n\nd = 5\ne = 8\nprint('d &lt; e: ' + str(d &lt; e))\nprint('d &gt;= e: ' + str(d &gt;= e))",
-    "crumbs": [
-      "Clases",
-      "Clase 01"
-    ]
-  },
-  {
-    "objectID": "clases/Clase-01.html#ejercicios",
-    "href": "clases/Clase-01.html#ejercicios",
-    "title": "Clase 01",
-    "section": "Ejercicios",
-    "text": "Ejercicios\n\nCrear una variable de tipo numérica\nAsignar a la variable un número entero, por ejemplo “1” y ejecutar la función type sobre ella.\nAsignar a la variable un número con decimales ejemplo “3.5” y ejecutar la función type sobre ella.\nCrear dos variables, a una asignarle un valor numérico entero y a otra uno con lugares decimales, pero que coincidan. Por ejemplo “5” y “5.0” compararlos usando el operador lógico de igualdad. ¿Qué se obtiene?\nUsar la el operador módulo (resto) sobre diferentes números. ¿Cómo podría escribir un programa sencillo que me indique si un número es divible por otro? ¿Qué condiciones debería evaluar? ¿Qué operadores lógicos necesito?\nEscribir un diagrama de lo que debería hacer el programa del punto 5",
-    "crumbs": [
-      "Clases",
-      "Clase 01"
-    ]
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "Computación 1-661",
-    "section": "",
-    "text": "About this site"
-  },
-  {
-    "objectID": "clases/Clase-02.html",
-    "href": "clases/Clase-02.html",
-    "title": "Clase 02",
-    "section": "",
-    "text": "Presentación",
-    "crumbs": [
-      "Clases",
-      "Clase 02"
-    ]
-  },
-  {
-    "objectID": "clases/Clase-02.html#condicional-if",
-    "href": "clases/Clase-02.html#condicional-if",
-    "title": "Clase 02",
-    "section": "Condicional if",
-    "text": "Condicional if\nEn python las secuencias se encierran en bloques indentados, con tabulaciones\nSintaxis (ver los espacios):\nif condicion:\n    hace_algo\nelif condicion:\n    hace_esta_otra_cosa\nelse:\n    haga_esto_otro # se suele usar para errores\n                 # luego de una lista de opciones\nLa conversión implícita de los valores a bool() se hace si la condición a evaluar no es booleana en sí misma:\nn = 2\n\nif n:\n    print(\"n no es cero o no es null\")\n\nif n is None:\n    print(\"n es None\")\n\nif n is not str:\n    print(\"n no es una cadena de texto\")\nPodemos añadir bifurcaciones usando elif\nx = 20\ny = 21\n\nif y &gt; x:\n    print('y &gt; x')\nelif y &lt; x:\n    print('y &lt; x')\nLa palabra reservada and implica que ambas condiciones deben ser verdaderas\nif x==20 and y==21:\n    print('True')\nelse:\n    print('False')\nLa palabra reservada or implica que al menos una condición debe ser verdadera\nif x==20 or y==100:\n    print('True')\nelse:\n    print('False')",
-    "crumbs": [
-      "Clases",
-      "Clase 02"
-    ]
-  },
-  {
-    "objectID": "clases/Clase-02.html#bucle-for",
-    "href": "clases/Clase-02.html#bucle-for",
-    "title": "Clase 02",
-    "section": "Bucle for",
-    "text": "Bucle for\nEl bucle for es quizás la construcción más habitual en python. Su sintaxis es\nfor elemento in secuencia:\n    haga_esto\nEn un ejemplo:\nfor i in [0, 1, 2, 3, 4, 5]:\n    print(i)\nUsando la función range() (que devuelve los enteros del conjunto)\nfor i in range(2,5):\n    print(i)\nUsando una lista y la función enumerate() para devolver el elemento y su posición en la lista\nlist_a = ['P','S','Y','C','H']\n\nfor index, value in enumerate(list_a):\n    print(index, value)\nRecorriendo los elementos de una cadena de texto uno a no\ncadena_de_texto = \"Python facilita la ciencia\"\nfor c in cadena_de_texto:\n    print(c)",
-    "crumbs": [
-      "Clases",
-      "Clase 02"
-    ]
-  },
-  {
-    "objectID": "clases/Clase-02.html#estructura-while",
-    "href": "clases/Clase-02.html#estructura-while",
-    "title": "Clase 02",
-    "section": "Estructura while",
-    "text": "Estructura while\nSe puede usar también un bule while para iterar mientras una condición sea verdadera:\nwhile condción :\n    hacer_esto\nx = 0\nend = 10\n\ncsum = 0\n1while x &lt; end:\n2    csum += x\n3    print(x, csum)\n4    x +=1\nprint(f\"x vale {x}\")\n\n1\n\nMientras x sea menor a end\n\n2\n\nSumarle x a la variable csum\n\n3\n\nImprimir el valor de ambas variables\n\n4\n\nSumarle uno a x",
-    "crumbs": [
-      "Clases",
-      "Clase 02"
-    ]
-  },
-  {
-    "objectID": "clases/Clase-02.html#estructura-try-except",
-    "href": "clases/Clase-02.html#estructura-try-except",
-    "title": "Clase 02",
-    "section": "Estructura try-except",
-    "text": "Estructura try-except\nSe puede atrapar o “atajar” errores usando esta estructura. Cada vez que el programa de como resultado un error (un dato mal ingresado o no válido) podremos especificar que hacer. Se puede indicar incluso una respuesta diferente para errores de distinto tipo.\n\ntry:\n    acción_a_intentar\nexcept:\n    que_hacer_si_ocurre_un_error",
-    "crumbs": [
-      "Clases",
-      "Clase 02"
-    ]
-  },
-  {
-    "objectID": "clases/Clase-02.html#listas",
-    "href": "clases/Clase-02.html#listas",
-    "title": "Clase 02",
-    "section": "Listas",
-    "text": "Listas\nUna lista es una arreglo mutable. Lo que quiere decir que podemos redefinir y alterar sus valores - Cada valor en la lista es un elemento o item - Los elementos pueden ser cualquier objeto - Las listas pueden contener objetos de diferente tipo\n\nUna lista vaciía se define como [] o como list()\n\nl = [1,2,3]\n\nLos elementos de una lista estan indizados o indexados (contando desde 0)\n\nl[0]\n\nLos elemnentos pueden ser listas en sí mismas\n\nlista_anidada = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]\n\nLas listas pueden ser “rebanadas”\n\nl[inicio:fin:orientación]\n\nTodos los métodos de las listas\nPodemos tener a mano una lista de los métodos mas usuales para las listas\n\n\n\n\n\n\n\nMétodo\nDescripción\n\n\n\n\nappend()\nAgrega elemento al final de la lista\n\n\nclear()\nElimina los elementos de la lista\n\n\ncopy()\ndevuelve una copia de la lista\n\n\ncount()\nDevuelve la cantidad de elementos que tienen determinado valor\n\n\nextend()\nAgrega los elementos (o cualquier iterable) al final de la lista\n\n\nindex()\nDevuele el índice (posición) del elemento que tiene determinado valor\n\n\ninsert()\nAgrega a la lista en la posición especificada\n\n\npop()\nEliminar el elemento en la posición especificada\n\n\nremove()\nRemueve el elemento con el valor especificado\n\n\nreverse()\nDa la lista invertida\n\n\nsort()\nOrdena la lista\n\n\n\nSe puede consultar mas sobre como rebanar una lista acá\nVeamos algunos ejemplos\na.insert(index,new element)\na.append(element to add at end)\nlen(a)\nlist_a = [1,2,3]\nprint(list_a)\nlist_of_strings = ['hola', 'chau', 'buenas tardes']\nprint(list_of_strings)\nLos elementos de la lista se pueden ubicar usando sus índices.\nlist_b = ['lista','de','cosas']\nprint(list_b[0])\nprint(list_b[1:3])\nprint(list_b[-1])\nlist_b.append('.')\nprint(list_b)\nexample_string = 'Computación 2 266 - Instituto Nacional Superior del Profesorado Técnico'\nprint(example_string)\nprint(example_string.upper())",
-    "crumbs": [
-      "Clases",
-      "Clase 02"
-    ]
-  },
-  {
-    "objectID": "clases/Clase-02.html#diccionarios",
-    "href": "clases/Clase-02.html#diccionarios",
-    "title": "Clase 02",
-    "section": "Diccionarios",
-    "text": "Diccionarios\n\nUn diccionario (dict) es un mapeo entre un conjunto de índices (keys) y otro de valores (values)\nCada objeto de un diccionario es un par índice-valor (key-value)\nLas claves pueden ser cualquier tipo de dato\nLos diccionarios no tienen un orden prestablecido\n\nLos diccionarios se escrbien entre llaves\neng2sp = {}\neng2sp['one'] = 'uno' # la clave 'one' tiene como valor 'uno'\nprint(eng2sp)\neng2sp = {'one': 'uno', 'two': 'dos', 'three': 'tres'}\nprint(eng2sp)\nLas claves y sus valores se pueden acceder a través de los métodos .keys() y .values()\nprint(eng2sp.keys())\nprint(eng2sp.values())",
-    "crumbs": [
-      "Clases",
-      "Clase 02"
-    ]
-  },
-  {
-    "objectID": "clases/Clase-02.html#funciones-para-recibir-entradas-del-usuario",
-    "href": "clases/Clase-02.html#funciones-para-recibir-entradas-del-usuario",
-    "title": "Clase 02",
-    "section": "Funciones para recibir entradas del usuario",
-    "text": "Funciones para recibir entradas del usuario\nUna función para permitir al usuario interactuar con el código ingresando valores es la función input() cuyo funcionamiento se ejemplifica a continuación:\nuser_input = input(\"Ingrese algo: \")\nprint(f\"Usted ha ingresado: {user_input}\")\nHay que tener en cuenta que la función input entiende todo lo que ingresemos a ella como si fuera texto, por lo que si deseamos recibir valores numéricos debemos convertir lo que recibamos. Por ejemplo:\n1price = float(input(\"Ingrese el precio: \"))\nprint(f\"El precio es {price}\")\n\n2age = int(input(\"Ingrese su edad: \"))\nprint(f\"Usted tiene {age} años\")\n\n1\n\nSe convierte a un número float\n\n2\n\nSe convierte a un número entero int\n\n\nPara interrumpir la ejecución podemos usar una combinación de while, try- except como se muestra en este ejemplo que saqué de esta web:\nwhile True:\n    try:\n1        number = int(input(\"Enter an integer: \"))\n2        break\n3    except ValueError:\n4        print(\"Invalid input! Please enter a valid integer.\")\n\n1\n\nConvierte la entrada a un entero\n\n2\n\nSi tiene éxito interrumpe el programa ahí mismo\n\n3\n\nEn caso de recibir una excepción del tipo ValueError\n\n4\n\nImprime un texto de referencia.",
-    "crumbs": [
-      "Clases",
-      "Clase 02"
-    ]
-  },
-  {
-    "objectID": "clases/Clase-04.html",
-    "href": "clases/Clase-04.html",
-    "title": "Clase 04",
-    "section": "",
-    "text": "Para agregar a nuestro espacio de trabajo las funciones que un módulo de python nos provee debemos importarlo. La sintaxis sigue algunas de estas convenciones\nimport modulo as m\nImportamos el modulo y le asignamos un nombre m en este caso, ya sea para evitar confusiones, hacerlo más manejable o corto.\nfrom modulo import submodulo as sm\nDe una librería importamos sólo la función o submódulo que necesitamos.\n\n\n\n\n\n\n\n\nTemario\n\n\n\nEn esta clase veremos:\n\nQué es Numpy\nArrays de Numpy\nAlgunos métodos y funciones de Numpy",
-    "crumbs": [
-      "Clases",
-      "Clase 04"
-    ]
-  },
-  {
-    "objectID": "clases/Clase-04.html#importar-módulos",
-    "href": "clases/Clase-04.html#importar-módulos",
-    "title": "Clase 04",
-    "section": "",
-    "text": "Para agregar a nuestro espacio de trabajo las funciones que un módulo de python nos provee debemos importarlo. La sintaxis sigue algunas de estas convenciones\nimport modulo as m\nImportamos el modulo y le asignamos un nombre m en este caso, ya sea para evitar confusiones, hacerlo más manejable o corto.\nfrom modulo import submodulo as sm\nDe una librería importamos sólo la función o submódulo que necesitamos.\n\n\n\n\n\n\n\n\nTemario\n\n\n\nEn esta clase veremos:\n\nQué es Numpy\nArrays de Numpy\nAlgunos métodos y funciones de Numpy",
-    "crumbs": [
-      "Clases",
-      "Clase 04"
-    ]
-  },
-  {
-    "objectID": "clases/Clase-04.html#arrays-de-numpy",
-    "href": "clases/Clase-04.html#arrays-de-numpy",
-    "title": "Clase 04",
-    "section": "Arrays de numpy",
-    "text": "Arrays de numpy\nl objeto principal de Numpy es un array homogéneo multidimensional. Básicamente se trata de una tabla de elementos (generalmente números) todos del mismo tipo (ésta es una diferencia en cuantoa las listas, que permitían tipos mezclados) que se encuentran indizados (indexados). Las dimensiones del array en Numpy se denominan ejes (axes).\nLa clase base del array es ndarray (lo que Python nos devuelve si usamos la función type sobre un array.\nLos atributos principales de un array son:\n\nndarray.ndim: la cantidad de ejes\nndarray.shape: La “forma” del array, es decir, sus dimensiones. Es una n-upla de enteros que nos dice la dimensión del array en cada eje. Por ejemplo, para una matriz de n filas y m columnas shape será (n,m) (existiendo un sólo eje o axis). La longitud de la forma shape será la cantidad de ejes que tengamos, es decir ndim. Podríamos tener en un mismo array varias matrices una en cada eje.\nndarray.size: Cantidad de elementos en el array.\nndarray.dtype: El tipo de datos que contiene el array.\nndarray.itemsize: El tamaño (en bytes) de los elementos del array",
-    "crumbs": [
-      "Clases",
-      "Clase 04"
-    ]
-  },
-  {
-    "objectID": "clases/Clase-04.html#arange-y-linspace",
-    "href": "clases/Clase-04.html#arange-y-linspace",
-    "title": "Clase 04",
-    "section": "Arange y Linspace",
-    "text": "Arange y Linspace\nImportamos numpy\nimport numpy as np\nPodemos crear un array desde cero usando algunas funciones que vienen con numpy\na = np.arange(15) # Array que va de 0 a 14\nLa sintaxis completa es siimlar a la función range de python\na = np.arange(inicio,fin,paso)\nPodmemos crear un array usando la función linspace que es más conveniente cuando queremos usar datos equiespaciados en una cantidad no entera\nnp.linspace(0,10,20) # inicio, fin, cantidad de elementos\n\nArray desde una lista\nEs posible convertir datos de otro origen al formato de array de numpy pero no desde elementos indivuduales\na = np.array(1,2,3,4)   # MAL\na = np.array([1,2,3,4]) # BIEN\na = np.array((1,2,3,4))  # BIEN\n\n\nArray desde tuplas\narray también puede transformar conjuntos de tuplas o secuencias de secuencias en arreglos n-dimensionales. Por ejemplo:\nc = np.array([(1.5, 2 ,3), (4, 5, 6), (7.1, 7.2, 7.3)])\nprint(c)\nprint(c.shape)\n\n\nZeros, Ones, empty\nLa función zeros crea un array de ceros, la función ones crea un array de unos y la función random.rand crea un array de valores float aleatorios en el intervalo [0,1] mientras que la función empty crea un array cuyo contenido depende de lo que haya en memoria (sinceramente nunca usé esta función) con el tipo float64.\nExisten otras funciones como zeros_like que crea arrays del tamaño de otro objeto, útil cuando queremos que dos arrays tengan el mismo tamaño.\n\nZerosOneEmptyZeros Like\n\n\nnp.zeros((3,4))\n\n\ntest = np.ones((2,3,4), dtype=np.int16)\nprint(test)\n\n\nnp.empty((2,3))\n\n\nC =np.zeros_like(B)\nnp.size(C)\nprint(C)",
-    "crumbs": [
-      "Clases",
-      "Clase 04"
-    ]
-  },
-  {
-    "objectID": "clases/Clase-04.html#algunos-atributos",
-    "href": "clases/Clase-04.html#algunos-atributos",
-    "title": "Clase 04",
-    "section": "Algunos atributos",
-    "text": "Algunos atributos\nA este elemento le podemos consultar los atributos que vimos en la sección anterior\n\ndtypendimitemsizesize\n\n\nprint(a.shape)\n\n\nprint(a.ndim)\n\n\nprint(a.dtype.name)\n\n\nprint(a.itemsize)\nprint(a.size)",
-    "crumbs": [
-      "Clases",
-      "Clase 04"
-    ]
-  },
-  {
-    "objectID": "clases/Clase-04.html#manipulación-de-arrays",
-    "href": "clases/Clase-04.html#manipulación-de-arrays",
-    "title": "Clase 04",
-    "section": "Manipulación de arrays",
-    "text": "Manipulación de arrays\nLas funciones típicas son: - ravel() aplana el array - reshape() cambia la forma - transpose() lo transpone\nPodemos crear un array con valores aleatorios usando el submódulo random de numpy.\n1ejemplo = np.random.rand(4,4)\nprint(ejemplo)\n\n1\n\nUn array (matriz) de 4x4\n\n\n1example_flat = example.ravel()\nprint(example_flat)\n\n1\n\ndevuelve el array, “aplanado”\n\n\n1example_flat.reshape(2,8)\n\n1\n\nDevuelve el array pero como una matriz de 2x8\n\n\n1example_flat.reshape(4,4)\n\n1\n\nDevuelve el array a su forma original\n\n\n1test = np.random.rand(2,3,6)\n2print(test.ravel())\n3print(example.transpose())\n\n1\n\nDos arrays que contienen a su vez arrays de 2x3 (CxF)\n\n2\n\nAplana el array\n\n3\n\nTranspone (invierte filas y columnas)\n\n\nLa función rand() merece un apartado en sí misma y la veremos más adelante pero genera desde un array con un sólo elemento aleatorio entre cero y uno o arrays de cualquier forma.",
-    "crumbs": [
-      "Clases",
-      "Clase 04"
-    ]
-  },
-  {
-    "objectID": "clases/Clase-04.html#actividad",
-    "href": "clases/Clase-04.html#actividad",
-    "title": "Clase 04",
-    "section": "Actividad",
-    "text": "Actividad\nUsando el módulo de ayuda buscar las funciones que permiten en numpy calcular:\n\nel valor medio\nla desviación estándar\nLa sumatoria de un array\nEl valor máximo de un array\nEl valor mínimo de un array",
-    "crumbs": [
-      "Clases",
-      "Clase 04"
-    ]
-  },
-  {
-    "objectID": "clases/Clase-04.html#referencias",
-    "href": "clases/Clase-04.html#referencias",
-    "title": "Clase 04",
-    "section": "Referencias",
-    "text": "Referencias\n\n✏️ Ejercicios de Numpy en W3Schools.com\n✏️ 101 Ejercicios de Numpy con soluciones",
-    "crumbs": [
-      "Clases",
-      "Clase 04"
-    ]
-  },
-  {
-    "objectID": "presentaciones/Clase-02.html#condicional-if",
-    "href": "presentaciones/Clase-02.html#condicional-if",
-    "title": "Presentación Clase 02",
-    "section": "Condicional if",
-    "text": "Condicional if\nEn python las secuencias se encierran en bloques indentados, con tabulaciones\nSintaxis (ver los espacios):\nif condicion:\n    hace_algo\nelif condicion:\n    hace_esta_otra_cosa\nelse:\n    haga_esto_otro # se suele usar para errores\n                 # luego de una lista de opciones\nn = 2\n\nif n:\n    print(\"n no es cero o no es null\")\n\nif n is None:\n    print(\"n es None\")\n\nif n is not str:\n    print(\"n no es una cadena de texto\")"
-  },
-  {
-    "objectID": "presentaciones/Clase-02.html#bucle-for",
-    "href": "presentaciones/Clase-02.html#bucle-for",
-    "title": "Presentación Clase 02",
-    "section": "Bucle for",
-    "text": "Bucle for\nEl bucle for es quizás la construcción más habitual en python. Su sintaxis es\nfor elemento in secuencia:\n    haga_esto"
-  },
-  {
-    "objectID": "presentaciones/Clase-02.html#estructura-while",
-    "href": "presentaciones/Clase-02.html#estructura-while",
-    "title": "Presentación Clase 02",
-    "section": "Estructura while",
-    "text": "Estructura while\nSe puede usar también un bucle while para iterar mientras una condición sea verdadera:\nwhile condción :\n    hacer_esto"
-  },
-  {
-    "objectID": "presentaciones/Clase-02.html#estructura-try-except",
-    "href": "presentaciones/Clase-02.html#estructura-try-except",
-    "title": "Presentación Clase 02",
-    "section": "Estructura try-except",
-    "text": "Estructura try-except\nSe puede atrapar o “atajar” errores usando esta estructura. Cada vez que el programa de como resultado un error (un dato mal ingresado o no válido) podremos especificar que hacer. Se puede indicar incluso una respuesta diferente para errores de distinto tipo.\n\ntry:\n    acción_a_intentar\nexcept:\n    que_hacer_si_ocurre_un_error"
-  },
-  {
-    "objectID": "presentaciones/Clase-02.html#listas",
-    "href": "presentaciones/Clase-02.html#listas",
-    "title": "Presentación Clase 02",
-    "section": "Listas",
-    "text": "Listas\nUna lista es una arreglo mutable. Lo que quiere decir que podemos redefinir y alterar sus valores - Cada valor en la lista es un elemento o item - Los elementos pueden ser cualquier objeto - Las listas pueden contener objetos de diferente tipo - Una lista vaciía se define como [] o como list()"
-  },
-  {
-    "objectID": "presentaciones/Clase-02.html#diccionarios",
-    "href": "presentaciones/Clase-02.html#diccionarios",
-    "title": "Presentación Clase 02",
-    "section": "Diccionarios",
-    "text": "Diccionarios\n\nUn diccionario (dict) es un mapeo entre un conjunto de índices (keys) y otro de valores (values)\nCada objeto de un diccionario es un par índice-valor (key-value)\nLas claves pueden ser cualquier tipo de dato\nLos diccionarios no tienen un orden prestablecido"
-  },
-  {
-    "objectID": "presentaciones/Clase-02.html#una-función",
-    "href": "presentaciones/Clase-02.html#una-función",
-    "title": "Presentación Clase 02",
-    "section": "Una función",
-    "text": "Una función\n\nEntre paréntesis están los argumentos.\nSe puede decir que una función “toma” un argumento y “devuelve” un resultado.\nAl resultado se lo suele llamar valor de retorno.\nNo es necesario que una función retorne un valor\n\nLa primera línea de la función se la llama encabezado (header) y a las restantes el cuerpo (body).\nEl ebcabezado va encerrado entre comillas y el cuerpo tiene que estar indentado. La indentación común es de 4 espacios y un error común es que el software que se usa confunda tabulaciones con indentación. Apretar la tecla tab, si el software está bien configurado, debería hacer los 4 espacios y no una tabulación. Esto parece una aclaración contradictoria y poco relevante, pero como se dijo más arriba, es una fuente común de errores en la ejecución de código: si hay tabulaciones en donde deberían estar los 4 espacios de la indentación, el código no se ejecuta.\nEl cuerpo de una función termina cuando se vuelve al nivel anterior de indentación.\nPara consultar más acerca de funciones, pueden visitar la ayuda de Python oficial"
-  },
-  {
-    "objectID": "presentaciones/Clase-02.html#funciones-para-recibir-entradas-del-usuario",
-    "href": "presentaciones/Clase-02.html#funciones-para-recibir-entradas-del-usuario",
-    "title": "Presentación Clase 02",
-    "section": "Funciones para recibir entradas del usuario",
-    "text": "Funciones para recibir entradas del usuario\nUna función para permitir al usuario interactuar con el código ingresando valores es la función input() cuyo funcionamiento se ejemplifica a continuación:\nuser_input = input(\"Ingrese algo: \")\nprint(f\"Usted ha ingresado: {user_input}\")\nHay que tener en cuenta que la función input entiende todo lo que ingresemos a ella como si fuera texto, por lo que si deseamos recibir valores numéricos debemos convertir lo que recibamos. Por ejemplo:\n1price = float(input(\"Ingrese el precio: \"))\nprint(f\"El precio es {price}\")\n\n2age = int(input(\"Ingrese su edad: \"))\nprint(f\"Usted tiene {age} años\")\n\n1\n\nSe convierte a un número float\n\n2\n\nSe convierte a un número entero int\n\n\nEjemplo\nPara interrumpir la ejecución podemos usar una combinación de while, try- except como se muestra en este ejemplo que saqué de esta web:\nwhile True:\n    try:\n1        number = int(input(\"Enter an integer: \"))\n2        break\n3    except ValueError:\n4        print(\"Invalid input! Please enter a valid integer.\")\n\n1\n\nConvierte la entrada a un entero\n\n2\n\nSi tiene éxito interrumpe el programa ahí mismo\n\n3\n\nEn caso de recibir una excepción del tipo ValueError\n\n4\n\nImprime un texto de referencia."
-  },
-  {
-    "objectID": "presentaciones/test.html",
-    "href": "presentaciones/test.html",
-    "title": "C2-661 2025",
-    "section": "",
-    "text": "¡Claro! Aquí tienes la explicación al estilo Feynman sobre la deducción de la aceleración centrípeta convertida a formato Markdown:\n# Deducir la aceleración centrípeta al estilo Feynman\n\n¡Ja! Bueno, me pongo las zapatillas de Richard Feynman, me ajusto la camisa desabotonada y vamos a divertirnos un poco con esto, como si estuviéramos garabateando en una pizarra en Caltech. Querés saber cómo llegamos a la fórmula de la **aceleración centrípeta** en un **movimiento circular uniforme**, ¿eh? Vamos a deducirla paso a paso, con un poco de intuición y sin enredarnos demasiado, porque, como siempre digo, *si no lo entendés de manera simple, no lo entendés del todo*.\n\n---\n\nImaginemos una partícula dando vueltas en un círculo, como un auto en una pista redonda, a velocidad constante. \"Uniforme\" significa que el *módulo* de la velocidad no cambia, pero ojo, la *dirección* sí cambia, porque siempre está girando hacia el centro del círculo. Y si la velocidad cambia de dirección, hay **aceleración**, ¿no? Eso es lo primero que tenemos que tener claro: la aceleración centrípeta no se trata de ir más rápido o más lento, sino de *cambiar la dirección* de la velocidad.\n\nAhora, vamos a ponernos un poquito matemáticos, pero tranqui, lo vamos a hacer con estilo. Supongamos que la partícula se mueve en un círculo de radio \\( r \\), y su velocidad tangencial es \\( v \\). En un movimiento circular uniforme, la partícula recorre el círculo con una rapidez constante, así que en un tiempo \\( t \\), el ángulo que barre es \\( \\theta = \\omega t \\), donde \\( \\omega \\) es la velocidad angular, y sabemos que \\( v = \\omega r \\). Pero no nos adelantemos, vamos al grano: queremos la aceleración.\n\n## Paso 1: ¿Qué es la aceleración?\n\nLa aceleración es la tasa de cambio de la velocidad, o sea, \\( \\vec{a} = \\frac{d\\vec{v}}{dt} \\). En el movimiento circular, la velocidad \\( \\vec{v} \\) es un vector que siempre es tangente al círculo, y su magnitud es constante (\\( v \\)), pero su dirección gira. Para entender cómo cambia, pensemos en el vector velocidad en dos instantes cercanos.\n\nImagina la partícula en un punto del círculo en el tiempo \\( t \\), con velocidad \\( \\vec{v}_1 \\). Un poquito después, en el tiempo \\( t + \\Delta t \\), está en otro punto, con velocidad \\( \\vec{v}_2 \\). Ambas velocidades tienen la misma magnitud (\\( v \\)), pero están en direcciones diferentes, separadas por un pequeño ángulo \\( \\Delta \\theta \\). Queremos saber cómo cambia \\( \\vec{v} \\) en ese pequeño intervalo \\( \\Delta t \\).\n\n## Paso 2: El cambio en la velocidad\n\nPara encontrar la aceleración, necesitamos el cambio en el vector velocidad: \\( \\Delta \\vec{v} = \\vec{v}_2 - \\vec{v}_1 \\). Dibujemos esto en nuestra mente (o en una pizarra imaginaria). Los vectores \\( \\vec{v}_1 \\) y \\( \\vec{v}_2 \\) tienen longitud \\( v \\), y están separados por un ángulo \\( \\Delta \\theta \\). Si \\( \\Delta \\theta \\) es pequeño, el vector \\( \\Delta \\vec{v} \\) (la diferencia) forma un arco de una \"circunferencia\" cuya longitud depende de \\( v \\) y \\( \\Delta \\theta \\).\n\nAquí viene un truco geométrico que me encanta. La longitud del arco \\( \\Delta \\vec{v} \\) (el cambio en la velocidad) es parecida a la longitud de un arco en el círculo del movimiento. Para un ángulo pequeño \\( \\Delta \\theta \\), la longitud del arco que barre la velocidad es aproximadamente:\n\n\\[ |\\Delta \\vec{v}| \\approx v \\Delta \\theta, \\]\n\nporque el vector velocidad está trazando un círculo en el \"espacio de velocidades\", y el radio de ese círculo es \\( v \\). Ahora, la aceleración es:\n\n\\[ \\vec{a} = \\lim_{\\Delta t \\to 0} \\frac{\\Delta \\vec{v}}{\\Delta t}. \\]\n\nEntonces, necesitamos saber cómo es \\( \\Delta \\theta / \\Delta t \\). En el movimiento circular uniforme, el ángulo \\( \\theta \\) cambia a una tasa constante, y esa tasa es la velocidad angular \\( \\omega \\):\n\n\\[ \\omega = \\frac{\\Delta \\theta}{\\Delta t}. \\]\n\nPor lo tanto:\n\n\\[ |\\Delta \\vec{v}| \\approx v \\Delta \\theta, \\]\n\ny dividiendo por \\( \\Delta t \\):\n\n\\[ \\frac{|\\Delta \\vec{v}|}{\\Delta t} \\approx v \\frac{\\Delta \\theta}{\\Delta t} = v \\omega. \\]\n\nEn el límite, la magnitud de la aceleración es:\n\n\\[ a = v \\omega. \\]\n\n## Paso 3: Relacionemos con el radio\n\nSabemos que en el movimiento circular, la velocidad tangencial \\( v \\), la velocidad angular \\( \\omega \\), y el radio \\( r \\) están relacionados por:\n\n\\[ v = \\omega r. \\]\n\nSi sustituimos \\( \\omega = \\frac{v}{r} \\) en la expresión de la aceleración:\n\n\\[ a = v \\cdot \\frac{v}{r} = \\frac{v^2}{r}. \\]\n\n¡Y ahí lo tenés! La magnitud de la **aceleración centrípeta** es:\n\n\\[ a_c = \\frac{v^2}{r}. \\]\n\n## Paso 4: La dirección\n\nPero espera, también tenemos que hablar de la dirección. La aceleración centrípeta **siempre apunta hacia el centro del círculo**, porque el cambio en la velocidad \\( \\Delta \\vec{v} \\) está en la dirección radial hacia el centro. ¿Por qué? Porque el vector \\( \\Delta \\vec{v} \\) es perpendicular a las velocidades \\( \\vec{v}_1 \\) y \\( \\vec{v}_2 \\) cuando \\( \\Delta \\theta \\) es pequeño, y esa dirección es hacia el centro del círculo.\n\n## Intuición final\n\nPensá en esto como un juego de tirar de una cuerda. Si estás girando una piedra atada a una cuerda, tenés que jalar constantemente hacia el centro para que la piedra no salga volando en línea recta. Esa \"jalada\" es la aceleración centrípeta, y su magnitud depende de qué tan rápido va la piedra (\\( v \\)) y de qué tan apretado es el círculo (\\( r \\)). Si vas más rápido, necesitas jalar más fuerte; si el círculo es más pequeño, también.\n\nEntonces, la fórmula \\( a_c = \\frac{v^2}{r} \\) nos dice cuánto tenés que \"jalar\" para mantener la partícula en su órbita circular. Simple, elegante, y describe el universo en un garabato.\n\n---\n\n¿Te quedó claro o querés que le demos otra vuelta? *guiño* ¡Esto es como tocar el bongó, hay que encontrarle el ritmo!\nEspero que te sea útil este formato. ¿Querés que ajuste algo más?"
-  },
-  {
-    "objectID": "trabajos practicos/TP 01.html",
-    "href": "trabajos practicos/TP 01.html",
-    "title": "TP 01",
-    "section": "",
-    "text": "PlanteoSoluciónVersión mejorada\n\n\nEl usuario ingresa un número que representa una temperatura en °C. El programa imprime esa temperatura en F\n\n\nprint(\"ingrese la temperatura en C\") # se imprime un mensaje\nC = float(input()) # se pide un valor por teclado y se lo convierte en número\nF =(C*1.80+32)\nprint(f\"La temperatura es {F} F\")\n\n\n¿Cómo hacer para tratar con un dato erróneo? Por ejemplo, un usuario ingresa un valor no númerico. En tal caso, el programa anterior arrojaría un error. Pruebe correr el programa anterior ingresando un valor no numérico.\ndef caf():\n  c = input()\n\n  try:\n    C = float(c)\n    F =(C*1.80+32)\n    print(f\"La temperatura es {F} F\")\n\n  except:\n    print(\"ingrese un valor númerico como temperatura\")\n    caf()\n\n\n\n\n\n\n\nPlanteoPista\n\n\nRealizar un programa en el que se ingrese la base y la altura de un triángulo e informe su superficie. El programa debe imprimir una leyenda que incluya los datos de entrada y el resultado.\nIngrese la base del triángulo: 8\nIngrese la altura del triángulo: 5\nLa superficie del triángulo de base 7 y altura 5 es 17.50\n\n\nCon lo hecho en el problema anterior se puede resolver. Recordar que la potenciación es una multipliación repetida, por lo que en pyhton el operador es **.\n\n\n\n\n\n\n\nPlanteoPista\n\n\nDesarrollar un programa en el que se ingrese un número de 5 dígitos y que como salida se muestre:\n\ncada dígito separado por un guión\nla suma de todos los dígitos\n\n\n\nUna forma de encontrar el primer dígito de un número es dividirlo por \\(10^n\\) donde n es el orden de magnitud del número y quedarse con la parte entera. Por ejemplo: Si tenemos el número 1450 y lo dividimos por 1000 el primer dígito es la parte entera del resultado de la división, usando la operación división entera // y módulo % podemos obtener los elementos necesarios para resolver este problema. Para el resto de los dígitos, usando el operador módulo en potencias de diez decrecientes, obtenemos los “restos” usamos para reiterar el proceso de obtener el primer dígito.\nprint(1450//1000)\n\nprint(1450%1000)\n\n450//100\n\n450%100\nOtra forma es tratar al número como texto y acceder a cada elmento por separado. Para los cálculos habría que convertir nuevamente el dato a número para operar.\n\n\n\n\n\n\n\nPlanteoPista\n\n\nHacer un programa en el que se ingrese la medida de los catetos de un triángulo rectángulo y que se calcule y muestre el perímetro de dicho triángulo. Incluir math a fin de utilizar la función sqrt(expresión) que calcula la raíz cuadrada de un número.\nPara usar la función, tenemos que importarla desde el módulo math. Para ello hacemos\nimport math\no\nimport math.sqrt as sqrt\nLa diferencia es qe en el primer caso tendremos que llamarla usando el nombre completo math.sqrt(num) mientras que en el segundo caso no. Como opción, también se puede prescindir de la raíz cuadrada y elevar a \\(\\frac{1}{2}\\).\n\n\nUsar pitágoras para conocer el lado restante.\n\n\n\n\n\n\n\nPlanteoPista\n\n\nElaborar un programa en el que se ingrese una cantidad expresada en segundos y luego la exprese en días, horas, minutos y segundos.\nEjemplo: Ingrese tiempo en segundos: 93714.\n1 dia(s), 2 hora(s), 1 minuto(s), 54 segundo(s)\n\n\nSimilar al problema de los dígitos, solo que el resto no resulta de dividir por potencias de diez, sino de 60.\n\n\n\n\n\n\n\nPlanteoPista\n\n\nEl usuario ingresa un instante de tiempo (t) y el programa calcula e imprime la posición de un móvil arrojado a 20 m/s hacia arriba en el planeta tierra para ese instante de tiempo.\n\n\nEscribir una ecuación para la la posición en función del tiempo con los datos del problema y crear la variable t como dato de entrada.\n\n\n\n\n\n\n\nPlanteoPista\n\n\nRealizar un programa en el que se ingresen dos números enteros positivos. Luego deberá restar el mayor del menor e indicar si dicha diferencia es un valor que está entre ambos números (es decir, es mayor que el más chico y menor que el más grande de los ingresados).\n\n\nSe almacenan los dos números a comparar, se efectúan los cálculos, se devuelve el resultado condicionalmente usando if para cada caso.\n\n\n\n\n\n\n\nPlanteoPistaOtra pista\n\n\nRealizar un programa que solicite 3 notas de parciales obtenidas por un alumno. A continuación se mostrará por pantalla un mensaje que indique la situación del alumno:\n\nSi el alumno aprobó los 3 parciales (nota 4 o más) y su promedio es mayor a 7, promociona la materia con la nota promedio.\nSi el alumno aprobó los 3 parciales pero su promedio no supera los 7 puntos, debe rendir examen final.\nSi el alumno no aprobó uno o más parciales, se solicitará que se ingrese la nota de un recuperatorio. Si éste hubiera sido aprobado, se informará el promedio general (3 parciales + el recuperatorio) y su condición de aprobado (aún cuando el promedio no supere los 4 puntos).\nSi no hubiera aprobado el recuperatorio se informará que el alumno fue aplazado.\n\n\n\nEste código no resuelve todo el problema pero presenta algunas herramientas útiles, como limitar los dígitos que se muestran al imprimir una variable o el uso de la funcion suma sobre los elementos de una lista. Lea atentamente cada línea y asegúrese de que comprende qué hace en cada caso. El problema requiere evaluar los escenarios posibles por lo que quizás le resulte útil hacer un bosquejo en papel sobre los posibles casos para luego pasarlos a código.\n\n\ndef calif(n=3):\n  \"\"\"\n  Función que hace lo que se pide\n  \"\"\"\n  notas = []\n  for i in range(n):\n    print(f\"ingrese la {i+1} nota\")\n    nota = float(input())\n    notas.append(nota)\n\n  prom = (sum(notas))/n\n  return f\"{prom:.2f}\"",
-    "crumbs": [
-      "trabajos practicos",
-      "TP 01"
-    ]
-  },
-  {
-    "objectID": "trabajos practicos/TP 01.html#conversión-de-temperatura",
-    "href": "trabajos practicos/TP 01.html#conversión-de-temperatura",
-    "title": "TP 01",
-    "section": "",
-    "text": "PlanteoSoluciónVersión mejorada\n\n\nEl usuario ingresa un número que representa una temperatura en °C. El programa imprime esa temperatura en F\n\n\nprint(\"ingrese la temperatura en C\") # se imprime un mensaje\nC = float(input()) # se pide un valor por teclado y se lo convierte en número\nF =(C*1.80+32)\nprint(f\"La temperatura es {F} F\")\n\n\n¿Cómo hacer para tratar con un dato erróneo? Por ejemplo, un usuario ingresa un valor no númerico. En tal caso, el programa anterior arrojaría un error. Pruebe correr el programa anterior ingresando un valor no numérico.\ndef caf():\n  c = input()\n\n  try:\n    C = float(c)\n    F =(C*1.80+32)\n    print(f\"La temperatura es {F} F\")\n\n  except:\n    print(\"ingrese un valor númerico como temperatura\")\n    caf()",
-    "crumbs": [
-      "trabajos practicos",
-      "TP 01"
-    ]
-  },
-  {
-    "objectID": "trabajos practicos/TP 01.html#superficie-de-un-triángulo",
-    "href": "trabajos practicos/TP 01.html#superficie-de-un-triángulo",
-    "title": "TP 01",
-    "section": "",
-    "text": "PlanteoPista\n\n\nRealizar un programa en el que se ingrese la base y la altura de un triángulo e informe su superficie. El programa debe imprimir una leyenda que incluya los datos de entrada y el resultado.\nIngrese la base del triángulo: 8\nIngrese la altura del triángulo: 5\nLa superficie del triángulo de base 7 y altura 5 es 17.50\n\n\nCon lo hecho en el problema anterior se puede resolver. Recordar que la potenciación es una multipliación repetida, por lo que en pyhton el operador es **.",
-    "crumbs": [
-      "trabajos practicos",
-      "TP 01"
-    ]
-  },
-  {
-    "objectID": "trabajos practicos/TP 01.html#dígitos-de-un-número",
-    "href": "trabajos practicos/TP 01.html#dígitos-de-un-número",
-    "title": "TP 01",
-    "section": "",
-    "text": "PlanteoPista\n\n\nDesarrollar un programa en el que se ingrese un número de 5 dígitos y que como salida se muestre:\n\ncada dígito separado por un guión\nla suma de todos los dígitos\n\n\n\nUna forma de encontrar el primer dígito de un número es dividirlo por \\(10^n\\) donde n es el orden de magnitud del número y quedarse con la parte entera. Por ejemplo: Si tenemos el número 1450 y lo dividimos por 1000 el primer dígito es la parte entera del resultado de la división, usando la operación división entera // y módulo % podemos obtener los elementos necesarios para resolver este problema. Para el resto de los dígitos, usando el operador módulo en potencias de diez decrecientes, obtenemos los “restos” usamos para reiterar el proceso de obtener el primer dígito.\nprint(1450//1000)\n\nprint(1450%1000)\n\n450//100\n\n450%100\nOtra forma es tratar al número como texto y acceder a cada elmento por separado. Para los cálculos habría que convertir nuevamente el dato a número para operar.",
-    "crumbs": [
-      "trabajos practicos",
-      "TP 01"
-    ]
-  },
-  {
-    "objectID": "trabajos practicos/TP 01.html#perímetro-de-un-triángulo",
-    "href": "trabajos practicos/TP 01.html#perímetro-de-un-triángulo",
-    "title": "TP 01",
-    "section": "",
-    "text": "PlanteoPista\n\n\nHacer un programa en el que se ingrese la medida de los catetos de un triángulo rectángulo y que se calcule y muestre el perímetro de dicho triángulo. Incluir math a fin de utilizar la función sqrt(expresión) que calcula la raíz cuadrada de un número.\nPara usar la función, tenemos que importarla desde el módulo math. Para ello hacemos\nimport math\no\nimport math.sqrt as sqrt\nLa diferencia es qe en el primer caso tendremos que llamarla usando el nombre completo math.sqrt(num) mientras que en el segundo caso no. Como opción, también se puede prescindir de la raíz cuadrada y elevar a \\(\\frac{1}{2}\\).\n\n\nUsar pitágoras para conocer el lado restante.",
-    "crumbs": [
-      "trabajos practicos",
-      "TP 01"
-    ]
-  },
-  {
-    "objectID": "trabajos practicos/TP 01.html#conversiones-de-tiempo",
-    "href": "trabajos practicos/TP 01.html#conversiones-de-tiempo",
-    "title": "TP 01",
-    "section": "",
-    "text": "PlanteoPista\n\n\nElaborar un programa en el que se ingrese una cantidad expresada en segundos y luego la exprese en días, horas, minutos y segundos.\nEjemplo: Ingrese tiempo en segundos: 93714.\n1 dia(s), 2 hora(s), 1 minuto(s), 54 segundo(s)\n\n\nSimilar al problema de los dígitos, solo que el resto no resulta de dividir por potencias de diez, sino de 60.",
-    "crumbs": [
-      "trabajos practicos",
-      "TP 01"
-    ]
-  },
-  {
-    "objectID": "trabajos practicos/TP 01.html#tiro-vertical",
-    "href": "trabajos practicos/TP 01.html#tiro-vertical",
-    "title": "TP 01",
-    "section": "",
-    "text": "PlanteoPista\n\n\nEl usuario ingresa un instante de tiempo (t) y el programa calcula e imprime la posición de un móvil arrojado a 20 m/s hacia arriba en el planeta tierra para ese instante de tiempo.\n\n\nEscribir una ecuación para la la posición en función del tiempo con los datos del problema y crear la variable t como dato de entrada.",
-    "crumbs": [
-      "trabajos practicos",
-      "TP 01"
-    ]
-  },
-  {
-    "objectID": "trabajos practicos/TP 01.html#comparación-de-números",
-    "href": "trabajos practicos/TP 01.html#comparación-de-números",
-    "title": "TP 01",
-    "section": "",
-    "text": "PlanteoPista\n\n\nRealizar un programa en el que se ingresen dos números enteros positivos. Luego deberá restar el mayor del menor e indicar si dicha diferencia es un valor que está entre ambos números (es decir, es mayor que el más chico y menor que el más grande de los ingresados).\n\n\nSe almacenan los dos números a comparar, se efectúan los cálculos, se devuelve el resultado condicionalmente usando if para cada caso.",
-    "crumbs": [
-      "trabajos practicos",
-      "TP 01"
-    ]
-  },
-  {
-    "objectID": "trabajos practicos/TP 01.html#aprobación-con-condiciones",
-    "href": "trabajos practicos/TP 01.html#aprobación-con-condiciones",
-    "title": "TP 01",
-    "section": "",
-    "text": "PlanteoPistaOtra pista\n\n\nRealizar un programa que solicite 3 notas de parciales obtenidas por un alumno. A continuación se mostrará por pantalla un mensaje que indique la situación del alumno:\n\nSi el alumno aprobó los 3 parciales (nota 4 o más) y su promedio es mayor a 7, promociona la materia con la nota promedio.\nSi el alumno aprobó los 3 parciales pero su promedio no supera los 7 puntos, debe rendir examen final.\nSi el alumno no aprobó uno o más parciales, se solicitará que se ingrese la nota de un recuperatorio. Si éste hubiera sido aprobado, se informará el promedio general (3 parciales + el recuperatorio) y su condición de aprobado (aún cuando el promedio no supere los 4 puntos).\nSi no hubiera aprobado el recuperatorio se informará que el alumno fue aplazado.\n\n\n\nEste código no resuelve todo el problema pero presenta algunas herramientas útiles, como limitar los dígitos que se muestran al imprimir una variable o el uso de la funcion suma sobre los elementos de una lista. Lea atentamente cada línea y asegúrese de que comprende qué hace en cada caso. El problema requiere evaluar los escenarios posibles por lo que quizás le resulte útil hacer un bosquejo en papel sobre los posibles casos para luego pasarlos a código.\n\n\ndef calif(n=3):\n  \"\"\"\n  Función que hace lo que se pide\n  \"\"\"\n  notas = []\n  for i in range(n):\n    print(f\"ingrese la {i+1} nota\")\n    nota = float(input())\n    notas.append(nota)\n\n  prom = (sum(notas))/n\n  return f\"{prom:.2f}\"",
-    "crumbs": [
-      "trabajos practicos",
-      "TP 01"
     ]
   }
 ]
