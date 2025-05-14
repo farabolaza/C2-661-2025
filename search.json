@@ -149,7 +149,7 @@
     "href": "clases.html",
     "title": "Clases",
     "section": "",
-    "text": "Ordenar por\n       Por defecto\n         \n          Título\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTítulo\n\n\nSubtítulo\n\n\nDescripción\n\n\n\n\n\n\nClase 01: Intro a Python\n\n\n \n\n\n\n\n\n\n\nClase 02\n\n\n \n\n\n\n\n\n\n\nClase 03\n\n\n \n\n\n\n\n\n\n\nClase 04\n\n\n \n\n\n\n\n\n\n\n\nNo hay resultados"
+    "text": "Ordenar por\n       Por defecto\n         \n          Título\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTítulo\n\n\nSubtítulo\n\n\nDescripción\n\n\n\n\n\n\nClase 01\n\n\n \n\n\n\n\n\n\n\nClase 02\n\n\n \n\n\n\n\n\n\n\nClase 03\n\n\n \n\n\n\n\n\n\n\nClase 04\n\n\n \n\n\n\n\n\n\n\n\nNo hay resultados"
   },
   {
     "objectID": "clases/Clase-03.html",
@@ -187,89 +187,89 @@
   {
     "objectID": "clases/Clase-01.html",
     "href": "clases/Clase-01.html",
-    "title": "Clase 01: Intro a Python",
+    "title": "Clase 01",
     "section": "",
     "text": "Código para escanear\n\n\n\n\nFigura 1: Formulario a completar",
     "crumbs": [
       "Clases",
-      "Clase 01: Intro a Python"
+      "Clase 01"
     ]
   },
   {
     "objectID": "clases/Clase-01.html#formulario-de-bienvenida",
     "href": "clases/Clase-01.html#formulario-de-bienvenida",
-    "title": "Clase 01: Intro a Python",
+    "title": "Clase 01",
     "section": "",
     "text": "Código para escanear\n\n\n\n\nFigura 1: Formulario a completar",
     "crumbs": [
       "Clases",
-      "Clase 01: Intro a Python"
+      "Clase 01"
     ]
   },
   {
     "objectID": "clases/Clase-01.html#intro-a-python",
     "href": "clases/Clase-01.html#intro-a-python",
-    "title": "Clase 01: Intro a Python",
+    "title": "Clase 01",
     "section": "Intro a Python",
     "text": "Intro a Python\nEste documento es una adaptación de otro existente. Compilamos algunos recursos útiles para la materia\nManual de Python en español\nBibliografía de la materia",
     "crumbs": [
       "Clases",
-      "Clase 01: Intro a Python"
+      "Clase 01"
     ]
   },
   {
     "objectID": "clases/Clase-01.html#tipos-de-variables",
     "href": "clases/Clase-01.html#tipos-de-variables",
-    "title": "Clase 01: Intro a Python",
+    "title": "Clase 01",
     "section": "Tipos de variables",
     "text": "Tipos de variables\n\nNuméricas:\n\nint, float, long, complex\n\nstring\nbooleanas\n\nTrue / False\n\n\nSe resumen en la siguiente tabla:\n\nTipos de datos en Python\n\n\n\n\n\n\n\n\n\nTipo\nEjemplo\nDescripción\n\n\n\n\nstr\nx = 'abc'\nString: caracteres de texto\n\n\nint\nx = 1\nintegers (i.e., números enteros)\n\n\nfloat\nx = 1.0\nfloating-point numbers (i.e., números reales)\n\n\ncomplex\nx = 1 + 2j\nnúmeros complejos\n\n\nbool\nx = True\nBooleano: Verdadero/Falso\n\n\nNoneType\nx = None\nObjeto para designar el valor nulo\n\n\n\nSe usa la función type() para conocer el tipo de una variable\n\nFracciones\nBueno, las fracciones no son representaciones “típicas” en los lenguajes de programación, y en python, debemos usar los módulos específicos para operar con ellas. Más información acá. Veremos más adelante como trabjar con fracciones.\n\n\nstringIntegerFloatBooleanNone\n\n\n# String\nc = 'hello'\nprint(type(c))\n\n\n# Integer\na = 1\nprint(type(a))\n\n\n# Float\nb = 1.0\nprint(type(b))\n\n\n# Boolean\nd = True\nprint(type(d))\n\n\n# None\ne = None\nprint(type(e))",
     "crumbs": [
       "Clases",
-      "Clase 01: Intro a Python"
+      "Clase 01"
     ]
   },
   {
     "objectID": "clases/Clase-01.html#operadores-de-cadenas-de-texto",
     "href": "clases/Clase-01.html#operadores-de-cadenas-de-texto",
-    "title": "Clase 01: Intro a Python",
+    "title": "Clase 01",
     "section": "Operadores de cadenas de texto",
     "text": "Operadores de cadenas de texto\nLos operadores matemáticos son diferentes en las cadenas de texto, por ejemplo el sigo + se usa para unir cadenas\nRepeticiones: Se usa *n para repetir una cadena n veces\n# Asignar y combinar cadenas\na = 'Hello'\nb = 'World'\nprint(a + ' ' + b)\n# f-strings: reemplazarvalores de variables en cadenas\nfirstname = 'Beto'\nprint(f'Me llamo {firstname}')\n# Combininar f-strings\nfirstname = 'Beto'\nlastname = 'Velez'\n\nprint(f'My name is {firstname} {lastname}')\n# Repetir una cadena\nprint(str(a)*5)\n# Repetir un cadena con espacios\nprint(str(a+' ')*5)",
     "crumbs": [
       "Clases",
-      "Clase 01: Intro a Python"
+      "Clase 01"
     ]
   },
   {
     "objectID": "clases/Clase-01.html#operadores-matemáticos",
     "href": "clases/Clase-01.html#operadores-matemáticos",
-    "title": "Clase 01: Intro a Python",
+    "title": "Clase 01",
     "section": "Operadores Matemáticos",
     "text": "Operadores Matemáticos\nEn python tenemos los clásicos operadores matemáticos\n\n+, -, *, y /\nExponenciación **\nModulo % (Resto)\n\n\nAdiciónSustracciónMultiplicaciónDivisiónExponenciaciónModulo\n\n\na = 2 + 7\nprint(f'a = {a}')\n\n\nb = a - 5\nprint(f'b = a-5 = {a}-5 = {b}')\n\n\nprint(f'b*2 = {b}*2 = {b*2}')\n\n\nprint(f'a/3 = {a}/3 = {a/3}')\n\n\nprint(f'b^2 = b**2 = {b}**2 = {b**2}')\n\n\nModulo de vuelve el resto luego de dividir entre dos números\nprint('(Modulo de vuelve el resto luego de dividir entre dos números)')\nprint(f'el resto de  b/9 = resto de {b}/9 = {b%9}')",
     "crumbs": [
       "Clases",
-      "Clase 01: Intro a Python"
+      "Clase 01"
     ]
   },
   {
     "objectID": "clases/Clase-01.html#operadores-lógicos",
     "href": "clases/Clase-01.html#operadores-lógicos",
-    "title": "Clase 01: Intro a Python",
+    "title": "Clase 01",
     "section": "Operadores lógicos",
     "text": "Operadores lógicos\nHacen una comparación y devuelven un booleano (verdadero o falso)\nx == y # x es igual a y\nx != y # x no es igual a y\nx &gt; y # x es mayor que y\nx &lt; y # x es menor que y\nx &gt;= y # x es mayor o igual que y\nx &lt;= y # x es menor o igual que y\n\nEn cadenas de textoEn datos numéricos\n\n\na = 'hola'\nb = 'que tal'\nc = 'Hola'\nprint('a==b: ' + str(a==b))\nprint('a==c: ' + str(a==c))\nprint('a!=b: ' + str(a!=b))\nprint()\n\n\nd = 5\ne = 8\nprint('d &lt; e: ' + str(d &lt; e))\nprint('d &gt;= e: ' + str(d &gt;= e))",
     "crumbs": [
       "Clases",
-      "Clase 01: Intro a Python"
+      "Clase 01"
     ]
   },
   {
     "objectID": "clases/Clase-01.html#ejercicios",
     "href": "clases/Clase-01.html#ejercicios",
-    "title": "Clase 01: Intro a Python",
+    "title": "Clase 01",
     "section": "Ejercicios",
     "text": "Ejercicios\n\nCrear una variable de tipo numérica\nAsignar a la variable un número entero, por ejemplo “1” y ejecutar la función type sobre ella.\nAsignar a la variable un número con decimales ejemplo “3.5” y ejecutar la función type sobre ella.\nCrear dos variables, a una asignarle un valor numérico entero y a otra uno con lugares decimales, pero que coincidan. Por ejemplo “5” y “5.0” compararlos usando el operador lógico de igualdad. ¿Qué se obtiene?\nUsar la el operador módulo (resto) sobre diferentes números. ¿Cómo podría escribir un programa sencillo que me indique si un número es divible por otro? ¿Qué condiciones debería evaluar? ¿Qué operadores lógicos necesito?\nEscribir un diagrama de lo que debería hacer el programa del punto 5",
     "crumbs": [
       "Clases",
-      "Clase 01: Intro a Python"
+      "Clase 01"
     ]
   },
   {
