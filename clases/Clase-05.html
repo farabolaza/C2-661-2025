@@ -332,7 +332,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="interfaz-tipo-matlab" class="level1">
 <h1>Interfaz tipo MATLAB</h1>
 <p>Como todo módulo que querramos usar debemos importarlo al espacio de trabajo usando la palabra <code>import</code>. En este caso importaremos el sub-módulo <code>matplotlib.pytplot</code>y lo llamaremos <code>plt</code>. Esta forma de usar el módulo es bastante similar a como se hacen los gráficos en MATLAB. Usaremos la función <code>plot</code> con una serie de puntos para ver que sucede</p>
-<div id="97eba7a0" class="cell" data-execution_count="1">
+<div id="62c11f40" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>plt.plot([<span class="op">-</span><span class="dv">1</span>, <span class="op">-</span><span class="fl">4.5</span>, <span class="dv">16</span>, <span class="dv">23</span>, <span class="dv">78</span>, <span class="dv">22</span>, <span class="dv">3</span>])</span>
@@ -346,7 +346,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Podemos generar un gráfico de dispersión</p>
-<div id="1386c927" class="cell" data-execution_count="2">
+<div id="986399fd" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.rand(<span class="dv">5</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.random.rand(<span class="dv">5</span>)</span>
@@ -363,7 +363,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="personalización-del-gráfico" class="level3">
 <h3 class="anchored" data-anchor-id="personalización-del-gráfico">Personalización del gráfico</h3>
 <p>Existen parámetros que podemos pasara la función <code>plot</code> para personalizar el gráfico, en este caso cambiamos las líneas por puntos</p>
-<div id="f8ef51de" class="cell" data-execution_count="3">
+<div id="de444564" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>plt.plot([<span class="op">-</span><span class="dv">1</span>, <span class="op">-</span><span class="fl">4.5</span>, <span class="dv">16</span>, <span class="dv">23</span>, <span class="dv">78</span>, <span class="dv">22</span>, <span class="dv">3</span>], <span class="st">"ob"</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -375,7 +375,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Los nombres de los ejes, leyendas y tipos de línea también se pueden personalizar</p>
-<div id="bde50799" class="cell" data-execution_count="4">
+<div id="acd24265" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>plt.plot([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>], <span class="st">'o-r'</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'unos números'</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -387,7 +387,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="b9260704" class="cell" data-execution_count="5">
+<div id="0460caab" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">7</span>,<span class="dv">100</span>)</span>
@@ -403,7 +403,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="8c27378d" class="cell" data-execution_count="6">
+<div id="dc54d25a" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">15</span>,<span class="dv">30</span>) <span class="co"># un array usando linspace</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.sin(x) <span class="op">+</span> <span class="fl">0.1</span><span class="op">*</span>np.random.randn(<span class="bu">len</span>(x)) <span class="co"># una trigonométrica con ruido usando random de numpy</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -418,7 +418,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="estilos" class="level3">
 <h3 class="anchored" data-anchor-id="estilos">Estilos</h3>
-<div id="ed6699ed" class="cell" data-execution_count="7">
+<div id="466b9605" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> style</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(plt.style.available)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -426,10 +426,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>['Solarize_Light2', '_classic_test_patch', '_mpl-gallery', '_mpl-gallery-nogrid', 'bmh', 'classic', 'dark_background', 'fast', 'fivethirtyeight', 'ggplot', 'grayscale', 'seaborn-v0_8', 'seaborn-v0_8-bright', 'seaborn-v0_8-colorblind', 'seaborn-v0_8-dark', 'seaborn-v0_8-dark-palette', 'seaborn-v0_8-darkgrid', 'seaborn-v0_8-deep', 'seaborn-v0_8-muted', 'seaborn-v0_8-notebook', 'seaborn-v0_8-paper', 'seaborn-v0_8-pastel', 'seaborn-v0_8-poster', 'seaborn-v0_8-talk', 'seaborn-v0_8-ticks', 'seaborn-v0_8-white', 'seaborn-v0_8-whitegrid', 'tableau-colorblind10']</code></pre>
 </div>
 </div>
-<div id="ff308927" class="cell" data-execution_count="8">
+<div id="daa17d15" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'bmh'</span>) <span class="co"># podés cambiar esto y jugar como quedan los gráficos</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="25b89a5e" class="cell" data-execution_count="9">
+<div id="c2fd6dda" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y, <span class="st">'o--'</span>, color<span class="op">=</span><span class="st">'purple'</span>, lw<span class="op">=</span><span class="dv">2</span>, ms<span class="op">=</span><span class="dv">10</span>) <span class="co"># cambiamos la linea y los marcadores</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -439,7 +439,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cba3495c" class="cell" data-execution_count="10">
+<div id="fe41c7c1" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">3</span>))</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -450,7 +450,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="de0001bf" class="cell" data-execution_count="11">
+<div id="c0f9a206" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Tiempo [s]'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'V [V]'</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'V'</span>)</span>
@@ -463,7 +463,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="b04dc83c" class="cell" data-execution_count="12">
+<div id="f4c19e29" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">3</span>))</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y, label<span class="op">=</span><span class="st">'la leyenda'</span>)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Tiempo [s]'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
@@ -479,7 +479,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="876f2f80" class="cell" data-execution_count="13">
+<div id="37b69720" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>x2 <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">15</span>, <span class="dv">100</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>y2 <span class="op">=</span> np.sin(x2)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -499,7 +499,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="7a854d9f" class="cell" data-execution_count="14">
+<div id="a54e4755" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">3</span>))</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y, <span class="st">'o'</span>, label<span class="op">=</span><span class="st">'Data'</span>, zorder<span class="op">=</span><span class="dv">100</span>)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>plt.plot(x2,y2, label<span class="op">=</span><span class="st">'Fit'</span>)</span>
@@ -522,13 +522,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="interfaz-orientada-a-objetos">Interfaz orientada a objetos</h2>
 <p>La interfaz tipo MATLAB tiene sus ventajas y desventajas. A favor, es que es sencilla, similar a algo que es bastante popular, como MATLAB y permite generar gráficas con poca escritura de código. Como desventaja, es que es más dificil de personalizar, en especial para arreglos de gráficas o gráficos mas complejos.</p>
 <p>La interfaz orientada a objetos, se usa de la siguiente manera:</p>
-<p><img src="https://python-course.eu/images/numerical-programming/matplotlib_object_hierarchy_400w.webp" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://python-course.eu/images/numerical-programming/matplotlib_object_hierarchy_400w.webp" class="img-fluid figure-img"></p>
+<figcaption>Figure y Axes</figcaption>
+</figure>
+</div>
 <p>La Figure es el lienzo en donde inscribimos nuestros gráficos</p>
-<p><img src="https://python-course.eu/images/numerical-programming/matplotlib_object_hierarchy2_400w.webp" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://python-course.eu/images/numerical-programming/matplotlib_object_hierarchy2_400w.webp" class="img-fluid figure-img"></p>
+<figcaption>Axes</figcaption>
+</figure>
+</div>
 <p>Cada Figure puede contener varios pares de ejes cartesianos Axes</p>
-<p><img src="https://python-course.eu/images/numerical-programming/matplotlib_terms_400w.webp" class="img-fluid"></p>
-<p>Cada par de ejes a su vez tiene sus propios ejes Axis</p>
-<div id="aa083b8c" class="cell" data-execution_count="15">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://python-course.eu/images/numerical-programming/matplotlib_terms_400w.webp" class="img-fluid figure-img"></p>
+<figcaption>Artists</figcaption>
+</figure>
+</div>
+<p>Cada par de ejes a su vez tiene sus propios ejes Axes.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="..\assets/anatomy.webp" class="img-fluid figure-img"></p>
+<figcaption>Anatomía de una figura</figcaption>
+</figure>
+</div>
+<div id="bbe7d0e2" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>dias <span class="op">=</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">9</span>)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>temperatura <span class="op">=</span> [<span class="fl">25.6</span>, <span class="fl">24.1</span>, <span class="fl">26.7</span>, <span class="fl">28.3</span>, <span class="fl">27.5</span>, <span class="fl">30.5</span>, <span class="fl">32.8</span>, <span class="fl">33.1</span>]</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -549,7 +570,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="un-lienzo-con-un-sólo-gráfico" class="level3">
 <h3 class="anchored" data-anchor-id="un-lienzo-con-un-sólo-gráfico">Un lienzo con un sólo gráfico</h3>
 <p>Usamos la función <code>subplots</code> que devuevle dos objetos: un lienzo, y una matriz de sistemas de ejes coordenados. La sintaxis hace uso de que conocemos esto, y llama ‘fig’ al lienzo y ‘ax’ a los ejes de coordenadas. En este caso, sólo uno.</p>
-<div id="5d022b2d" class="cell" data-execution_count="16">
+<div id="cf21eb78" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">4</span>))</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>ax.plot(x, y, <span class="st">'o--'</span>, color<span class="op">=</span><span class="st">'r'</span>, lw<span class="op">=</span><span class="fl">0.4</span>, ms<span class="op">=</span><span class="dv">3</span>)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>ax.text(<span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="st">'text here'</span>, transform<span class="op">=</span>ax.transAxes)</span>
@@ -568,7 +589,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="mas-de-un-par-de-ejes-en-un-lienzo" class="level3">
 <h3 class="anchored" data-anchor-id="mas-de-un-par-de-ejes-en-un-lienzo">Mas de un par de ejes en un lienzo</h3>
 <p>La función subplots como primer argumento contiene la matriz de ejes, es decir, la cantidad de gráfios que haremos. Si nos e pasa argumento alguno devuelve un único eje. Se puede ademas definir <code>ncols=</code> y <code>nrows=</code> si queremos especificar columnas y filas por separado o tener gráficos en sólo una fila o sólo una columna.</p>
-<div id="d5669f03" class="cell" data-execution_count="17">
+<div id="152907ea" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> np.random.randn(<span class="dv">1000</span>)<span class="op">*</span><span class="fl">0.2</span> <span class="op">+</span> <span class="fl">0.4</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>res2 <span class="op">=</span> np.random.randn(<span class="dv">1000</span>)<span class="op">*</span><span class="fl">0.2</span> <span class="op">+</span> <span class="fl">0.4</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -592,24 +613,100 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section>
-<section id="personalización-del-gráfico-1" class="level3">
-<h3 class="anchored" data-anchor-id="personalización-del-gráfico-1">Personalización del gráfico</h3>
-<p>Todas las opciones de los gráficos se pueden personalizar usando o bien la función <code>Set()</code> agregando o la propiedad <code>set_nombredelapropiedad(argumentos)</code></p>
-<p>Achicar los ticks</p>
-<div id="74b1bfa2" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">3</span>))</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>ax.plot(x, y, <span class="st">'o--'</span>, color<span class="op">=</span><span class="st">'r'</span>, lw<span class="op">=</span><span class="dv">1</span>, ms<span class="op">=</span><span class="dv">5</span>)</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>ax.text(<span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="st">'text here'</span>, transform<span class="op">=</span>ax.transAxes)</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Time [s]'</span>)</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="vs">r'$\frac</span><span class="sc">{d}{dx}</span><span class="vs"> f(x)$'</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>ax.tick_params(axis<span class="op">=</span><span class="st">'both'</span>, which<span class="op">=</span><span class="st">'major'</span>, labelsize<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="st">'minor'</span>)</span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="mosaico" class="level4">
+<h4 class="anchored" data-anchor-id="mosaico">Mosaico</h4>
+<p>Para figuras donde el arreglo de ejes múltiples (varias gráficas) necesita que el tamaño de los gráficos no sea el mismo en todos, se pueden generar mosaicos.</p>
+<div id="591feff0" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>fig, axm <span class="op">=</span> plt.subplot_mosaic([[<span class="st">'arriba izquierda'</span>,<span class="st">'derecha'</span>],[<span class="st">'abajo izquierda'</span>,<span class="st">'derecha'</span>]])</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">'usando plt.subplot_mosaic()'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>Text(0.5, 0.98, 'usando plt.subplot_mosaic()')</code></pre>
+</div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Clase-05_files/figure-html/cell-19-output-1.png" width="685" height="279" class="figure-img"></p>
+<p><img src="Clase-05_files/figure-html/cell-19-output-2.png" width="577" height="454" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="f49f9d5c" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>fig, axm <span class="op">=</span> plt.subplot_mosaic([[<span class="st">'arriba'</span>,<span class="st">'arriba'</span>],[<span class="st">'abajo izquierda'</span>,<span class="st">'abajo derecha'</span>]])</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">'usando plt.subplot_mosaic()'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>Text(0.5, 0.98, 'usando plt.subplot_mosaic()')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Clase-05_files/figure-html/cell-20-output-2.png" width="577" height="454" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="personalización-del-gráfico-1" class="level3">
+<h3 class="anchored" data-anchor-id="personalización-del-gráfico-1">Personalización del gráfico</h3>
+<p>Todas las opciones de los gráficos se pueden personalizar usando o bien la función <code>set()</code> agregando o la propiedad <code>set_nombredelapropiedad(argumentos)</code>.</p>
+<p>Los argumentos que son propios del lienzo, se pueden pasar a la función que estemos usando para crear los ejes. Por ejemplo, el tamaño del lienzo se define usando <code>figsize=(ancho,alto)</code> dentro de <code>subplots()</code> o <code>plt.subplot_mosaic()</code>.</p>
+<div id="37358448" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">3</span>))</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>ax.plot(x, y, <span class="st">'o--'</span>, color<span class="op">=</span><span class="st">'r'</span>, lw<span class="op">=</span><span class="dv">1</span>, ms<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>ax.text(<span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="st">'text here'</span>, transform<span class="op">=</span>ax.transAxes)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Time [s]'</span>)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="vs">r'$\frac</span><span class="sc">{d}{dx}</span><span class="vs"> f(x)$'</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>ax.tick_params(axis<span class="op">=</span><span class="st">'both'</span>, which<span class="op">=</span><span class="st">'major'</span>, labelsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="st">'minor'</span>)</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Clase-05_files/figure-html/cell-21-output-1.png" width="685" height="279" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>El aspecto por defecto de los gráfios en ocasiones presenta solapamiento entre números de los ejes u otras deficiencias estéticas. Una opción que suele dar resultado es pasar a la función que estemos usando para crear los gráficos opciones para <code>layout</code> podemos probar con ‘constrained’, ‘compressed’ o’tight’.</p>
+<div id="280e126e" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">3</span>), layout<span class="op">=</span><span class="st">'constrained'</span>)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">19680801</span>)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.arange(<span class="dv">200</span>)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.cumsum(np.random.randn(<span class="dv">200</span>))</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.cumsum(np.random.randn(<span class="dv">200</span>))</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>linesx <span class="op">=</span> ax.plot(t, x, label<span class="op">=</span><span class="st">'Random walk x'</span>)</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>linesy <span class="op">=</span> ax.plot(t, y, label<span class="op">=</span><span class="st">'Random walk y'</span>)</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Tiempo [s]'</span>)</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Distancia [km]'</span>)</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Caminata aleatoria'</span>)</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>ax.legend()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Clase-05_files/figure-html/cell-22-output-1.png" width="491" height="299" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Se pueden aplicar escalas logarítmicas y límites inferiores o superiores para las gráficas. En caso de que no especifiquemos límites para los ejes, estos se deducen de los datos.</p>
+<div id="9410b6b5" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">4</span>, <span class="fl">2.5</span>), layout<span class="op">=</span><span class="st">'constrained'</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">19680801</span>)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.arange(<span class="dv">200</span>)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">2</span><span class="op">**</span>np.cumsum(np.random.randn(<span class="dv">200</span>))</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>linesx <span class="op">=</span> ax.plot(t, x)</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>ax.set_yscale(<span class="st">'log'</span>)</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>ax.set_xlim([<span class="dv">20</span>, <span class="dv">180</span>])</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Clase-05_files/figure-html/cell-23-output-1.png" width="395" height="251" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -620,12 +717,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="referencias">Referencias</h2>
 <ol type="1">
 <li><a href="https://www.tutorialspoint.com/matplotlib/matplotlib_object_oriented_interface.htm"><span class="emoji" data-emoji="pencil2">✏️</span> Inerfaz orientada a objetos</a></li>
-<li><a href="https://blog.quantinsti.com/python-matplotlib-tutorial/">:pendil2: Tutorial de Matplotlib</a></li>
+<li><a href="https://blog.quantinsti.com/python-matplotlib-tutorial/"><span class="emoji" data-emoji="pencil2">✏️</span> Tutorial de Matplotlib</a></li>
 <li><a href="https://www.tutorialspoint.com/matplotlib/matplotlib_axes_class.htm"><span class="emoji" data-emoji="pencil2">✏️</span> Métodos de la clase Axes</a></li>
 <li><a href="https://github.com/garrettj403/SciencePlots"><span class="emoji" data-emoji="pencil2">✏️</span> Estilos de science-plots</a></li>
 <li><a href="..\assets/mpl-handout-beginner.pdf"><span class="emoji" data-emoji="book">📖</span> Hoja de trucos principiantes</a></li>
 <li><a href="..\assets/mpl-handout-intermediate.pdf"><span class="emoji" data-emoji="book">📖</span> Hoja de trucos intermedio</a></li>
 <li><a href="..\assets/mpl-cheatsheets.pdf"><span class="emoji" data-emoji="book">📖</span> Hoja de trucos</a></li>
+<li><a href="https://matplotlib.org/stable/users/explain/axes/arranging_axes.html"><span class="emoji" data-emoji="link">🔗</span> Varios ejes en una figura (mpl oficial)</a></li>
+<li><a href="https://matplotlib.org/stable/users/explain/axes/axes_intro.html"><span class="emoji" data-emoji="link">🔗</span> Introducción a los ejes (mpl oficial)</a></li>
+<li><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.set.html"><span class="emoji" data-emoji="link">🔗</span> Sintaxis y opciones de la función <code>set()</code></a></li>
+<li><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure"><span class="emoji" data-emoji="link">🔗</span> Opciones de Figure</a></li>
 </ol>
 
 
