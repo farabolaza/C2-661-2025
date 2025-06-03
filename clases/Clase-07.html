@@ -102,10 +102,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
-
-
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -384,7 +381,7 @@ window.Quarto = {
 <section id="ejemplo" class="level3">
 <h3 class="anchored" data-anchor-id="ejemplo">Ejemplo</h3>
 <p>Vamos a crear unos datos a partir del modelo teórico de una caída libre sin rozamiento. Debajo vemos como se filtra un array <em>y</em> para obtener los valores de altura mayores a cero y luego “rebanamos” el array <em>t</em> para que tenga la misma cantidad de elementos que el array de alturas, y luego hacemos un gráfico de dispersión (<em>scatter</em>) como si los datos hubieran sido obtenidos desde un experimento. Está claro que estos datos van a ajustar “perfecto” al modelo teórico ya que lso datos fueron creados a paritr de éste.</p>
-<div id="a062a470" class="cell" data-execution_count="1">
+<div id="1f11dcf3" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -404,7 +401,7 @@ window.Quarto = {
 </div>
 <p>Para ver más sobre como filtrar o rebanar un array pueden consultar <a href="https://www.statology.org/numpy-filter/">acá</a> o <a href="https://www.w3schools.com/python/numpy/numpy_array_slicing.asp">acá</a></p>
 <p>con nuestras habilidades de pandas, construyamos un archivo ficticio en base a estos datos, para luego “leerlo” y a partir de ahí usar el ajuste de curvas. Este paso no es necsario, ya que podemos usar los datos ya disponibles en los arrays, pero no viene mal la práctica</p>
-<div id="d27e2084" class="cell" data-execution_count="2">
+<div id="8762b149" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -421,7 +418,7 @@ window.Quarto = {
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># la ruta para que funcione debe ser la que se haya montado en tu sesión de colab</span></span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># index=False hace que no exportemos la columna de los índices que genera pandas</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="3b5fc6e3" class="cell" data-execution_count="3">
+<div id="bbc59c44" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># otra opción para crear el dataframe es</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># pasar como índices los nombres de las columnas y</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># transponer el dataframe una vez creado</span></span>
@@ -476,11 +473,11 @@ window.Quarto = {
 </section>
 <section id="función-modelo" class="level3">
 <h3 class="anchored" data-anchor-id="función-modelo">Función modelo</h3>
-<div id="5f028baf" class="cell" data-execution_count="4">
+<div id="d4da3557" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>datos <span class="op">=</span> pd.read_csv(<span class="st">'../assets/ej_op.csv'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Tenemos que crear una función que contega la información del modelo. Como primer parámetro debe contener la variable dependiente y luego los parámetros</p>
-<div id="100126d4" class="cell" data-execution_count="5">
+<p>Tenemos que crear una función que contega la información del modelo. Como primer parámetro debe contener la variable independiente y luego los parámetros</p>
+<div id="a88399b6" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> opti(x,a,b):</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">"""</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">  x: variable independiente</span></span>
@@ -489,7 +486,7 @@ window.Quarto = {
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">  """</span></span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="op">-</span><span class="fl">0.5</span><span class="op">*</span>a<span class="op">*</span>x<span class="op">**</span><span class="dv">2</span><span class="op">+</span>b</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="d95fddd9" class="cell" data-execution_count="6">
+<div id="0523f0d0" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> optimize <span class="im">as</span> op</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>param_a, cov <span class="op">=</span> op.curve_fit(opti,datos[<span class="st">'t'</span>],datos[<span class="st">'y'</span>])</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -500,7 +497,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Podemos hacer un gráfico de los “datos” contra la curva con los parámetros obtenidos del ajuste</p>
-<div id="25b64110" class="cell" data-execution_count="7">
+<div id="ef880341" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots()</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>fig.set_size_inches(<span class="dv">10</span>,<span class="dv">5</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>ax.scatter(datos[<span class="st">'t'</span>],datos[<span class="st">'y'</span>],label<span class="op">=</span><span class="st">'datos'</span>,lw<span class="op">=</span><span class="fl">0.1</span>)</span>
@@ -518,7 +515,7 @@ window.Quarto = {
 <section id="caso-mas-real" class="level3">
 <h3 class="anchored" data-anchor-id="caso-mas-real">Caso mas real</h3>
 <p>Si quiséramos tener un caso que se vea mas “real” podemos hacer que los datos generados tengan un poco de “ruido”</p>
-<div id="ca895b96" class="cell" data-execution_count="8">
+<div id="875fe448" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.arange(<span class="dv">0</span>,<span class="dv">10</span>,<span class="fl">0.05</span>)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># agregamos un número aleatorio entre -1 y 1</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>ruido <span class="op">=</span> np.random.rand(<span class="bu">len</span>(t))<span class="op">*</span><span class="dv">3</span></span>
@@ -538,8 +535,8 @@ window.Quarto = {
 <span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'aceleracion'</span> , param_a[<span class="dv">0</span>],<span class="st">'m/s/s'</span>,<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>,<span class="st">'altura inicial'</span>,param_a[<span class="dv">1</span>],<span class="st">'m'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>aceleracion 9.99981100345115 m/s/s 
- altura inicial 11.423540775734502 m</code></pre>
+<pre><code>aceleracion 9.772922135550674 m/s/s 
+ altura inicial 11.289904692340514 m</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -550,17 +547,17 @@ window.Quarto = {
 </div>
 </div>
 <p>Si hacemos una gráfica de colores con la matriz de covarianza obtenemos una idea del “error” de cada parámetro. La interpretación de esta matriz escapa a lo que podemos ver en esta materia. La idea es que es una matriz cuadrada que relaciona todos los parámetros a los que ajustamos entre si. La diagonal es una medida del error de un parámetro específico las otras celdas son entre un parámetro y otro: es decir, la diagonal nos da una idea del error en un parámetro mientras que el resto nos indica como se influyen entre si los parámetros.</p>
-<div id="75746826" class="cell" data-execution_count="9">
+<div id="7ebf0b80" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.diag(cov))</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cov)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[0.1856886  0.04936096]
-[[0.1856886  0.07079378]
- [0.07079378 0.04936096]]</code></pre>
+<pre><code>[0.14161799 0.04285549]
+[[0.14161799 0.05762082]
+ [0.05762082 0.04285549]]</code></pre>
 </div>
 </div>
 <p>en nuestro caso los errores son muy pequeños porque los datos son generados a partir de un modelo teórico.</p>
-<div id="e6f47259" class="cell" data-execution_count="10">
+<div id="12cbff17" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(np.log(np.<span class="bu">abs</span>(cov)))</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -576,7 +573,7 @@ window.Quarto = {
 <section id="scipy---constantes" class="level2">
 <h2 class="anchored" data-anchor-id="scipy---constantes">Scipy - Constantes</h2>
 <p>Se puede usar <code>constants?</code> para ver la ayuda el listado de constantes disponibles</p>
-<div id="11cfa25d" class="cell" data-execution_count="11">
+<div id="702fd6dd" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> constants</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(constants.Boltzmann)</span>
