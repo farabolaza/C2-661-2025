@@ -397,7 +397,7 @@ window.Quarto = {
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>matplotlib.get_configdir()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Si no lo hacemos, deberemos escribir la ruta completa al archivo en cuestión, por ejemplo: <code>plt.style.use('C:/Users/usuario/estilo_cientifico.mplstyle')</code>.</p>
-<div id="122692b2" class="cell" data-execution_count="1">
+<div id="c3f44208" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -443,14 +443,14 @@ window.Quarto = {
 <section id="uso-de-hojas-de-estilo-personalizadas" class="level3">
 <h3 class="anchored" data-anchor-id="uso-de-hojas-de-estilo-personalizadas">Uso de hojas de estilo personalizadas</h3>
 <p>Pueden descargar, mirar y usar algunas de estas hojas de estilos - <a href="..\assets/estilo_cientifico.mplstyle">Estilo 1</a> - <a href="..\assets/l3.mplstyle">Estilo 2</a> - <a href="..\assets/physrev.mplstyle">Estilo 3</a></p>
-<div id="ddea9977" class="cell" data-fig-width="8" data-execution_count="2">
+<div id="47674f9b" class="cell" data-fig-width="4" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicar estilo personalizado</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'C:/Users/feder/Desktop/quarto/C2/2025/assets/estilo_cientifico.mplstyle'</span>)</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear figura y ejes</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">6</span>))</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">4</span>,<span class="dv">4</span>))</span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos científicos</span></span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">20</span>, <span class="dv">500</span>)</span>
@@ -466,16 +466,13 @@ window.Quarto = {
 <span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Tiempo (s)'</span>)</span>
 <span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Amplitud (V)'</span>)</span>
 <span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>ax.legend(loc<span class="op">=</span><span class="st">'upper right'</span>)</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>ax.annotate(<span class="st">'$y = e^{-t/10}</span><span class="ch">\\</span><span class="st">sin(t)$'</span>, xy<span class="op">=</span>(<span class="dv">5</span>, <span class="fl">0.5</span>), xytext<span class="op">=</span>(<span class="dv">8</span>, <span class="fl">0.7</span>),</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>            arrowprops<span class="op">=</span><span class="bu">dict</span>(arrowstyle<span class="op">=</span><span class="st">'-&gt;'</span>, connectionstyle<span class="op">=</span><span class="st">'arc3,rad=-0.2'</span>),</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>            fontsize<span class="op">=</span><span class="dv">14</span>)</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar figura</span></span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar figura</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Clase-06_files/figure-html/cell-3-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="1752" height="1752"></p>
+<p><img src="Clase-06_files/figure-html/cell-3-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="1202" height="1252"></p>
 </figure>
 </div>
 </div>
@@ -484,7 +481,7 @@ window.Quarto = {
 <section id="uso-temporal-de-estilos" class="level3">
 <h3 class="anchored" data-anchor-id="uso-temporal-de-estilos">Uso temporal de estilos</h3>
 <p>Si sólo queremos aplicar un estilo a un gráfico puntual podemos usar la siguiente construcción para lograrlo:</p>
-<div id="5a6e9203" class="cell" data-fig-width="8" data-execution_count="3">
+<div id="748e9c95" class="cell" data-fig-width="4" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -516,7 +513,7 @@ window.Quarto = {
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Clase-06_files/figure-html/cell-4-output-2.png" class="quarto-figure quarto-figure-center figure-img" width="2352" height="1452"></p>
+<p><img src="Clase-06_files/figure-html/cell-4-output-2.png" class="quarto-figure quarto-figure-center figure-img" width="2166" height="1524"></p>
 </figure>
 </div>
 </div>
@@ -524,7 +521,7 @@ window.Quarto = {
 </section>
 <section id="combinando-estilos" class="level3">
 <h3 class="anchored" data-anchor-id="combinando-estilos">Combinando estilos</h3>
-<div id="5d351bf2" class="cell" data-fig-width="8" data-execution_count="4">
+<div id="215da6d3" class="cell" data-fig-width="4" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Combinar estilos (el último tiene prioridad)</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>plt.style.use([<span class="st">'seaborn-v0_8-darkgrid'</span>, <span class="st">'C:/Users/feder/Desktop/quarto/C2/2025/assets/estilo_cientifico.mplstyle'</span>])</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -559,7 +556,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div id="db984029" class="cell" data-fig-width="8" data-execution_count="5">
+<div id="142e3a5b" class="cell" data-fig-width="4" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplo final: Gráfico científico completo</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'../assets/estilo_cientifico.mplstyle'</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -622,7 +619,7 @@ window.Quarto = {
 <section id="recuperar-el-estilo-por-defecto" class="level3">
 <h3 class="anchored" data-anchor-id="recuperar-el-estilo-por-defecto">Recuperar el estilo por defecto</h3>
 <p>Podemos recuperar o reiniciar los estilos de varias formas, una de ellas es asi:</p>
-<div id="1fd0b015" class="cell" data-execution_count="6">
+<div id="f5356755" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.special <span class="im">import</span> jv</span>
@@ -657,7 +654,7 @@ window.Quarto = {
 <section id="histogramas" class="level2">
 <h2 class="anchored" data-anchor-id="histogramas">Histogramas</h2>
 <p>Si nos encontramos con datos cuyo procesamiento requiere contar ocurrencias de un evento, es probable que necesitemos crear histogramas como forma de representación, para ello tenemos varias opciones dentro de matplotlib</p>
-<div id="fcee7e7e" class="cell" data-execution_count="7">
+<div id="ea1ddaef" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -669,26 +666,26 @@ window.Quarto = {
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Clase-06_files/figure-html/cell-8-output-1.png" width="676" height="274" class="figure-img"></p>
+<p><img src="Clase-06_files/figure-html/cell-8-output-1.png" width="676" height="279" class="figure-img"></p>
 <figcaption>Un histograma</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<div id="8d4e695b" class="cell" data-execution_count="8">
+<div id="5ccaa54f" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">3</span>))</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>plt.hist(res, bins<span class="op">=</span><span class="dv">30</span>)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Clase-06_files/figure-html/cell-9-output-1.png" width="676" height="274" class="figure-img"></p>
+<p><img src="Clase-06_files/figure-html/cell-9-output-1.png" width="667" height="274" class="figure-img"></p>
 <figcaption>Un histograma con más clases (intervalos)</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<div id="219d3846" class="cell" data-execution_count="9">
+<div id="4c52f7d1" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">3</span>))</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>plt.hist(res, bins<span class="op">=</span><span class="dv">30</span>, density<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -701,7 +698,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div id="cf633551" class="cell" data-execution_count="10">
+<div id="c24060e5" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>res2 <span class="op">=</span> np.random.randn(<span class="dv">1000</span>)<span class="op">*</span><span class="fl">0.2</span> <span class="op">+</span> <span class="fl">0.4</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">3</span>))</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>plt.hist(res, bins<span class="op">=</span><span class="dv">30</span>, density<span class="op">=</span><span class="va">True</span>, histtype<span class="op">=</span><span class="st">'step'</span>)</span>
@@ -723,7 +720,7 @@ window.Quarto = {
 <section id="con-relleno-de-color-heatmap" class="level3">
 <h3 class="anchored" data-anchor-id="con-relleno-de-color-heatmap">Con relleno de color (heatmap)</h3>
 <p>La función de numpy <code>meshgrid()</code> nos ayuda a crear una “malla” donde podremos ubicar los puntos en dos dimensiones.</p>
-<div id="b5e6a6cb" class="cell" data-execution_count="11">
+<div id="20f04315" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="annotated-cell-13"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-13-1"><a href="#annotated-cell-13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib <span class="im">as</span> mpl</span>
 <span id="annotated-cell-13-2"><a href="#annotated-cell-13-2" aria-hidden="true" tabindex="-1"></a>mpl.rcParams.update(mpl.rcParamsDefault) <span class="co"># reinicio el estilo visual</span></span>
 <span id="annotated-cell-13-3"><a href="#annotated-cell-13-3" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">100</span>)</span>
@@ -739,7 +736,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Para crear una superficie de nivel usamos la función <code>contour()</code></p>
-<div id="fa69b99e" class="cell" data-execution_count="12">
+<div id="45a201e3" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="annotated-cell-14"><pre class="sourceCode python code-annotation-code code-with-copy"><code class="sourceCode python"><span id="annotated-cell-14-1"><a href="#annotated-cell-14-1" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">100</span>)</span>
 <span id="annotated-cell-14-2"><a href="#annotated-cell-14-2" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> np.meshgrid(_,_)</span>
 <span id="annotated-cell-14-3"><a href="#annotated-cell-14-3" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span><span class="op">+</span>x<span class="op">*</span>y</span>
@@ -761,7 +758,7 @@ window.Quarto = {
 <ul>
 <li>ver https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.contour.html para todas las opciones</li>
 </ul>
-<div id="215440df" class="cell" data-execution_count="13">
+<div id="9aeb5040" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>plt.contourf(x,y,z, levels<span class="op">=</span><span class="dv">50</span>, cmap<span class="op">=</span><span class="st">'plasma'</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>plt.colorbar(label<span class="op">=</span><span class="st">'Temperatura [$^\circ C$]'</span>)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Posición horizontal [m]'</span>)</span>
@@ -779,7 +776,7 @@ window.Quarto = {
 <section id="sin-relleno-con-iso-valores" class="level3">
 <h3 class="anchored" data-anchor-id="sin-relleno-con-iso-valores">Sin relleno (con iso-valores)</h3>
 <p>A veces nos interesa ver los valores de casda iso-curva por lo que usamos la función <code>clabel</code> y le pasamos el gráfico entero para que agregue los valores</p>
-<div id="d1f8c422" class="cell" data-execution_count="14">
+<div id="619faa66" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>cs <span class="op">=</span> plt.contour(x,y,z, levels<span class="op">=</span><span class="dv">20</span>) <span class="co"># ajustando la cantidad de levels podemos tener mas líneas</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>plt.clabel(cs, fontsize<span class="op">=</span><span class="dv">8</span>)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -796,7 +793,7 @@ window.Quarto = {
 <section id="gráficos-de-flujo-campos-vectoriales" class="level2">
 <h2 class="anchored" data-anchor-id="gráficos-de-flujo-campos-vectoriales">Gráficos de flujo: Campos vectoriales</h2>
 <p>Usamos otra vez <code>meshgrid</code> para generar los puntos del espacio vectorial</p>
-<div id="aabf21d9" class="cell" data-execution_count="15">
+<div id="99823208" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> <span class="dv">3</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">100</span>)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>X, Y <span class="op">=</span> np.meshgrid(_,_)</span>
@@ -805,7 +802,7 @@ window.Quarto = {
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>speed <span class="op">=</span> np.sqrt(U<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> V<span class="op">**</span><span class="dv">2</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Creamos las figuras</p>
-<div id="324f8bf8" class="cell" data-execution_count="16">
+<div id="6392fbe7" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">2</span>,figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> axes[<span class="dv">0</span>][<span class="dv">0</span>]</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>ax.streamplot(X, Y, U, V)</span>
@@ -833,7 +830,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="animaciones">Animaciones</h2>
 <p>Para hacer una animación tenemos que tener una ‘foto’ de cada frame (cuadro) que queramos graficar, y además decirle cuantos frames por segundo vamos a querer ver.</p>
 <p>Existen varias maneras de configurar el motor visual de las animaciones y su salida. Acá vemos una:</p>
-<div id="164caa5e" class="cell" data-execution_count="17">
+<div id="8b6d7a18" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> animation</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.animation <span class="im">import</span> PillowWriter</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> rc</span>
@@ -843,7 +840,7 @@ window.Quarto = {
 <section id="ejemplo-comparación-de-trayectorias" class="level3">
 <h3 class="anchored" data-anchor-id="ejemplo-comparación-de-trayectorias">Ejemplo: Comparación de trayectorias</h3>
 <p>Vamos a comparar dos trayectorias en caída libre pero con diferente velocidad inicial</p>
-<div id="c450c871" class="cell" data-execution_count="18">
+<div id="c66aa68d" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> animation</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.animation <span class="im">import</span> PillowWriter <span class="co"># esto no es necesario en vsco</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> rc <span class="co"># esto no es necesario en vscode</span></span>
@@ -1065,36 +1062,36 @@ input[type=range].anim-slider {
 </style>
 
 <div class="animation">
-  <img id="_anim_img3880c11886c54fb28761d982056d272d">
+  <img id="_anim_img34cf300b87b54c7dab223969551d6732">
   <div class="anim-controls">
-    <input id="_anim_slider3880c11886c54fb28761d982056d272d" type="range" class="anim-slider" name="points" min="0" max="1" step="1" value="0" oninput="anim3880c11886c54fb28761d982056d272d.set_frame(parseInt(this.value));">
+    <input id="_anim_slider34cf300b87b54c7dab223969551d6732" type="range" class="anim-slider" name="points" min="0" max="1" step="1" value="0" oninput="anim34cf300b87b54c7dab223969551d6732.set_frame(parseInt(this.value));">
     <div class="anim-buttons">
-      <button title="Decrease speed" aria-label="Decrease speed" onclick="anim3880c11886c54fb28761d982056d272d.slower()">
+      <button title="Decrease speed" aria-label="Decrease speed" onclick="anim34cf300b87b54c7dab223969551d6732.slower()">
           <i class="fa fa-minus"></i></button>
-      <button title="First frame" aria-label="First frame" onclick="anim3880c11886c54fb28761d982056d272d.first_frame()">
+      <button title="First frame" aria-label="First frame" onclick="anim34cf300b87b54c7dab223969551d6732.first_frame()">
         <i class="fa fa-fast-backward"></i></button>
-      <button title="Previous frame" aria-label="Previous frame" onclick="anim3880c11886c54fb28761d982056d272d.previous_frame()">
+      <button title="Previous frame" aria-label="Previous frame" onclick="anim34cf300b87b54c7dab223969551d6732.previous_frame()">
           <i class="fa fa-step-backward"></i></button>
-      <button title="Play backwards" aria-label="Play backwards" onclick="anim3880c11886c54fb28761d982056d272d.reverse_animation()">
+      <button title="Play backwards" aria-label="Play backwards" onclick="anim34cf300b87b54c7dab223969551d6732.reverse_animation()">
           <i class="fa fa-play fa-flip-horizontal"></i></button>
-      <button title="Pause" aria-label="Pause" onclick="anim3880c11886c54fb28761d982056d272d.pause_animation()">
+      <button title="Pause" aria-label="Pause" onclick="anim34cf300b87b54c7dab223969551d6732.pause_animation()">
           <i class="fa fa-pause"></i></button>
-      <button title="Play" aria-label="Play" onclick="anim3880c11886c54fb28761d982056d272d.play_animation()">
+      <button title="Play" aria-label="Play" onclick="anim34cf300b87b54c7dab223969551d6732.play_animation()">
           <i class="fa fa-play"></i></button>
-      <button title="Next frame" aria-label="Next frame" onclick="anim3880c11886c54fb28761d982056d272d.next_frame()">
+      <button title="Next frame" aria-label="Next frame" onclick="anim34cf300b87b54c7dab223969551d6732.next_frame()">
           <i class="fa fa-step-forward"></i></button>
-      <button title="Last frame" aria-label="Last frame" onclick="anim3880c11886c54fb28761d982056d272d.last_frame()">
+      <button title="Last frame" aria-label="Last frame" onclick="anim34cf300b87b54c7dab223969551d6732.last_frame()">
           <i class="fa fa-fast-forward"></i></button>
-      <button title="Increase speed" aria-label="Increase speed" onclick="anim3880c11886c54fb28761d982056d272d.faster()">
+      <button title="Increase speed" aria-label="Increase speed" onclick="anim34cf300b87b54c7dab223969551d6732.faster()">
           <i class="fa fa-plus"></i></button>
     </div>
-    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_select3880c11886c54fb28761d982056d272d" class="anim-state">
-      <input type="radio" name="state" value="once" id="_anim_radio1_3880c11886c54fb28761d982056d272d">
-      <label for="_anim_radio1_3880c11886c54fb28761d982056d272d">Once</label>
-      <input type="radio" name="state" value="loop" id="_anim_radio2_3880c11886c54fb28761d982056d272d" checked="">
-      <label for="_anim_radio2_3880c11886c54fb28761d982056d272d">Loop</label>
-      <input type="radio" name="state" value="reflect" id="_anim_radio3_3880c11886c54fb28761d982056d272d">
-      <label for="_anim_radio3_3880c11886c54fb28761d982056d272d">Reflect</label>
+    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_select34cf300b87b54c7dab223969551d6732" class="anim-state">
+      <input type="radio" name="state" value="once" id="_anim_radio1_34cf300b87b54c7dab223969551d6732">
+      <label for="_anim_radio1_34cf300b87b54c7dab223969551d6732">Once</label>
+      <input type="radio" name="state" value="loop" id="_anim_radio2_34cf300b87b54c7dab223969551d6732" checked="">
+      <label for="_anim_radio2_34cf300b87b54c7dab223969551d6732">Loop</label>
+      <input type="radio" name="state" value="reflect" id="_anim_radio3_34cf300b87b54c7dab223969551d6732">
+      <label for="_anim_radio3_34cf300b87b54c7dab223969551d6732">Reflect</label>
     </form>
   </div>
 </div>
@@ -1104,9 +1101,9 @@ input[type=range].anim-slider {
   /* Instantiate the Animation class. */
   /* The IDs given should match those used in the template above. */
   (function() {
-    var img_id = "_anim_img3880c11886c54fb28761d982056d272d";
-    var slider_id = "_anim_slider3880c11886c54fb28761d982056d272d";
-    var loop_select_id = "_anim_loop_select3880c11886c54fb28761d982056d272d";
+    var img_id = "_anim_img34cf300b87b54c7dab223969551d6732";
+    var slider_id = "_anim_slider34cf300b87b54c7dab223969551d6732";
+    var loop_select_id = "_anim_loop_select34cf300b87b54c7dab223969551d6732";
     var frames = new Array(40);
     
   frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoAAAAHgCAYAAAA10dzkAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
@@ -12222,7 +12219,7 @@ AAgAAGAx/x9nYcCk3NQNYAAAAABJRU5ErkJggg==\
     /* set a timeout to make sure all the above elements are created before
        the object is initialized. */
     setTimeout(function() {
-        anim3880c11886c54fb28761d982056d272d = new Animation(frames, img_id, slider_id, 29.0,
+        anim34cf300b87b54c7dab223969551d6732 = new Animation(frames, img_id, slider_id, 29.0,
                                  loop_select_id);
     }, 0);
   })()
@@ -12233,7 +12230,7 @@ AAgAAGAx/x9nYcCk3NQNYAAAAABJRU5ErkJggg==\
 <section id="función-sinusoidal-en-x-y-t" class="level3">
 <h3 class="anchored" data-anchor-id="función-sinusoidal-en-x-y-t">Función sinusoidal en x y t</h3>
 <p>Veamos una onda <span class="math inline">\(\sin\)</span> moviéndose a 3m/s. Para convertirlo en una animación primero creamos una función</p>
-<div id="393f1f22" class="cell" data-execution_count="19">
+<div id="554c91a8" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(x,t):</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.sin(x<span class="op">-</span><span class="dv">3</span><span class="op">*</span>t)</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -12243,7 +12240,7 @@ AAgAAGAx/x9nYcCk3NQNYAAAAABJRU5ErkJggg==\
 <span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>F <span class="op">=</span> f(X, T) <span class="co"># usamos la funcion f para crear la función</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Usar <code>linspace</code> y <code>arange</code> según convenga es una buena práctica, en vez de centrarse sólo en una de las dos.</p>
-<div id="31854f65" class="cell" data-execution_count="20">
+<div id="27a80e37" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>plt.clf() <span class="co"># si estoy usando la interfaz matlab debo limpiar la figura para que no me aparezca lo anterior</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>plt.plot(x, F[<span class="dv">1</span>])</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
@@ -12257,7 +12254,7 @@ AAgAAGAx/x9nYcCk3NQNYAAAAABJRU5ErkJggg==\
 </div>
 </div>
 <p>La animación</p>
-<div id="cb8028c1" class="cell" data-execution_count="21">
+<div id="2c632c7f" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">4</span>))</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>ln1, <span class="op">=</span> plt.plot([], []) <span class="co"># un plot vacío para ir llenándolo paso a paso</span></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>time_text <span class="op">=</span> ax.text(<span class="fl">0.65</span>, <span class="fl">0.95</span>, <span class="st">''</span>, fontsize<span class="op">=</span><span class="dv">15</span>,</span>
@@ -12458,36 +12455,36 @@ input[type=range].anim-slider {
 </style>
 
 <div class="animation">
-  <img id="_anim_imgf68a6ea2b9d34e469db59959af09d675">
+  <img id="_anim_imgd335583e8234467cac35e1d0808c4550">
   <div class="anim-controls">
-    <input id="_anim_sliderf68a6ea2b9d34e469db59959af09d675" type="range" class="anim-slider" name="points" min="0" max="1" step="1" value="0" oninput="animf68a6ea2b9d34e469db59959af09d675.set_frame(parseInt(this.value));">
+    <input id="_anim_sliderd335583e8234467cac35e1d0808c4550" type="range" class="anim-slider" name="points" min="0" max="1" step="1" value="0" oninput="animd335583e8234467cac35e1d0808c4550.set_frame(parseInt(this.value));">
     <div class="anim-buttons">
-      <button title="Decrease speed" aria-label="Decrease speed" onclick="animf68a6ea2b9d34e469db59959af09d675.slower()">
+      <button title="Decrease speed" aria-label="Decrease speed" onclick="animd335583e8234467cac35e1d0808c4550.slower()">
           <i class="fa fa-minus"></i></button>
-      <button title="First frame" aria-label="First frame" onclick="animf68a6ea2b9d34e469db59959af09d675.first_frame()">
+      <button title="First frame" aria-label="First frame" onclick="animd335583e8234467cac35e1d0808c4550.first_frame()">
         <i class="fa fa-fast-backward"></i></button>
-      <button title="Previous frame" aria-label="Previous frame" onclick="animf68a6ea2b9d34e469db59959af09d675.previous_frame()">
+      <button title="Previous frame" aria-label="Previous frame" onclick="animd335583e8234467cac35e1d0808c4550.previous_frame()">
           <i class="fa fa-step-backward"></i></button>
-      <button title="Play backwards" aria-label="Play backwards" onclick="animf68a6ea2b9d34e469db59959af09d675.reverse_animation()">
+      <button title="Play backwards" aria-label="Play backwards" onclick="animd335583e8234467cac35e1d0808c4550.reverse_animation()">
           <i class="fa fa-play fa-flip-horizontal"></i></button>
-      <button title="Pause" aria-label="Pause" onclick="animf68a6ea2b9d34e469db59959af09d675.pause_animation()">
+      <button title="Pause" aria-label="Pause" onclick="animd335583e8234467cac35e1d0808c4550.pause_animation()">
           <i class="fa fa-pause"></i></button>
-      <button title="Play" aria-label="Play" onclick="animf68a6ea2b9d34e469db59959af09d675.play_animation()">
+      <button title="Play" aria-label="Play" onclick="animd335583e8234467cac35e1d0808c4550.play_animation()">
           <i class="fa fa-play"></i></button>
-      <button title="Next frame" aria-label="Next frame" onclick="animf68a6ea2b9d34e469db59959af09d675.next_frame()">
+      <button title="Next frame" aria-label="Next frame" onclick="animd335583e8234467cac35e1d0808c4550.next_frame()">
           <i class="fa fa-step-forward"></i></button>
-      <button title="Last frame" aria-label="Last frame" onclick="animf68a6ea2b9d34e469db59959af09d675.last_frame()">
+      <button title="Last frame" aria-label="Last frame" onclick="animd335583e8234467cac35e1d0808c4550.last_frame()">
           <i class="fa fa-fast-forward"></i></button>
-      <button title="Increase speed" aria-label="Increase speed" onclick="animf68a6ea2b9d34e469db59959af09d675.faster()">
+      <button title="Increase speed" aria-label="Increase speed" onclick="animd335583e8234467cac35e1d0808c4550.faster()">
           <i class="fa fa-plus"></i></button>
     </div>
-    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_selectf68a6ea2b9d34e469db59959af09d675" class="anim-state">
-      <input type="radio" name="state" value="once" id="_anim_radio1_f68a6ea2b9d34e469db59959af09d675">
-      <label for="_anim_radio1_f68a6ea2b9d34e469db59959af09d675">Once</label>
-      <input type="radio" name="state" value="loop" id="_anim_radio2_f68a6ea2b9d34e469db59959af09d675" checked="">
-      <label for="_anim_radio2_f68a6ea2b9d34e469db59959af09d675">Loop</label>
-      <input type="radio" name="state" value="reflect" id="_anim_radio3_f68a6ea2b9d34e469db59959af09d675">
-      <label for="_anim_radio3_f68a6ea2b9d34e469db59959af09d675">Reflect</label>
+    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_selectd335583e8234467cac35e1d0808c4550" class="anim-state">
+      <input type="radio" name="state" value="once" id="_anim_radio1_d335583e8234467cac35e1d0808c4550">
+      <label for="_anim_radio1_d335583e8234467cac35e1d0808c4550">Once</label>
+      <input type="radio" name="state" value="loop" id="_anim_radio2_d335583e8234467cac35e1d0808c4550" checked="">
+      <label for="_anim_radio2_d335583e8234467cac35e1d0808c4550">Loop</label>
+      <input type="radio" name="state" value="reflect" id="_anim_radio3_d335583e8234467cac35e1d0808c4550">
+      <label for="_anim_radio3_d335583e8234467cac35e1d0808c4550">Reflect</label>
     </form>
   </div>
 </div>
@@ -12497,9 +12494,9 @@ input[type=range].anim-slider {
   /* Instantiate the Animation class. */
   /* The IDs given should match those used in the template above. */
   (function() {
-    var img_id = "_anim_imgf68a6ea2b9d34e469db59959af09d675";
-    var slider_id = "_anim_sliderf68a6ea2b9d34e469db59959af09d675";
-    var loop_select_id = "_anim_loop_selectf68a6ea2b9d34e469db59959af09d675";
+    var img_id = "_anim_imgd335583e8234467cac35e1d0808c4550";
+    var slider_id = "_anim_sliderd335583e8234467cac35e1d0808c4550";
+    var loop_select_id = "_anim_loop_selectd335583e8234467cac35e1d0808c4550";
     var frames = new Array(240);
     
   frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAGQCAYAAABWJQQ0AAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
@@ -130314,7 +130311,7 @@ iIiIFMMChIiIiIiIFMMChIiIiIiIFPP/AYfSpUkj8rhoAAAAAElFTkSuQmCC\
     /* set a timeout to make sure all the above elements are created before
        the object is initialized. */
     setTimeout(function() {
-        animf68a6ea2b9d34e469db59959af09d675 = new Animation(frames, img_id, slider_id, 50.0,
+        animd335583e8234467cac35e1d0808c4550 = new Animation(frames, img_id, slider_id, 50.0,
                                  loop_select_id);
     }, 0);
   })()
@@ -130324,7 +130321,7 @@ iIiIFMMChIiIiIiIFMMChIiIiIiIFPP/AYfSpUkj8rhoAAAAAElFTkSuQmCC\
 </section>
 <section id="una-animación-en-3d" class="level3">
 <h3 class="anchored" data-anchor-id="una-animación-en-3d">Una animación en 3d</h3>
-<div id="d2c79e96" class="cell" data-execution_count="22">
+<div id="1020e765" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">100</span>)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> np.meshgrid(_,_)</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span><span class="op">+</span>x<span class="op">*</span>y</span>
@@ -130526,36 +130523,36 @@ input[type=range].anim-slider {
 </style>
 
 <div class="animation">
-  <img id="_anim_img9728d9a5745d4b9eb38171e2fe933ccf">
+  <img id="_anim_img33e8e28dad664c63abaf2e60b12c545b">
   <div class="anim-controls">
-    <input id="_anim_slider9728d9a5745d4b9eb38171e2fe933ccf" type="range" class="anim-slider" name="points" min="0" max="1" step="1" value="0" oninput="anim9728d9a5745d4b9eb38171e2fe933ccf.set_frame(parseInt(this.value));">
+    <input id="_anim_slider33e8e28dad664c63abaf2e60b12c545b" type="range" class="anim-slider" name="points" min="0" max="1" step="1" value="0" oninput="anim33e8e28dad664c63abaf2e60b12c545b.set_frame(parseInt(this.value));">
     <div class="anim-buttons">
-      <button title="Decrease speed" aria-label="Decrease speed" onclick="anim9728d9a5745d4b9eb38171e2fe933ccf.slower()">
+      <button title="Decrease speed" aria-label="Decrease speed" onclick="anim33e8e28dad664c63abaf2e60b12c545b.slower()">
           <i class="fa fa-minus"></i></button>
-      <button title="First frame" aria-label="First frame" onclick="anim9728d9a5745d4b9eb38171e2fe933ccf.first_frame()">
+      <button title="First frame" aria-label="First frame" onclick="anim33e8e28dad664c63abaf2e60b12c545b.first_frame()">
         <i class="fa fa-fast-backward"></i></button>
-      <button title="Previous frame" aria-label="Previous frame" onclick="anim9728d9a5745d4b9eb38171e2fe933ccf.previous_frame()">
+      <button title="Previous frame" aria-label="Previous frame" onclick="anim33e8e28dad664c63abaf2e60b12c545b.previous_frame()">
           <i class="fa fa-step-backward"></i></button>
-      <button title="Play backwards" aria-label="Play backwards" onclick="anim9728d9a5745d4b9eb38171e2fe933ccf.reverse_animation()">
+      <button title="Play backwards" aria-label="Play backwards" onclick="anim33e8e28dad664c63abaf2e60b12c545b.reverse_animation()">
           <i class="fa fa-play fa-flip-horizontal"></i></button>
-      <button title="Pause" aria-label="Pause" onclick="anim9728d9a5745d4b9eb38171e2fe933ccf.pause_animation()">
+      <button title="Pause" aria-label="Pause" onclick="anim33e8e28dad664c63abaf2e60b12c545b.pause_animation()">
           <i class="fa fa-pause"></i></button>
-      <button title="Play" aria-label="Play" onclick="anim9728d9a5745d4b9eb38171e2fe933ccf.play_animation()">
+      <button title="Play" aria-label="Play" onclick="anim33e8e28dad664c63abaf2e60b12c545b.play_animation()">
           <i class="fa fa-play"></i></button>
-      <button title="Next frame" aria-label="Next frame" onclick="anim9728d9a5745d4b9eb38171e2fe933ccf.next_frame()">
+      <button title="Next frame" aria-label="Next frame" onclick="anim33e8e28dad664c63abaf2e60b12c545b.next_frame()">
           <i class="fa fa-step-forward"></i></button>
-      <button title="Last frame" aria-label="Last frame" onclick="anim9728d9a5745d4b9eb38171e2fe933ccf.last_frame()">
+      <button title="Last frame" aria-label="Last frame" onclick="anim33e8e28dad664c63abaf2e60b12c545b.last_frame()">
           <i class="fa fa-fast-forward"></i></button>
-      <button title="Increase speed" aria-label="Increase speed" onclick="anim9728d9a5745d4b9eb38171e2fe933ccf.faster()">
+      <button title="Increase speed" aria-label="Increase speed" onclick="anim33e8e28dad664c63abaf2e60b12c545b.faster()">
           <i class="fa fa-plus"></i></button>
     </div>
-    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_select9728d9a5745d4b9eb38171e2fe933ccf" class="anim-state">
-      <input type="radio" name="state" value="once" id="_anim_radio1_9728d9a5745d4b9eb38171e2fe933ccf">
-      <label for="_anim_radio1_9728d9a5745d4b9eb38171e2fe933ccf">Once</label>
-      <input type="radio" name="state" value="loop" id="_anim_radio2_9728d9a5745d4b9eb38171e2fe933ccf" checked="">
-      <label for="_anim_radio2_9728d9a5745d4b9eb38171e2fe933ccf">Loop</label>
-      <input type="radio" name="state" value="reflect" id="_anim_radio3_9728d9a5745d4b9eb38171e2fe933ccf">
-      <label for="_anim_radio3_9728d9a5745d4b9eb38171e2fe933ccf">Reflect</label>
+    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_select33e8e28dad664c63abaf2e60b12c545b" class="anim-state">
+      <input type="radio" name="state" value="once" id="_anim_radio1_33e8e28dad664c63abaf2e60b12c545b">
+      <label for="_anim_radio1_33e8e28dad664c63abaf2e60b12c545b">Once</label>
+      <input type="radio" name="state" value="loop" id="_anim_radio2_33e8e28dad664c63abaf2e60b12c545b" checked="">
+      <label for="_anim_radio2_33e8e28dad664c63abaf2e60b12c545b">Loop</label>
+      <input type="radio" name="state" value="reflect" id="_anim_radio3_33e8e28dad664c63abaf2e60b12c545b">
+      <label for="_anim_radio3_33e8e28dad664c63abaf2e60b12c545b">Reflect</label>
     </form>
   </div>
 </div>
@@ -130565,9 +130562,9 @@ input[type=range].anim-slider {
   /* Instantiate the Animation class. */
   /* The IDs given should match those used in the template above. */
   (function() {
-    var img_id = "_anim_img9728d9a5745d4b9eb38171e2fe933ccf";
-    var slider_id = "_anim_slider9728d9a5745d4b9eb38171e2fe933ccf";
-    var loop_select_id = "_anim_loop_select9728d9a5745d4b9eb38171e2fe933ccf";
+    var img_id = "_anim_img33e8e28dad664c63abaf2e60b12c545b";
+    var slider_id = "_anim_slider33e8e28dad664c63abaf2e60b12c545b";
+    var loop_select_id = "_anim_loop_select33e8e28dad664c63abaf2e60b12c545b";
     var frames = new Array(120);
     
   frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoAAAAHgCAYAAAA10dzkAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
@@ -221295,7 +221292,7 @@ emhgAAAAAElFTkSuQmCC\
     /* set a timeout to make sure all the above elements are created before
        the object is initialized. */
     setTimeout(function() {
-        anim9728d9a5745d4b9eb38171e2fe933ccf = new Animation(frames, img_id, slider_id, 50.0,
+        anim33e8e28dad664c63abaf2e60b12c545b = new Animation(frames, img_id, slider_id, 50.0,
                                  loop_select_id);
     }, 0);
   })()
@@ -221306,7 +221303,7 @@ emhgAAAAAElFTkSuQmCC\
 <section id="barras-animadas" class="level3">
 <h3 class="anchored" data-anchor-id="barras-animadas">Barras animadas</h3>
 <p>Puede que necesitemos conocer como crece una cantidad y representarlo con una barra animada.</p>
-<div id="34cf8c8d" class="cell" data-execution_count="23">
+<div id="0a2f8a2d" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(<span class="dv">19680801</span>) <span class="co"># semilla para los aleatorios</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> np.array([<span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">20</span>])</span>
@@ -221507,36 +221504,36 @@ input[type=range].anim-slider {
 </style>
 
 <div class="animation">
-  <img id="_anim_img77b805573d574e4087ca123e502a9d3c">
+  <img id="_anim_img14bb4bd729614ce294ccc3d8030a22c2">
   <div class="anim-controls">
-    <input id="_anim_slider77b805573d574e4087ca123e502a9d3c" type="range" class="anim-slider" name="points" min="0" max="1" step="1" value="0" oninput="anim77b805573d574e4087ca123e502a9d3c.set_frame(parseInt(this.value));">
+    <input id="_anim_slider14bb4bd729614ce294ccc3d8030a22c2" type="range" class="anim-slider" name="points" min="0" max="1" step="1" value="0" oninput="anim14bb4bd729614ce294ccc3d8030a22c2.set_frame(parseInt(this.value));">
     <div class="anim-buttons">
-      <button title="Decrease speed" aria-label="Decrease speed" onclick="anim77b805573d574e4087ca123e502a9d3c.slower()">
+      <button title="Decrease speed" aria-label="Decrease speed" onclick="anim14bb4bd729614ce294ccc3d8030a22c2.slower()">
           <i class="fa fa-minus"></i></button>
-      <button title="First frame" aria-label="First frame" onclick="anim77b805573d574e4087ca123e502a9d3c.first_frame()">
+      <button title="First frame" aria-label="First frame" onclick="anim14bb4bd729614ce294ccc3d8030a22c2.first_frame()">
         <i class="fa fa-fast-backward"></i></button>
-      <button title="Previous frame" aria-label="Previous frame" onclick="anim77b805573d574e4087ca123e502a9d3c.previous_frame()">
+      <button title="Previous frame" aria-label="Previous frame" onclick="anim14bb4bd729614ce294ccc3d8030a22c2.previous_frame()">
           <i class="fa fa-step-backward"></i></button>
-      <button title="Play backwards" aria-label="Play backwards" onclick="anim77b805573d574e4087ca123e502a9d3c.reverse_animation()">
+      <button title="Play backwards" aria-label="Play backwards" onclick="anim14bb4bd729614ce294ccc3d8030a22c2.reverse_animation()">
           <i class="fa fa-play fa-flip-horizontal"></i></button>
-      <button title="Pause" aria-label="Pause" onclick="anim77b805573d574e4087ca123e502a9d3c.pause_animation()">
+      <button title="Pause" aria-label="Pause" onclick="anim14bb4bd729614ce294ccc3d8030a22c2.pause_animation()">
           <i class="fa fa-pause"></i></button>
-      <button title="Play" aria-label="Play" onclick="anim77b805573d574e4087ca123e502a9d3c.play_animation()">
+      <button title="Play" aria-label="Play" onclick="anim14bb4bd729614ce294ccc3d8030a22c2.play_animation()">
           <i class="fa fa-play"></i></button>
-      <button title="Next frame" aria-label="Next frame" onclick="anim77b805573d574e4087ca123e502a9d3c.next_frame()">
+      <button title="Next frame" aria-label="Next frame" onclick="anim14bb4bd729614ce294ccc3d8030a22c2.next_frame()">
           <i class="fa fa-step-forward"></i></button>
-      <button title="Last frame" aria-label="Last frame" onclick="anim77b805573d574e4087ca123e502a9d3c.last_frame()">
+      <button title="Last frame" aria-label="Last frame" onclick="anim14bb4bd729614ce294ccc3d8030a22c2.last_frame()">
           <i class="fa fa-fast-forward"></i></button>
-      <button title="Increase speed" aria-label="Increase speed" onclick="anim77b805573d574e4087ca123e502a9d3c.faster()">
+      <button title="Increase speed" aria-label="Increase speed" onclick="anim14bb4bd729614ce294ccc3d8030a22c2.faster()">
           <i class="fa fa-plus"></i></button>
     </div>
-    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_select77b805573d574e4087ca123e502a9d3c" class="anim-state">
-      <input type="radio" name="state" value="once" id="_anim_radio1_77b805573d574e4087ca123e502a9d3c">
-      <label for="_anim_radio1_77b805573d574e4087ca123e502a9d3c">Once</label>
-      <input type="radio" name="state" value="loop" id="_anim_radio2_77b805573d574e4087ca123e502a9d3c" checked="">
-      <label for="_anim_radio2_77b805573d574e4087ca123e502a9d3c">Loop</label>
-      <input type="radio" name="state" value="reflect" id="_anim_radio3_77b805573d574e4087ca123e502a9d3c">
-      <label for="_anim_radio3_77b805573d574e4087ca123e502a9d3c">Reflect</label>
+    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_select14bb4bd729614ce294ccc3d8030a22c2" class="anim-state">
+      <input type="radio" name="state" value="once" id="_anim_radio1_14bb4bd729614ce294ccc3d8030a22c2">
+      <label for="_anim_radio1_14bb4bd729614ce294ccc3d8030a22c2">Once</label>
+      <input type="radio" name="state" value="loop" id="_anim_radio2_14bb4bd729614ce294ccc3d8030a22c2" checked="">
+      <label for="_anim_radio2_14bb4bd729614ce294ccc3d8030a22c2">Loop</label>
+      <input type="radio" name="state" value="reflect" id="_anim_radio3_14bb4bd729614ce294ccc3d8030a22c2">
+      <label for="_anim_radio3_14bb4bd729614ce294ccc3d8030a22c2">Reflect</label>
     </form>
   </div>
 </div>
@@ -221546,9 +221543,9 @@ input[type=range].anim-slider {
   /* Instantiate the Animation class. */
   /* The IDs given should match those used in the template above. */
   (function() {
-    var img_id = "_anim_img77b805573d574e4087ca123e502a9d3c";
-    var slider_id = "_anim_slider77b805573d574e4087ca123e502a9d3c";
-    var loop_select_id = "_anim_loop_select77b805573d574e4087ca123e502a9d3c";
+    var img_id = "_anim_img14bb4bd729614ce294ccc3d8030a22c2";
+    var slider_id = "_anim_slider14bb4bd729614ce294ccc3d8030a22c2";
+    var loop_select_id = "_anim_loop_select14bb4bd729614ce294ccc3d8030a22c2";
     var frames = new Array(20);
     
   frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoAAAAHgCAYAAAA10dzkAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
@@ -225036,7 +225033,7 @@ jAAEAEiMAAQASIwABABIjAAEAEiMAAQASMz/B+2fY3f7HnAtAAAAAElFTkSuQmCC\
     /* set a timeout to make sure all the above elements are created before
        the object is initialized. */
     setTimeout(function() {
-        anim77b805573d574e4087ca123e502a9d3c = new Animation(frames, img_id, slider_id, 400.0,
+        anim14bb4bd729614ce294ccc3d8030a22c2 = new Animation(frames, img_id, slider_id, 400.0,
                                  loop_select_id);
     }, 0);
   })()
@@ -225067,7 +225064,7 @@ jAAEAEiMAAQASIwABABIjAAEAEiMAAQASMz/B+2fY3f7HnAtAAAAAElFTkSuQmCC\
 <span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>ani.save(filename<span class="op">=</span><span class="st">"/tmp/imagemagick_example.gif"</span>, writer<span class="op">=</span><span class="st">"imagemagick"</span>)</span>
 <span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>ani.save(filename<span class="op">=</span><span class="st">"/tmp/imagemagick_example.webp"</span>, writer<span class="op">=</span><span class="st">"imagemagick"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Por ejemplo, podemos guardar la animación que hicimos en el último ejemplo como un gif</p>
-<div id="5ad7561c" class="cell" data-execution_count="24">
+<div id="4b18086f" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>ani.save(<span class="st">'../assets/barras.gif'</span>,writer<span class="op">=</span><span class="st">"pillow"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Y podemos inlcuir la animáción en donde queramos</p>
