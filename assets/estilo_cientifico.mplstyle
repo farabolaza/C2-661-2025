@@ -42,7 +42,6 @@ legend.framealpha: 0.8
 legend.edgecolor: black
 
 ### Grilla ###
-grid.color: #d0d0d0
 grid.linestyle: --
 grid.linewidth: 0.8
 grid.alpha: 0.6
