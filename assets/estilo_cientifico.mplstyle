@@ -1,8 +1,8 @@
 ### Configuraciones base ###
-figure.figsize: 4.5, 3
-figure.dpi: 300
-figure.autolayout: False
-figure.facecolor: white
+# figure.figsize: 4.5, 3
+# figure.dpi: 300
+# figure.autolayout: True
+# figure.facecolor: white
 
 ### Tipografía ###
 font.family: serif
