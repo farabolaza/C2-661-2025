@@ -313,6 +313,12 @@ window.Quarto = {
  <span class="menu-text">TP 05</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../trabajos practicos/TP 06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TP 06</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -325,9 +331,13 @@ window.Quarto = {
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#importar-los-módulos" id="toc-importar-los-módulos" class="nav-link active" data-scroll-target="#importar-los-módulos">Importar los módulos</a></li>
-  <li><a href="#pandas" id="toc-pandas" class="nav-link" data-scroll-target="#pandas">Pandas</a></li>
-  <li><a href="#ajuste-de-curvas" id="toc-ajuste-de-curvas" class="nav-link" data-scroll-target="#ajuste-de-curvas">Ajuste de curvas</a>
+  <li><a href="#pandas-interacción-con-archivos-csv-txt-tsv" id="toc-pandas-interacción-con-archivos-csv-txt-tsv" class="nav-link active" data-scroll-target="#pandas-interacción-con-archivos-csv-txt-tsv">Pandas (interacción con archivos csv, txt, tsv)</a>
+  <ul class="collapse">
+  <li><a href="#leer-archivos-desde-pandas" id="toc-leer-archivos-desde-pandas" class="nav-link" data-scroll-target="#leer-archivos-desde-pandas">Leer archivos desde pandas</a></li>
+  <li><a href="#problemas-usuales" id="toc-problemas-usuales" class="nav-link" data-scroll-target="#problemas-usuales">Problemas usuales</a></li>
+  <li><a href="#guardar-archivos-desde-pandas" id="toc-guardar-archivos-desde-pandas" class="nav-link" data-scroll-target="#guardar-archivos-desde-pandas">Guardar archivos desde pandas</a></li>
+  </ul></li>
+  <li><a href="#ajuste-de-datos-a-curvas-scipy-optmize" id="toc-ajuste-de-datos-a-curvas-scipy-optmize" class="nav-link" data-scroll-target="#ajuste-de-datos-a-curvas-scipy-optmize">Ajuste de datos a curvas (scipy optmize)</a>
   <ul class="collapse">
   <li><a href="#ejemplo" id="toc-ejemplo" class="nav-link" data-scroll-target="#ejemplo">Ejemplo</a></li>
   <li><a href="#función-modelo" id="toc-función-modelo" class="nav-link" data-scroll-target="#función-modelo">Función modelo</a></li>
@@ -361,81 +371,332 @@ window.Quarto = {
 </header>
 
 
-<section id="importar-los-módulos" class="level2">
-<h2 class="anchored" data-anchor-id="importar-los-módulos">Importar los módulos</h2>
-<p>El módulo Scipy es una colección de herramientas para el cálculo científico de amplio espectro. veremos algunas de sus posibilidades</p>
+<section id="pandas-interacción-con-archivos-csv-txt-tsv" class="level2">
+<h2 class="anchored" data-anchor-id="pandas-interacción-con-archivos-csv-txt-tsv">Pandas (interacción con archivos csv, txt, tsv)</h2>
+<p>El módulo pandas es una herramienta que permite, entre muchas otras cosas, trabajar con datos estructurados en archivos de texto. Dentro de los formatos de archivos de texto más usuales tenemos las extensiones <code>csv</code>,<code>tsv</code> y <code>txt</code>, en donde se tienen datos separados por coma, tabulaciones y sin una separación específica respectivamente. De todas maneras la extensión del archivo no resulta concluyente para comprender como están estructurados los datos, por lo que siempre se aconseja “mirar” el archivo antes de usarlo.</p>
+<p>A la hora de recojer y producir datos, debemos informar a la herramienta que utilicemos cómo están estructurados los mismos, ya sea que estén separados por espacios, tabulaciones, comas, punto y coma o cualquier otro delimitador válido según el formato. Los errores más comunes cuando no se obtienen los resultados esperados suelen surgir por una mala interpretación de cómo están organizados al momento de leerlos o escribirlos para su uso.</p>
+<p>Para poder usar la librería <code>pandas</code> debemos importarla como hacemos con cualquier otra</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Veamos lo básico de pandas antes de leer datos desde un archivo.</p>
+<p>Los datos en pandas se estructuran a partir de dos elementos básicos: <em>series</em> y <em>dataframes</em> que podemos pensar como vectores columna y matrices (o tablas) respetivamene.</p>
+<div id="79e9c889" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> pd.Series([<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, np.nan, <span class="dv">6</span>, <span class="dv">8</span>])</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>s</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>0    1.0
+1    3.0
+2    5.0
+3    NaN
+4    6.0
+5    8.0
+dtype: float64</code></pre>
+</div>
+</div>
+<p>Como vemos, el vector esta indexado al estilo python iniciándose en cero para el primer elemento. Un dataframe se puede crear a partir de varias series puestas una a continuación de otra, o desde datos que ya estén tabulados. En ese caso, cada columna será entonces una serie. Las columnas pueden nombrarse o leerse desde un archivo en caso de que estemos leyendo los datos. También es posible reemplazar el índice por por otros datos tales como fechas, horas, etc. incluso es posible eliminar el índice del dataframe.</p>
+<div id="46907102" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(np.random.rand(<span class="dv">6</span>,<span class="dv">4</span>),columns<span class="op">=</span><span class="bu">list</span>(<span class="st">"ABCD"</span>))</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          A         B         C         D
+0  0.210699  0.556001  0.967286  0.559739
+1  0.560318  0.102739  0.633165  0.737978
+2  0.376980  0.286516  0.727579  0.309451
+3  0.599911  0.346409  0.359174  0.507585
+4  0.634218  0.400078  0.748912  0.957423
+5  0.621532  0.510610  0.259983  0.562429</code></pre>
+</div>
+</div>
+<div id="0f3c0d75" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> df[<span class="st">"A"</span>]</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A[<span class="dv">0</span>])</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">"A"</span>][<span class="dv">1</span>])</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0    0.210699
+1    0.560318
+2    0.376980
+3    0.599911
+4    0.634218
+5    0.621532
+Name: A, dtype: float64
+0.21069891949401465
+0.5603181052175333</code></pre>
+</div>
+</div>
+<p>Las series se pueden convertir en arrays de numpy haciendo lo siguiente:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>a_np <span class="op">=</span> df[<span class="st">'A'</span>].to_numpy()</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(a_np)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="leer-archivos-desde-pandas" class="level3">
+<h3 class="anchored" data-anchor-id="leer-archivos-desde-pandas">Leer archivos desde pandas</h3>
+<p>Para leer archivos nos vamos a restringir al formato <code>csv</code> que aunque su nombre indique que los valores están separados por comas, en verdad, admite todo un zoológico de posibles caracteres para separar los datos.</p>
+<p>para hacerlo usamos la función <code>read_csv</code> cuya <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#io-read-csv-table">ayuda</a> se pude consultar tanto usando la ayuda en línea de colab como la propia de pandas</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>pd.read_csv? <span class="co"># si ejecutamos esta línea nos muestra la ayda de esta función</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b4df83f8" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>datos <span class="op">=</span> pd.read_csv(<span class="st">'../assets/fallingtennisball02.d'</span>,names<span class="op">=</span>[<span class="st">'t'</span>,<span class="st">'y'</span>],delim_whitespace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>datos.head() <span class="co"># los pimeros datos del archivo</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>datos.tail() <span class="co"># los últimos</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Users\feder\AppData\Local\Temp\ipykernel_9620\913674148.py:4: FutureWarning: The 'delim_whitespace' keyword in pd.read_csv is deprecated and will be removed in a future version. Use ``sep='\s+'`` instead
+  datos = pd.read_csv('../assets/fallingtennisball02.d',names=['t','y'],delim_whitespace=True)</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">t</th>
+<th data-quarto-table-cell-role="th">y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2495</td>
+<td>2.495</td>
+<td>0.048161</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2496</td>
+<td>2.496</td>
+<td>0.046128</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2497</td>
+<td>2.497</td>
+<td>0.044086</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2498</td>
+<td>2.498</td>
+<td>0.042033</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2499</td>
+<td>2.499</td>
+<td>0.039971</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Hagamos una gráfica de estos datos</p>
+<div id="0f4d668a" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> plt.plot(datos[<span class="st">'t'</span>],datos[<span class="st">'y'</span>])</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Clase-07_files/figure-html/cell-6-output-1.png" width="571" height="411" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="pandas" class="level2">
-<h2 class="anchored" data-anchor-id="pandas">Pandas</h2>
-<p>Introducción a Pandas</p>
+<section id="problemas-usuales" class="level3">
+<h3 class="anchored" data-anchor-id="problemas-usuales">Problemas usuales</h3>
+<p>Cuando se importan datos usando pandas (u otra libería) los problemas más usuales suelen ser:</p>
 <ul>
-<li>from_csv
-<ul>
-<li>sep</li>
-<li>decimal</li>
-</ul></li>
+<li>Incorrecta interpretación del delimitador de campos</li>
+<li>Incorrecta interpretación del tipo de datos</li>
 </ul>
+<p>Específicamente, el separador decimal suele ser causa de que los datos que deben ser interpretados como número, lo sean como texto, dando lugar a errrores de tipo.</p>
+<div id="1058de16" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>datos0 <span class="op">=</span> pd.read_csv(<span class="st">'../assets/ejemplo.csv'</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># leo este archivo tal como está no obtengo algo coherente</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(datos0)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             col1;"col2";"col3"
+0 63;0 38;0                   7
+  55;0 64;0                  68
+  87;0 77;0                   4
+  29;0 24;0                  48
+  4;0  59;0                  92
+       11;0                  11
+  11;0 46;0                  11
+  22;0 8;0                   74</code></pre>
+</div>
+</div>
+<div id="2c80f3c4" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>datos2 <span class="op">=</span> pd.read_csv(<span class="st">'../assets/ejemplo.csv'</span>,sep<span class="op">=</span><span class="st">";"</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># si le digo que el separador es punto y coma lo lee como corresponde y asigna los combres de las columnas automáticamente junto con los índices</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(datos2)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   col1  col2  col3
+0  0,63  0,38   0,7
+1  0,55  0,64  0,68
+2  0,87  0,77   0,4
+3  0,29  0,24  0,48
+4   0,4  0,59  0,92
+5   0,4  0,11  0,11
+6  0,11  0,46  0,11
+7  0,22   0,8  0,74</code></pre>
+</div>
+</div>
+<p>El dataframe se creó, pero es probable que aunque se vean “bien” los datos numéricos no tengan formato de número siendo que por defecto, pandas espera que el separador decimal sea un punto y no una coma, comprobémoslo</p>
+<div id="f8248c1c" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(datos2[<span class="st">'col1'</span>][<span class="dv">0</span>])</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>str</code></pre>
+</div>
+</div>
+<p>Para evitar esto, debemos usar el parametro <code>decimal</code> como argumento al momento de leer el archivo.</p>
+<div id="4663d27f" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>datos2 <span class="op">=</span> pd.read_csv(<span class="st">'../assets/ejemplo.csv'</span>,decimal<span class="op">=</span><span class="st">","</span>,sep<span class="op">=</span><span class="st">";"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="ajuste-de-curvas" class="level2">
-<h2 class="anchored" data-anchor-id="ajuste-de-curvas">Ajuste de curvas</h2>
-<p>Nos centraremos en unas <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html">pocas funciones</a> de su vasto arsenal: aquellas que nos permiten obtener la expresión analítica que más se ajusta a un conjunto de datos discretos.</p>
-<p>Es de suma importancia a la hora de ajustar los datos de una curva, tener una idea del modelo físico al cual queremos ajustar nuestros datos. Es decir, la hipótesis teórica que el experimento debe validar es un a-priori que la experimentación validará (o no) y somos nosotros los experimentadores quienes debemos proveer el modelo al cual ajustar.</p>
+<section id="guardar-archivos-desde-pandas" class="level3">
+<h3 class="anchored" data-anchor-id="guardar-archivos-desde-pandas">Guardar archivos desde pandas</h3>
+<p>Así como leimos usando <code>read_csv</code> vamos a escribir usando <code>to_csv</code>. Pueden consultar la <a href="https://pandas.pydata.org/docs/dev/reference/api/pandas.DataFrame.to_csv.html">ayuda en linea</a></p>
+<div id="6269e2d7" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.DataFrame(np.random.rand(<span class="dv">6</span>,<span class="dv">4</span>),columns<span class="op">=</span><span class="bu">list</span>(<span class="st">"ABCD"</span>)) <span class="co"># creamos unos datos</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>df2</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">A</th>
+<th data-quarto-table-cell-role="th">B</th>
+<th data-quarto-table-cell-role="th">C</th>
+<th data-quarto-table-cell-role="th">D</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0.493468</td>
+<td>0.171673</td>
+<td>0.124387</td>
+<td>0.663978</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>0.670771</td>
+<td>0.913773</td>
+<td>0.508513</td>
+<td>0.661462</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>0.707225</td>
+<td>0.389540</td>
+<td>0.493013</td>
+<td>0.071712</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>0.263129</td>
+<td>0.754155</td>
+<td>0.425370</td>
+<td>0.338425</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>0.803721</td>
+<td>0.801633</td>
+<td>0.723574</td>
+<td>0.372429</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>0.954527</td>
+<td>0.842752</td>
+<td>0.724084</td>
+<td>0.274404</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df2.to_csv(<span class="st">'assets/ejemplo2.csv'</span>,index<span class="op">=</span><span class="va">False</span>,encoding<span class="op">=</span><span class="st">'utf-8'</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># index = False elimina la columna de los índices</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># encoding = 'utf-8' es la codificación estándar</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># https://es.wikipedia.org/wiki/UTF-8</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>También podemos exportar a formato excel usando la función <code>to_excel</code>. Para más información consultar la <a href="https://pandas.pydata.org/docs/dev/reference/api/pandas.DataFrame.to_excel.html#pandas.DataFrame.to_excel">ayuda en línea</a></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df2.to_excel(<span class="st">'assets/ejemplo2.xlsx'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="ajuste-de-datos-a-curvas-scipy-optmize" class="level2">
+<h2 class="anchored" data-anchor-id="ajuste-de-datos-a-curvas-scipy-optmize">Ajuste de datos a curvas (scipy optmize)</h2>
+<p>El módulo Scipy es una colección de herramientas para el cálculo científico de amplio espectro. Nos centraremos en unas <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html">pocas funciones</a> de su vasto arsenal: aquellas que nos permiten obtener la expresión analítica que más se ajusta a un conjunto de datos discretos.</p>
+<p>Es de suma importancia a la hora de ajustar los datos a una curva, tener una idea del modelo físico al cual queremos ajustar dichos datos. Es decir, la hipótesis teórica que el experimento debe validar es un a-priori que la experimentación validará (o no) y somos nosotros los experimentadores quienes debemos proveer el modelo al cual ajustar.</p>
 <p>En términos matemáticos lo que optimize hace es es minimizar una función del tipo:</p>
 <p><span class="math display">\[\sum_i (f(x_i,\beta) - y_i)^2\]</span></p>
 <p>en donde <span class="math inline">\(\beta\)</span> son los parámetros que podemos variar, y <span class="math inline">\(x_i\)</span> y <span class="math inline">\(y_i\)</span> conforman los pares de valores obtenidos experimentalmente (suponemos el caso de una variable de entrada y una de salida por simplicidad en la notación)</p>
 <p>El modulo a usar es <code>optimize</code> de la libreria <code>scipy</code> por lo que para importarlo haremos</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> optmize <span class="im">as</span> op</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> optmize <span class="im">as</span> op</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>o alternativamente:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.optimize <span class="im">as</span> sp</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.optimize <span class="im">as</span> sp</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="ejemplo" class="level3">
 <h3 class="anchored" data-anchor-id="ejemplo">Ejemplo</h3>
 <p>Vamos a crear unos datos a partir del modelo teórico de una caída libre sin rozamiento. Debajo vemos como se filtra un array <em>y</em> para obtener los valores de altura mayores a cero y luego “rebanamos” el array <em>t</em> para que tenga la misma cantidad de elementos que el array de alturas, y luego hacemos un gráfico de dispersión (<em>scatter</em>) como si los datos hubieran sido obtenidos desde un experimento. Está claro que estos datos van a ajustar “perfecto” al modelo teórico ya que lso datos fueron creados a paritr de éste.</p>
-<div id="1f11dcf3" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.arange(<span class="dv">0</span>,<span class="dv">10</span>,<span class="fl">0.05</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="op">-</span><span class="fl">4.9</span><span class="op">*</span>t<span class="op">**</span><span class="dv">2</span><span class="op">+</span><span class="dv">10</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>y0 <span class="op">=</span> y[y <span class="op">&gt;</span> <span class="dv">0</span>]</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>fig.set_size_inches(<span class="dv">12</span>,<span class="dv">5</span>)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> ax.scatter(t[:<span class="bu">len</span>(y0)],y0)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2f4668ae" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.arange(<span class="dv">0</span>,<span class="dv">10</span>,<span class="fl">0.05</span>)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="op">-</span><span class="fl">4.9</span><span class="op">*</span>t<span class="op">**</span><span class="dv">2</span><span class="op">+</span><span class="dv">10</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>y0 <span class="op">=</span> y[y <span class="op">&gt;</span> <span class="dv">0</span>]</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>fig.set_size_inches(<span class="dv">12</span>,<span class="dv">5</span>)</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> ax.scatter(t[:<span class="bu">len</span>(y0)],y0)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Clase-07_files/figure-html/cell-2-output-1.png" width="938" height="411" class="figure-img"></p>
+<p><img src="Clase-07_files/figure-html/cell-12-output-1.png" width="938" height="411" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Para ver más sobre como filtrar o rebanar un array pueden consultar <a href="https://www.statology.org/numpy-filter/">acá</a> o <a href="https://www.w3schools.com/python/numpy/numpy_array_slicing.asp">acá</a></p>
 <p>con nuestras habilidades de pandas, construyamos un archivo ficticio en base a estos datos, para luego “leerlo” y a partir de ahí usar el ajuste de curvas. Este paso no es necsario, ya que podemos usar los datos ya disponibles en los arrays, pero no viene mal la práctica</p>
-<div id="8762b149" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>df0 <span class="op">=</span> pd.DataFrame([t[:<span class="bu">len</span>(y0)],y0])</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># este array tiene dos filas y N columnas por lo que el dataframe no nos sirve</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(np.array([t[:<span class="bu">len</span>(y0)],y0]).T, columns<span class="op">=</span>[<span class="st">'t'</span>,<span class="st">'y'</span>])</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># si transponemos los datos queda en la forma correta y podemos agregar los nombres</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># de los ejes</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>df.head() <span class="co"># para mirar los primeros datos</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>df.tail() <span class="co"># para mirar los ultimos datos</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">'../assets/ej_op_0.csv'</span>,index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># la ruta para que funcione debe ser la que se haya montado en tu sesión de colab</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># index=False hace que no exportemos la columna de los índices que genera pandas</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="126e6542" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>df0 <span class="op">=</span> pd.DataFrame([t[:<span class="bu">len</span>(y0)],y0])</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co"># este array tiene dos filas y N columnas por lo que el dataframe no nos sirve</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(np.array([t[:<span class="bu">len</span>(y0)],y0]).T, columns<span class="op">=</span>[<span class="st">'t'</span>,<span class="st">'y'</span>])</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co"># si transponemos los datos queda en la forma correta y podemos agregar los nombres</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="co"># de los ejes</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>df.head() <span class="co"># para mirar los primeros datos</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>df.tail() <span class="co"># para mirar los ultimos datos</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">'../assets/ej_op_0.csv'</span>,index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a><span class="co"># la ruta para que funcione debe ser la que se haya montado en tu sesión de colab</span></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="co"># index=False hace que no exportemos la columna de los índices que genera pandas</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="bbc59c44" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># otra opción para crear el dataframe es</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># pasar como índices los nombres de las columnas y</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># transponer el dataframe una vez creado</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.array([t[:<span class="bu">len</span>(y0)],y0])</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>dfa <span class="op">=</span> pd.DataFrame(arr,index<span class="op">=</span>[<span class="st">'t'</span>,<span class="st">'y'</span>]).T</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>dfa.head()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div id="093d6de6" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># otra opción para crear el dataframe es</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># pasar como índices los nombres de las columnas y</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co"># transponer el dataframe una vez creado</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.array([t[:<span class="bu">len</span>(y0)],y0])</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>dfa <span class="op">=</span> pd.DataFrame(arr,index<span class="op">=</span>[<span class="st">'t'</span>,<span class="st">'y'</span>]).T</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>dfa.head()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
 <div>
 
 
@@ -482,40 +743,40 @@ window.Quarto = {
 </section>
 <section id="función-modelo" class="level3">
 <h3 class="anchored" data-anchor-id="función-modelo">Función modelo</h3>
-<div id="d4da3557" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>datos <span class="op">=</span> pd.read_csv(<span class="st">'../assets/ej_op.csv'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2f147814" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>datos <span class="op">=</span> pd.read_csv(<span class="st">'../assets/ej_op.csv'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Tenemos que crear una función que contega la información del modelo. Como primer parámetro debe contener la variable independiente y luego los parámetros</p>
-<div id="a88399b6" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> opti(x,a,b):</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">"""</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">  x: variable independiente</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">  a: parámetro de la aceleración</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">  b: parámetro de la altura inicial</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">  """</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="op">-</span><span class="fl">0.5</span><span class="op">*</span>a<span class="op">*</span>x<span class="op">**</span><span class="dv">2</span><span class="op">+</span>b</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d0b0e7a2" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> opti(x,a,b):</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">"""</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co">  x: variable independiente</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co">  a: parámetro de la aceleración</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="co">  b: parámetro de la altura inicial</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co">  """</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="op">-</span><span class="fl">0.5</span><span class="op">*</span>a<span class="op">*</span>x<span class="op">**</span><span class="dv">2</span><span class="op">+</span>b</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="0523f0d0" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> optimize <span class="im">as</span> op</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>param_a, cov <span class="op">=</span> op.curve_fit(opti,datos[<span class="st">'t'</span>],datos[<span class="st">'y'</span>])</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'aceleracion'</span> , param_a[<span class="dv">0</span>],<span class="st">'m/s/s'</span>,<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>,<span class="st">'altura inicial'</span>,param_a[<span class="dv">1</span>],<span class="st">'m'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="28f1eee0" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> optimize <span class="im">as</span> op</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>param_a, cov <span class="op">=</span> op.curve_fit(opti,datos[<span class="st">'t'</span>],datos[<span class="st">'y'</span>])</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'aceleracion'</span> , param_a[<span class="dv">0</span>],<span class="st">'m/s/s'</span>,<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>,<span class="st">'altura inicial'</span>,param_a[<span class="dv">1</span>],<span class="st">'m'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>aceleracion 9.8 m/s/s 
  altura inicial 10.0 m</code></pre>
 </div>
 </div>
 <p>Podemos hacer un gráfico de los “datos” contra la curva con los parámetros obtenidos del ajuste</p>
-<div id="ef880341" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>fig.set_size_inches(<span class="dv">10</span>,<span class="dv">5</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>ax.scatter(datos[<span class="st">'t'</span>],datos[<span class="st">'y'</span>],label<span class="op">=</span><span class="st">'datos'</span>,lw<span class="op">=</span><span class="fl">0.1</span>)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>ax.plot(datos[<span class="st">'t'</span>],opti(datos[<span class="st">'t'</span>],param_a[<span class="dv">0</span>],param_a[<span class="dv">1</span>]),<span class="st">'--'</span>,label<span class="op">=</span><span class="st">'ajuste'</span>,color<span class="op">=</span><span class="st">'red'</span>)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>ax.legend(loc<span class="op">=</span><span class="st">'upper right'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="68118637" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>fig.set_size_inches(<span class="dv">10</span>,<span class="dv">5</span>)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>ax.scatter(datos[<span class="st">'t'</span>],datos[<span class="st">'y'</span>],label<span class="op">=</span><span class="st">'datos'</span>,lw<span class="op">=</span><span class="fl">0.1</span>)</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>ax.plot(datos[<span class="st">'t'</span>],opti(datos[<span class="st">'t'</span>],param_a[<span class="dv">0</span>],param_a[<span class="dv">1</span>]),<span class="st">'--'</span>,label<span class="op">=</span><span class="st">'ajuste'</span>,color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>ax.legend(loc<span class="op">=</span><span class="st">'upper right'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Clase-07_files/figure-html/cell-8-output-1.png" width="790" height="411" class="figure-img"></p>
+<p><img src="Clase-07_files/figure-html/cell-18-output-1.png" width="790" height="411" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -524,55 +785,55 @@ window.Quarto = {
 <section id="caso-mas-real" class="level3">
 <h3 class="anchored" data-anchor-id="caso-mas-real">Caso mas real</h3>
 <p>Si quiséramos tener un caso que se vea mas “real” podemos hacer que los datos generados tengan un poco de “ruido”</p>
-<div id="875fe448" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.arange(<span class="dv">0</span>,<span class="dv">10</span>,<span class="fl">0.05</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># agregamos un número aleatorio entre -1 y 1</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>ruido <span class="op">=</span> np.random.rand(<span class="bu">len</span>(t))<span class="op">*</span><span class="dv">3</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="op">-</span><span class="fl">4.9</span><span class="op">*</span>t<span class="op">**</span><span class="dv">2</span><span class="op">+</span><span class="dv">10</span> <span class="op">+</span>ruido</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>y0 <span class="op">=</span> y[y <span class="op">&gt;</span> <span class="dv">0</span>]</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">#fig, ax = plt.subplots()</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">#fig.set_size_inches(12,5)</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">#ax = ax.scatter(t[:len(y0)],y0)</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>param_a, cov <span class="op">=</span> op.curve_fit(opti,t[:<span class="bu">len</span>(y0)],y0)</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>fig.set_size_inches(<span class="dv">10</span>,<span class="dv">5</span>)</span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>ax.scatter(t[:<span class="bu">len</span>(y0)],y0,label<span class="op">=</span><span class="st">'datos'</span>,lw<span class="op">=</span><span class="fl">0.1</span>)</span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>ax.plot(t[:<span class="bu">len</span>(y0)],opti(t[:<span class="bu">len</span>(y0)],param_a[<span class="dv">0</span>],param_a[<span class="dv">1</span>]),<span class="st">'--'</span>,label<span class="op">=</span><span class="st">'ajuste'</span>,color<span class="op">=</span><span class="st">'red'</span>)</span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>ax.legend(loc<span class="op">=</span><span class="st">'upper right'</span>)</span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'aceleracion'</span> , param_a[<span class="dv">0</span>],<span class="st">'m/s/s'</span>,<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>,<span class="st">'altura inicial'</span>,param_a[<span class="dv">1</span>],<span class="st">'m'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b15a22a7" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.arange(<span class="dv">0</span>,<span class="dv">10</span>,<span class="fl">0.05</span>)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># agregamos un número aleatorio entre -1 y 1</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>ruido <span class="op">=</span> np.random.rand(<span class="bu">len</span>(t))<span class="op">*</span><span class="dv">3</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="op">-</span><span class="fl">4.9</span><span class="op">*</span>t<span class="op">**</span><span class="dv">2</span><span class="op">+</span><span class="dv">10</span> <span class="op">+</span>ruido</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>y0 <span class="op">=</span> y[y <span class="op">&gt;</span> <span class="dv">0</span>]</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="co">#fig, ax = plt.subplots()</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="co">#fig.set_size_inches(12,5)</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="co">#ax = ax.scatter(t[:len(y0)],y0)</span></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>param_a, cov <span class="op">=</span> op.curve_fit(opti,t[:<span class="bu">len</span>(y0)],y0)</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>fig.set_size_inches(<span class="dv">10</span>,<span class="dv">5</span>)</span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>ax.scatter(t[:<span class="bu">len</span>(y0)],y0,label<span class="op">=</span><span class="st">'datos'</span>,lw<span class="op">=</span><span class="fl">0.1</span>)</span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>ax.plot(t[:<span class="bu">len</span>(y0)],opti(t[:<span class="bu">len</span>(y0)],param_a[<span class="dv">0</span>],param_a[<span class="dv">1</span>]),<span class="st">'--'</span>,label<span class="op">=</span><span class="st">'ajuste'</span>,color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>ax.legend(loc<span class="op">=</span><span class="st">'upper right'</span>)</span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'aceleracion'</span> , param_a[<span class="dv">0</span>],<span class="st">'m/s/s'</span>,<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>,<span class="st">'altura inicial'</span>,param_a[<span class="dv">1</span>],<span class="st">'m'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>aceleracion 9.772922135550674 m/s/s 
- altura inicial 11.289904692340514 m</code></pre>
+<pre><code>aceleracion 9.914802874913638 m/s/s 
+ altura inicial 11.573362072158053 m</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Clase-07_files/figure-html/cell-9-output-2.png" width="790" height="411" class="figure-img"></p>
+<p><img src="Clase-07_files/figure-html/cell-19-output-2.png" width="790" height="411" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Si hacemos una gráfica de colores con la matriz de covarianza obtenemos una idea del “error” de cada parámetro. La interpretación de esta matriz escapa a lo que podemos ver en esta materia. La idea es que es una matriz cuadrada que relaciona todos los parámetros a los que ajustamos entre si. La diagonal es una medida del error de un parámetro específico las otras celdas son entre un parámetro y otro: es decir, la diagonal nos da una idea del error en un parámetro mientras que el resto nos indica como se influyen entre si los parámetros.</p>
-<div id="7ebf0b80" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.diag(cov))</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cov)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="1891f7c0" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.diag(cov))</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cov)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[0.14161799 0.04285549]
-[[0.14161799 0.05762082]
- [0.05762082 0.04285549]]</code></pre>
+<pre><code>[0.22966292 0.06105051]
+[[0.22966292 0.08755899]
+ [0.08755899 0.06105051]]</code></pre>
 </div>
 </div>
 <p>en nuestro caso los errores son muy pequeños porque los datos son generados a partir de un modelo teórico.</p>
-<div id="12cbff17" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(np.log(np.<span class="bu">abs</span>(cov)))</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ff47ee19" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(np.log(np.<span class="bu">abs</span>(cov)))</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Clase-07_files/figure-html/cell-11-output-1.png" width="525" height="416" class="figure-img"></p>
+<p><img src="Clase-07_files/figure-html/cell-21-output-1.png" width="525" height="416" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -582,19 +843,19 @@ window.Quarto = {
 <section id="scipy---constantes" class="level2">
 <h2 class="anchored" data-anchor-id="scipy---constantes">Scipy - Constantes</h2>
 <p>Se puede usar <code>constants?</code> para ver la ayuda el listado de constantes disponibles</p>
-<div id="702fd6dd" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> constants</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(constants.Boltzmann)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> constants.g</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(g)</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>constants.unit(<span class="st">'electron mass'</span>) <span class="co"># ver las unidades</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(constants.yotta) <span class="co"># acceder a prefijos</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> constants.kilo</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">10</span><span class="op">*</span>k)</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>constants.gram <span class="co"># Kg / g</span></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(constants.kilogram_force) <span class="co"># Newtons / Kgf</span></span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(constants.kgf)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="4daf7216" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> constants</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(constants.Boltzmann)</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> constants.g</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(g)</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>constants.unit(<span class="st">'electron mass'</span>) <span class="co"># ver las unidades</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(constants.yotta) <span class="co"># acceder a prefijos</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> constants.kilo</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">10</span><span class="op">*</span>k)</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>constants.gram <span class="co"># Kg / g</span></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(constants.kilogram_force) <span class="co"># Newtons / Kgf</span></span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(constants.kgf)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>1.380649e-23
 9.80665
@@ -612,6 +873,7 @@ window.Quarto = {
 <li><a href="https://blog.quantinsti.com/python-matplotlib-tutorial/">:pendil2: Tutorial de Matplotlib</a></li>
 <li><a href="https://www.tutorialspoint.com/matplotlib/matplotlib_axes_class.htm"><span class="emoji" data-emoji="pencil2">✏️</span> Métodos de la clase Axes</a></li>
 <li><a href="https://github.com/garrettj403/SciencePlots"><span class="emoji" data-emoji="pencil2">✏️</span> Estilos de science-plots</a></li>
+<li><a href="https://materias.df.uba.ar/f1qa2020c2/files/2020/10/guia_colab_06_no_lineal.ipynb-Colaboratory.pdf"><span class="emoji" data-emoji="link">🔗</span> Ajustes no lineales 2</a></li>
 </ol>
 
 
