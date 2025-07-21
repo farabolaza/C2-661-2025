@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Programa de la materia – C2-661 2025</title>
+<title>Arduino 01 – C2-661 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +20,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./assets/C2-filete.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../assets/C2-filete.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -68,9 +102,9 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Programa de la materia – C2-661 2025">
-<meta property="og:description" content="">
+<link rel="stylesheet" href="../styles.css">
+<meta property="og:title" content="Arduino 01 – C2-661 2025">
+<meta property="og:description" content="Arduino: Introducción">
 <meta property="og:site_name" content="C2-661 2025">
 </head>
 
@@ -83,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./cursada.html">Info Cursada</a></li><li class="breadcrumb-item"><a href="./programa.html">Programa de la materia</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../clases/Clase-01.html">Clases</a></li><li class="breadcrumb-item"><a href="../clases/Clase-10.html">Arduino 01</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -100,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./assets/C2.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../assets/C2.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main tools-wide">
     <a href="https://docs.python.org/es/3/tutorial/index.html" title="Ayuda oficial de python" class="quarto-navigation-tool px-1" aria-label="Ayuda oficial de python"><i class="bi bi-filetype-py"></i></a>
@@ -118,34 +152,34 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
  <span class="menu-text">Info Cursada</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./cursada.html" class="sidebar-item-text sidebar-link">
+  <a href="../cursada.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Información de cursada</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./calendario.html" class="sidebar-item-text sidebar-link">
+  <a href="../calendario.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Calendario de clases</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./programa.html" class="sidebar-item-text sidebar-link active">
+  <a href="../programa.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Programa de la materia</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./bibliografia.html" class="sidebar-item-text sidebar-link">
+  <a href="../bibliografia.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bibliografía</span></a>
   </div>
 </li>
@@ -154,70 +188,70 @@ ul.task-list li input[type="checkbox"] {
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Clases</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clases/Clase-01.html" class="sidebar-item-text sidebar-link">
+  <a href="../clases/Clase-01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Python 01</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clases/Clase-02.html" class="sidebar-item-text sidebar-link">
+  <a href="../clases/Clase-02.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Python 02</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clases/Clase-03.html" class="sidebar-item-text sidebar-link">
+  <a href="../clases/Clase-03.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Python 03</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clases/Clase-04.html" class="sidebar-item-text sidebar-link">
+  <a href="../clases/Clase-04.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Python 04</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clases/Clase-05.html" class="sidebar-item-text sidebar-link">
+  <a href="../clases/Clase-05.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Python 05</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clases/Clase-06.html" class="sidebar-item-text sidebar-link">
+  <a href="../clases/Clase-06.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Python 06</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clases/Clase-07.html" class="sidebar-item-text sidebar-link">
+  <a href="../clases/Clase-07.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Python 07</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clases/Clase-08.html" class="sidebar-item-text sidebar-link">
+  <a href="../clases/Clase-08.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Python 08</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clases/Clase-09.html" class="sidebar-item-text sidebar-link">
+  <a href="../clases/Clase-09.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Python 09</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clases/Clase-10.html" class="sidebar-item-text sidebar-link">
+  <a href="../clases/Clase-10.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Arduino 01</span></a>
   </div>
 </li>
@@ -234,37 +268,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./trabajos practicos/TP 01.html" class="sidebar-item-text sidebar-link">
+  <a href="../trabajos practicos/TP 01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">TP 01</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./trabajos practicos/TP 02.html" class="sidebar-item-text sidebar-link">
+  <a href="../trabajos practicos/TP 02.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">TP 02</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./trabajos practicos/TP 03.html" class="sidebar-item-text sidebar-link">
+  <a href="../trabajos practicos/TP 03.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">TP 03</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./trabajos practicos/TP 04.html" class="sidebar-item-text sidebar-link">
+  <a href="../trabajos practicos/TP 04.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">TP 04</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./trabajos practicos/TP 05.html" class="sidebar-item-text sidebar-link">
+  <a href="../trabajos practicos/TP 05.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">TP 05</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./trabajos practicos/TP 06.html" class="sidebar-item-text sidebar-link">
+  <a href="../trabajos practicos/TP 06.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">TP 06</span></a>
   </div>
 </li>
@@ -275,15 +309,38 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#ojbetivos-de-la-clase" id="toc-ojbetivos-de-la-clase" class="nav-link active" data-scroll-target="#ojbetivos-de-la-clase">Ojbetivos de la clase</a></li>
+  <li><a href="#la-placa-arduino" id="toc-la-placa-arduino" class="nav-link" data-scroll-target="#la-placa-arduino">La placa Arduino</a></li>
+  <li><a href="#los-entornos-de-trabajo" id="toc-los-entornos-de-trabajo" class="nav-link" data-scroll-target="#los-entornos-de-trabajo">Los entornos de trabajo</a>
+  <ul class="collapse">
+  <li><a href="#arduino-ide" id="toc-arduino-ide" class="nav-link" data-scroll-target="#arduino-ide">Arduino IDE</a></li>
+  <li><a href="#tinkercad" id="toc-tinkercad" class="nav-link" data-scroll-target="#tinkercad">Tinkercad</a></li>
+  </ul></li>
+  <li><a href="#el-lenguaje-de-programación-de-arduino" id="toc-el-lenguaje-de-programación-de-arduino" class="nav-link" data-scroll-target="#el-lenguaje-de-programación-de-arduino">El lenguaje de programación de Arduino</a>
+  <ul class="collapse">
+  <li><a href="#referencia-en-línea-del-lenguaje-arduino" id="toc-referencia-en-línea-del-lenguaje-arduino" class="nav-link" data-scroll-target="#referencia-en-línea-del-lenguaje-arduino">Referencia en línea del lenguaje arduino</a></li>
+  <li><a href="#ejemplo" id="toc-ejemplo" class="nav-link" data-scroll-target="#ejemplo">Ejemplo</a></li>
+  </ul></li>
+  <li><a href="#primeros-pasos-en-arduino" id="toc-primeros-pasos-en-arduino" class="nav-link" data-scroll-target="#primeros-pasos-en-arduino">Primeros pasos en Arduino</a>
+  <ul class="collapse">
+  <li><a href="#conexión-de-un-led" id="toc-conexión-de-un-led" class="nav-link" data-scroll-target="#conexión-de-un-led">Conexión de un led</a></li>
+  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias">Referencias</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./cursada.html">Info Cursada</a></li><li class="breadcrumb-item"><a href="./programa.html">Programa de la materia</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../clases/Clase-01.html">Clases</a></li><li class="breadcrumb-item"><a href="../clases/Clase-10.html">Arduino 01</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Programa de la materia</h1>
+<h1 class="title">Arduino 01</h1>
+<p class="subtitle lead">Arduino: Introducción</p>
 </div>
 
 
@@ -300,9 +357,142 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><a href=".\assets/Computación_II_2025_PE.pdf"><span class="emoji" data-emoji="link">🔗</span> Programa de la materia</a></p>
+<section id="ojbetivos-de-la-clase" class="level1">
+<h1>Ojbetivos de la clase</h1>
+<ul class="task-list">
+<li><label><input type="checkbox">Placa arduino</label>
+<ul class="task-list">
+<li><label><input type="checkbox">Pines Entradas analógicas</label></li>
+<li><label><input type="checkbox">Pines digitales</label>
+<ul class="task-list">
+<li><label><input type="checkbox">Entradas digitales</label></li>
+<li><label><input type="checkbox">Salida digitales</label></li>
+</ul></li>
+</ul></li>
+<li><label><input type="checkbox">Arduino IDE</label></li>
+<li><label><input type="checkbox">Lenguaje arduino</label>
+<ul class="task-list">
+<li><label><input type="checkbox">Variables, estructuras, funciones y comentarios</label></li>
+</ul></li>
+<li><label><input type="checkbox">Modulación PWM</label></li>
+<li><label><input type="checkbox">Uso del led integrado</label></li>
+<li><label><input type="checkbox">Conexión de un LED</label>
+<ul class="task-list">
+<li><label><input type="checkbox">pwm</label></li>
+</ul></li>
+</ul>
+</section>
+<section id="la-placa-arduino" class="level1">
+<h1>La placa Arduino</h1>
+<p>La placa Arduino permite la interacción entre el mundo físico y el digital mediante el uso de componentes electrónicos y sensores. No se trata de una única placa sino una familia de placas de software y hardware libe. De ésta familia utilizaremos la más usual, Arduino Uno (y sus clones).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../assets/arduino.webp" class="img-fluid figure-img" width="500"></p>
+<figcaption>placa arduino uno</figcaption>
+</figure>
+</div>
+</section>
+<section id="los-entornos-de-trabajo" class="level1">
+<h1>Los entornos de trabajo</h1>
+<section id="arduino-ide" class="level2">
+<h2 class="anchored" data-anchor-id="arduino-ide">Arduino IDE</h2>
+<p>El software arduino IDE es el software que permite escribir el código y subirlo a la placa para su ejecución</p>
+</section>
+<section id="tinkercad" class="level2">
+<h2 class="anchored" data-anchor-id="tinkercad">Tinkercad</h2>
+<p>El sitio Tinkercad ofrece la posibilidad de escribir en el lenguaje Arduino y simular componente a componente un circuito entero, lo que es de mucha utilidad para practicar cuando se está comenzando o testeando un nuevo diseño.</p>
+</section>
+</section>
+<section id="el-lenguaje-de-programación-de-arduino" class="level1">
+<h1>El lenguaje de programación de Arduino</h1>
+<p>Arduino tiene su propio lenguaje de programación que está inspirado y replica en parte al lenguaje C++. Nosotros nos centraremos las estructuras de control más sencillas (que ya vimos para python) que resultan ser ligeramente diferentes en Arduino en cuanto a su sintaxis pero que hacen efectivamente lo mismo que sus parientes Pythonicas. Por su parte, el funcionamiento de la placa requiere de ciertas estructuras que se encuentran siempre presentes y son escenciales para su funcionamiento.</p>
+<section id="referencia-en-línea-del-lenguaje-arduino" class="level2">
+<h2 class="anchored" data-anchor-id="referencia-en-línea-del-lenguaje-arduino">Referencia en línea del lenguaje arduino</h2>
+<p>En <a href="https://www.arduino.cc/reference/es/">ésta página</a> tenemos acceso las funciones, estructurales y variables mas usuales de Arduino con su sintaxis y descripción.</p>
+</section>
+<section id="ejemplo" class="level2">
+<h2 class="anchored" data-anchor-id="ejemplo">Ejemplo</h2>
+<p>Veamos un esqueleto de código de Arudino</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> setup<span class="op">(){</span> <span class="co">// los bloque encerrados entre llaves</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pinMode<span class="op">(</span><span class="dv">13</span><span class="op">;</span>OUTPUT<span class="op">);</span> <span class="co">// los comentarios van precedidos por doble barra</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> loop<span class="op">(){</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>alguna condición<span class="op">)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="op">{</span> </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ejecuta esto; </span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">// cada instrucción se finaliza con un punto y coma </span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">// esto otro; </span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">// esto otro; }</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>otra condicion<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">// haga esto otro;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> <span class="op">{</span> <span class="co">// ejecuta esta otra cosa; }</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="op">}}}</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="primeros-pasos-en-arduino" class="level1">
+<h1>Primeros pasos en Arduino</h1>
+<p>Vamos a seguir bastante la guía presente en <a href="https://youtube.com/playlist?list=PLkjnQ3NFTPnY1eNyLDGi547gkVui1vyn2&amp;si=M6fYpbgP-rITZw1M">esta lista de Youtube</a> por lo que si se pierden alguna clase o se olvidan de algo pueden volver a verlo.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://ibles-content.tinkercad.com/F2C/Z4TU/LEH47RIM/F2CZ4TULEH47RIM.png?width=1200&amp;height=900&amp;fit=bounds&amp;auto=webp" class="img-fluid figure-img"></p>
+<figcaption>Detalle de entradas y salidas</figcaption>
+</figure>
+</div>
+<section id="conexión-de-un-led" class="level3">
+<h3 class="anchored" data-anchor-id="conexión-de-un-led">Conexión de un led</h3>
+<p>Un diodo LED es un tipo especial de diodo. Los diodos son componentes electrónicos en cuyos detalles se profundizará en la materia <strong>electrónica</strong>. Por el momento sólo necesitamos saber que el diodo tiene polaridad: si lo conectamos al revés, no funciona. Tiene un lado positivo o ánodo, y uno negativo, o cátodo. El esquemático mas usual es como se ve aquí abajo.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcursos.mcielectronics.cl%2Fwp-content%2Fuploads%2F2014%2F07%2Fdiodo.png&amp;f=1&amp;nofb=1&amp;ipt=d459c863b44139e0ca9af10e3da3121618bd5ad54c0a3c962aa8605dd49456ef&amp;ipo=images" class="img-fluid figure-img"></p>
+<figcaption>iu (598×402) (duckduckgo.com)</figcaption>
+</figure>
+</div>
+<p>En la vida real, podemos ver la polaridad de un LED como se muestra debajo. El cátodo es la patita corta y el lado plano. En ocasiones las patitas son cortadas o no están visibles, por lo que:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.geekfactory.mx%2Fwp-content%2Fuploads%2F2020%2F04%2Fled-con-arduino-como-determinar-polaridad.jpg&amp;f=1&amp;nofb=1&amp;ipt=6db7be7c736b3ab2ff5f755987c0239c3914991c3020f68d55a72556c4da61c8&amp;ipo=images" class="img-fluid figure-img"></p>
+<figcaption>un diodo</figcaption>
+</figure>
+</div>
+<p>Versión esquemática de la placa con la conexión actual</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://docs.arduino.cc/static/d64f7f76fc5ba2668a1684d1d7583207/29114/simplefade_bb.png" class="img-fluid figure-img" width="600"></p>
+<figcaption>simplefade_bb.png (1920×1080) (arduino.cc)</figcaption>
+</figure>
+</div>
+<p>Pueden probar este código con la conexión anterior:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> pinPWM <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> setup<span class="op">(){</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    pinMode<span class="op">(</span>pinPWM<span class="op">,</span>OUTPUT<span class="op">);</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> loop<span class="op">(){</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span><span class="op">(</span>i<span class="op">=</span><span class="dv">0</span><span class="op">;</span>i<span class="op">&lt;=</span><span class="dv">255</span><span class="op">;</span>i<span class="op">++){</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    analogWrite<span class="op">(</span>pinPWM<span class="op">,</span>i<span class="op">);</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    delay<span class="op">(</span><span class="dv">1000</span><span class="op">);</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>¿Qué se podría cambiar en el código para que la iluminación progresiva sea “ida y vuelta”, es decir, de apagado a prendido y de prendido a apagado.</p>
+</section>
+<section id="referencias" class="level2">
+<h2 class="anchored" data-anchor-id="referencias">Referencias</h2>
+<ul>
+<li><a href="https://www.arduino.cc/en/hardware">Arduino Hardware Arduino</a></li>
+<li><a href="https://www.arduino.cc/reference/en/">Arduino Reference - Arduino Reference</a></li>
+<li><a href="https://youtube.com/playlist?list=PLkjnQ3NFTPnY1eNyLDGi547gkVui1vyn2&amp;si=4VGzMiUyuoBzNvuT">Curso de arduino</a></li>
+<li><a href="https://youtube.com/playlist?list=PLEzmH7aN82FEh2JjYuNCvFu6wFolHai32&amp;si=103_cDcPluovnGBo">Curso de arduino 2</a></li>
+<li><a href="https://docs.arduino.cc/built-in-examples/basics/Fade">Fading a LED | Arduino Documentation</a></li>
+<li><a href="https://www.tinkercad.com/classrooms/3MFQhBZ2UnU/activities">TinkerCad de esta clase</a></li>
+<li><a href="https://www.tinkercad.com/projects/Basics-of-Arduino-TINKERCAD">Intro a Arduino de TinkerCad</a></li>
+<li><a href="https://github.com/himalayanelixir/arduino-usb-drivers">Drivers para Placas alternativas</a></li>
+</ul>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
