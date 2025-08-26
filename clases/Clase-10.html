@@ -104,7 +104,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="Arduino 01 – C2-661 2025">
-<meta property="og:description" content="Arduino: Introducción">
+<meta property="og:description" content="Introducción">
 <meta property="og:site_name" content="C2-661 2025">
 </head>
 
@@ -255,6 +255,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Arduino 01</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../clases/Clase-11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Arduino 02</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../clases/Clase-12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Arduino 03</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -302,6 +314,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">TP 06</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../trabajos practicos/TP 07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TP 07</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -325,8 +343,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#referencia-en-línea-del-lenguaje-arduino" id="toc-referencia-en-línea-del-lenguaje-arduino" class="nav-link" data-scroll-target="#referencia-en-línea-del-lenguaje-arduino">Referencia en línea del lenguaje arduino</a></li>
   <li><a href="#ejemplo" id="toc-ejemplo" class="nav-link" data-scroll-target="#ejemplo">Ejemplo</a></li>
+  <li><a href="#entradas-y-salidas" id="toc-entradas-y-salidas" class="nav-link" data-scroll-target="#entradas-y-salidas">Entradas y salidas</a></li>
   </ul></li>
-  <li><a href="#primeros-pasos-en-arduino" id="toc-primeros-pasos-en-arduino" class="nav-link" data-scroll-target="#primeros-pasos-en-arduino">Primeros pasos en Arduino</a>
+  <li><a href="#actividad-primeros-pasos-en-arduino" id="toc-actividad-primeros-pasos-en-arduino" class="nav-link" data-scroll-target="#actividad-primeros-pasos-en-arduino">Actividad: Primeros pasos en Arduino</a>
   <ul class="collapse">
   <li><a href="#conexión-de-un-led" id="toc-conexión-de-un-led" class="nav-link" data-scroll-target="#conexión-de-un-led">Conexión de un led</a></li>
   <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias">Referencias</a></li>
@@ -340,7 +359,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../clases/Clase-01.html">Clases</a></li><li class="breadcrumb-item"><a href="../clases/Clase-10.html">Arduino 01</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Arduino 01</h1>
-<p class="subtitle lead">Arduino: Introducción</p>
+<p class="subtitle lead">Introducción</p>
 </div>
 
 
@@ -384,7 +403,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="la-placa-arduino" class="level1">
 <h1>La placa Arduino</h1>
-<p>La placa Arduino permite la interacción entre el mundo físico y el digital mediante el uso de componentes electrónicos y sensores. No se trata de una única placa sino una familia de placas de software y hardware libe. De ésta familia utilizaremos la más usual, Arduino Uno (y sus clones).</p>
+<p>La placa Arduino permite la interacción entre el mundo físico y el digital mediante el uso de componentes electrónicos y sensores. No se trata de una única placa sino una familia de placas de software y hardware libre. De ésta familia utilizaremos la más usual, Arduino Uno (y sus clones).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../assets/arduino.webp" class="img-fluid figure-img" width="500"></p>
@@ -430,9 +449,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> <span class="op">{</span> <span class="co">// ejecuta esta otra cosa; }</span></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="op">}}}</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
+<section id="entradas-y-salidas" class="level2">
+<h2 class="anchored" data-anchor-id="entradas-y-salidas">Entradas y salidas</h2>
+<p>La placa consta de entradas analógicas (allí donde conectaremos la mayoría de los sensores y componentes electrónicos) y pines digitales. Los pines digitales pueden actuar tanto como entrada o como salida. Para especificarlo se usa la función <code>pinMode(PIN,OUTPUT/INPUT)</code>. La salida que estos pines pueden dar es binaria: 0V o 5V para poder emular una salida analógica algunos pines cuentan con un proceso llamado PWM (modulación por ancho de pulso) que en pocas palabras lo que hace es emitir como salida trenes de pulsos de una duración muy breve a intervalos regulares. El promedio del tiempo que se encuentre en 0V o 5V emulará un voltaje real. Por ejemplo, si en el ciclo entero está la mitad de tiempo en 0V y la otra mitad en 5V el voltaje “emulado” será de 2,5V. Para identificar que pines pueden hacer esto, se los señala con el acento circunflejo, más conocido como el “cosito de la eñe”, es decir “~”.</p>
 </section>
-<section id="primeros-pasos-en-arduino" class="level1">
-<h1>Primeros pasos en Arduino</h1>
+</section>
+<section id="actividad-primeros-pasos-en-arduino" class="level1">
+<h1>Actividad: Primeros pasos en Arduino</h1>
 <p>Vamos a seguir bastante la guía presente en <a href="https://youtube.com/playlist?list=PLkjnQ3NFTPnY1eNyLDGi547gkVui1vyn2&amp;si=M6fYpbgP-rITZw1M">esta lista de Youtube</a> por lo que si se pierden alguna clase o se olvidan de algo pueden volver a verlo.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
