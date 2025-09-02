@@ -104,7 +104,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="Arduino 03 – C2-661 2025">
-<meta property="og:description" content="Extraer datos de Arduino">
+<meta property="og:description" content="Extraer datos de Arduino 01">
 <meta property="og:site_name" content="C2-661 2025">
 </head>
 
@@ -267,6 +267,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Arduino 03</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../clases/Clase-13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Arduino 04</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -338,11 +344,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#ejemplo-con-el-hcsr-04" id="toc-ejemplo-con-el-hcsr-04" class="nav-link" data-scroll-target="#ejemplo-con-el-hcsr-04">Ejemplo con el HCSR-04</a></li>
   </ul></li>
-  <li><a href="#conexión-usando-pyserial" id="toc-conexión-usando-pyserial" class="nav-link" data-scroll-target="#conexión-usando-pyserial">Conexión usando <code>pyserial</code></a>
+  <li><a href="#actividad" id="toc-actividad" class="nav-link" data-scroll-target="#actividad">Actividad</a>
   <ul class="collapse">
-  <li><a href="#código-para-la-conexión" id="toc-código-para-la-conexión" class="nav-link" data-scroll-target="#código-para-la-conexión">Código para la conexión</a></li>
+  <li><a href="#montaje-experimental" id="toc-montaje-experimental" class="nav-link" data-scroll-target="#montaje-experimental">Montaje experimental</a></li>
+  <li><a href="#planteo-de-adquisición-de-datos" id="toc-planteo-de-adquisición-de-datos" class="nav-link" data-scroll-target="#planteo-de-adquisición-de-datos">Planteo de adquisición de datos</a></li>
+  <li><a href="#extracción-de-datos" id="toc-extracción-de-datos" class="nav-link" data-scroll-target="#extracción-de-datos">Extracción de datos</a></li>
+  <li><a href="#análisis-de-los-datos" id="toc-análisis-de-los-datos" class="nav-link" data-scroll-target="#análisis-de-los-datos">Análisis de los datos</a></li>
   </ul></li>
-  <li><a href="#actividad-comparación-de-scripts" id="toc-actividad-comparación-de-scripts" class="nav-link" data-scroll-target="#actividad-comparación-de-scripts">Actividad: Comparación de scripts</a></li>
   </ul>
 </nav>
     </div>
@@ -352,7 +360,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../clases/Clase-01.html">Clases</a></li><li class="breadcrumb-item"><a href="../clases/Clase-12.html">Arduino 03</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Arduino 03</h1>
-<p class="subtitle lead">Extraer datos de Arduino</p>
+<p class="subtitle lead">Extraer datos de Arduino 01</p>
 </div>
 
 
@@ -372,7 +380,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="objetivos-de-esta-actividad" class="level1">
 <h1>Objetivos de esta actividad</h1>
 <ul class="task-list">
-<li><label><input type="checkbox">Comunicar python con arduino vía puerto serie.</label></li>
+<li><label><input type="checkbox">Realizar un montaje experimental con Arduino</label></li>
 <li><label><input type="checkbox">Obtener y guardar los datos del puerto serie en <code>.csv</code></label></li>
 <li><label><input type="checkbox">Analizar los datos obtenidos</label></li>
 </ul>
@@ -380,12 +388,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="necesidad-de-la-conexión" class="level1">
 <h1>Necesidad de la conexión</h1>
 <p>Como hemos visto podemos visualizar la información de aquello que tengamos conectado en Arduino a través del monitor serie. Para hacer de esa información algo útil, debemos extraerla de allí. Podemos <code>copiar y pegar</code>, útil y rápido para algunos casos, aunque demasiado engorroso y propenso a errores para muchas otras situaciones.</p>
-<p>Cuando necesitemos acceso a una gran cantidad de datos de arduino lo mejor será conectar la salida del puerto serie del mismo a otro sistema que nos permita colectar los datos y guardarlos en un archivo para su posterior análisis. Esto tiene la doble ventaja de que todo procesamiento a los datos lo haremos fuera de la ejecución del arduino, lo que le aliviará la carga de cómputo y su requerimiento de memoria, ya que nuestro código será mas sencillo, haciendo más eficiente su ejecución y alargando la vida útil de las baterias si es que la placa estuviera conectada a ellas.</p>
+<p>En esta clase vamos a tener un primer acercamiento a extraer datos de Arduino simplemente “copiando y pegando”</p>
 </section>
 <section id="preparación-en-arduino" class="level1">
 <h1>Preparación en Arduino</h1>
 <section id="ejemplo-con-el-hcsr-04" class="level2">
 <h2 class="anchored" data-anchor-id="ejemplo-con-el-hcsr-04">Ejemplo con el HCSR-04</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Opción 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Opción 2</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">int</span> TRIG <span class="op">=</span> <span class="dv">9</span><span class="op">,</span> ECHO <span class="op">=</span> <span class="dv">10</span><span class="op">;</span> <span class="co">// Definir donde están los pines</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> setup<span class="op">()</span> <span class="op">{</span></span>
@@ -414,161 +426,84 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  delay<span class="op">(</span><span class="dv">20</span><span class="op">);</span>  <span class="co">// ~50 muestras/segundo (opcional)</span></span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="conexión-usando-pyserial" class="level1">
-<h1>Conexión usando <code>pyserial</code></h1>
-<p>La librería <code>pyserial</code> permite a python acceder al contenido de lo que los puertos serie de nuestra computadora estén transmitiendo. A grandes rasgos necesitamos que python haga lo siguiente</p>
-<ol type="1">
-<li>Acceda al puerto serie correcto y se conecte</li>
-<li>Obtenga la información en su disposición correcta (filas, columnas,etc.)</li>
-<li>La traduzca o “decodifique”</li>
-</ol>
-<p>Una ve que tengamos la información tal como la necesitamos la guardaremos en un archivo <code>.csv</code> para su análisis. Les adelanto que veremos procesaimientos con mayor o menor nivel de <code>caja negra</code> en su implementación y dependerá del objetivo que tengamos la elección de una u otra forma de encararlo.</p>
-<section id="código-para-la-conexión" class="level2">
-<h2 class="anchored" data-anchor-id="código-para-la-conexión">Código para la conexión</h2>
-<p>Antes de comunicar a python con arduino debemos asegurarno de que conocemos la estructura de los datos que el puerto serie contiene ya que de ello dependerá lo que hagamos en python.</p>
-<p>Como nuestro destino es un archivo <code>.csv</code> lo más lógico sería que arduino mostrara en su puerto serie datos que “se ven” como en un <code>.csv</code>. Para eso es que usamos las funciones del puerto serie de arduino que vimos en la clase anterior y repasamos recién.</p>
-<p>Una vez que tenemos el código cargado en arduino podemos abrir python para extraer los datos. No es necesario abir el IDE de Arduino, los datos estarán disponibles en el puerto serie ya que se ha definido en el código de arduino. De hecho, si intentamos abrir el monitor serie y conectarlo a python, no podremos ya que ambas instancias se estarán “peleando” por acceder al puerto serie.</p>
-<p>Nótese el uso de condicionales <code>try</code> <code>except</code> para manejar el flujo de la ejecución: si se interrumpe por teclado (<code>Ctrl+C</code>) se cierra el archivo.</p>
-<p>Se recomienda cuando se trabja con archivos usar un bucle <code>with</code>. Esto es porque automáticamente se encarga de abrir y cerrar instancias de objetos que de no cerrase a tiempo generarían problemas de desempeño en la máquina e incluso podrían corromper la información colectada.</p>
-<p><strong>Nota</strong>: Tener en cuenta que la tasa de comunicación debe ser la misma en python que en arduino ya que de otra manera obtendremos datos inútiles.</p>
-<div class="sourceCode" id="annotated-cell-2"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-2-1"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> serial</span>
-<span id="annotated-cell-2-2"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> csv</span>
-<span id="annotated-cell-2-3"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-2-4" class="code-annotation-target"><a href="#annotated-cell-2-4" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> serial.Serial(<span class="st">'COM3'</span>, <span class="dv">115200</span>, timeout<span class="op">=</span><span class="dv">1</span>) <span class="im">as</span> ser:</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-2-5" class="code-annotation-target"><a href="#annotated-cell-2-5" aria-hidden="true" tabindex="-1"></a>     <span class="bu">open</span>(<span class="st">'datos.csv'</span>, <span class="st">'w'</span>, newline<span class="op">=</span><span class="st">''</span>) <span class="im">as</span> f:</span>
-<span id="annotated-cell-2-6"><a href="#annotated-cell-2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-2-7"><a href="#annotated-cell-2-7" aria-hidden="true" tabindex="-1"></a>    writer <span class="op">=</span> csv.writer(f) </span>
-<span id="annotated-cell-2-8"><a href="#annotated-cell-2-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Opcional: escribir encabezado</span></span>
-<span id="annotated-cell-2-9"><a href="#annotated-cell-2-9" aria-hidden="true" tabindex="-1"></a>    writer.writerow([<span class="st">'tiempo_ms'</span>, <span class="st">'distancia_cm'</span>, <span class="st">'temperatura_c'</span>])  </span>
-<span id="annotated-cell-2-10"><a href="#annotated-cell-2-10" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="annotated-cell-2-11"><a href="#annotated-cell-2-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
-<span id="annotated-cell-2-12"><a href="#annotated-cell-2-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span>:</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-2-13" class="code-annotation-target"><a href="#annotated-cell-2-13" aria-hidden="true" tabindex="-1"></a>            linea <span class="op">=</span> ser.readline().decode().strip()</span>
-<span id="annotated-cell-2-14"><a href="#annotated-cell-2-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> linea:  <span class="co"># Ignorar líneas vacías</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-2-15" class="code-annotation-target"><a href="#annotated-cell-2-15" aria-hidden="true" tabindex="-1"></a>                writer.writerow(linea.split(<span class="st">','</span>))</span>
-<span id="annotated-cell-2-16"><a href="#annotated-cell-2-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">except</span> <span class="pp">KeyboardInterrupt</span>:</span>
-<span id="annotated-cell-2-17"><a href="#annotated-cell-2-17" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="4" data-code-annotation="1">Se inicia la comunicación. Se indica puerto, baudios y tiempo de desconexión</span>
-</dd>
-<dt data-target-cell="annotated-cell-2" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="5" data-code-annotation="2">Se crea un archivo en modo escritura para cuardar los datos</span>
-</dd>
-<dt data-target-cell="annotated-cell-2" data-target-annotation="3">3</dt>
-<dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="13" data-code-annotation="3">Se decodifican los datos del puerto serie</span>
-</dd>
-<dt data-target-cell="annotated-cell-2" data-target-annotation="4">4</dt>
-<dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="15" data-code-annotation="4">Se escriben os datos en el archivo</span>
-</dd>
-</dl>
-</section>
-</section>
-<section id="actividad-comparación-de-scripts" class="level1">
-<h1>Actividad: Comparación de scripts</h1>
-<p><strong>Ejemplos de Scripts Python para captura de datos</strong>:</p>
-<p>En estos ejemplos sencillos, la apertura y cierre se realiza explícitamente en el código.</p>
-<ol type="1">
-<li>Copiar en un archivo .py cada código</li>
-<li>Adaptarlos para que tomen los datos del HCSR-04 tal como lo tienen conectado</li>
-<li>Ejecutar las opciones mostradas y guardar los archivos con diferente nombre para 10 períodos del péndulo</li>
-<li>Comparar y analizar los resultados.</li>
-</ol>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Opción 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Opción 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Opción 3</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> serial</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> csv</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>arduino <span class="op">=</span> serial.Serial(<span class="st">'COM3'</span>, <span class="dv">9600</span>, timeout<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>archivo <span class="op">=</span> <span class="bu">open</span>(<span class="st">'pendulo.csv'</span>, <span class="st">'w'</span>, newline<span class="op">=</span><span class="st">''</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>escritor <span class="op">=</span> csv.writer(archivo)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>escritor.writerow([<span class="st">"tiempo"</span>, <span class="st">"distancia"</span>])</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Capturando datos... (Ctrl+C para detener)"</span>)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> arduino.in_waiting:</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>            linea <span class="op">=</span> arduino.readline().decode().strip()</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="st">','</span> <span class="kw">in</span> linea:</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>                t, d <span class="op">=</span> linea.split(<span class="st">','</span>)</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>                escritor.writerow([<span class="bu">float</span>(t), <span class="bu">float</span>(d)])</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="ss">f"t: </span><span class="sc">{</span>t<span class="sc">}</span><span class="ss"> s, d: </span><span class="sc">{</span>d<span class="sc">}</span><span class="ss"> cm"</span>)</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">KeyboardInterrupt</span>:</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    archivo.close()</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    arduino.close()</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Datos guardados en pendulo.csv"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> serial</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> csv</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>arduino <span class="op">=</span> serial.Serial(<span class="st">'COM3'</span>, <span class="dv">9600</span>, timeout<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>arduino.flushInput()</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>archivo <span class="op">=</span> <span class="bu">open</span>(<span class="st">'pendulo.csv'</span>, <span class="st">'w'</span>, newline<span class="op">=</span><span class="st">''</span>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>escritor <span class="op">=</span> csv.writer(archivo)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>escritor.writerow([<span class="st">"Tiempo(s)"</span>, <span class="st">"Distancia(cm)"</span>])</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> arduino.in_waiting <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>            linea <span class="op">=</span> arduino.readline().decode(<span class="st">'utf-8'</span>).rstrip()</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>            datos <span class="op">=</span> linea.split(<span class="st">','</span>)</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="bu">len</span>(datos) <span class="op">==</span> <span class="dv">2</span>:</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>                tiempo <span class="op">=</span> <span class="bu">float</span>(datos[<span class="dv">0</span>])</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>                distancia <span class="op">=</span> <span class="bu">float</span>(datos[<span class="dv">1</span>])</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>                escritor.writerow([tiempo, distancia])</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="ss">f"T: </span><span class="sc">{</span>tiempo<span class="sc">:.2f}</span><span class="ss">s - D: </span><span class="sc">{</span>distancia<span class="sc">:.1f}</span><span class="ss">cm"</span>)</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>                </span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">KeyboardInterrupt</span>:</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    archivo.close()</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    arduino.close()</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Datos guardados en pendulo.csv"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> serial</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> csv</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Configuración puerto serial</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>arduino_port <span class="op">=</span> <span class="st">'COM3'</span>  <span class="co"># Cambiar según SO</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>baud_rate <span class="op">=</span> <span class="dv">9600</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>file_name <span class="op">=</span> <span class="st">"pendulo_data.csv"</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>ser <span class="op">=</span> serial.Serial(arduino_port, baud_rate, timeout<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>ser.flushInput()</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(file_name, <span class="st">'w'</span>, newline<span class="op">=</span><span class="st">''</span>) <span class="im">as</span> f:</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    writer <span class="op">=</span> csv.writer(f)</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    writer.writerow([<span class="st">"tiempo"</span>, <span class="st">"distancia"</span>])  <span class="co"># Encabezados</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="va">True</span>:</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> ser.in_waiting <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>                line <span class="op">=</span> ser.readline().decode(<span class="st">'utf-8'</span>).rstrip()</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>                data <span class="op">=</span> line.split(<span class="st">','</span>)</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> <span class="bu">len</span>(data) <span class="op">==</span> <span class="dv">2</span>:</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>                    t, v <span class="op">=</span> <span class="bu">float</span>(data[<span class="dv">0</span>]), <span class="bu">float</span>(data[<span class="dv">1</span>])</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>                    writer.writerow([t, v])</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(<span class="ss">f"Tiempo: </span><span class="sc">{</span>t<span class="sc">:.3f}</span><span class="ss">s, Distancia: </span><span class="sc">{</span>v<span class="sc">:.4f}</span><span class="ss">V"</span>)</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>                    </span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">KeyboardInterrupt</span>:</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>        ser.close()</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Datos guardados en"</span>, file_name)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">int</span> TRIG_PIN <span class="op">=</span> <span class="dv">9</span><span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">int</span> ECHO_PIN <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> setup<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>begin<span class="op">(</span><span class="dv">9600</span><span class="op">);</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  pinMode<span class="op">(</span>TRIG_PIN<span class="op">,</span> OUTPUT<span class="op">);</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  pinMode<span class="op">(</span>ECHO_PIN<span class="op">,</span> INPUT<span class="op">);</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> loop<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">static</span> <span class="dt">unsigned</span> <span class="dt">long</span> lastTime <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>millis<span class="op">()</span> <span class="op">-</span> lastTime <span class="op">&gt;=</span> <span class="dv">30</span><span class="op">)</span> <span class="op">{</span>  <span class="co">// Muestreo cada 30ms</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Disparo del pulso ultrasónico</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    digitalWrite<span class="op">(</span>TRIG_PIN<span class="op">,</span> LOW<span class="op">);</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    delayMicroseconds<span class="op">(</span><span class="dv">2</span><span class="op">);</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    digitalWrite<span class="op">(</span>TRIG_PIN<span class="op">,</span> HIGH<span class="op">);</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    delayMicroseconds<span class="op">(</span><span class="dv">10</span><span class="op">);</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    digitalWrite<span class="op">(</span>TRIG_PIN<span class="op">,</span> LOW<span class="op">);</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Medición del eco</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="dt">long</span> duration <span class="op">=</span> pulseIn<span class="op">(</span>ECHO_PIN<span class="op">,</span> HIGH<span class="op">);</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="dt">float</span> distance <span class="op">=</span> duration <span class="op">*</span> <span class="fl">0.034</span> <span class="op">/</span> <span class="dv">2</span><span class="op">;</span>  <span class="co">// Cálculo de distancia en cm</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    Serial<span class="op">.</span>print<span class="op">(</span>millis<span class="op">()</span> <span class="op">/</span> <span class="fl">1000.0</span><span class="op">,</span> <span class="dv">3</span><span class="op">);</span>  <span class="co">// Tiempo en segundos</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    Serial<span class="op">.</span>print<span class="op">(</span><span class="st">","</span><span class="op">);</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    Serial<span class="op">.</span>println<span class="op">(</span>distance<span class="op">,</span> <span class="dv">1</span><span class="op">);</span>          <span class="co">// Distancia en cm</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    lastTime <span class="op">=</span> millis<span class="op">();</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="actividad" class="level1">
+<h1>Actividad</h1>
+<p>Vamos a usar el sensor HCSR-04 en un diseño experimental.</p>
+<section id="montaje-experimental" class="level2">
+<h2 class="anchored" data-anchor-id="montaje-experimental">Montaje experimental</h2>
+<p>El objeto será tratar de medir el período de un péndulo simple. Para ello necesitamos:</p>
+<ul>
+<li>Base universal</li>
+<li>Montaje para hilo (morsa, gancho u otro accesorio del soporte)</li>
+<li>Hilo</li>
+<li>Masa “puntual” (esfera metálica)</li>
+</ul>
+<p>Con estos elementos procederán a montar tal como si fueran a medir el período del péndulo de forma manual.</p>
+</section>
+<section id="planteo-de-adquisición-de-datos" class="level2">
+<h2 class="anchored" data-anchor-id="planteo-de-adquisición-de-datos">Planteo de adquisición de datos</h2>
+<p>¿Cómo harían para medir el período de un péndulo usando el sensor HCSR-04?</p>
+<ol type="1">
+<li>¿Qué datos vamos a usar para medir el período?</li>
+<li>¿Cómo vamos a obtenerolos?</li>
+<li>¿De qué manera podemos conseguir el período a partir de nuestros datos?</li>
+</ol>
+<p>Una vez tomadas estas decisiones deberán montar el Arduino e iniciar su funcionamiento, verificando que efectivamente está midiendo aquello que intentan medir.</p>
+</section>
+<section id="extracción-de-datos" class="level2">
+<h2 class="anchored" data-anchor-id="extracción-de-datos">Extracción de datos</h2>
+<p>Cuando hayan tenido éxito en la parte anterior, podrán copiar y pegar los datos a un archivo de texto, cambiar su extensión a “.csv” y abrirlo en una planilla de cálculo.</p>
+</section>
+<section id="análisis-de-los-datos" class="level2">
+<h2 class="anchored" data-anchor-id="análisis-de-los-datos">Análisis de los datos</h2>
+<ol type="1">
+<li>¿Qué fórmulas pueden usar para obtener el período a partir los datos</li>
+<li>¿Es necesario hacer ajustes en el código de arduino para facilitar el análisis?</li>
+</ol>
+<p>Si fuera necesario, vuelvan a correr el experimento habiendo ajustado el código o la ubicación de los materiales para obtener mejores datos.</p>
+<p>Como meddida poco rigurosa pero necesaria, hagan una medición con cronómetro de unos cuantos períodos y comparen sus resultados con los obtenidos meidante Arduino/Planilla de Cálculo.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

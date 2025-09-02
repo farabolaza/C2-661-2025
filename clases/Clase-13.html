@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>TP 06 – C2-661 2025</title>
+<title>Arduino 04 – C2-661 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -101,39 +101,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="TP 06 – C2-661 2025">
-<meta property="og:description" content="Scipy Curve_Fit">
+<meta property="og:title" content="Arduino 04 – C2-661 2025">
+<meta property="og:description" content="Extracción de datos desde Python">
 <meta property="og:site_name" content="C2-661 2025">
 </head>
 
@@ -146,7 +117,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../trabajos practicos/TP 01.html">trabajos practicos</a></li><li class="breadcrumb-item"><a href="../trabajos practicos/TP 06.html">TP 06</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../clases/Clase-01.html">Clases</a></li><li class="breadcrumb-item"><a href="../clases/Clase-13.html">Arduino 04</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -217,13 +188,13 @@ window.Quarto = {
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Clases</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../clases/Clase-01.html" class="sidebar-item-text sidebar-link">
@@ -298,7 +269,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../clases/Clase-13.html" class="sidebar-item-text sidebar-link">
+  <a href="../clases/Clase-13.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Arduino 04</span></a>
   </div>
 </li>
@@ -306,13 +277,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
  <span class="menu-text">trabajos practicos</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../trabajos practicos/TP 01.html" class="sidebar-item-text sidebar-link">
@@ -345,7 +316,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../trabajos practicos/TP 06.html" class="sidebar-item-text sidebar-link active">
+  <a href="../trabajos practicos/TP 06.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">TP 06</span></a>
   </div>
 </li>
@@ -367,20 +338,23 @@ window.Quarto = {
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#ley-de-hooke-lineal" id="toc-ley-de-hooke-lineal" class="nav-link active" data-scroll-target="#ley-de-hooke-lineal"><span class="header-section-number">1</span> Ley de Hooke (lineal)</a></li>
-  <li><a href="#decaimiento-exponencial" id="toc-decaimiento-exponencial" class="nav-link" data-scroll-target="#decaimiento-exponencial"><span class="header-section-number">2</span> Decaimiento exponencial</a></li>
-  <li><a href="#resistencia-a-alta-temperatura" id="toc-resistencia-a-alta-temperatura" class="nav-link" data-scroll-target="#resistencia-a-alta-temperatura"><span class="header-section-number">3</span> Resistencia a alta temperatura</a></li>
-  <li><a href="#oscilador-amortiguado" id="toc-oscilador-amortiguado" class="nav-link" data-scroll-target="#oscilador-amortiguado"><span class="header-section-number">4</span> Oscilador amortiguado</a></li>
+  <li><a href="#objetivos-de-esta-clase" id="toc-objetivos-de-esta-clase" class="nav-link active" data-scroll-target="#objetivos-de-esta-clase">Objetivos de esta clase</a></li>
+  <li><a href="#necesidad-de-la-conexión" id="toc-necesidad-de-la-conexión" class="nav-link" data-scroll-target="#necesidad-de-la-conexión">Necesidad de la conexión</a></li>
+  <li><a href="#conexión-usando-pyserial" id="toc-conexión-usando-pyserial" class="nav-link" data-scroll-target="#conexión-usando-pyserial">Conexión usando <code>pyserial</code></a>
+  <ul class="collapse">
+  <li><a href="#código-para-la-conexión" id="toc-código-para-la-conexión" class="nav-link" data-scroll-target="#código-para-la-conexión">Código para la conexión</a></li>
+  </ul></li>
+  <li><a href="#actividad-comparación-de-scripts" id="toc-actividad-comparación-de-scripts" class="nav-link" data-scroll-target="#actividad-comparación-de-scripts">Actividad: Comparación de scripts</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../trabajos practicos/TP 01.html">trabajos practicos</a></li><li class="breadcrumb-item"><a href="../trabajos practicos/TP 06.html">TP 06</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../clases/Clase-01.html">Clases</a></li><li class="breadcrumb-item"><a href="../clases/Clase-13.html">Arduino 04</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">TP 06</h1>
-<p class="subtitle lead">Scipy Curve_Fit</p>
+<h1 class="title">Arduino 04</h1>
+<p class="subtitle lead">Extracción de datos desde Python</p>
 </div>
 
 
@@ -397,125 +371,165 @@ window.Quarto = {
 </header>
 
 
-<section id="ley-de-hooke-lineal" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="ley-de-hooke-lineal"><span class="header-section-number">1</span> Ley de Hooke (lineal)</h2>
+<section id="objetivos-de-esta-clase" class="level1">
+<h1>Objetivos de esta clase</h1>
+<ul class="task-list">
+<li><label><input type="checkbox">Comunicar python con arduino vía puerto serie.</label></li>
+<li><label><input type="checkbox">Analizar los datos obtenidos</label></li>
+</ul>
+</section>
+<section id="necesidad-de-la-conexión" class="level1">
+<h1>Necesidad de la conexión</h1>
+<p>Cuando necesitemos acceso a una gran cantidad de datos de arduino lo mejor será conectar la salida del puerto serie del mismo a otro sistema que nos permita colectar los datos y guardarlos en un archivo para su posterior análisis. Esto tiene la doble ventaja de que todo procesamiento a los datos lo haremos fuera de la ejecución del arduino, lo que le aliviará la carga de cómputo y su requerimiento de memoria, ya que nuestro código será mas sencillo, haciendo más eficiente su ejecución y alargando la vida útil de las baterias si es que la placa estuviera conectada a ellas.</p>
+</section>
+<section id="conexión-usando-pyserial" class="level1">
+<h1>Conexión usando <code>pyserial</code></h1>
+<p>La librería <code>pyserial</code> permite a python acceder al contenido de lo que los puertos serie de nuestra computadora estén transmitiendo. A grandes rasgos necesitamos que python haga lo siguiente</p>
+<ol type="1">
+<li>Acceda al puerto serie correcto y se conecte</li>
+<li>Obtenga la información en su disposición correcta (filas, columnas,etc.)</li>
+<li>La traduzca o “decodifique”</li>
+</ol>
+<p>Una ve que tengamos la información tal como la necesitamos la guardaremos en un archivo <code>.csv</code> para su análisis. Les adelanto que veremos procesaimientos con mayor o menor nivel de <code>caja negra</code> en su implementación y dependerá del objetivo que tengamos la elección de una u otra forma de encararlo.</p>
+<section id="código-para-la-conexión" class="level2">
+<h2 class="anchored" data-anchor-id="código-para-la-conexión">Código para la conexión</h2>
+<p>Antes de comunicar a python con arduino debemos asegurarno de que conocemos la estructura de los datos que el puerto serie contiene ya que de ello dependerá lo que hagamos en python.</p>
+<p>Como nuestro destino es un archivo <code>.csv</code> lo más lógico sería que arduino mostrara en su puerto serie datos que “se ven” como en un <code>.csv</code>. Para eso es que usamos las funciones del puerto serie de arduino que vimos en la clase anterior y repasamos recién.</p>
+<p>Una vez que tenemos el código cargado en arduino podemos abrir python para extraer los datos. No es necesario abir el IDE de Arduino, los datos estarán disponibles en el puerto serie ya que se ha definido en el código de arduino. De hecho, si intentamos abrir el monitor serie y conectarlo a python, no podremos ya que ambas instancias se estarán “peleando” por acceder al puerto serie.</p>
+<p>Nótese el uso de condicionales <code>try</code> <code>except</code> para manejar el flujo de la ejecución: si se interrumpe por teclado (<code>Ctrl+C</code>) se cierra el archivo.</p>
+<p>Se recomienda cuando se trabja con archivos usar un bucle <code>with</code>. Esto es porque automáticamente se encarga de abrir y cerrar instancias de objetos que de no cerrase a tiempo generarían problemas de desempeño en la máquina e incluso podrían corromper la información colectada.</p>
+<p><strong>Nota</strong>: Tener en cuenta que la tasa de comunicación debe ser la misma en python que en arduino ya que de otra manera obtendremos datos inútiles.</p>
+<div class="sourceCode" id="annotated-cell-1"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-1-1"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> serial</span>
+<span id="annotated-cell-1-2"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> csv</span>
+<span id="annotated-cell-1-3"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-1-4" class="code-annotation-target"><a href="#annotated-cell-1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> serial.Serial(<span class="st">'COM3'</span>, <span class="dv">115200</span>, timeout<span class="op">=</span><span class="dv">1</span>) <span class="im">as</span> ser:</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-1-5" class="code-annotation-target"><a href="#annotated-cell-1-5" aria-hidden="true" tabindex="-1"></a>     <span class="bu">open</span>(<span class="st">'datos.csv'</span>, <span class="st">'w'</span>, newline<span class="op">=</span><span class="st">''</span>) <span class="im">as</span> f:</span>
+<span id="annotated-cell-1-6"><a href="#annotated-cell-1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-1-7"><a href="#annotated-cell-1-7" aria-hidden="true" tabindex="-1"></a>    writer <span class="op">=</span> csv.writer(f) </span>
+<span id="annotated-cell-1-8"><a href="#annotated-cell-1-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Opcional: escribir encabezado</span></span>
+<span id="annotated-cell-1-9"><a href="#annotated-cell-1-9" aria-hidden="true" tabindex="-1"></a>    writer.writerow([<span class="st">'tiempo_ms'</span>, <span class="st">'distancia_cm'</span>, <span class="st">'temperatura_c'</span>])  </span>
+<span id="annotated-cell-1-10"><a href="#annotated-cell-1-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="annotated-cell-1-11"><a href="#annotated-cell-1-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="annotated-cell-1-12"><a href="#annotated-cell-1-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span>:</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-1-13" class="code-annotation-target"><a href="#annotated-cell-1-13" aria-hidden="true" tabindex="-1"></a>            linea <span class="op">=</span> ser.readline().decode().strip()</span>
+<span id="annotated-cell-1-14"><a href="#annotated-cell-1-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> linea:  <span class="co"># Ignorar líneas vacías</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-1-15" class="code-annotation-target"><a href="#annotated-cell-1-15" aria-hidden="true" tabindex="-1"></a>                writer.writerow(linea.split(<span class="st">','</span>))</span>
+<span id="annotated-cell-1-16"><a href="#annotated-cell-1-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">except</span> <span class="pp">KeyboardInterrupt</span>:</span>
+<span id="annotated-cell-1-17"><a href="#annotated-cell-1-17" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="4" data-code-annotation="1">Se inicia la comunicación. Se indica puerto, baudios y tiempo de desconexión</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="5" data-code-annotation="2">Se crea un archivo en modo escritura para cuardar los datos</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="13" data-code-annotation="3">Se decodifican los datos del puerto serie</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="15" data-code-annotation="4">Se escriben os datos en el archivo</span>
+</dd>
+</dl>
+</section>
+</section>
+<section id="actividad-comparación-de-scripts" class="level1">
+<h1>Actividad: Comparación de scripts</h1>
+<p><strong>Ejemplos de Scripts Python para captura de datos</strong>:</p>
+<p>En estos ejemplos sencillos, la apertura y cierre se realiza explícitamente en el código.</p>
+<ol type="1">
+<li>Copiar en un archivo .py cada código</li>
+<li>Adaptarlos para que tomen los datos del HCSR-04 tal como lo tienen conectado</li>
+<li>Ejecutar las opciones mostradas y guardar los archivos con diferente nombre para 10 períodos del péndulo</li>
+<li>Comparar y analizar los resultados.</li>
+</ol>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Planteo</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Solución</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Opción 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Opción 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Opción 3</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>Con los datos de <a href="..\assets/hooke.csv">este archivo</a>:</p>
-<ol type="1">
-<li>Haga una gráfica de dispersión</li>
-<li>Proponga y genere una función para modelar los datos</li>
-<li>Ajuste los datos usando <code>curve_fit</code></li>
-<li>Grafique los datos originales junto al ajuste</li>
-</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> serial</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> csv</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>arduino <span class="op">=</span> serial.Serial(<span class="st">'COM3'</span>, <span class="dv">9600</span>, timeout<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>archivo <span class="op">=</span> <span class="bu">open</span>(<span class="st">'pendulo.csv'</span>, <span class="st">'w'</span>, newline<span class="op">=</span><span class="st">''</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>escritor <span class="op">=</span> csv.writer(archivo)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>escritor.writerow([<span class="st">"tiempo"</span>, <span class="st">"distancia"</span>])</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Capturando datos... (Ctrl+C para detener)"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> arduino.in_waiting:</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>            linea <span class="op">=</span> arduino.readline().decode().strip()</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="st">','</span> <span class="kw">in</span> linea:</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>                t, d <span class="op">=</span> linea.split(<span class="st">','</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>                escritor.writerow([<span class="bu">float</span>(t), <span class="bu">float</span>(d)])</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="ss">f"t: </span><span class="sc">{</span>t<span class="sc">}</span><span class="ss"> s, d: </span><span class="sc">{</span>d<span class="sc">}</span><span class="ss"> cm"</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">KeyboardInterrupt</span>:</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    archivo.close()</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    arduino.close()</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Datos guardados en pendulo.csv"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> curve_fit</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Definir función lineal</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> modelo_lineal(x, k, b):</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> k <span class="op">*</span> x <span class="op">+</span> b  <span class="co"># k: constante elástica, b: offset</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Ajustar parámetros</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>params, cov <span class="op">=</span> curve_fit(modelo_lineal, x, y)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>k_opt, b_opt <span class="op">=</span> params</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Resultados</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>errores <span class="op">=</span> np.sqrt(np.diag(cov))</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Constante elástica (k) = </span><span class="sc">{</span>k_opt<span class="sc">:.2f}</span><span class="ss"> N/m"</span>)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Offset (b) = </span><span class="sc">{</span>b_opt<span class="sc">:.2f}</span><span class="ss"> N"</span>)</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(errores)</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Graficar</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>plt.scatter(x, y, label<span class="op">=</span><span class="st">'Datos experimentales'</span>)</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>plt.plot(x, modelo_lineal(x, k_opt, b_opt), <span class="st">'r-'</span>, label<span class="op">=</span><span class="st">'Ajuste: $F = kx + b$'</span>)</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Elongación (m)'</span>)</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Fuerza (N)'</span>)</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> serial</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> csv</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>arduino <span class="op">=</span> serial.Serial(<span class="st">'COM3'</span>, <span class="dv">9600</span>, timeout<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>arduino.flushInput()</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>archivo <span class="op">=</span> <span class="bu">open</span>(<span class="st">'pendulo.csv'</span>, <span class="st">'w'</span>, newline<span class="op">=</span><span class="st">''</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>escritor <span class="op">=</span> csv.writer(archivo)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>escritor.writerow([<span class="st">"Tiempo(s)"</span>, <span class="st">"Distancia(cm)"</span>])</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> arduino.in_waiting <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>            linea <span class="op">=</span> arduino.readline().decode(<span class="st">'utf-8'</span>).rstrip()</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>            datos <span class="op">=</span> linea.split(<span class="st">','</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="bu">len</span>(datos) <span class="op">==</span> <span class="dv">2</span>:</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>                tiempo <span class="op">=</span> <span class="bu">float</span>(datos[<span class="dv">0</span>])</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>                distancia <span class="op">=</span> <span class="bu">float</span>(datos[<span class="dv">1</span>])</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>                escritor.writerow([tiempo, distancia])</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="ss">f"T: </span><span class="sc">{</span>tiempo<span class="sc">:.2f}</span><span class="ss">s - D: </span><span class="sc">{</span>distancia<span class="sc">:.1f}</span><span class="ss">cm"</span>)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">KeyboardInterrupt</span>:</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    archivo.close()</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    arduino.close()</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Datos guardados en pendulo.csv"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</div>
-<div id="8a9277a1" class="cell" data-execution_count="1">
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="TP 06_files/figure-html/cell-2-output-1.png" width="585" height="430" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="decaimiento-exponencial" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="decaimiento-exponencial"><span class="header-section-number">2</span> Decaimiento exponencial</h2>
-<p>Durate la descarga de un capacitor, la diferencia de potencial sigue una ley del tipo exponencial como la que sigue: <span class="math display">\[
-V(t)=V_0 \cdot e^{\frac{-t}{\tau}}
-\]</span></p>
-<p>Con los datos de <a href="..\assets/capacitor.csv">este archivo</a>:</p>
-<ol type="1">
-<li>Haga una gráfica de dispersión</li>
-<li>Proponga y genere una función para modelar los datos</li>
-<li>Ajuste los datos usando <code>curve_fit</code></li>
-<li>Grafique los datos originales junto al ajuste</li>
-</ol>
-<p>RTA: <span class="math inline">\(V_0=20 \ v\)</span>, <span class="math inline">\(\tau=2 \ s\)</span></p>
-<div id="621ee513" class="cell" data-execution_count="2">
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="TP 06_files/figure-html/cell-3-output-1.png" width="597" height="429" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="resistencia-a-alta-temperatura" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="resistencia-a-alta-temperatura"><span class="header-section-number">3</span> Resistencia a alta temperatura</h2>
-<p>Cierta resistencia varía con la temperatura a la cual se opera siguiendo el siguiente modelo: <span class="math display">\[
-R(T)=R_0 \cdot \left[1+\alpha(T-T_0)\right]
-\]</span></p>
-<p>Con los datos de <a href="..\assets/resistencia_temperatura.csv">este archivo</a>:</p>
-<ol type="1">
-<li>Haga una gráfica de dispersión de los datos</li>
-<li>Genere una función para modelar el fenómeno</li>
-<li>Ajuste los datos usando <code>curve_fit</code></li>
-<li>Grafique los datos originales junto al ajuste</li>
-</ol>
-</section>
-<section id="oscilador-amortiguado" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="oscilador-amortiguado"><span class="header-section-number">4</span> Oscilador amortiguado</h2>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Planteo</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Respuesta</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<p>Una oscilación amortiguada disminuye su amplitud siguiendo el siguiente modelo:</p>
-<p><span class="math display">\[
-x(t)=A \cdot e^{-\beta t} \cos(\omega t + \phi)
-\]</span></p>
-<p>Con los datos de <a href="..\assets/oscilador1.csv">este archivo</a>:</p>
-<ol type="1">
-<li>Haga una gráfica de dispersión de los datos</li>
-<li>Genere una función para modelar el fenómeno</li>
-<li>Ajuste los datos usando <code>curve_fit</code></li>
-<li>Grafique los datos originales junto al ajuste</li>
-</ol>
-</div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<p><span class="math inline">\(A=7\)</span>, <span class="math inline">\(\beta=0.01\)</span>, <span class="math inline">\(\omega=2\pi 80\)</span>, <span class="math inline">\(\phi=\frac{\pi}{2}\)</span></p>
-</div>
-</div>
-</div>
-<div id="ba4f141d" class="cell" data-execution_count="4">
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="TP 06_files/figure-html/cell-5-output-1.png" width="582" height="411" class="figure-img"></p>
-</figure>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> serial</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> csv</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Configuración puerto serial</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>arduino_port <span class="op">=</span> <span class="st">'COM3'</span>  <span class="co"># Cambiar según SO</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>baud_rate <span class="op">=</span> <span class="dv">9600</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>file_name <span class="op">=</span> <span class="st">"pendulo_data.csv"</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>ser <span class="op">=</span> serial.Serial(arduino_port, baud_rate, timeout<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>ser.flushInput()</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(file_name, <span class="st">'w'</span>, newline<span class="op">=</span><span class="st">''</span>) <span class="im">as</span> f:</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    writer <span class="op">=</span> csv.writer(f)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    writer.writerow([<span class="st">"tiempo"</span>, <span class="st">"distancia"</span>])  <span class="co"># Encabezados</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> ser.in_waiting <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>                line <span class="op">=</span> ser.readline().decode(<span class="st">'utf-8'</span>).rstrip()</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>                data <span class="op">=</span> line.split(<span class="st">','</span>)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> <span class="bu">len</span>(data) <span class="op">==</span> <span class="dv">2</span>:</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>                    t, v <span class="op">=</span> <span class="bu">float</span>(data[<span class="dv">0</span>]), <span class="bu">float</span>(data[<span class="dv">1</span>])</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>                    writer.writerow([t, v])</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(<span class="ss">f"Tiempo: </span><span class="sc">{</span>t<span class="sc">:.3f}</span><span class="ss">s, Distancia: </span><span class="sc">{</span>v<span class="sc">:.4f}</span><span class="ss">V"</span>)</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>                    </span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">KeyboardInterrupt</span>:</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>        ser.close()</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Datos guardados en"</span>, file_name)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
