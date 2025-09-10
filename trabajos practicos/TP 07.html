@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -67,6 +101,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="TP 07 – C2-661 2025">
@@ -299,8 +362,29 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#péndulo-simple-y-sensor-hcsr-04" id="toc-péndulo-simple-y-sensor-hcsr-04" class="nav-link active" data-scroll-target="#péndulo-simple-y-sensor-hcsr-04"><span class="header-section-number">1</span> Péndulo simple y Sensor HCSR-04</a></li>
+  <li><a href="#procedimiento" id="toc-procedimiento" class="nav-link" data-scroll-target="#procedimiento"><span class="header-section-number">2</span> Procedimiento</a>
+  <ul class="collapse">
+  <li><a href="#conexión" id="toc-conexión" class="nav-link" data-scroll-target="#conexión"><span class="header-section-number">2.1</span> Conexión</a></li>
+  <li><a href="#código-arduino" id="toc-código-arduino" class="nav-link" data-scroll-target="#código-arduino"><span class="header-section-number">2.2</span> Código Arduino</a></li>
+  <li><a href="#código-python" id="toc-código-python" class="nav-link" data-scroll-target="#código-python"><span class="header-section-number">2.3</span> Código python</a>
+  <ul class="collapse">
+  <li><a href="#versión-hc-sr04-con-procesamiento-en-python" id="toc-versión-hc-sr04-con-procesamiento-en-python" class="nav-link" data-scroll-target="#versión-hc-sr04-con-procesamiento-en-python"><span class="header-section-number">2.3.1</span> <strong>Versión HC-SR04 con Procesamiento en Python</strong></a></li>
+  <li><a href="#código-python-procesamiento-completo" id="toc-código-python-procesamiento-completo" class="nav-link" data-scroll-target="#código-python-procesamiento-completo"><span class="header-section-number">2.3.2</span> <strong>2. Código Python (Procesamiento Completo)</strong></a></li>
+  <li><a href="#explicación-del-procesamiento-en-python" id="toc-explicación-del-procesamiento-en-python" class="nav-link" data-scroll-target="#explicación-del-procesamiento-en-python"><span class="header-section-number">2.3.3</span> <strong>Explicación del Procesamiento en Python</strong></a></li>
+  <li><a href="#guía-para-estudiantes" id="toc-guía-para-estudiantes" class="nav-link" data-scroll-target="#guía-para-estudiantes"><span class="header-section-number">2.3.4</span> <strong>Guía para Estudiantes</strong></a></li>
+  <li><a href="#ventajas-de-este-enfoque" id="toc-ventajas-de-este-enfoque" class="nav-link" data-scroll-target="#ventajas-de-este-enfoque"><span class="header-section-number">2.3.5</span> <strong>Ventajas de este Enfoque</strong></a></li>
+  </ul></li>
+  <li><a href="#análisis" id="toc-análisis" class="nav-link" data-scroll-target="#análisis"><span class="header-section-number">2.4</span> Análisis</a></li>
+  <li><a href="#conclusiones" id="toc-conclusiones" class="nav-link" data-scroll-target="#conclusiones"><span class="header-section-number">2.5</span> Conclusiones</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -325,17 +409,844 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<ol start="0" type="1">
-<li>Conexionado</li>
-<li>Código caja negra</li>
-<li>Errores en el código (mal entendimiento de la física)</li>
-<li>Código corregido</li>
-<li>Monitor Serie</li>
-<li>Integración con Python</li>
-<li>Código más claro / Trabajo Manual en planilla de cálculo</li>
+<section id="péndulo-simple-y-sensor-hcsr-04" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Péndulo simple y Sensor HCSR-04</h1>
+<p>Como ya han trabajado en conectar y utilizar el sensor para medir el período de un péndulo, le vamos a dar una vuelta a esta misma experiencia.</p>
+<p>Sin caer en posiciones Luddistas, utilizar toda nueva tecnología necesita de un proceso de comprensión crítica de la misma que haga que seamos nosotros quienes controlamos entrada-salida de la tecnología y que no sea la tecnología la que “decida” cuál va a ser su modo de uso y sus resultados. (Si no saben lo que es Luddista, pueden preguntar a google o a alguna IA)</p>
+</section>
+<section id="procedimiento" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Procedimiento</h1>
+<p>Vamos a ayudarnos con la IA para crear un código en python que nos permita extraer la información del sensor conectándose al puerto serie y extrayendo los datos que previamente hemos indicado que se impriman en dicho puerto en nuestro código de arduino.</p>
+<section id="conexión" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="conexión"><span class="header-section-number">2.1</span> Conexión</h2>
+<p>Conetarán el sensor HCSR-04 tal como hemos hecho para medir el período de un péndulo.</p>
+</section>
+<section id="código-arduino" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="código-arduino"><span class="header-section-number">2.2</span> Código Arduino</h2>
+<p>Código que ya hemos usado anteriormente</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">int</span> TRIG_PIN <span class="op">=</span> <span class="dv">9</span><span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">int</span> ECHO_PIN <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> setup<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>begin<span class="op">(</span><span class="dv">115200</span><span class="op">);</span>  <span class="co">// Mayor velocidad para más datos</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  pinMode<span class="op">(</span>TRIG_PIN<span class="op">,</span> OUTPUT<span class="op">);</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  pinMode<span class="op">(</span>ECHO_PIN<span class="op">,</span> INPUT<span class="op">);</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> loop<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Generar pulso ultrasónico</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  digitalWrite<span class="op">(</span>TRIG_PIN<span class="op">,</span> LOW<span class="op">);</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  delayMicroseconds<span class="op">(</span><span class="dv">2</span><span class="op">);</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  digitalWrite<span class="op">(</span>TRIG_PIN<span class="op">,</span> HIGH<span class="op">);</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  delayMicroseconds<span class="op">(</span><span class="dv">10</span><span class="op">);</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  digitalWrite<span class="op">(</span>TRIG_PIN<span class="op">,</span> LOW<span class="op">);</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Medir tiempo de eco</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="dt">long</span> duration <span class="op">=</span> pulseIn<span class="op">(</span>ECHO_PIN<span class="op">,</span> HIGH<span class="op">);</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="dt">float</span> distance <span class="op">=</span> duration <span class="op">*</span> <span class="fl">0.034</span> <span class="op">/</span> <span class="dv">2</span><span class="op">;</span>  <span class="co">// Distancia en cm</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Enviar tiempo (ms) y distancia (cm)</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>print<span class="op">(</span>millis<span class="op">());</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>print<span class="op">(</span><span class="st">","</span><span class="op">);</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>println<span class="op">(</span>distance<span class="op">,</span> <span class="dv">1</span><span class="op">);</span>  <span class="co">// 1 decimal</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  delay<span class="op">(</span><span class="dv">15</span><span class="op">);</span>  <span class="co">// ~66 muestras/segundo</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Podemos agregar que el led integrado parpadee si la distancia medida es menor a la umbral</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> loop<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>digitalRead<span class="op">(</span>SENSOR_PIN<span class="op">)</span> <span class="op">==</span> HIGH<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    digitalWrite<span class="op">(</span><span class="dv">13</span><span class="op">,</span> HIGH<span class="op">);</span>   <span class="co">// LED ON</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ... código existente ...</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    delay<span class="op">(</span><span class="dv">50</span><span class="op">);</span>                <span class="co">// Breve visualización</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    digitalWrite<span class="op">(</span><span class="dv">13</span><span class="op">,</span> LOW<span class="op">);</span>    <span class="co">// LED OFF</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="código-python" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="código-python"><span class="header-section-number">2.3</span> Código python</h2>
+<p>Pedí a una IA que generara un código en python usando <code>pyserial</code> para extraer los datos de un arduino cargado con el código que hemos estado usando. Lo que me ha dado es lo siguiente:</p>
+<p>“Versión HC-SR04 con Procesamiento en Python Reestructuraremos el flujo de trabajo para que Arduino solo adquiera datos brutos (tiempo y distancia) y Python realice todo el procesamiento: detección de mínimos, cálculo de períodos y análisis.”</p>
+<p>El resto de esta sección es por completo producto de la IA.</p>
+<p>Utilicen el código provisto por la IA tal como se los muestra. Primero léanlo completo.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> serial</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.signal <span class="im">import</span> find_peaks</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Configuración inicial</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>ARDUINO_PORT <span class="op">=</span> <span class="st">'COM3'</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>BAUD_RATE <span class="op">=</span> <span class="dv">115200</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>LONGITUD_PENDULO <span class="op">=</span> <span class="fl">0.5</span>  <span class="co"># metros (ajustar)</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Conectar con Arduino</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>arduino <span class="op">=</span> serial.Serial(ARDUINO_PORT, BAUD_RATE, timeout<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Comenzando adquisición... Presione Ctrl+C para detener"</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Almacenamiento de datos crudos</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>tiempos <span class="op">=</span> []</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>distancias <span class="op">=</span> []</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> arduino.readline().decode().strip()</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> data:</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>            <span class="cf">try</span>:</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>                t_ms, d <span class="op">=</span> data.split(<span class="st">','</span>)</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>                tiempos.append(<span class="bu">float</span>(t_ms))</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>                distancias.append(<span class="bu">float</span>(d))</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>            <span class="cf">except</span>:</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>                <span class="cf">continue</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">KeyboardInterrupt</span>:</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    arduino.close()</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Adquisición terminada. Procesando datos..."</span>)</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Convertir a arrays y ajustar tiempos</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    tiempos <span class="op">=</span> np.array(tiempos)</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>    distancias <span class="op">=</span> np.array(distancias)</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>    tiempos_s <span class="op">=</span> (tiempos <span class="op">-</span> tiempos[<span class="dv">0</span>]) <span class="op">/</span> <span class="fl">1000.0</span>  <span class="co"># Segundos desde inicio</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Guardar datos crudos</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>    df_raw <span class="op">=</span> pd.DataFrame({<span class="st">'tiempo_s'</span>: tiempos_s, <span class="st">'distancia_cm'</span>: distancias})</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>    df_raw.to_csv(<span class="st">'pendulo_raw_data.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>    <span class="co"># --- PROCESAMIENTO PRINCIPAL ---</span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 1. Detección de mínimos (puntos de equilibrio)</span></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>    min_indices, _ <span class="op">=</span> find_peaks(</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>        <span class="op">-</span>distancias,  <span class="co"># Buscar mínimos como máximos negativos</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>        height<span class="op">=</span>(<span class="op">-</span>np.inf, <span class="op">-</span><span class="dv">10</span>),  <span class="co"># Rango válido (ajustar)</span></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>        distance<span class="op">=</span><span class="dv">20</span>,  <span class="co"># Mínimo 20 muestras entre picos</span></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>        prominence<span class="op">=</span><span class="dv">5</span>  <span class="co"># Mínima prominencia (ajustar)</span></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 2. Calcular períodos</span></span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>    tiempos_minimos <span class="op">=</span> tiempos_s[min_indices]</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>    periodos <span class="op">=</span> np.diff(tiempos_minimos)  <span class="co"># Tiempo entre mínimos consecutivos</span></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 3. Crear dataframe procesado</span></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>    df_procesado <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>        <span class="st">'oscilacion'</span>: np.arange(<span class="dv">1</span>, <span class="bu">len</span>(periodos)<span class="op">+</span><span class="dv">1</span>),</span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>        <span class="st">'tiempo_minimo_s'</span>: tiempos_minimos[<span class="dv">1</span>:],</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>        <span class="st">'periodo_s'</span>: periodos</span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>    <span class="co"># --- ANÁLISIS Y GRÁFICOS ---</span></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>    fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Gráfico 1: Señal cruda con mínimos detectados</span></span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>    ax1.plot(tiempos_s, distancias, <span class="st">'b-'</span>, label<span class="op">=</span><span class="st">'Señal cruda'</span>)</span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>    ax1.plot(tiempos_s[min_indices], distancias[min_indices], <span class="st">'ro'</span>, </span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>             label<span class="op">=</span><span class="st">'Puntos de equilibrio detectados'</span>)</span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>    ax1.set_xlabel(<span class="st">'Tiempo (s)'</span>)</span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>    ax1.set_ylabel(<span class="st">'Distancia (cm)'</span>)</span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>    ax1.legend()</span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>    ax1.grid(<span class="va">True</span>)</span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>    ax1.set_title(<span class="st">'Datos de Péndulo con HC-SR04'</span>)</span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Gráfico 2: Periodos medidos</span></span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>    ax2.plot(df_procesado[<span class="st">'oscilacion'</span>], df_procesado[<span class="st">'periodo_s'</span>], <span class="st">'gs-'</span>)</span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>    ax2.axhline(y<span class="op">=</span>np.mean(periodos), color<span class="op">=</span><span class="st">'r'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, </span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>                label<span class="op">=</span><span class="ss">f'Promedio: </span><span class="sc">{</span>np<span class="sc">.</span>mean(periodos)<span class="sc">:.3f}</span><span class="ss"> s'</span>)</span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>    ax2.set_xlabel(<span class="st">'Número de oscilación'</span>)</span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a>    ax2.set_ylabel(<span class="st">'Periodo (s)'</span>)</span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>    ax2.legend()</span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a>    ax2.grid(<span class="va">True</span>)</span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a>    ax2.set_title(<span class="st">'Periodos del Péndulo'</span>)</span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a>    <span class="co"># --- VALIDACIÓN FÍSICA ---</span></span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calcular valor teórico esperado</span></span>
+<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a>    g <span class="op">=</span> <span class="fl">9.8</span>  <span class="co"># m/s²</span></span>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a>    periodo_teorico <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> np.sqrt(LONGITUD_PENDULO <span class="op">/</span> g)</span>
+<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Estadísticos</span></span>
+<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a>    periodo_medio <span class="op">=</span> np.mean(periodos)</span>
+<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a>    error_relativo <span class="op">=</span> <span class="bu">abs</span>(periodo_medio <span class="op">-</span> periodo_teorico) <span class="op">/</span> periodo_teorico <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">--- RESULTADOS ---"</span>)</span>
+<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Periodo teórico: </span><span class="sc">{</span>periodo_teorico<span class="sc">:.4f}</span><span class="ss"> s"</span>)</span>
+<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Periodo medido (promedio): </span><span class="sc">{</span>periodo_medio<span class="sc">:.4f}</span><span class="ss"> s"</span>)</span>
+<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Error relativo: </span><span class="sc">{</span>error_relativo<span class="sc">:.2f}</span><span class="ss">%"</span>)</span>
+<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Desviación estándar: </span><span class="sc">{</span>np<span class="sc">.</span>std(periodos)<span class="sc">:.4f}</span><span class="ss"> s"</span>)</span>
+<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Guardar resultados</span></span>
+<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a>    df_procesado.to_csv(<span class="st">'pendulo_periodos.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a>    plt.savefig(<span class="st">'analisis_pendulo.png'</span>)</span>
+<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a>    arduino.close()</span>
+<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Error: </span><span class="sc">{</span><span class="bu">str</span>(e)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="versión-hc-sr04-con-procesamiento-en-python" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="versión-hc-sr04-con-procesamiento-en-python"><span class="header-section-number">2.3.1</span> <strong>Versión HC-SR04 con Procesamiento en Python</strong></h3>
+<p>Reestructuraremos el flujo de trabajo para que Arduino solo adquiera datos brutos (tiempo y distancia) y Python realice todo el procesamiento: detección de mínimos, cálculo de períodos y análisis.</p>
+<section id="código-arduino-modificado-solo-adquisición" class="level4" data-number="2.3.1.1">
+<h4 data-number="2.3.1.1" class="anchored" data-anchor-id="código-arduino-modificado-solo-adquisición"><span class="header-section-number">2.3.1.1</span> <strong>1. Código Arduino Modificado (Solo Adquisición)</strong></h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">int</span> TRIG_PIN <span class="op">=</span> <span class="dv">9</span><span class="op">;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">int</span> ECHO_PIN <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> setup<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>begin<span class="op">(</span><span class="dv">115200</span><span class="op">);</span>  <span class="co">// Mayor velocidad para más datos</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  pinMode<span class="op">(</span>TRIG_PIN<span class="op">,</span> OUTPUT<span class="op">);</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  pinMode<span class="op">(</span>ECHO_PIN<span class="op">,</span> INPUT<span class="op">);</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> loop<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Generar pulso ultrasónico</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  digitalWrite<span class="op">(</span>TRIG_PIN<span class="op">,</span> LOW<span class="op">);</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  delayMicroseconds<span class="op">(</span><span class="dv">2</span><span class="op">);</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  digitalWrite<span class="op">(</span>TRIG_PIN<span class="op">,</span> HIGH<span class="op">);</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  delayMicroseconds<span class="op">(</span><span class="dv">10</span><span class="op">);</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  digitalWrite<span class="op">(</span>TRIG_PIN<span class="op">,</span> LOW<span class="op">);</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Medir tiempo de eco</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  <span class="dt">long</span> duration <span class="op">=</span> pulseIn<span class="op">(</span>ECHO_PIN<span class="op">,</span> HIGH<span class="op">);</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  <span class="dt">float</span> distance <span class="op">=</span> duration <span class="op">*</span> <span class="fl">0.034</span> <span class="op">/</span> <span class="dv">2</span><span class="op">;</span>  <span class="co">// Distancia en cm</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Enviar tiempo (ms) y distancia (cm)</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>print<span class="op">(</span>millis<span class="op">());</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>print<span class="op">(</span><span class="st">","</span><span class="op">);</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>println<span class="op">(</span>distance<span class="op">,</span> <span class="dv">1</span><span class="op">);</span>  <span class="co">// 1 decimal</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>  delay<span class="op">(</span><span class="dv">15</span><span class="op">);</span>  <span class="co">// ~66 muestras/segundo</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="código-python-procesamiento-completo" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="código-python-procesamiento-completo"><span class="header-section-number">2.3.2</span> <strong>2. Código Python (Procesamiento Completo)</strong></h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> serial</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.signal <span class="im">import</span> find_peaks</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Configuración inicial</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>ARDUINO_PORT <span class="op">=</span> <span class="st">'COM3'</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>BAUD_RATE <span class="op">=</span> <span class="dv">115200</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>LONGITUD_PENDULO <span class="op">=</span> <span class="fl">0.5</span>  <span class="co"># metros (ajustar)</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Conectar con Arduino</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>arduino <span class="op">=</span> serial.Serial(ARDUINO_PORT, BAUD_RATE, timeout<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Comenzando adquisición... Presione Ctrl+C para detener"</span>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Almacenamiento de datos crudos</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>tiempos <span class="op">=</span> []</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>distancias <span class="op">=</span> []</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> arduino.readline().decode().strip()</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> data:</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>            <span class="cf">try</span>:</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>                t_ms, d <span class="op">=</span> data.split(<span class="st">','</span>)</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>                tiempos.append(<span class="bu">float</span>(t_ms))</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>                distancias.append(<span class="bu">float</span>(d))</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>            <span class="cf">except</span>:</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>                <span class="cf">continue</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">KeyboardInterrupt</span>:</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>    arduino.close()</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Adquisición terminada. Procesando datos..."</span>)</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Convertir a arrays y ajustar tiempos</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>    tiempos <span class="op">=</span> np.array(tiempos)</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>    distancias <span class="op">=</span> np.array(distancias)</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>    tiempos_s <span class="op">=</span> (tiempos <span class="op">-</span> tiempos[<span class="dv">0</span>]) <span class="op">/</span> <span class="fl">1000.0</span>  <span class="co"># Segundos desde inicio</span></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Guardar datos crudos</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>    df_raw <span class="op">=</span> pd.DataFrame({<span class="st">'tiempo_s'</span>: tiempos_s, <span class="st">'distancia_cm'</span>: distancias})</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>    df_raw.to_csv(<span class="st">'pendulo_raw_data.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>    <span class="co"># --- PROCESAMIENTO PRINCIPAL ---</span></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 1. Detección de mínimos (puntos de equilibrio)</span></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>    min_indices, _ <span class="op">=</span> find_peaks(</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>        <span class="op">-</span>distancias,  <span class="co"># Buscar mínimos como máximos negativos</span></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>        height<span class="op">=</span>(<span class="op">-</span>np.inf, <span class="op">-</span><span class="dv">10</span>),  <span class="co"># Rango válido (ajustar)</span></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>        distance<span class="op">=</span><span class="dv">20</span>,  <span class="co"># Mínimo 20 muestras entre picos</span></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>        prominence<span class="op">=</span><span class="dv">5</span>  <span class="co"># Mínima prominencia (ajustar)</span></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 2. Calcular períodos</span></span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>    tiempos_minimos <span class="op">=</span> tiempos_s[min_indices]</span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>    periodos <span class="op">=</span> np.diff(tiempos_minimos)  <span class="co"># Tiempo entre mínimos consecutivos</span></span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 3. Crear dataframe procesado</span></span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>    df_procesado <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>        <span class="st">'oscilacion'</span>: np.arange(<span class="dv">1</span>, <span class="bu">len</span>(periodos)<span class="op">+</span><span class="dv">1</span>),</span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>        <span class="st">'tiempo_minimo_s'</span>: tiempos_minimos[<span class="dv">1</span>:],</span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>        <span class="st">'periodo_s'</span>: periodos</span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>    <span class="co"># --- ANÁLISIS Y GRÁFICOS ---</span></span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>    fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Gráfico 1: Señal cruda con mínimos detectados</span></span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>    ax1.plot(tiempos_s, distancias, <span class="st">'b-'</span>, label<span class="op">=</span><span class="st">'Señal cruda'</span>)</span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>    ax1.plot(tiempos_s[min_indices], distancias[min_indices], <span class="st">'ro'</span>, </span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>             label<span class="op">=</span><span class="st">'Puntos de equilibrio detectados'</span>)</span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a>    ax1.set_xlabel(<span class="st">'Tiempo (s)'</span>)</span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a>    ax1.set_ylabel(<span class="st">'Distancia (cm)'</span>)</span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a>    ax1.legend()</span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a>    ax1.grid(<span class="va">True</span>)</span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a>    ax1.set_title(<span class="st">'Datos de Péndulo con HC-SR04'</span>)</span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Gráfico 2: Periodos medidos</span></span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a>    ax2.plot(df_procesado[<span class="st">'oscilacion'</span>], df_procesado[<span class="st">'periodo_s'</span>], <span class="st">'gs-'</span>)</span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a>    ax2.axhline(y<span class="op">=</span>np.mean(periodos), color<span class="op">=</span><span class="st">'r'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, </span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>                label<span class="op">=</span><span class="ss">f'Promedio: </span><span class="sc">{</span>np<span class="sc">.</span>mean(periodos)<span class="sc">:.3f}</span><span class="ss"> s'</span>)</span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>    ax2.set_xlabel(<span class="st">'Número de oscilación'</span>)</span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a>    ax2.set_ylabel(<span class="st">'Periodo (s)'</span>)</span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>    ax2.legend()</span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a>    ax2.grid(<span class="va">True</span>)</span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>    ax2.set_title(<span class="st">'Periodos del Péndulo'</span>)</span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a>    <span class="co"># --- VALIDACIÓN FÍSICA ---</span></span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calcular valor teórico esperado</span></span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a>    g <span class="op">=</span> <span class="fl">9.8</span>  <span class="co"># m/s²</span></span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a>    periodo_teorico <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> np.sqrt(LONGITUD_PENDULO <span class="op">/</span> g)</span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Estadísticos</span></span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a>    periodo_medio <span class="op">=</span> np.mean(periodos)</span>
+<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a>    error_relativo <span class="op">=</span> <span class="bu">abs</span>(periodo_medio <span class="op">-</span> periodo_teorico) <span class="op">/</span> periodo_teorico <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">--- RESULTADOS ---"</span>)</span>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Periodo teórico: </span><span class="sc">{</span>periodo_teorico<span class="sc">:.4f}</span><span class="ss"> s"</span>)</span>
+<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Periodo medido (promedio): </span><span class="sc">{</span>periodo_medio<span class="sc">:.4f}</span><span class="ss"> s"</span>)</span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Error relativo: </span><span class="sc">{</span>error_relativo<span class="sc">:.2f}</span><span class="ss">%"</span>)</span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Desviación estándar: </span><span class="sc">{</span>np<span class="sc">.</span>std(periodos)<span class="sc">:.4f}</span><span class="ss"> s"</span>)</span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Guardar resultados</span></span>
+<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a>    df_procesado.to_csv(<span class="st">'pendulo_periodos.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a>    plt.savefig(<span class="st">'analisis_pendulo.png'</span>)</span>
+<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a>    arduino.close()</span>
+<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Error: </span><span class="sc">{</span><span class="bu">str</span>(e)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="explicación-del-procesamiento-en-python" class="level3" data-number="2.3.3">
+<h3 data-number="2.3.3" class="anchored" data-anchor-id="explicación-del-procesamiento-en-python"><span class="header-section-number">2.3.3</span> <strong>Explicación del Procesamiento en Python</strong></h3>
+<section id="detección-de-puntos-de-equilibrio" class="level4" data-number="2.3.3.1">
+<h4 data-number="2.3.3.1" class="anchored" data-anchor-id="detección-de-puntos-de-equilibrio"><span class="header-section-number">2.3.3.1</span> <strong>1. Detección de Puntos de Equilibrio</strong></h4>
+<ul>
+<li><p>Usamos <code>scipy.signal.find_peaks</code> sobre el <strong>negativo</strong> de las distancias para detectar mínimos:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>min_indices <span class="op">=</span> find_peaks(<span class="op">-</span>distancias, ...)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Parámetros clave:</p>
+<ul>
+<li><code>height</code>: Rango de distancias válidas<br>
+</li>
+<li><code>distance</code>: Mínimas muestras entre mínimos (evita detecciones múltiples)<br>
+</li>
+<li><code>prominence</code>: Importancia del mínimo (ajustar según ruido)</li>
+</ul></li>
+</ul>
+</section>
+<section id="cálculo-de-periodos" class="level4" data-number="2.3.3.2">
+<h4 data-number="2.3.3.2" class="anchored" data-anchor-id="cálculo-de-periodos"><span class="header-section-number">2.3.3.2</span> <strong>2. Cálculo de Periodos</strong></h4>
+<ul>
+<li><p>Calculamos diferencias entre tiempos consecutivos de mínimos:<br>
+<span class="math display">\[ T_i = t_{\text{min}}^{i+1} - t_{\text{min}}^i \]</span></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>periodos <span class="op">=</span> np.diff(tiempos_minimos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+</section>
+<section id="análisis-físico" class="level4" data-number="2.3.3.3">
+<h4 data-number="2.3.3.3" class="anchored" data-anchor-id="análisis-físico"><span class="header-section-number">2.3.3.3</span> <strong>3. Análisis Físico</strong></h4>
+<ul>
+<li><strong>Periodo teórico:</strong><br>
+<span class="math display">\[ T_{\text{teórico}} = 2\pi \sqrt{\frac{L}{g}} \]</span><br>
+</li>
+<li><strong>Error relativo:</strong><br>
+<span class="math display">\[ \epsilon = \frac{|T_{\text{medido}} - T_{\text{teórico}}|}{T_{\text{teórico}}} \times 100\% \]</span></li>
+</ul>
+</section>
+</section>
+<section id="guía-para-estudiantes" class="level3" data-number="2.3.4">
+<h3 data-number="2.3.4" class="anchored" data-anchor-id="guía-para-estudiantes"><span class="header-section-number">2.3.4</span> <strong>Guía para Estudiantes</strong></h3>
+<section id="actividad-1-calibración-inicial" class="level4" data-number="2.3.4.1">
+<h4 data-number="2.3.4.1" class="anchored" data-anchor-id="actividad-1-calibración-inicial"><span class="header-section-number">2.3.4.1</span> <strong>Actividad 1: Calibración Inicial</strong></h4>
+<ol type="1">
+<li>Ejecutar el código Arduino y verificar datos en el monitor serial<br>
+</li>
+<li>Modificar parámetros de detección en Python:<br>
+</li>
 </ol>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Experimentar con:</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>find_peaks(..., height<span class="op">=</span>(<span class="op">-</span><span class="dv">20</span>, <span class="op">-</span><span class="dv">5</span>), distance<span class="op">=</span><span class="dv">15</span>, prominence<span class="op">=</span><span class="dv">3</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="actividad-2-análisis-de-disipación" class="level4" data-number="2.3.4.2">
+<h4 data-number="2.3.4.2" class="anchored" data-anchor-id="actividad-2-análisis-de-disipación"><span class="header-section-number">2.3.4.2</span> <strong>Actividad 2: Análisis de Disipación</strong></h4>
+<ul>
+<li><p>Extender el código para calcular la amplitud angular:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular amplitud aproximada (θ en radianes)</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>dist_ref <span class="op">=</span> np.median(distancias)  <span class="co"># Distancia de referencia</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>amplitudes <span class="op">=</span> (distancias[min_indices] <span class="op">-</span> dist_ref) <span class="op">/</span> LONGITUD_PENDULO</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Modelar decaimiento:<br>
+<span class="math display">\[ \theta(t) = \theta_0 e^{-\beta t} \cos(\omega t) \]</span></p></li>
+</ul>
+</section>
+<section id="actividad-3-dependencia-con-longitud" class="level4" data-number="2.3.4.3">
+<h4 data-number="2.3.4.3" class="anchored" data-anchor-id="actividad-3-dependencia-con-longitud"><span class="header-section-number">2.3.4.3</span> <strong>Actividad 3: Dependencia con Longitud</strong></h4>
+<ul>
+<li>Repetir experimento con 3 longitudes diferentes<br>
+</li>
+<li>Graficar <span class="math inline">\(T\)</span> vs <span class="math inline">\(\sqrt{L}\)</span> y verificar proporcionalidad</li>
+</ul>
+</section>
+</section>
+<section id="ventajas-de-este-enfoque" class="level3" data-number="2.3.5">
+<h3 data-number="2.3.5" class="anchored" data-anchor-id="ventajas-de-este-enfoque"><span class="header-section-number">2.3.5</span> <strong>Ventajas de este Enfoque</strong></h3>
+<ol type="1">
+<li><strong>Arduino simplificado:</strong> Solo adquisición, sin lógica compleja<br>
+</li>
+<li><strong>Tolerante a errores:</strong> Python maneja ruido y detección<br>
+</li>
+<li><strong>Análisis potente:</strong> Uso de SciPy para procesamiento avanzado<br>
+</li>
+<li><strong>Flexibilidad:</strong> Fácil modificar parámetros sin reprogramar Arduino</li>
+</ol>
+<p>¿Deseas que desarrolle alguna parte específica en más detalle (ej: optimización de parámetros, análisis de error, o extensión para disipación)?</p>
+</section>
+</section>
+<section id="análisis" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="análisis"><span class="header-section-number">2.4</span> Análisis</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Consignas</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Las dudas</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Las “mejoras”</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Más cerca</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Se ve bastante bien. Podríamos sin más, dar por terminada la experiencia y decir “que bueno, que linda la IA” o de manera más pesimista “la IA nos va a dejar sin trabajo a todos”. No vayamos tan rápido.</p>
+<ol type="1">
+<li><p>Sin desarmar el dispositivo experimental, hagan una medición tradicional del período del péndulo (miden diez períodos y lo dividen por diez).</p></li>
+<li><p>Compárenlo con el período que nos dió el código en python ¿Coincide?</p></li>
+<li><p>Traten de encontrar el error en el código que nos dió la IA. No es un error en cuanto a la validez del código en sí, sino uno de otro tipo.</p></li>
+<li><p>Una vez que lo hayan encontrado. ¿Cómo lo corregiriían?</p></li>
+</ol>
+<p>Traten de pensarlo leyendo el código cuidadosamente sin saltarse a las respuestas.</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>Al interactura nuevamente con la IA, le indico lo siguiente:</p>
+<p>“Quisiera volver sobre la práctica del período del péndulo usando el hcsr04. El período es calculado restando mínimos sucesivos. ¿Es esto correcto? Si asumimos que <code>findpeaks</code> encuentra cada vez que el pendulo pasa frente al sensor, y ejcutamos diff sobre ese array, dos valores consecutivos no estarán dando el período sino la mitad del periodo: el pendulo pasa por primera vez frente al sensor, digamos hacia la derecha, <code>findpeaks</code> encuentra el valor representativo de esa pasada, luego, pasa otra vez sobre el sensor, pero hacia la izquierda, y <code>findpeaks</code> encuentra el valor representativo de esa pasada, restar esos dos valores, no dara el tiempo de una oscilacion ya que la oscilacion completa se da cuando el pendulo pasa frente al sensor una tercera vez ahora si, hacia la derecha. Podrias justificar y explicar tu codigo o en que parte de mi argumento estoy equivocado?”</p>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>A lo que me responde:</p>
+<p>Tu observación es totalmente válida y revela un punto crucial en la interpretación de los datos. Permíteme explicar y corregir este aspecto:</p>
+<section id="análisis-detallado-medición-del-período-en-un-péndulo-con-hc-sr04" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="análisis-detallado-medición-del-período-en-un-péndulo-con-hc-sr04"><span class="header-section-number">2.4.1</span> Análisis Detallado: Medición del Período en un Péndulo con HC-SR04</h3>
+<p><strong>Tu observación es totalmente válida y revela un punto crucial en la interpretación de los datos.</strong> Permíteme explicar y corregir este aspecto:</p>
+</section>
+<section id="el-problema-fundamental-semi-períodos-vs.-períodos-completos" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="el-problema-fundamental-semi-períodos-vs.-períodos-completos"><span class="header-section-number">2.4.2</span> <strong>El Problema Fundamental: Semi-Períodos vs.&nbsp;Períodos Completos</strong></h3>
+<p>En un movimiento pendular, cuando el sensor detecta <strong>cada pasada por el punto de equilibrio</strong> (posición mínima), está registrando <strong>dos eventos por oscilación completa</strong>: 1. Pasada en dirección A (ej: izquierda → derecha) 2. Pasada en dirección B (ej: derecha → izquierda)</p>
+<p><strong>La diferencia entre dos mínimos consecutivos</strong> corresponde a <strong>medio período</strong>, no a un período completo. Esto se debe a: <span class="math display">\[ T_{\text{completo}} = t_{n+2} - t_n \]</span> <span class="math display">\[ \Delta t_{\text{consecutivo}} = t_{n+1} - t_n = \frac{T}{2} \]</span></p>
+</section>
+<section id="corrección-del-código-python" class="level3" data-number="2.4.3">
+<h3 data-number="2.4.3" class="anchored" data-anchor-id="corrección-del-código-python"><span class="header-section-number">2.4.3</span> <strong>Corrección del Código Python</strong></h3>
+<p>Modifiquemos el procesamiento para calcular períodos completos correctamente:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Después de detectar los índices de mínimos</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>tiempos_minimos <span class="op">=</span> tiempos_s[min_indices]  <span class="co"># Tiempos de cada pasada por el equilibrio</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular períodos COMPLETOS (entre pasadas equivalentes)</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>periodos_completos <span class="op">=</span> []</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>, <span class="bu">len</span>(tiempos_minimos)):</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:  <span class="co"># Considerar solo mínimos en la misma dirección</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>        T_completo <span class="op">=</span> tiempos_minimos[i] <span class="op">-</span> tiempos_minimos[i<span class="op">-</span><span class="dv">2</span>]</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>        periodos_completos.append(T_completo)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Alternativa vectorizada (si hay número par de mínimos)</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co"># periodos_completos = tiempos_minimos[2::2] - tiempos_minimos[:-2:2]</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="explicación-gráfica" class="level3" data-number="2.4.4">
+<h3 data-number="2.4.4" class="anchored" data-anchor-id="explicación-gráfica"><span class="header-section-number">2.4.4</span> <strong>Explicación Gráfica</strong></h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="an">Tiempo:</span><span class="co">     0.0s     1.0s     2.0s     3.0s     4.0s</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="an">Evento:</span><span class="co">     [Min1]   [Min2]   [Min3]   [Min4]   [Min5]</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="an">Dirección:</span><span class="co">   →        ←        →        ←        →</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="an">Períodos:</span><span class="co">   |------T1-------|       (Min3 - Min1)</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">                  |------T2-------| (Min5 - Min3)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="código-python-corregido" class="level3" data-number="2.4.5">
+<h3 data-number="2.4.5" class="anchored" data-anchor-id="código-python-corregido"><span class="header-section-number">2.4.5</span> <strong>Código Python Corregido</strong></h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ... (código anterior de adquisición)</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Detección de mínimos</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>min_indices, _ <span class="op">=</span> find_peaks(<span class="op">-</span>distancias, distance<span class="op">=</span><span class="dv">20</span>, prominence<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>tiempos_minimos <span class="op">=</span> tiempos_s[min_indices]</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Cálculo de períodos COMPLETOS</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>periodos <span class="op">=</span> []</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>, <span class="bu">len</span>(tiempos_minimos)):</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:  <span class="co"># Pares: misma dirección</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>        periodo <span class="op">=</span> tiempos_minimos[i] <span class="op">-</span> tiempos_minimos[i<span class="op">-</span><span class="dv">2</span>]</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>        periodos.append(periodo)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Análisis estadístico</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> periodos:</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    periodo_promedio <span class="op">=</span> np.mean(periodos)</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Período promedio: </span><span class="sc">{</span>periodo_promedio<span class="sc">:.3f}</span><span class="ss"> s"</span>)</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Gráfico de períodos</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>    plt.plot(np.arange(<span class="bu">len</span>(periodos)), periodos, <span class="st">'bo-'</span>)</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>    plt.axhline(periodo_promedio, color<span class="op">=</span><span class="st">'r'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, </span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>                label<span class="op">=</span><span class="ss">f'Promedio: </span><span class="sc">{</span>periodo_promedio<span class="sc">:.3f}</span><span class="ss"> s'</span>)</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">'Número de oscilación completa'</span>)</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">'Período (s)'</span>)</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>    plt.legend()</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>    plt.grid(<span class="va">True</span>)</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"No se detectaron suficientes oscilaciones completas"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="validación-física" class="level3" data-number="2.4.6">
+<h3 data-number="2.4.6" class="anchored" data-anchor-id="validación-física"><span class="header-section-number">2.4.6</span> <strong>Validación Física</strong></h3>
+<p>Para verificar la corrección, podemos comparar con el modelo teórico: <span class="math display">\[ T_{\text{teórico}} = 2\pi \sqrt{\frac{L}{g}} \]</span></p>
+<p><strong>Cálculo de error:</strong></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>L <span class="op">=</span> <span class="fl">0.5</span>  <span class="co"># Longitud del péndulo en metros</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> <span class="fl">9.8</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>T_teorico <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> np.sqrt(L <span class="op">/</span> g)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>error_relativo <span class="op">=</span> <span class="bu">abs</span>(periodo_promedio <span class="op">-</span> T_teorico) <span class="op">/</span> T_teorico <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Error relativo: </span><span class="sc">{</span>error_relativo<span class="sc">:.2f}</span><span class="ss">%"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="solución-alternativa-identificación-de-dirección" class="level3" data-number="2.4.7">
+<h3 data-number="2.4.7" class="anchored" data-anchor-id="solución-alternativa-identificación-de-dirección"><span class="header-section-number">2.4.7</span> <strong>Solución Alternativa: Identificación de Dirección</strong></h3>
+<p>Si queremos usar <strong>todos los mínimos</strong> pero diferenciando direcciones, necesitaríamos: 1. <strong>Dos sensores:</strong> Colocados a +5° y -5° del punto de equilibrio 2. <strong>Análisis de la derivada:</strong><br>
+<code>python    velocidades = np.gradient(distancias, tiempos_s)    direcciones = np.sign(velocidades[min_indices])</code></p>
+</section>
+<section id="actividad-pedagógica-comprobación-experimental" class="level3" data-number="2.4.8">
+<h3 data-number="2.4.8" class="anchored" data-anchor-id="actividad-pedagógica-comprobación-experimental"><span class="header-section-number">2.4.8</span> <strong>Actividad Pedagógica: Comprobación Experimental</strong></h3>
+<p><strong>Ejercicio para estudiantes:</strong><br>
+1. Medir manualmente 5 oscilaciones completas con cronómetro<br>
+2. Comparar con el valor obtenido por Arduino/Python:<br>
+<span class="math display">\[ \epsilon = \frac{|T_{\text{manual}} - T_{\text{sensor}}|}{T_{\text{manual}}} \times 100\% \]</span><br>
+3. Discutir fuentes de error:<br>
+- Disipación de energía<br>
+- Error en detección de mínimos<br>
+- Tiempo de respuesta del sensor</p>
+</section>
+<section id="diagrama-de-montaje-mejorado" class="level3" data-number="2.4.9">
+<h3 data-number="2.4.9" class="anchored" data-anchor-id="diagrama-de-montaje-mejorado"><span class="header-section-number">2.4.9</span> <strong>Diagrama de Montaje Mejorado</strong></h3>
+<p>Para minimizar errores:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="in">       Sensor HC-SR04</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="in">          │</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="in">          ▼</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="in">       ┌─────┐</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="in">       │  █  │  &lt;-- Péndulo (posición equilibrio)</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="in">       └─────┘</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="in">          │</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="in">          ├─&gt; Dirección positiva (→)</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="in">          ├─&lt; Dirección negativa (←)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Configuración óptima:</strong><br>
+- Ángulo máximo &lt; 15°<br>
+- Distancia sensor-péndulo: 20-50 cm<br>
+- Frecuencia de muestreo &gt; 50 Hz</p>
+</section>
+<section id="conclusión" class="level3" data-number="2.4.10">
+<h3 data-number="2.4.10" class="anchored" data-anchor-id="conclusión"><span class="header-section-number">2.4.10</span> <strong>Conclusión</strong></h3>
+<p>Tu observación fue fundamental: <strong>los mínimos consecutivos corresponden a semi-períodos</strong>. La solución requiere:<br>
+1. <strong>Interpolar entre mínimos alternados</strong> (misma dirección)<br>
+2. <strong>Validar con el modelo teórico</strong><br>
+3. <strong>Considerar la paridad</strong> en la secuencia de eventos</p>
+<p>¿Deseas que ajuste el código completo o profundice en alguna sección específica?</p>
+</section>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<p>Acepté su sugerencia y me propuso lo siguiente:</p>
+<section id="código-arduino-actualizado-con-indicador-led" class="level3" data-number="2.4.11">
+<h3 data-number="2.4.11" class="anchored" data-anchor-id="código-arduino-actualizado-con-indicador-led"><span class="header-section-number">2.4.11</span> Código Arduino Actualizado con Indicador LED</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">int</span> TRIG_PIN <span class="op">=</span> <span class="dv">9</span><span class="op">;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">int</span> ECHO_PIN <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">int</span> LED_PIN <span class="op">=</span> <span class="dv">13</span><span class="op">;</span>  <span class="co">// LED integrado en Arduino</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">float</span> DISTANCIA_UMBRAL <span class="op">=</span> <span class="fl">30.0</span><span class="op">;</span>  <span class="co">// cm (ajustar según montaje)</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> setup<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>begin<span class="op">(</span><span class="dv">115200</span><span class="op">);</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  pinMode<span class="op">(</span>TRIG_PIN<span class="op">,</span> OUTPUT<span class="op">);</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  pinMode<span class="op">(</span>ECHO_PIN<span class="op">,</span> INPUT<span class="op">);</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  pinMode<span class="op">(</span>LED_PIN<span class="op">,</span> OUTPUT<span class="op">);</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  digitalWrite<span class="op">(</span>LED_PIN<span class="op">,</span> LOW<span class="op">);</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> loop<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Generar pulso ultrasónico</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>  digitalWrite<span class="op">(</span>TRIG_PIN<span class="op">,</span> LOW<span class="op">);</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>  delayMicroseconds<span class="op">(</span><span class="dv">2</span><span class="op">);</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>  digitalWrite<span class="op">(</span>TRIG_PIN<span class="op">,</span> HIGH<span class="op">);</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>  delayMicroseconds<span class="op">(</span><span class="dv">10</span><span class="op">);</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>  digitalWrite<span class="op">(</span>TRIG_PIN<span class="op">,</span> LOW<span class="op">);</span></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Medir tiempo de eco</span></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>  <span class="dt">long</span> duration <span class="op">=</span> pulseIn<span class="op">(</span>ECHO_PIN<span class="op">,</span> HIGH<span class="op">);</span></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>  <span class="dt">float</span> distancia <span class="op">=</span> duration <span class="op">*</span> <span class="fl">0.034</span> <span class="op">/</span> <span class="dv">2</span><span class="op">;</span>  <span class="co">// Distancia en cm</span></span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Control del LED: encender si el péndulo está cerca</span></span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>distancia <span class="op">&lt;</span> DISTANCIA_UMBRAL<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>    digitalWrite<span class="op">(</span>LED_PIN<span class="op">,</span> HIGH<span class="op">);</span></span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>    digitalWrite<span class="op">(</span>LED_PIN<span class="op">,</span> LOW<span class="op">);</span></span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Enviar tiempo (ms) y distancia (cm)</span></span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>print<span class="op">(</span>millis<span class="op">());</span></span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>print<span class="op">(</span><span class="st">","</span><span class="op">);</span></span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>println<span class="op">(</span>distancia<span class="op">,</span> <span class="dv">1</span><span class="op">);</span>  <span class="co">// 1 decimal</span></span>
+<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a>  delay<span class="op">(</span><span class="dv">15</span><span class="op">);</span>  <span class="co">// ~66 muestras/segundo</span></span>
+<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="código-python-completo-corregido-cálculo-períodos-completos" class="level3" data-number="2.4.12">
+<h3 data-number="2.4.12" class="anchored" data-anchor-id="código-python-completo-corregido-cálculo-períodos-completos"><span class="header-section-number">2.4.12</span> Código Python Completo Corregido (Cálculo Períodos Completos)</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> serial</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.signal <span class="im">import</span> find_peaks</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> curve_fit</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Configuración inicial</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>ARDUINO_PORT <span class="op">=</span> <span class="st">'COM3'</span>  <span class="co"># Ajustar al puerto correcto</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>BAUD_RATE <span class="op">=</span> <span class="dv">115200</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>LONGITUD_PENDULO <span class="op">=</span> <span class="fl">0.5</span>  <span class="co"># metros (ajustar)</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>DISTANCIA_UMBRAL <span class="op">=</span> <span class="fl">30.0</span>  <span class="co"># cm (debe coincidir con Arduino)</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>TIEMPO_ADQUISICION <span class="op">=</span> <span class="dv">30</span>  <span class="co"># segundos</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Conectar con Arduino</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>arduino <span class="op">=</span> serial.Serial(ARDUINO_PORT, BAUD_RATE, timeout<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Adquisición iniciada. Durará </span><span class="sc">{</span>TIEMPO_ADQUISICION<span class="sc">}</span><span class="ss"> segundos..."</span>)</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Almacenamiento de datos crudos</span></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>tiempos_ms <span class="op">=</span> []</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>distancias_cm <span class="op">=</span> []</span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Adquirir datos por tiempo fijo</span></span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> time</span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>    end_time <span class="op">=</span> time.time() <span class="op">+</span> TIEMPO_ADQUISICION</span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> time.time() <span class="op">&lt;</span> end_time:</span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> arduino.readline().decode().strip()</span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> data:</span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a>            <span class="cf">try</span>:</span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a>                t_str, d_str <span class="op">=</span> data.split(<span class="st">','</span>)</span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a>                tiempo_actual <span class="op">=</span> <span class="bu">int</span>(t_str)</span>
+<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>                distancia <span class="op">=</span> <span class="bu">float</span>(d_str)</span>
+<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> start_time <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a>                    start_time <span class="op">=</span> tiempo_actual</span>
+<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a>                tiempos_ms.append(tiempo_actual)</span>
+<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a>                distancias_cm.append(distancia)</span>
+<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a>            <span class="cf">except</span>:</span>
+<span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a>                <span class="cf">continue</span></span>
+<span id="cb16-44"><a href="#cb16-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-45"><a href="#cb16-45" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">KeyboardInterrupt</span>:</span>
+<span id="cb16-46"><a href="#cb16-46" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Adquisición interrumpida por el usuario"</span>)</span>
+<span id="cb16-47"><a href="#cb16-47" aria-hidden="true" tabindex="-1"></a><span class="cf">finally</span>:</span>
+<span id="cb16-48"><a href="#cb16-48" aria-hidden="true" tabindex="-1"></a>    arduino.close()</span>
+<span id="cb16-49"><a href="#cb16-49" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Adquisición terminada. Procesando datos..."</span>)</span>
+<span id="cb16-50"><a href="#cb16-50" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-51"><a href="#cb16-51" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Procesar solo si hay datos suficientes</span></span>
+<span id="cb16-52"><a href="#cb16-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(tiempos_ms) <span class="op">&lt;</span> <span class="dv">10</span>:</span>
+<span id="cb16-53"><a href="#cb16-53" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Error: Insuficientes datos adquiridos"</span>)</span>
+<span id="cb16-54"><a href="#cb16-54" aria-hidden="true" tabindex="-1"></a>        exit()</span>
+<span id="cb16-55"><a href="#cb16-55" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-56"><a href="#cb16-56" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Convertir a arrays y ajustar tiempos</span></span>
+<span id="cb16-57"><a href="#cb16-57" aria-hidden="true" tabindex="-1"></a>    tiempos_ms <span class="op">=</span> np.array(tiempos_ms)</span>
+<span id="cb16-58"><a href="#cb16-58" aria-hidden="true" tabindex="-1"></a>    distancias_cm <span class="op">=</span> np.array(distancias_cm)</span>
+<span id="cb16-59"><a href="#cb16-59" aria-hidden="true" tabindex="-1"></a>    tiempos_s <span class="op">=</span> (tiempos_ms <span class="op">-</span> tiempos_ms[<span class="dv">0</span>]) <span class="op">/</span> <span class="fl">1000.0</span>  <span class="co"># Segundos desde inicio</span></span>
+<span id="cb16-60"><a href="#cb16-60" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-61"><a href="#cb16-61" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Guardar datos crudos</span></span>
+<span id="cb16-62"><a href="#cb16-62" aria-hidden="true" tabindex="-1"></a>    df_raw <span class="op">=</span> pd.DataFrame({<span class="st">'tiempo_s'</span>: tiempos_s, <span class="st">'distancia_cm'</span>: distancias_cm})</span>
+<span id="cb16-63"><a href="#cb16-63" aria-hidden="true" tabindex="-1"></a>    df_raw.to_csv(<span class="st">'pendulo_raw_data.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb16-64"><a href="#cb16-64" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-65"><a href="#cb16-65" aria-hidden="true" tabindex="-1"></a>    <span class="co"># --- FILTRADO PREVIO (opcional) ---</span></span>
+<span id="cb16-66"><a href="#cb16-66" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Aplicar filtro de media móvil para reducir ruido</span></span>
+<span id="cb16-67"><a href="#cb16-67" aria-hidden="true" tabindex="-1"></a>    window_size <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb16-68"><a href="#cb16-68" aria-hidden="true" tabindex="-1"></a>    distancias_filtradas <span class="op">=</span> np.convolve(distancias_cm, np.ones(window_size)<span class="op">/</span>window_size, mode<span class="op">=</span><span class="st">'same'</span>)</span>
+<span id="cb16-69"><a href="#cb16-69" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-70"><a href="#cb16-70" aria-hidden="true" tabindex="-1"></a>    <span class="co"># --- DETECCIÓN DE MÍNIMOS ---</span></span>
+<span id="cb16-71"><a href="#cb16-71" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 1. Encontrar regiones donde la distancia es baja (péndulo cerca)</span></span>
+<span id="cb16-72"><a href="#cb16-72" aria-hidden="true" tabindex="-1"></a>    regiones_cercanas <span class="op">=</span> distancias_filtradas <span class="op">&lt;</span> DISTANCIA_UMBRAL</span>
+<span id="cb16-73"><a href="#cb16-73" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-74"><a href="#cb16-74" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 2. Detectar mínimos solo en estas regiones</span></span>
+<span id="cb16-75"><a href="#cb16-75" aria-hidden="true" tabindex="-1"></a>    min_indices, _ <span class="op">=</span> find_peaks(</span>
+<span id="cb16-76"><a href="#cb16-76" aria-hidden="true" tabindex="-1"></a>        <span class="op">-</span>distancias_filtradas,  <span class="co"># Buscar mínimos como máximos negativos</span></span>
+<span id="cb16-77"><a href="#cb16-77" aria-hidden="true" tabindex="-1"></a>        distance<span class="op">=</span><span class="dv">15</span>,            <span class="co"># Mínimo 15 muestras entre picos</span></span>
+<span id="cb16-78"><a href="#cb16-78" aria-hidden="true" tabindex="-1"></a>        prominence<span class="op">=</span><span class="dv">3</span>,           <span class="co"># Mínima prominencia</span></span>
+<span id="cb16-79"><a href="#cb16-79" aria-hidden="true" tabindex="-1"></a>        width<span class="op">=</span><span class="dv">5</span>                 <span class="co"># Ancho mínimo del pico</span></span>
+<span id="cb16-80"><a href="#cb16-80" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb16-81"><a href="#cb16-81" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-82"><a href="#cb16-82" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Filtrar mínimos que no están en regiones cercanas</span></span>
+<span id="cb16-83"><a href="#cb16-83" aria-hidden="true" tabindex="-1"></a>    min_indices <span class="op">=</span> [i <span class="cf">for</span> i <span class="kw">in</span> min_indices <span class="cf">if</span> regiones_cercanas[i]]</span>
+<span id="cb16-84"><a href="#cb16-84" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-85"><a href="#cb16-85" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(min_indices) <span class="op">&lt;</span> <span class="dv">3</span>:</span>
+<span id="cb16-86"><a href="#cb16-86" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Error: Solo se detectaron </span><span class="sc">{</span><span class="bu">len</span>(min_indices)<span class="sc">}</span><span class="ss"> mínimos. Revisar montaje y parámetros"</span>)</span>
+<span id="cb16-87"><a href="#cb16-87" aria-hidden="true" tabindex="-1"></a>        exit()</span>
+<span id="cb16-88"><a href="#cb16-88" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-89"><a href="#cb16-89" aria-hidden="true" tabindex="-1"></a>    tiempos_minimos <span class="op">=</span> tiempos_s[min_indices]</span>
+<span id="cb16-90"><a href="#cb16-90" aria-hidden="true" tabindex="-1"></a>    distancias_minimos <span class="op">=</span> distancias_cm[min_indices]</span>
+<span id="cb16-91"><a href="#cb16-91" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-92"><a href="#cb16-92" aria-hidden="true" tabindex="-1"></a>    <span class="co"># --- CÁLCULO DE PERÍODOS COMPLETOS ---</span></span>
+<span id="cb16-93"><a href="#cb16-93" aria-hidden="true" tabindex="-1"></a>    periodos <span class="op">=</span> []</span>
+<span id="cb16-94"><a href="#cb16-94" aria-hidden="true" tabindex="-1"></a>    tiempos_periodo_completo <span class="op">=</span> []</span>
+<span id="cb16-95"><a href="#cb16-95" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-96"><a href="#cb16-96" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Solo consideramos mínimos alternados (misma dirección)</span></span>
+<span id="cb16-97"><a href="#cb16-97" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>, <span class="bu">len</span>(tiempos_minimos)):</span>
+<span id="cb16-98"><a href="#cb16-98" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Tomamos cada dos mínimos (para oscilación completa)</span></span>
+<span id="cb16-99"><a href="#cb16-99" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:  <span class="co"># Índices pares: misma dirección</span></span>
+<span id="cb16-100"><a href="#cb16-100" aria-hidden="true" tabindex="-1"></a>            periodo <span class="op">=</span> tiempos_minimos[i] <span class="op">-</span> tiempos_minimos[i<span class="op">-</span><span class="dv">2</span>]</span>
+<span id="cb16-101"><a href="#cb16-101" aria-hidden="true" tabindex="-1"></a>            periodos.append(periodo)</span>
+<span id="cb16-102"><a href="#cb16-102" aria-hidden="true" tabindex="-1"></a>            tiempos_periodo_completo.append(tiempos_minimos[i])</span>
+<span id="cb16-103"><a href="#cb16-103" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-104"><a href="#cb16-104" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> periodos:</span>
+<span id="cb16-105"><a href="#cb16-105" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Error: No se detectaron oscilaciones completas"</span>)</span>
+<span id="cb16-106"><a href="#cb16-106" aria-hidden="true" tabindex="-1"></a>        exit()</span>
+<span id="cb16-107"><a href="#cb16-107" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-108"><a href="#cb16-108" aria-hidden="true" tabindex="-1"></a>    <span class="co"># --- ANÁLISIS FÍSICO ---</span></span>
+<span id="cb16-109"><a href="#cb16-109" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calcular valor teórico esperado</span></span>
+<span id="cb16-110"><a href="#cb16-110" aria-hidden="true" tabindex="-1"></a>    g <span class="op">=</span> <span class="fl">9.8</span>  <span class="co"># m/s²</span></span>
+<span id="cb16-111"><a href="#cb16-111" aria-hidden="true" tabindex="-1"></a>    periodo_teorico <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> np.sqrt(LONGITUD_PENDULO <span class="op">/</span> g)</span>
+<span id="cb16-112"><a href="#cb16-112" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-113"><a href="#cb16-113" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Estadísticos de los periodos</span></span>
+<span id="cb16-114"><a href="#cb16-114" aria-hidden="true" tabindex="-1"></a>    periodo_medio <span class="op">=</span> np.mean(periodos)</span>
+<span id="cb16-115"><a href="#cb16-115" aria-hidden="true" tabindex="-1"></a>    desviacion_estandar <span class="op">=</span> np.std(periodos)</span>
+<span id="cb16-116"><a href="#cb16-116" aria-hidden="true" tabindex="-1"></a>    error_relativo <span class="op">=</span> <span class="bu">abs</span>(periodo_medio <span class="op">-</span> periodo_teorico) <span class="op">/</span> periodo_teorico <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb16-117"><a href="#cb16-117" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-118"><a href="#cb16-118" aria-hidden="true" tabindex="-1"></a>    <span class="co"># --- GRÁFICOS ---</span></span>
+<span id="cb16-119"><a href="#cb16-119" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">8</span>))</span>
+<span id="cb16-120"><a href="#cb16-120" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-121"><a href="#cb16-121" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Gráfico 1: Señal cruda con mínimos detectados</span></span>
+<span id="cb16-122"><a href="#cb16-122" aria-hidden="true" tabindex="-1"></a>    plt.subplot(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb16-123"><a href="#cb16-123" aria-hidden="true" tabindex="-1"></a>    plt.plot(tiempos_s, distancias_cm, <span class="st">'b-'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'Señal cruda'</span>)</span>
+<span id="cb16-124"><a href="#cb16-124" aria-hidden="true" tabindex="-1"></a>    plt.plot(tiempos_s, distancias_filtradas, <span class="st">'g-'</span>, label<span class="op">=</span><span class="st">'Señal filtrada'</span>)</span>
+<span id="cb16-125"><a href="#cb16-125" aria-hidden="true" tabindex="-1"></a>    plt.plot(tiempos_minimos, distancias_minimos, <span class="st">'ro'</span>, label<span class="op">=</span><span class="st">'Mínimos detectados'</span>)</span>
+<span id="cb16-126"><a href="#cb16-126" aria-hidden="true" tabindex="-1"></a>    plt.axhline(DISTANCIA_UMBRAL, color<span class="op">=</span><span class="st">'m'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, label<span class="op">=</span><span class="st">'Umbral detección'</span>)</span>
+<span id="cb16-127"><a href="#cb16-127" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">'Tiempo (s)'</span>)</span>
+<span id="cb16-128"><a href="#cb16-128" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">'Distancia (cm)'</span>)</span>
+<span id="cb16-129"><a href="#cb16-129" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">'Datos de Péndulo con HC-SR04'</span>)</span>
+<span id="cb16-130"><a href="#cb16-130" aria-hidden="true" tabindex="-1"></a>    plt.legend()</span>
+<span id="cb16-131"><a href="#cb16-131" aria-hidden="true" tabindex="-1"></a>    plt.grid(<span class="va">True</span>)</span>
+<span id="cb16-132"><a href="#cb16-132" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-133"><a href="#cb16-133" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Gráfico 2: Periodos medidos</span></span>
+<span id="cb16-134"><a href="#cb16-134" aria-hidden="true" tabindex="-1"></a>    plt.subplot(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>)</span>
+<span id="cb16-135"><a href="#cb16-135" aria-hidden="true" tabindex="-1"></a>    plt.plot(np.arange(<span class="bu">len</span>(periodos)), periodos, <span class="st">'bo-'</span>, label<span class="op">=</span><span class="st">'Periodos medidos'</span>)</span>
+<span id="cb16-136"><a href="#cb16-136" aria-hidden="true" tabindex="-1"></a>    plt.axhline(periodo_medio, color<span class="op">=</span><span class="st">'r'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, </span>
+<span id="cb16-137"><a href="#cb16-137" aria-hidden="true" tabindex="-1"></a>                label<span class="op">=</span><span class="ss">f'Media: </span><span class="sc">{</span>periodo_medio<span class="sc">:.3f}</span><span class="ss"> s'</span>)</span>
+<span id="cb16-138"><a href="#cb16-138" aria-hidden="true" tabindex="-1"></a>    plt.axhline(periodo_teorico, color<span class="op">=</span><span class="st">'g'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, </span>
+<span id="cb16-139"><a href="#cb16-139" aria-hidden="true" tabindex="-1"></a>                label<span class="op">=</span><span class="ss">f'Teórico: </span><span class="sc">{</span>periodo_teorico<span class="sc">:.3f}</span><span class="ss"> s'</span>)</span>
+<span id="cb16-140"><a href="#cb16-140" aria-hidden="true" tabindex="-1"></a>    plt.fill_between(np.arange(<span class="bu">len</span>(periodos)), </span>
+<span id="cb16-141"><a href="#cb16-141" aria-hidden="true" tabindex="-1"></a>                     periodo_medio <span class="op">-</span> desviacion_estandar, </span>
+<span id="cb16-142"><a href="#cb16-142" aria-hidden="true" tabindex="-1"></a>                     periodo_medio <span class="op">+</span> desviacion_estandar, </span>
+<span id="cb16-143"><a href="#cb16-143" aria-hidden="true" tabindex="-1"></a>                     color<span class="op">=</span><span class="st">'r'</span>, alpha<span class="op">=</span><span class="fl">0.1</span>)</span>
+<span id="cb16-144"><a href="#cb16-144" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">'Número de oscilación completa'</span>)</span>
+<span id="cb16-145"><a href="#cb16-145" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">'Periodo (s)'</span>)</span>
+<span id="cb16-146"><a href="#cb16-146" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="ss">f'Periodos del Péndulo (Error relativo: </span><span class="sc">{</span>error_relativo<span class="sc">:.2f}</span><span class="ss">%)'</span>)</span>
+<span id="cb16-147"><a href="#cb16-147" aria-hidden="true" tabindex="-1"></a>    plt.legend()</span>
+<span id="cb16-148"><a href="#cb16-148" aria-hidden="true" tabindex="-1"></a>    plt.grid(<span class="va">True</span>)</span>
+<span id="cb16-149"><a href="#cb16-149" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-150"><a href="#cb16-150" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span>
+<span id="cb16-151"><a href="#cb16-151" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-152"><a href="#cb16-152" aria-hidden="true" tabindex="-1"></a>    <span class="co"># --- RESULTADOS Y GUARDADO ---</span></span>
+<span id="cb16-153"><a href="#cb16-153" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">--- RESULTADOS ---"</span>)</span>
+<span id="cb16-154"><a href="#cb16-154" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Periodo teórico: </span><span class="sc">{</span>periodo_teorico<span class="sc">:.4f}</span><span class="ss"> s"</span>)</span>
+<span id="cb16-155"><a href="#cb16-155" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Periodo medio experimental: </span><span class="sc">{</span>periodo_medio<span class="sc">:.4f}</span><span class="ss"> s"</span>)</span>
+<span id="cb16-156"><a href="#cb16-156" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Desviación estándar: </span><span class="sc">{</span>desviacion_estandar<span class="sc">:.4f}</span><span class="ss"> s"</span>)</span>
+<span id="cb16-157"><a href="#cb16-157" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Error relativo: </span><span class="sc">{</span>error_relativo<span class="sc">:.2f}</span><span class="ss">%"</span>)</span>
+<span id="cb16-158"><a href="#cb16-158" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Número de oscilaciones completas: </span><span class="sc">{</span><span class="bu">len</span>(periodos)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb16-159"><a href="#cb16-159" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-160"><a href="#cb16-160" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Guardar resultados</span></span>
+<span id="cb16-161"><a href="#cb16-161" aria-hidden="true" tabindex="-1"></a>    df_periodos <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb16-162"><a href="#cb16-162" aria-hidden="true" tabindex="-1"></a>        <span class="st">'oscilacion'</span>: np.arange(<span class="dv">1</span>, <span class="bu">len</span>(periodos)<span class="op">+</span><span class="dv">1</span>,</span>
+<span id="cb16-163"><a href="#cb16-163" aria-hidden="true" tabindex="-1"></a>        <span class="st">'tiempo_inicio'</span>: tiempos_periodo_completo,</span>
+<span id="cb16-164"><a href="#cb16-164" aria-hidden="true" tabindex="-1"></a>        <span class="st">'periodo_s'</span>: periodos</span>
+<span id="cb16-165"><a href="#cb16-165" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb16-166"><a href="#cb16-166" aria-hidden="true" tabindex="-1"></a>    df_periodos.to_csv(<span class="st">'pendulo_periodos.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb16-167"><a href="#cb16-167" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-168"><a href="#cb16-168" aria-hidden="true" tabindex="-1"></a>    plt.savefig(<span class="st">'analisis_pendulo.png'</span>)</span>
+<span id="cb16-169"><a href="#cb16-169" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb16-170"><a href="#cb16-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-171"><a href="#cb16-171" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb16-172"><a href="#cb16-172" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Error: </span><span class="sc">{</span><span class="bu">str</span>(e)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb16-173"><a href="#cb16-173" aria-hidden="true" tabindex="-1"></a>    arduino.close() <span class="cf">if</span> <span class="st">'arduino'</span> <span class="kw">in</span> <span class="bu">locals</span>() <span class="cf">else</span> <span class="va">None</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="explicación-de-las-mejoras" class="level3" data-number="2.4.13">
+<h3 data-number="2.4.13" class="anchored" data-anchor-id="explicación-de-las-mejoras"><span class="header-section-number">2.4.13</span> Explicación de las Mejoras</h3>
+<ol type="1">
+<li><p><strong>Indicador LED integrado</strong>:</p>
+<ul>
+<li>El LED en el pin 13 se enciende cuando la distancia es menor que <code>DISTANCIA_UMBRAL</code></li>
+<li>Esto proporciona retroalimentación visual inmediata durante el experimento</li>
+<li>El umbral es configurable (30 cm en este caso)</li>
+</ul></li>
+<li><p><strong>Cálculo correcto de períodos completos</strong>:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>, <span class="bu">len</span>(tiempos_minimos)):</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:  <span class="co"># Índices pares: misma dirección</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>        periodo <span class="op">=</span> tiempos_minimos[i] <span class="op">-</span> tiempos_minimos[i<span class="op">-</span><span class="dv">2</span>]</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>        periodos.append(periodo)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Consideramos solo mínimos alternados para obtener períodos completos</li>
+<li>Por ejemplo: T1 = t2 - t0, T2 = t4 - t2, etc.</li>
+</ul></li>
+<li><p><strong>Filtrado inteligente de mínimos</strong>:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>regiones_cercanas <span class="op">=</span> distancias_filtradas <span class="op">&lt;</span> DISTANCIA_UMBRAL</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>min_indices <span class="op">=</span> [i <span class="cf">for</span> i <span class="kw">in</span> min_indices <span class="cf">if</span> regiones_cercanas[i]]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Solo consideramos mínimos que ocurren cuando el péndulo está cerca del sensor</li>
+<li>Evita detecciones falsas de objetos en el fondo</li>
+</ul></li>
+<li><p><strong>Visualización mejorada</strong>:</p>
+<ul>
+<li>Señal cruda y filtrada superpuestas</li>
+<li>Líneas de referencia para el umbral y período teórico</li>
+<li>Región sombreada que muestra la desviación estándar</li>
+</ul></li>
+<li><p><strong>Manejo robusto de errores</strong>:</p>
+<ul>
+<li>Verificación de suficientes datos</li>
+<li>Captura de excepciones</li>
+<li>Mensajes de error descriptivos</li>
+</ul></li>
+</ol>
+</section>
+<section id="parámetros-ajustables-clave" class="level3" data-number="2.4.14">
+<h3 data-number="2.4.14" class="anchored" data-anchor-id="parámetros-ajustables-clave"><span class="header-section-number">2.4.14</span> Parámetros Ajustables Clave</h3>
+<ol type="1">
+<li><strong><code>DISTANCIA_UMBRAL</code></strong>:
+<ul>
+<li>Distancia máxima para considerar “detección válida”</li>
+<li>Debe ajustarse según la distancia sensor-péndulo en reposo</li>
+</ul></li>
+<li><strong>Parámetros de <code>find_peaks</code></strong>:
+<ul>
+<li><code>distance</code>: Mínimo muestras entre picos (ajustar según velocidad péndulo)</li>
+<li><code>prominence</code>: Importancia mínima del pico (reduce falsos positivos)</li>
+<li><code>width</code>: Ancho mínimo del pico</li>
+</ul></li>
+<li><strong><code>TIEMPO_ADQUISICION</code></strong>:
+<ul>
+<li>Duración de la medición en segundos</li>
+<li>Para 10 oscilaciones típicas: ~20-30 segundos</li>
+</ul></li>
+</ol>
+</section>
+<section id="actividad-pedagógica-sugerida" class="level3" data-number="2.4.15">
+<h3 data-number="2.4.15" class="anchored" data-anchor-id="actividad-pedagógica-sugerida"><span class="header-section-number">2.4.15</span> Actividad Pedagógica Sugerida</h3>
+<p><strong>Calibración y Validación</strong>: 1. Variar la longitud del péndulo y verificar <span class="math inline">\(T \propto \sqrt{L}\)</span> 2. Medir manualmente con cronómetro y comparar con resultados automáticos 3. Investigar cómo afecta la amplitud inicial al período 4. Calcular la aceleración gravitatoria local: <span class="math display">\[ g = \frac{4\pi^2 L}{T^2} \]</span></p>
+<p><strong>Preguntas de Reflexión</strong>: 1. ¿Por qué el LED parpadea dos veces por oscilación completa? 2. ¿Cómo afecta la masa del péndulo al período? 3. ¿Por qué es importante el filtrado de señal en este experimento?</p>
+</section>
+</div>
+</div>
+</div>
+</section>
+<section id="conclusiones" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="conclusiones"><span class="header-section-number">2.5</span> Conclusiones</h2>
+<p>Como vemos, aunque parezca tentador, el uso de una herramientas que producen “de prinfipio a fin” sin el conocimiento necesario para escrutar, cuestionar y corregir el funcionamiento es como tomar un cuchillo por el filo en vez de por el mango.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
