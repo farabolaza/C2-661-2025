@@ -67,6 +67,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 <meta property="og:title" content="C2-661 2025">
@@ -304,7 +333,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#semana-virtual-junio" id="toc-semana-virtual-junio" class="nav-link active" data-scroll-target="#semana-virtual-junio">Semana Virtual Junio</a></li>
+  <li><a href="#semana-virtual-septiembre" id="toc-semana-virtual-septiembre" class="nav-link active" data-scroll-target="#semana-virtual-septiembre">Semana Virtual Septiembre</a></li>
   <li><a href="#cronograma-actualizado" id="toc-cronograma-actualizado" class="nav-link" data-scroll-target="#cronograma-actualizado">Cronograma actualizado</a></li>
   </ul>
 </nav>
@@ -332,10 +361,10 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p><a href=".\assets/Cronograma_C2_2025.pdf">Cronograma Inicial de Clases</a></p>
-<section id="semana-virtual-junio" class="level2">
-<h2 class="anchored" data-anchor-id="semana-virtual-junio">Semana Virtual Junio</h2>
-<p>Federico Arabolaza le está invitando a una reunión de Zoom programada.</p>
-<p>Tema: C2-661-2025 Federico Arabolaza Hora: 25 jun 2025 07:00 p.&nbsp;m. Buenos Aires, Georgetown Únase a la reunión de Zoom https://utn.zoom.us/j/9573772731?omn=99559333829</p>
+<section id="semana-virtual-septiembre" class="level2">
+<h2 class="anchored" data-anchor-id="semana-virtual-septiembre">Semana Virtual Septiembre</h2>
+<p>Tema: C2 - 24/09/25 Hora: 24 sept 2025 07:00 p.&nbsp;m. Buenos Aires, Georgetown Únase a la reunión de Zoom https://utn.zoom.us/j/9573772731?omn=82936658938</p>
+<p>ID de reunión: 957 377 2731</p>
 </section>
 <section id="cronograma-actualizado" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="cronograma-actualizado">Cronograma actualizado</h2>
@@ -504,7 +533,7 @@ ul.task-list li input[type="checkbox"] {
 <td>11</td>
 <td>Miércoles</td>
 <td>11/06/2025</td>
-<td>Python: Scypy -Pandas</td>
+<td>Python: Scypy - Pandas</td>
 <td></td>
 <td></td>
 <td></td>
@@ -576,7 +605,7 @@ ul.task-list li input[type="checkbox"] {
 <td>16</td>
 <td>Miércoles</td>
 <td>13/08/2025</td>
-<td>Arduino – 1</td>
+<td>Arduino – 1: Entradas, salidas, conexionado básico</td>
 <td></td>
 <td></td>
 <td></td>
@@ -588,7 +617,7 @@ ul.task-list li input[type="checkbox"] {
 <td>17</td>
 <td>Miércoles</td>
 <td>20/08/2025</td>
-<td>Arduino – 2</td>
+<td>Arduino – 2: Sensor HCSR-04. Conexión y funcionamiento</td>
 <td></td>
 <td></td>
 <td></td>
@@ -600,7 +629,7 @@ ul.task-list li input[type="checkbox"] {
 <td>18</td>
 <td>Miércoles</td>
 <td>27/08/2025</td>
-<td>Arduino – 3</td>
+<td>Arduino – 3: Puerto serie y comunicación con Python</td>
 <td></td>
 <td></td>
 <td></td>
@@ -612,7 +641,7 @@ ul.task-list li input[type="checkbox"] {
 <td>19</td>
 <td>Miércoles</td>
 <td>03/09/2025</td>
-<td>Arduino – 4</td>
+<td>Arduino – 4: Péndulo simple con HCSR-04</td>
 <td></td>
 <td></td>
 <td></td>
@@ -624,7 +653,7 @@ ul.task-list li input[type="checkbox"] {
 <td>20</td>
 <td>Miércoles</td>
 <td>10/09/2025</td>
-<td>Arduino – 5</td>
+<td>Arduino – 5: LDR (Fotoresistencia) conexión y calibración</td>
 <td></td>
 <td></td>
 <td></td>
@@ -636,7 +665,7 @@ ul.task-list li input[type="checkbox"] {
 <td>21</td>
 <td>Miércoles</td>
 <td>17/09/2025</td>
-<td>Arduino – 6</td>
+<td>Arduino – 6: LDR (Fotoresistencia) comunicación con Python</td>
 <td></td>
 <td></td>
 <td></td>
@@ -648,7 +677,7 @@ ul.task-list li input[type="checkbox"] {
 <td>22</td>
 <td>Miércoles</td>
 <td>24/09/2025</td>
-<td>Arduino – 7</td>
+<td>Arduino – 7: Verificación <span class="math inline">\(I \propto \frac{1}{r^2}\)</span> LDR</td>
 <td></td>
 <td></td>
 <td></td>
@@ -672,7 +701,7 @@ ul.task-list li input[type="checkbox"] {
 <td>23</td>
 <td>Miércoles</td>
 <td>08/10/2025</td>
-<td>Arduino – 8</td>
+<td>Arduino – 8:</td>
 <td></td>
 <td></td>
 <td></td>
