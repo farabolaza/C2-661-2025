@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Python 04 – C2-661 2025</title>
+<title>Arduino 05 – C2-661 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -101,14 +101,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="Python 04 – C2-661 2025">
-<meta property="og:description" content="Introducción a Numpy">
+<meta property="og:title" content="Arduino 05 – C2-661 2025">
+<meta property="og:description" content="Entradas analógicas">
 <meta property="og:site_name" content="C2-661 2025">
 </head>
 
-<body class="nav-sidebar docked slimcontent">
+<body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -117,7 +146,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../clases/Clase-01.html">Clases</a></li><li class="breadcrumb-item"><a href="../clases/Clase-04.html">Python 04</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../clases/Clase-01.html">Clases</a></li><li class="breadcrumb-item"><a href="../clases/Clase-14.html">Arduino 05</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -215,7 +244,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../clases/Clase-04.html" class="sidebar-item-text sidebar-link active">
+  <a href="../clases/Clase-04.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Python 04</span></a>
   </div>
 </li>
@@ -275,7 +304,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../clases/Clase-14.html" class="sidebar-item-text sidebar-link">
+  <a href="../clases/Clase-14.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Arduino 05</span></a>
   </div>
 </li>
@@ -344,28 +373,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#importar-módulos" id="toc-importar-módulos" class="nav-link active" data-scroll-target="#importar-módulos">Importar módulos</a></li>
-  <li><a href="#arrays-de-numpy" id="toc-arrays-de-numpy" class="nav-link" data-scroll-target="#arrays-de-numpy">Arrays de numpy</a></li>
-  <li><a href="#arange-y-linspace" id="toc-arange-y-linspace" class="nav-link" data-scroll-target="#arange-y-linspace">Arange y Linspace</a>
+  <li><a href="#objetivos-de-esta-clase" id="toc-objetivos-de-esta-clase" class="nav-link active" data-scroll-target="#objetivos-de-esta-clase">Objetivos de esta clase</a></li>
+  <li><a href="#el-ldr" id="toc-el-ldr" class="nav-link" data-scroll-target="#el-ldr">El LDR</a>
   <ul class="collapse">
-  <li><a href="#array-desde-una-lista" id="toc-array-desde-una-lista" class="nav-link" data-scroll-target="#array-desde-una-lista">Array desde una lista</a></li>
-  <li><a href="#array-desde-tuplas" id="toc-array-desde-tuplas" class="nav-link" data-scroll-target="#array-desde-tuplas">Array desde tuplas</a></li>
-  <li><a href="#zeros-ones-empty" id="toc-zeros-ones-empty" class="nav-link" data-scroll-target="#zeros-ones-empty">Zeros, Ones, empty</a></li>
+  <li><a href="#características" id="toc-características" class="nav-link" data-scroll-target="#características">Características</a></li>
+  <li><a href="#conectándo-un-ldr" id="toc-conectándo-un-ldr" class="nav-link" data-scroll-target="#conectándo-un-ldr">Conectándo un LDR</a></li>
+  <li><a href="#circuito-divisor-de-tensión" id="toc-circuito-divisor-de-tensión" class="nav-link" data-scroll-target="#circuito-divisor-de-tensión">Circuito divisor de tensión</a></li>
+  <li><a href="#circuito-completo" id="toc-circuito-completo" class="nav-link" data-scroll-target="#circuito-completo">Circuito completo</a></li>
   </ul></li>
-  <li><a href="#algunos-atributos" id="toc-algunos-atributos" class="nav-link" data-scroll-target="#algunos-atributos">Algunos atributos</a></li>
-  <li><a href="#manipulación-de-arrays" id="toc-manipulación-de-arrays" class="nav-link" data-scroll-target="#manipulación-de-arrays">Manipulación de arrays</a></li>
-  <li><a href="#actividad" id="toc-actividad" class="nav-link" data-scroll-target="#actividad">Actividad</a></li>
+  <li><a href="#actividad" id="toc-actividad" class="nav-link" data-scroll-target="#actividad">Actividad</a>
+  <ul class="collapse">
+  <li><a href="#código-de-arduino" id="toc-código-de-arduino" class="nav-link" data-scroll-target="#código-de-arduino">Código de arduino</a></li>
+  <li><a href="#análisis-de-los-datos" id="toc-análisis-de-los-datos" class="nav-link" data-scroll-target="#análisis-de-los-datos">Análisis de los datos</a></li>
+  </ul></li>
   <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias">Referencias</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../clases/Clase-01.html">Clases</a></li><li class="breadcrumb-item"><a href="../clases/Clase-04.html">Python 04</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../clases/Clase-01.html">Clases</a></li><li class="breadcrumb-item"><a href="../clases/Clase-14.html">Arduino 05</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Python 04</h1>
-<p class="subtitle lead">Introducción a Numpy</p>
+<h1 class="title">Arduino 05</h1>
+<p class="subtitle lead">Entradas analógicas</p>
 </div>
 
 
@@ -382,190 +413,161 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="importar-módulos" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="importar-módulos">Importar módulos</h2>
-<p>Para agregar a nuestro espacio de trabajo las funciones que un módulo de python nos provee debemos importarlo. La sintaxis sigue algunas de estas convenciones</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> modulo <span class="im">as</span> m</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Importamos el modulo y le asignamos un nombre <code>m</code> en este caso, ya sea para evitar confusiones, hacerlo más manejable o corto.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> modulo <span class="im">import</span> submodulo <span class="im">as</span> sm</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>De una librería importamos sólo la función o submódulo que necesitamos.</p>
-
-<div class="no-row-height column-margin column-container"><div class="">
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Temario
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>En esta clase veremos:</p>
-<ul>
-<li>Qué es Numpy</li>
-<li>Arrays de Numpy</li>
-<li>Algunos métodos y funciones de Numpy</li>
-</ul>
-</div>
-</div>
-</div></div></section>
-<section id="arrays-de-numpy" class="level2">
-<h2 class="anchored" data-anchor-id="arrays-de-numpy">Arrays de numpy</h2>
-<p>l objeto principal de Numpy es un array homogéneo multidimensional. Básicamente se trata de una tabla de elementos (generalmente números) todos del mismo tipo (ésta es una diferencia en cuanto a las listas, que permitían tipos mezclados) que se encuentran indizados (indexados). Las dimensiones del array en Numpy se denominan ejes (axes).</p>
-<p>La clase base del array es <code>ndarray</code> (lo que Python nos devuelve si usamos la función <code>type</code> sobre un array.</p>
-<p>Los atributos principales de un array son:</p>
-<ul>
-<li><strong>ndarray.ndim</strong>: la cantidad de ejes</li>
-<li><strong>ndarray.shape</strong>: La “forma” del array, es decir, sus dimensiones. Es una n-upla de enteros que nos dice la dimensión del array en cada eje. Por ejemplo, para una matriz de n filas y m columnas shape será <code>(n,m)</code> (existiendo un sólo eje o axis). La longitud de la forma <code>shape</code> será la cantidad de ejes que tengamos, es decir <code>ndim</code>. Podríamos tener en un mismo array varias matrices una en cada eje.</li>
-<li><strong>ndarray.size</strong>: Cantidad de elementos en el array.</li>
-<li><strong>ndarray.dtype</strong>: El tipo de datos que contiene el array.</li>
-<li><strong>ndarray.itemsize</strong>: El tamaño (en bytes) de los elementos del array</li>
+<section id="objetivos-de-esta-clase" class="level1">
+<h1>Objetivos de esta clase</h1>
+<ul class="task-list">
+<li><label><input type="checkbox">Conectar un sensor (LDR) a una entrada analógica de arduino</label></li>
+<li><label><input type="checkbox">Utilizar un circuito divisor de tensión</label></li>
+<li><label><input type="checkbox">Conectar un LED en arduino y variar su intensidad con PWM</label></li>
+<li><label><input type="checkbox">Visualizar la relación entre PWM enviado al LED y el voltaje medido en arduino</label></li>
+<li><label><input type="checkbox">Graficar los datos obtenidos (planilla de cálculo)</label></li>
+<li><label><input type="checkbox">Obtener la curva de respuesta del sensor</label></li>
 </ul>
 </section>
-<section id="arange-y-linspace" class="level2">
-<h2 class="anchored" data-anchor-id="arange-y-linspace">Arange y Linspace</h2>
-<p>Importamos numpy</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Podemos crear un array desde cero usando algunas funciones que vienen con numpy</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.arange(<span class="dv">15</span>) <span class="co"># Array que va de 0 a 14</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>La sintaxis completa es siimlar a la función <code>range</code> de python</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.arange(inicio,fin,paso)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Podmemos crear un array usando la función <code>linspace</code> que es más conveniente cuando queremos usar datos equiespaciados en una cantidad no entera</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>np.linspace(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">20</span>) <span class="co"># inicio, fin, cantidad de elementos</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="array-desde-una-lista" class="level3">
-<h3 class="anchored" data-anchor-id="array-desde-una-lista">Array desde una lista</h3>
-<p>Es posible convertir datos de otro origen al formato de array de numpy pero no desde elementos indivuduales</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)   <span class="co"># MAL</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]) <span class="co"># BIEN</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array((<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>))  <span class="co"># BIEN</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="array-desde-tuplas" class="level3">
-<h3 class="anchored" data-anchor-id="array-desde-tuplas">Array desde tuplas</h3>
-<p><code>array</code> también puede transformar conjuntos de tuplas o secuencias de secuencias en arreglos n-dimensionales. Por ejemplo:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> np.array([(<span class="fl">1.5</span>, <span class="dv">2</span> ,<span class="dv">3</span>), (<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>), (<span class="fl">7.1</span>, <span class="fl">7.2</span>, <span class="fl">7.3</span>)])</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(c)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(c.shape)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="zeros-ones-empty" class="level3">
-<h3 class="anchored" data-anchor-id="zeros-ones-empty">Zeros, Ones, empty</h3>
-<p>La función <code>zeros</code> crea un array de ceros, la función <code>ones</code> crea un array de unos y la función <code>random.rand</code> crea un array de valores <code>float</code> aleatorios en el intervalo [0,1] mientras que la función <code>empty</code> crea un array cuyo contenido depende de lo que haya en memoria (sinceramente nunca usé esta función) con el tipo <code>float64</code>.</p>
-<p>Existen otras funciones como <code>zeros_like</code> que crea arrays del tamaño de otro objeto, útil cuando queremos que dos arrays tengan el mismo tamaño.</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Zeros</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">One</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Empty</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Zeros Like</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>np.zeros((<span class="dv">3</span>,<span class="dv">4</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="el-ldr" class="level1">
+<h1>El LDR</h1>
+<p>Un LDR es un componente electrónico que debido a los materiales con los que está construido, su conductividad eléctrica es afectada por la absorción de luz y por lo tanto también lo es su resistencia. En resumen, podemos decir que un LDR es una resistencia variable en función de la luz incidente.</p>
+<p>Los detalles del principio de funcionamiento están emparentados con los de otros materiales semiconductores como diodos y transistores y serán tratados tanto en posteriores asignaturas de física como en electrónica.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="..\assets/ldr-light-dependent-resistor-symbol.png" class="img-fluid figure-img"></p>
+<figcaption>Símbolo de una LDR</figcaption>
+</figure>
 </div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>test <span class="op">=</span> np.ones((<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>), dtype<span class="op">=</span>np.int16)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(test)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>np.empty((<span class="dv">2</span>,<span class="dv">3</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
-<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span>np.zeros_like(B)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>np.size(C)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(C)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="algunos-atributos" class="level2">
-<h2 class="anchored" data-anchor-id="algunos-atributos">Algunos atributos</h2>
-<p>A este elemento le podemos consultar los atributos que vimos en la sección anterior</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">dtype</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">ndim</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">itemsize</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false">size</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a.shape)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a.ndim)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
-<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a.dtype.name)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
-<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a.itemsize)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a.size)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="manipulación-de-arrays" class="level2">
-<h2 class="anchored" data-anchor-id="manipulación-de-arrays">Manipulación de arrays</h2>
-<p>Las funciones típicas son: - <code>ravel()</code> aplana el array - <code>reshape()</code> cambia la forma - <code>transpose()</code> lo transpone</p>
-<p>Podemos crear un array con valores aleatorios usando el submódulo random de numpy.</p>
-<div class="sourceCode" id="annotated-cell-9"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-9-1" class="code-annotation-target"><a href="#annotated-cell-9-1" aria-hidden="true" tabindex="-1"></a>ejemplo <span class="op">=</span> np.random.rand(<span class="dv">4</span>,<span class="dv">4</span>)</span>
-<span id="annotated-cell-9-2"><a href="#annotated-cell-9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ejemplo)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-9" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-9" data-code-lines="1" data-code-annotation="1">Un array (matriz) de 4x4</span>
-</dd>
-</dl>
-<div class="sourceCode" id="annotated-cell-10"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-10" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-10-1" class="code-annotation-target"><a href="#annotated-cell-10-1" aria-hidden="true" tabindex="-1"></a>example_flat <span class="op">=</span> example.ravel()</span>
-<span id="annotated-cell-10-2"><a href="#annotated-cell-10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(example_flat)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-10" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-10" data-code-lines="1" data-code-annotation="1">devuelve el array, “aplanado”</span>
-</dd>
-</dl>
-<div class="sourceCode" id="annotated-cell-11"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-11" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-11-1" class="code-annotation-target"><a href="#annotated-cell-11-1" aria-hidden="true" tabindex="-1"></a>example_flat.reshape(<span class="dv">2</span>,<span class="dv">8</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-11" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-11" data-code-lines="1" data-code-annotation="1">Devuelve el array pero como una matriz de 2x8</span>
-</dd>
-</dl>
-<div class="sourceCode" id="annotated-cell-12"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-12" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-12-1" class="code-annotation-target"><a href="#annotated-cell-12-1" aria-hidden="true" tabindex="-1"></a>example_flat.reshape(<span class="dv">4</span>,<span class="dv">4</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-12" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-12" data-code-lines="1" data-code-annotation="1">Devuelve el array a su forma original</span>
-</dd>
-</dl>
-<div class="sourceCode" id="annotated-cell-13"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-13" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-13-1" class="code-annotation-target"><a href="#annotated-cell-13-1" aria-hidden="true" tabindex="-1"></a>test <span class="op">=</span> np.random.rand(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">6</span>)</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-13" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-13-2" class="code-annotation-target"><a href="#annotated-cell-13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(test.ravel())</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-13" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-13-3" class="code-annotation-target"><a href="#annotated-cell-13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(example.transpose())</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-13" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-13" data-code-lines="1" data-code-annotation="1">Dos arrays que contienen a su vez arrays de 2x3 (CxF)</span>
-</dd>
-<dt data-target-cell="annotated-cell-13" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-13" data-code-lines="2" data-code-annotation="2">Aplana el array</span>
-</dd>
-<dt data-target-cell="annotated-cell-13" data-target-annotation="3">3</dt>
-<dd>
-<span data-code-cell="annotated-cell-13" data-code-lines="3" data-code-annotation="3">Transpone (invierte filas y columnas)</span>
-</dd>
-</dl>
-<p>La función <code>rand()</code> merece un apartado en sí misma y la veremos más adelante pero genera desde un array con un sólo elemento aleatorio entre cero y uno o arrays de cualquier forma.</p>
-</section>
-<section id="actividad" class="level2">
-<h2 class="anchored" data-anchor-id="actividad">Actividad</h2>
-<p>Usando el módulo de ayuda buscar las funciones que permiten en numpy calcular:</p>
+<section id="características" class="level2">
+<h2 class="anchored" data-anchor-id="características">Características</h2>
+<p>Para nuestros fines lo que tenemos que conocer de una fotoresistencia es que la variación de la resistencia eléctrica depende de varios factores y no tiene una relación de linealidad con la intensidad de la luz incidente. Podemos resumir esta información como sigue:</p>
 <ul>
-<li>el valor medio</li>
-<li>la desviación estándar</li>
-<li>La sumatoria de un array</li>
-<li>El valor máximo de un array</li>
-<li>El valor mínimo de un array</li>
+<li>Depende de la frecuencia de la luz incidente</li>
+<li>Puede ser sensible sólo en cierto intervalo de longitudes de onda dependiendo del material empleado en su fabricación.</li>
+<li>Depende del elemento en sí (varía entre componentes hechos en serie)</li>
+<li>Depende de las condiciones ambientes (temperatura, humedad, etc.)</li>
+<li>No es lineal. a relación entre resistencia y luz incidente suele seguir un patrón exponencial y no lineal.</li>
+<li>Tiempo de respuesta/recuperación: El LDR tiene un retardo entre alcanzar un valor nuevo de resistencia al cambiar las condiciones de luz sobre este y volver a su estado anterior.</li>
 </ul>
+<p>El LDR es un componente sencillo, de bajo costo y que no necesita alimentación externa para funcionar poe lo que que más allá de sus limitaciones es empleado en muchos circuitos de detencción de luz en diversos dispositivos como cámaras, luminaria pública, etc.</p>
 </section>
-<section id="referencias" class="level2">
-<h2 class="anchored" data-anchor-id="referencias">Referencias</h2>
+<section id="conectándo-un-ldr" class="level2">
+<h2 class="anchored" data-anchor-id="conectándo-un-ldr">Conectándo un LDR</h2>
+<p><strong>Materiales Necesarios:</strong></p>
+<ul>
+<li>Fotoresistencia (LDR)</li>
+<li>LED (fuente de luz)</li>
+<li>Resistencia de 10 kΩ</li>
+<li>Resitencia 200-300 Ω</li>
+<li>Arduino Uno</li>
+<li>Cables</li>
+</ul>
+<p>Para conectar el ldr al arduino necesitamos hacerlo en una entrada analógica ya que estaremos leyendo una fracción de la tensión sumistrada. Esta diferencia de potencial, será luego convertida en valores digitales (entre 0 y 1023) que el arduino podrá interpretar y mostrarnos y a través de el código de arduino convertiremos en valores de tensión.</p>
+<p>Para conseguirlo conectaremos una resistencia de valor conocido en serie con el LDR y mediremos entre los extremos de la resistencia de valor conocido la diferencia de potencial que cambiará en función<br>
+de la resistencia del LDR. Si la resistencia del LDR aumenta la tensión disponible disminuirá y vice-versa. Esto resulta ùtil porque como la fotoresistencia aumenta su resistencia cuando la luz incidente disminuye y cae cuando la intensidad de la luz aumenta, de esta forma el voltaje medido será proporcional a la intensidad de la luz: Cuando la luz aumente la resistencia disminuira y por lo tanto el voltaje medido aumentará.</p>
+</section>
+<section id="circuito-divisor-de-tensión" class="level2">
+<h2 class="anchored" data-anchor-id="circuito-divisor-de-tensión">Circuito divisor de tensión</h2>
+<p>Para conectar el LDR aprovecharemos un circuito muy conocido en el mundo de la electrónica llamado circuito divisor de tensión. Su lógica es la siguiente: Si tenemos un circuito con resistencias en serie, la resistencia total equivalente es la suma de las resistencias (esto lo habrán visto o verán en física) y cada elemento provoca una caída en el potencial que sumadas nos deben dar el potencial disponible en la fuente (no es más que la conservación de la energía).</p>
+<p>Como cada resistencia lo que hace es disminuir una fracción la diferencia de potencial, el potencial disponible entre los extremos de cualquier resistencia del circuito será la proporción del valor de dicha resistencia en relación al resto. Pongamos un ejemplo: si en un circuito con una fuente de N volts existen dos resistencias en serie donde una es de 1 <span class="math inline">\(\Omega\)</span> y la otra de 3 <span class="math inline">\(\Omega\)</span> la resistencia equivalente del circuito es 4 <span class="math inline">\(\Omega\)</span> por lo que la primera nos dará un cuarto de la caída de potencial mientras que la segunda los tres cuartos restantes.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="..\assets/divisor-de-voltaje-o-tension.png" class="img-fluid figure-img"></p>
+<figcaption>divisor de tensión</figcaption>
+</figure>
+</div>
+<p>Podemos en base a esto deducir una fórmula para conocer la diferencia de potencial entre los extremos de una resistencia del siguiente forma:</p>
+<p>Como el cicruito es en serie, la corriente que circula en la misma en todos los componentes (conservación de la carga).</p>
+<p><span class="math display">\[
+I = \frac{V_f}{R_{eq}} = \frac{V_1}{R_1} = \frac{V_2}{R_2} = \frac{V_n}{R_n}
+\]</span></p>
+<p>Si tenemos sólo dos resistencias, la <span class="math inline">\(R_{eq}\)</span> es la suma de ambas y podemos reformular</p>
+<p><span class="math display">\[
+I = \frac{V_f}{R_1+R_2} = \frac{V_1}{R_1} = \frac{V_2}{R_2}
+\]</span></p>
+<p>y a partir de exta expresión obtener la caída de potencial para cualquiera de las resistencias de nuestro circuito.</p>
+<p><span class="math display">\[
+I = \frac{V_f}{R_1+R_2}\cdot R_2 = V_2
+\]</span></p>
+<p>En nuestro caso, lo haremos midiendo entre la resitencia de valor conocido.</p>
+</section>
+<section id="circuito-completo" class="level2">
+<h2 class="anchored" data-anchor-id="circuito-completo">Circuito completo</h2>
+<p>La conexión puede ser como se muestra en la siguiente imagen:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="..\assets/tinkercad-Fotoresistencia.png" class="img-fluid figure-img"></p>
+<figcaption>Circuito con protoboard</figcaption>
+</figure>
+</div>
+<p>Para ganar flexibilidad, podemos conectar extensores hembra-hembra tanto en el LED como en el LDR para manipular los componentes con mayor comodidad y luego añadir cables macho-macho para conectarlos a la placa de prototipado.</p>
+<p>Para conocer el valor de una resistencia de pueden ayudar con esta tabla (o medirlas con un multímetro)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="..\clases/tabla-codigo-de-colores-de-una-resistencia-1024x996.png" class="img-fluid figure-img"></p>
+<figcaption>codigo de colores resistencias</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="actividad" class="level1">
+<h1>Actividad</h1>
+<p>Para conocer la respuesta del LDR lo que haremos es variar la intensidad de un LED mediante PWM. Colocando tanto al LED como al LDR en un lugar oscuro, cerrado y poco reflectivo podremos recolectar los datos de tensión que el LDR nos muestra para cada PWM y obtener una curva <span class="math inline">\(V_{ldr}(V_{PWM})\)</span></p>
+<section id="código-de-arduino" class="level2">
+<h2 class="anchored" data-anchor-id="código-de-arduino">Código de arduino</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c++ code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">int</span> LDR_PIN <span class="op">=</span> A0<span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">int</span> LED_PIN <span class="op">=</span> <span class="dv">9</span><span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> setup<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>begin<span class="op">(</span><span class="dv">9600</span><span class="op">);</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  pinMode<span class="op">(</span>LED_PIN<span class="op">,</span> OUTPUT<span class="op">);</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>println<span class="op">(</span><span class="st">"CALIBRACION_INICIADA"</span><span class="op">);</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> loop<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Calibración: variar intensidad LED y medir respuesta LDR</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Se puede achicar el paso del for pwm y tener mas puntos</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> pwm <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> pwm <span class="op">&lt;=</span> <span class="dv">255</span><span class="op">;</span> pwm <span class="op">+=</span> <span class="dv">10</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    analogWrite<span class="op">(</span>LED_PIN<span class="op">,</span> pwm<span class="op">);</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    delay<span class="op">(</span><span class="dv">800</span><span class="op">);</span>  <span class="co">// Tiempo para estabilización</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> valor_analogico <span class="op">=</span> analogRead<span class="op">(</span>LDR_PIN<span class="op">);</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="dt">float</span> voltaje <span class="op">=</span> valor_analogico <span class="op">*</span> <span class="op">(</span><span class="fl">5.0</span> <span class="op">/</span> <span class="fl">1023.0</span><span class="op">);</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Enviar datos: PWM, valor analógico, voltaje</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    Serial<span class="op">.</span>print<span class="op">(</span><span class="st">"CAL,"</span><span class="op">);</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    Serial<span class="op">.</span>print<span class="op">(</span>pwm<span class="op">);</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    Serial<span class="op">.</span>print<span class="op">(</span><span class="st">","</span><span class="op">);</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    Serial<span class="op">.</span>print<span class="op">(</span>valor_analogico<span class="op">);</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    Serial<span class="op">.</span>print<span class="op">(</span><span class="st">","</span><span class="op">);</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    Serial<span class="op">.</span>println<span class="op">(</span>voltaje<span class="op">,</span> <span class="dv">4</span><span class="op">);</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>println<span class="op">(</span><span class="st">"CALIBRACION_TERMINADA"</span><span class="op">);</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span>  <span class="co">// Detener después de la calibración</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="análisis-de-los-datos" class="level2">
+<h2 class="anchored" data-anchor-id="análisis-de-los-datos">Análisis de los datos</h2>
+<p>Con lo que el monitor serie nos ha dado, podemos intentar obtener una curva de respuesta en planilla de cálculo (en próximas actividades nos valdremos de python para agilizar y automatizar parte del proceso) y visualizar la curva de respuesta del sensor.</p>
 <ol type="1">
-<li><a href="https://www.w3schools.com/python/numpy/numpy_exercises.asp"><span class="emoji" data-emoji="pencil2">✏️</span> Ejercicios de Numpy en W3Schools.com</a></li>
-<li><a href="https://github.com/rougier/numpy-100/tree/master"><span class="emoji" data-emoji="pencil2">✏️</span> 101 Ejercicios de Numpy con soluciones</a></li>
-<li><a href="https://tutoriales.edu.lat/pub/numpy/numpy-statistical-functions/numpy-funciones-estadisticas"><span class="emoji" data-emoji="pencil2">✏️</span> Funciones estadísticas en Numpy</a></li>
+<li>¿Que tipo de curva vemos?</li>
+<li>¿Podemos intuir alguna relación funcional?¿Cómo?</li>
+<li>Intentar linealizar o modificar los datos para obtener una posible realación funcional. ¿Se verfica la relación logarítmica?</li>
+<li>¿Cómo aplicarían la transformación para obtener una relación de proporcionalidad directa a los datos de entrada? (próxima clase)</li>
 </ol>
+<p>Pueden descargar estos archivos para usar como guía</p>
+<p><a href="..\assets/curva_calibracion_ldr.ods">curva de calibración 1</a> <a href="..\assets/curva_calibracion_ldr_2.ods">curva de calibración 2</a></p>
+</section>
+</section>
+<section id="referencias" class="level1">
+<h1>Referencias</h1>
+<ul>
+<li><a href="https://www.electrical4u.com/light-dependent-resistor-ldr-working-principle-of-ldr/">Principios de funcionamiento de un LDR</a></li>
+<li><a href="https://www.tecnosalva.com/que-es-y-como-funciona-una-ldr/">Cómo funciona una fotoresistencia</a></li>
+<li><a href="https://www.youtube.com/watch?v=PCfspyFTjOQ">:video: Descripción de un LDR</a></li>
+<li><a href="https://www.ingenierizando.com/electronica/divisor-de-voltaje-o-divisor-de-tension/">Circuito divisor de tensión</a></li>
+<li><a href="https://youtu.be/d3zcjfjqFxE?si=NN10q63f31OO8sra">:video: Sensor KY-18 y funcionamiento básico LDR</a></li>
+<li><a href="https://www.youtube.com/watch?v=E2oRMMtw148">:video: Conexión LDR</a></li>
+<li><a href="https://www.youtube.com/watch?v=UnO-PLLHF8c">:video: Circuito divisor de tensión</a></li>
+<li><a href="https://www.luisllamas.es/medir-nivel-luz-con-arduino-y-fotoresistencia-ldr/">Conexión LDR en arduino</a></li>
+</ul>
 
 
 </section>
