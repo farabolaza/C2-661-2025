@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Arduino 06 – C2-661 2025</title>
+<title>Segundo Parcial – C2-661 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -101,39 +67,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="Arduino 06 – C2-661 2025">
-<meta property="og:description" content="Simuaciones en Tinkercad">
+<meta property="og:title" content="Segundo Parcial – C2-661 2025">
+<meta property="og:description" content="Arduino">
 <meta property="og:site_name" content="C2-661 2025">
 </head>
 
@@ -146,7 +83,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../clases/Clase-01.html">Clases</a></li><li class="breadcrumb-item"><a href="../clases/Clase-15.html">Arduino 06</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../clases/Clase-01.html">Clases</a></li><li class="breadcrumb-item"><a href="../clases/Clase-16.html">Segundo Parcial</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -307,13 +244,13 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../clases/Clase-15.html" class="sidebar-item-text sidebar-link active">
+  <a href="../clases/Clase-15.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Arduino 06</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../clases/Clase-16.html" class="sidebar-item-text sidebar-link">
+  <a href="../clases/Clase-16.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Segundo Parcial</span></a>
   </div>
 </li>
@@ -382,30 +319,21 @@ window.Quarto = {
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#objetivos-de-esta-clase" id="toc-objetivos-de-esta-clase" class="nav-link active" data-scroll-target="#objetivos-de-esta-clase">Objetivos de esta clase</a></li>
-  <li><a href="#diagramas-en-tinkercad" id="toc-diagramas-en-tinkercad" class="nav-link" data-scroll-target="#diagramas-en-tinkercad">Diagramas en Tinkercad</a>
+  <li><a href="#consginas" id="toc-consginas" class="nav-link active" data-scroll-target="#consginas">Consginas</a>
   <ul class="collapse">
-  <li><a href="#iniciar-sesión" id="toc-iniciar-sesión" class="nav-link" data-scroll-target="#iniciar-sesión">Iniciar sesión</a></li>
-  <li><a href="#crear-un-diagrama" id="toc-crear-un-diagrama" class="nav-link" data-scroll-target="#crear-un-diagrama">Crear un diagrama</a>
-  <ul class="collapse">
-  <li><a href="#componentes" id="toc-componentes" class="nav-link" data-scroll-target="#componentes">Componentes</a></li>
-  <li><a href="#código" id="toc-código" class="nav-link" data-scroll-target="#código">Código</a></li>
-  <li><a href="#simulación" id="toc-simulación" class="nav-link" data-scroll-target="#simulación">Simulación</a></li>
-  <li><a href="#limitaciones-sensores" id="toc-limitaciones-sensores" class="nav-link" data-scroll-target="#limitaciones-sensores">Limitaciones (sensores)</a></li>
+  <li><a href="#modalidad-de-entrega" id="toc-modalidad-de-entrega" class="nav-link" data-scroll-target="#modalidad-de-entrega">Modalidad de entrega</a></li>
   </ul></li>
-  </ul></li>
-  <li><a href="#actividad-pre-parcial" id="toc-actividad-pre-parcial" class="nav-link" data-scroll-target="#actividad-pre-parcial">Actividad (pre-parcial)</a></li>
-  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias">Referencias</a></li>
+  <li><a href="#consulta-habilitada-durante-el-examen" id="toc-consulta-habilitada-durante-el-examen" class="nav-link" data-scroll-target="#consulta-habilitada-durante-el-examen">Consulta habilitada durante el examen</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../clases/Clase-01.html">Clases</a></li><li class="breadcrumb-item"><a href="../clases/Clase-15.html">Arduino 06</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../clases/Clase-01.html">Clases</a></li><li class="breadcrumb-item"><a href="../clases/Clase-16.html">Segundo Parcial</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Arduino 06</h1>
-<p class="subtitle lead">Simuaciones en Tinkercad</p>
+<h1 class="title">Segundo Parcial</h1>
+<p class="subtitle lead">Arduino</p>
 </div>
 
 
@@ -422,148 +350,27 @@ window.Quarto = {
 </header>
 
 
-<section id="objetivos-de-esta-clase" class="level1">
-<h1>Objetivos de esta clase</h1>
-<ul class="task-list">
-<li><label><input type="checkbox">Conectar un sensor (LDR) a una entrada analógica de arduino</label></li>
-<li><label><input type="checkbox">Utilizar un circuito divisor de tensión</label></li>
-<li><label><input type="checkbox">Conectar un LED en arduino y variar su intensidad con PWM</label></li>
-<li><label><input type="checkbox">Simular el circuito en Tinkercad y conocer sus limitaciones</label></li>
-<li><label><input type="checkbox">Controlar la intensidad del LED (encendido/apagado) con el LDR</label></li>
-</ul>
-</section>
-<section id="diagramas-en-tinkercad" class="level1">
-<h1>Diagramas en Tinkercad</h1>
-<section id="iniciar-sesión" class="level2">
-<h2 class="anchored" data-anchor-id="iniciar-sesión">Iniciar sesión</h2>
-<p>Como vimos en una de las primeras clases sobre Arduino, Tinkercad nos permite, entre otras funciones que posee, simular circuitos. Ingresmos a Tinkercad <a href="https://www.tinkercad.com/">acá</a>. Para crear un circuito en Tinkercad debemos tener una cuenta. Un método sencillo de autenticación es usar una cuenta de Google, aunque podemos crear una con nuestro correo.</p>
-<div>
-
-</div>
-<div class="quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\assets/tinkercad-registro.png" class="img-fluid figure-img"></p>
-<figcaption>Registro</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\assets/tinkercad-registro-2.png" class="img-fluid figure-img"></p>
-<figcaption>Inicio</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="crear-un-diagrama" class="level2">
-<h2 class="anchored" data-anchor-id="crear-un-diagrama">Crear un diagrama</h2>
-<p>Para cear un diagrama vamos a la sección Diseños y luego a Circuitos. Ali podemos darle al boton “crear” seleccionando “circuitos” y comenzar.</p>
-<p>La barra lateral nos nuestra un listado de componentes y sus nombres. También tenemos un cuadro de búsqueda que nos permitirá agilizar este proceso.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\assets/tinkercad-componentes.png" class="img-fluid figure-img"></p>
-<figcaption>Tinkercad Barra</figcaption>
-</figure>
-</div>
-<section id="componentes" class="level3">
-<h3 class="anchored" data-anchor-id="componentes">Componentes</h3>
-<p>Una vez que elegimos un componente y lo arrastramos al tablero principal podremos elegir sus características</p>
-<div>
-
-</div>
-<div class="quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\assets/tinkercad-led.png" class="img-fluid figure-img"></p>
-<figcaption>parámetros para un LED</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\assets/tinkercad-resistencia.png" class="img-fluid figure-img"></p>
-<figcaption>parámetros para una resistencia</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="código" class="level3">
-<h3 class="anchored" data-anchor-id="código">Código</h3>
-<p>En la sección código podremos elegir entre varias formas de interacción. Nosotros seleccionaremos la versión texto que nos da una visual similar al Arduino IDE con opción a escribir en el lenguaje de Arduino.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\assets/tinkercad-codigo.png" class="img-fluid figure-img"></p>
-<figcaption>código</figcaption>
-</figure>
-</div>
-</section>
-<section id="simulación" class="level3">
-<h3 class="anchored" data-anchor-id="simulación">Simulación</h3>
-<p>Una vez que hemos hecho una conexión y hemos agregado el codigo corresopndiente podemos iniciar nuestra simulación.</p>
-</section>
-<section id="limitaciones-sensores" class="level3">
-<h3 class="anchored" data-anchor-id="limitaciones-sensores">Limitaciones (sensores)</h3>
-<p>Los sensores de entorno ya sean fotoresistencias, sensores de distancia por ultrasonido, de temperatura, etc. no están realmente conectados a ningún entorno real en tintkercad sino que permiten a través de la interacción del usuario con controles deslizantes emular lo que el sensor estaría viendo. Esto pone una limitación a que tanto de una disposición experimental puede simularse ya que si bien es posible mover un deslizador para que, por ejemplo, el HCSR-04 mida una distancia, este valor no puede ser controlado por el usuario de manera que efectivamente se comporte como un objeto de la realidad. Traten de imaginarse moviendo un puntito en pantalla con una aceleración igual a <span class="math inline">\(g\)</span>. No es factible. Como en muchas otras circunstancias, los sucedáneos de código tiene problemas para abarcar la complejidad del mundo de las cosas reales.</p>
-</section>
-</section>
-</section>
-<section id="actividad-pre-parcial" class="level1">
-<h1>Actividad (pre-parcial)</h1>
-<p>Reutilizaremos parte del código de calibración del LDR para comenzar</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode c++ code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">int</span> LDR_PIN <span class="op">=</span> A0<span class="op">;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">int</span> LED_PIN <span class="op">=</span> <span class="dv">9</span><span class="op">;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> setup<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>begin<span class="op">(</span><span class="dv">9600</span><span class="op">);</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  pinMode<span class="op">(</span>LED_PIN<span class="op">,</span> OUTPUT<span class="op">);</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>println<span class="op">(</span><span class="st">"CALIBRACION_INICIADA"</span><span class="op">);</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> loop<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Calibración: variar intensidad LED y medir respuesta LDR</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Se puede achicar el paso del for pwm y tener mas puntos</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> pwm <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> pwm <span class="op">&lt;=</span> <span class="dv">255</span><span class="op">;</span> pwm <span class="op">+=</span> <span class="dv">10</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    analogWrite<span class="op">(</span>LED_PIN<span class="op">,</span> pwm<span class="op">);</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    delay<span class="op">(</span><span class="dv">800</span><span class="op">);</span>  <span class="co">// Tiempo para estabilización</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> valor_analogico <span class="op">=</span> analogRead<span class="op">(</span>LDR_PIN<span class="op">);</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="dt">float</span> voltaje <span class="op">=</span> valor_analogico <span class="op">*</span> <span class="op">(</span><span class="fl">5.0</span> <span class="op">/</span> <span class="fl">1023.0</span><span class="op">);</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Enviar datos: PWM, valor analógico, voltaje</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    Serial<span class="op">.</span>print<span class="op">(</span><span class="st">"CAL,"</span><span class="op">);</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    Serial<span class="op">.</span>print<span class="op">(</span>pwm<span class="op">);</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    Serial<span class="op">.</span>print<span class="op">(</span><span class="st">","</span><span class="op">);</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    Serial<span class="op">.</span>print<span class="op">(</span>valor_analogico<span class="op">);</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    Serial<span class="op">.</span>print<span class="op">(</span><span class="st">","</span><span class="op">);</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    Serial<span class="op">.</span>println<span class="op">(</span>voltaje<span class="op">,</span> <span class="dv">4</span><span class="op">);</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>println<span class="op">(</span><span class="st">"CALIBRACION_TERMINADA"</span><span class="op">);</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span>  <span class="co">// Detener después de la calibración</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Con este código deberán en Tinkercad</p>
+<section id="consginas" class="level1">
+<h1>Consginas</h1>
+<p>Crear un circuito en Tinkercad en donde se deberá</p>
 <ol type="1">
-<li>Conectar los componentes necesarios, correr la simulación e Interactuar con el deslizador del para obtener diferentes valores de lectura en la “calibración”</li>
-<li>Reformular el código y las conexiones para que el LED se encienda cuando el LDR mida un valor por debajo de un umbral y se apague cuando lo supere.</li>
+<li>Conectar el sensor HCSR-04 usando una placa de prueba</li>
+<li>En el código deberá imprimirse en el puerto serie la distancia medida en centímetros.</li>
+<li>Conectar un LED en el circuito</li>
+<li>Hacer que el LED se encienda y apague al ser la distancia medida menor a un umbral</li>
+<li>Hacer que el LED se encienda y apague con una frecuencia mayor cuanto más cerca del sensor se encuentre el obstáculo</li>
+<li>Imprmir en el puerto serie “CUIDADO” si se el obstáculo está a una distancia menor al umbra y “SIN PROBLEMAS” cuando esté a una distancia mayor</li>
 </ol>
+<section id="modalidad-de-entrega" class="level2">
+<h2 class="anchored" data-anchor-id="modalidad-de-entrega">Modalidad de entrega</h2>
+<p>En el apartado de prácticas del campus virtual existirá una tarea denominada “Segund parcial”. Deberán compartir allí el vínculo a su diagrama de tinkercad</p>
 </section>
-<section id="referencias" class="level1">
-<h1>Referencias</h1>
+</section>
+<section id="consulta-habilitada-durante-el-examen" class="level1">
+<h1>Consulta habilitada durante el examen</h1>
 <ul>
-<li><a href="https://www.youtube.com/watch?v=4mKAljwVw8E">LDR en Tinkercad 1</a></li>
-<li><a href="https://www.youtube.com/watch?v=gn80eBCaM1o">LDR en Tinkercad 2</a></li>
-<li><a href="https://www.tinkercad.com/projects/Basics-of-Arduino-TINKERCAD">Intro a Tinkercad</a></li>
+<li><a href="https://docs.arduino.cc/language-reference/">Ayuda oficial lenguaje Arduino</a></li>
+<li>Web de esta asginatura</li>
 </ul>
 
 
